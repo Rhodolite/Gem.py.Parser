@@ -3,11 +3,9 @@
 #
 @gem('PythonParser.BookcaseExpression')
 def gem():
-    require_gem('PythonParser.DualFrill')
     require_gem('PythonParser.DualToken')
     require_gem('PythonParser.Elemental')
     require_gem('PythonParser.Priority')
-    require_gem('PythonParser.Tree')
     require_gem('PythonParser.TripleToken')
 
 
@@ -16,7 +14,7 @@ def gem():
 
 
     @share
-    class BookcaseExpression(PythonParserTrunk):
+    class BookcaseExpression(ParserTrunk):
         __slots__ = ((
             'a',                        #   Expression+
         ))

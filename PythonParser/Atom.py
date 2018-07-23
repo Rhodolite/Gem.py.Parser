@@ -69,7 +69,7 @@ def gem():
 
 
     @share
-    class DoubleQuote(CoreParserToken):
+    class DoubleQuote(ParserToken):
         __slots__                      = (())
         class_order                    = CLASS_ORDER__NORMAL_TOKEN
         display_name                   = '"'
@@ -90,7 +90,7 @@ def gem():
         scout_variables = scout_variables__0
 
 
-    class EndOfData(CoreParserToken):
+    class EndOfData(ParserToken):
         __slots__                        = (())
         indentation                      = none
         is_comment_line                  = false
@@ -108,7 +108,7 @@ def gem():
 
 
     @share
-    class Number(CoreParserToken):
+    class Number(ParserToken):
         __slots__                      = (())
         class_order                    = CLASS_ORDER__NORMAL_TOKEN
         display_name                   = 'number'
@@ -130,7 +130,7 @@ def gem():
 
 
     @share
-    class SingleQuote(CoreParserToken):
+    class SingleQuote(ParserToken):
         __slots__                      = (())
         class_order                    = CLASS_ORDER__NORMAL_TOKEN
         display_name                   = "'"

@@ -11,7 +11,7 @@ def gem():
         cache_many = []
 
 
-    class ManyExpression(PythonParserTrunk):
+    class ManyExpression(ParserTrunk):
         __slots__ = ((
             'frill',                    #   BookcaseManyFrill
             'many',                     #   TupleOfExpression+

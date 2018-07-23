@@ -26,10 +26,19 @@ def boot():
 
 @gem('JavaParser.Main')
 def gem():
+    require_gem('Gem.Global')
+
+
+    from Gem import gem_global
+
+
+    gem_global.java_parser = true
+
+
     require_gem('JavaParser.Core')
 
 
-    show  = 0
+    show = 0
 
 
     def command_parse1(

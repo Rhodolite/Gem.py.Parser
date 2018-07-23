@@ -1,11 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.ConjureTreeComment')
+@gem('SqlParser.ConjureTreeComment')
 def gem():
-    require_gem('CoreParser.Comment')
-    require_gem('CoreParser.Core')
-    require_gem('CoreParser.Token')
+    require_gem('SqlParser.Core')
+    require_gem('SqlParser.Comment')
 
 
     tree_comment_cache   = {}

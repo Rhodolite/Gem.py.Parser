@@ -134,7 +134,7 @@ def gem():
         wk(none)
         #</module>
 
-        if operator.is_line_marker:
+        if operator.line_marker:
             return conjure_import_statement(indented_keyword, module, operator)
 
         if not operator.is_comma:
@@ -148,7 +148,7 @@ def gem():
 
             operator = qk()
 
-            if operator.is_line_marker:
+            if operator.line_marker:
                 return conjure_import_statement(
                            indented_keyword,
                            conjure_comma_expression_many(many, many_frill),

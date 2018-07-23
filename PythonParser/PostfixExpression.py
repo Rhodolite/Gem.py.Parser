@@ -3,9 +3,6 @@
 #
 @gem('PythonParser.PostfixExpression')
 def gem():
-    require_gem('PythonParser.DualTwig')
-
-
     class CallExpression(DualTwig):
         __slots__          = (())
         class_order        = CLASS_ORDER__DUAL_TWIG

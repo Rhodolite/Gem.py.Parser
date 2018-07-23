@@ -3,53 +3,58 @@
 #
 @gem('SqlParser.Core')
 def gem():
-    require_gem('CoreParser.ConjureTreeComment')
-    require_gem('CoreParser.Line')
-    require_gem('CoreParser.Token')
+    require_gem('Gem.Cache')
+    require_gem('CoreParser.Atom')
+    require_gem('CoreParser.EmptyLine')
     require_gem('CoreParser.Tokenizer')
     require_gem('Gem.Cache')
     require_gem('Gem.DelayedFileOutput')
     require_gem('Gem.Exception')
+    require_gem('Gem.Global')
     require_gem('Gem.Path')
     require_gem('Gem.StringOutput')
 
 
-    from CoreParser import conjure_comment_newline, conjure_token_newline, conjure_tree_comment
-    from CoreParser import EmptyLine, lookup_identifier
-    from CoreParser import qj, qk, qs, raise_unknown_line, Token, wj, wk, z_initialize
-    from Gem import create_DelayedFileOutput, create_StringOutput, module_path, path_join, read_text_from_path
+    from CoreParser import ParserToken, conjure_empty_line, lookup_name
+    from CoreParser import qj, qk, qs, raise_unknown_line, wj, wk, z_initialize
+    from Gem import create_DelayedFileOutput, create_StringOutput, gem_global, module_path, path_join
+    from Gem import read_text_from_path, produce_conjure_by_name
 
 
     share(
         #
-        #   Classes
+        #   Types (CoreParser)
         #
-        'EmptyLine',    EmptyLine,
-        'Token',        Token,
+        'ParserToken',  ParserToken,
+
+        
+        #
+        #   Functions (CoreParser)
+        #
+        'conjure_empty_line',   conjure_empty_line,
+        'lookup_name',          lookup_name,
+        'qj',                   qj,
+        'qk',                   qk,
+        'qs',                   qs,
+        'raise_unknown_line',   raise_unknown_line,
+        'read_text_from_path',  read_text_from_path,
+        'wj',                   wj,
+        'wk',                   wk,
+        'z_initialize',         z_initialize,
 
 
         #
-        #   Functions
+        #   Functions (Gem)
         #
-        'conjure_comment_newline',      conjure_comment_newline,
-        'conjure_token_newline',        conjure_token_newline,
-        'conjure_tree_comment',         conjure_tree_comment,
         'create_DelayedFileOutput',     create_DelayedFileOutput,
         'create_StringOutput',          create_StringOutput,
-        'lookup_identifier',            lookup_identifier,
         'path_join',                    path_join,
-        'qj',                           qj,
-        'qk',                           qk,
-        'qs',                           qs,
-        'raise_unknown_line',           raise_unknown_line,
-        'read_text_from_path',          read_text_from_path,
-        'wj',                           wj,
-        'wk',                           wk,
-        'z_initialize',                 z_initialize,
+        'produce_conjure_by_name',      produce_conjure_by_name,
 
 
         #
         #   Values (Gem)
         #
+        'gem_global',   gem_global,
         'module_path',  module_path,
     )

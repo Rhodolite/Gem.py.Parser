@@ -3,7 +3,6 @@
 #
 @gem('PythonParser.Method')
 def gem():
-    require_gem('PythonParser.DumpToken')
     require_gem('PythonParser.TupleOfExpression')
 
 
@@ -82,19 +81,6 @@ def gem():
     #   dump_token
     #
     @share
-    def dump_token__12(t, f, newline = true):
-        f.partial('<%s ', t.display_name)
-
-        t    .k1.dump_token(f)
-        r = t.k2.dump_token(f, false)
-
-        return f.token_result(r, newline)
-
-
-    #
-    #   dump_token
-    #
-    @share
     def dump_token__123(t, f, newline = true):
         f.partial('<%s ', t.display_name)
 
@@ -103,14 +89,6 @@ def gem():
         r = t.k3.dump_token(f, false)
 
         return f.token_result(r, newline)
-
-
-    #
-    #   find_require_gem
-    #
-    @share
-    def find_require_gem__0(t, e):
-        pass
 
 
     @share
@@ -299,38 +277,9 @@ def gem():
         return mutate
 
 
-    @share
-    def produce_mutate__uncommented(name, uncommented):
-        @rename('mutate_%s', name)
-        def mutate(t, vary, priority):
-            if vary.remove_comments:
-                return uncommented
-
-            return t
-
-
-        return mutate
-
-
     #
     #   order
     #
-    @share
-    def order__ab(a, b):
-        a_order = a.class_order
-        b_order = b.class_order
-
-        if a_order is b_order:
-            return (a.a.order(b.a)) or (a.b.order(b.b))
-
-        if a_order < b_order:
-            return -1
-
-        assert a_order > b_order
-
-        return 1
-
-
     @share
     def order__abc(a, b):
         a_order = a.class_order
@@ -427,14 +376,6 @@ def gem():
         return 1
 
 
-    @share
-    def order__string(a, b):
-        if a < b:   return -1
-        if a > b:   return 1
-
-        return 0
-
-
     #
     #   parameters_1_named
     #
@@ -467,11 +408,6 @@ def gem():
     #
     #   scout_variables
     #
-    @share
-    def scout_variables__0(t, art):
-        pass
-
-
     @share
     def scout_variables__a(t, art):
         t.a.scout_variables(art)
@@ -530,33 +466,6 @@ def gem():
     #
     #   transform
     #
-    @share
-    def transform__remove_comments_0(t, vary):
-        if vary.remove_comments:
-            return 0
-
-        return t
-
-
-    @share
-    def produce_transform__ab(name, conjure):
-        @rename('transform_%s', name)
-        def transform(t, vary):
-            a = t.a
-            b = t.b
-
-            a__2 = a.transform(vary)
-            b__2 = b.transform(vary)
-
-            if (a is a__2) and (b is b__2):
-                return t
-
-            return conjure(a__2, b__2)
-
-
-        return transform
-
-
     @share
     def produce_transform__a__b_with_indentation(name, conjure):
         @rename('transform_%s', name)
@@ -759,19 +668,6 @@ def gem():
                 append(v.transform(vary))
 
             return conjure(many__2)
-
-
-        return transform
-
-
-    @share
-    def produce_transform__uncommented(name, uncommented):
-        @rename('transform_%s', name)
-        def transform(t, vary):
-            if vary.remove_comments:
-                return uncommented
-
-            return t
 
 
         return transform

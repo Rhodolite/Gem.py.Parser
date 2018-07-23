@@ -144,7 +144,7 @@ def gem():
 
 
     @share
-    class BookcaseManyExpression(PythonParserTrunk):
+    class BookcaseManyExpression(ParserTrunk):
         __slots__ = ((
             'frill',                    #   BookcaseManyFrill
             'many',                     #   TupleOfExpression+

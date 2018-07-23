@@ -3,11 +3,8 @@
 #
 @gem('PythonParser.UnaryExpression')
 def gem():
-    require_gem('PythonParser.Tree')
-
-
     @share
-    class UnaryExpression(PythonParserTrunk):
+    class UnaryExpression(ParserTrunk):
         __slots__ = ((
             'a',                        #   Expression
         ))

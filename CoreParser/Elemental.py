@@ -9,67 +9,67 @@ def gem():
 
 
     @export
-    class KeywordAndOperatorBase(CoreParserToken):
-        is_all_index                               = false
-        is_arguments_0                             = false
-        is__arguments_0__or__left_parenthesis      = false
-        is_arithmetic_operator                     = false
-        is_atom                                    = false
-        is__atom__or__special_operator             = false
-        is_colon                                   = false
-        is_colon__line_marker                      = false
-        is_colon__right_square_bracket             = false
-        is_comma                                   = false
-        is__comma__or__right_parenthesis           = false
-        is_comma__right_parenthesis                = false
-        is_comma__right_square_bracket             = false
-        is_compare_operator                        = false
-        is_dot                                     = false
-        is_end_of_arithmetic_expression            = false
-        is_end_of_boolean_and_expression           = false
-        is_end_of_boolean_or_expression            = false
-        is_end_of_compare_expression               = false
-        is_end_of_comprehension_expression         = false
-        is_end_of_comprehension_expression_list    = false
-        is_end_of_logical_and_expression           = false
-        is_end_of_logical_or_expression            = false
-        is_end_of_multiply_expression              = false
-        is_end_of_normal_expression                = false
-        is_end_of_normal_expression_list           = false
-        is_end_of_ternary_expression               = false
-        is_end_of_ternary_expression_list          = false
-        is_end_of_unary_expression                 = false
-        is_equal_sign                              = false
-        is_keyword_and                             = false
-        is_keyword_as                              = false
-        is_keyword_else                            = false
-        is_keyword_for                             = false
-        is_keyword_if                              = false
-        is_keyword_in                              = false
-        is_keyword_not                             = false
-        is_keyword_or                              = false
-        is_keyword_return                          = false
-        is_left_brace                              = false
-        is_left_parenthesis                        = false
-        is_left_square_bracket                     = false
-        is_line_marker                             = false
-        is_logical_and_operator                    = false
-        is_logical_or_operator                     = false
-        is_minus_sign                              = false
-        is_modify_operator                         = false
-        is_multiply_operator                       = false
-        is__optional_comma__right_parenthesis      = false
-        is__optional_comma__right_square_bracket   = false
-        is_parameters_0                            = false
-        is_postfix_operator                        = false
-        is_power_operator                          = false
-        is_right_brace                             = false
-        is_right_parenthesis                       = false
-        is_right_square_bracket                    = false
-        is_special_operator                        = false
-        is_star_sign                               = false
-        is_tail_index                              = false
-        is_tilde_sign                              = false
+    class KeywordAndOperatorBase(ParserToken):
+        if gem_global.python_parser:
+            is_all_index                               = false
+            is_arguments_0                             = false
+            is__arguments_0__or__left_parenthesis      = false
+            is_arithmetic_operator                     = false
+            is_atom                                    = false
+            is__atom__or__special_operator             = false
+            is_colon                                   = false
+            is_colon__line_marker                      = false
+            is_colon__right_square_bracket             = false
+            is_comma                                   = false
+            is__comma__or__right_parenthesis           = false
+            is_comma__right_parenthesis                = false
+            is_comma__right_square_bracket             = false
+            is_compare_operator                        = false
+            is_dot                                     = false
+            is_end_of_arithmetic_expression            = false
+            is_end_of_boolean_and_expression           = false
+            is_end_of_boolean_or_expression            = false
+            is_end_of_compare_expression               = false
+            is_end_of_comprehension_expression         = false
+            is_end_of_comprehension_expression_list    = false
+            is_end_of_logical_and_expression           = false
+            is_end_of_logical_or_expression            = false
+            is_end_of_multiply_expression              = false
+            is_end_of_normal_expression                = false
+            is_end_of_normal_expression_list           = false
+            is_end_of_ternary_expression               = false
+            is_end_of_ternary_expression_list          = false
+            is_end_of_unary_expression                 = false
+            is_equal_sign                              = false
+            is_keyword_and                             = false
+            is_keyword_as                              = false
+            is_keyword_else                            = false
+            is_keyword_for                             = false
+            is_keyword_if                              = false
+            is_keyword_in                              = false
+            is_keyword_not                             = false
+            is_keyword_or                              = false
+            is_keyword_return                          = false
+            is_left_brace                              = false
+            is_left_parenthesis                        = false
+            is_left_square_bracket                     = false
+            is_logical_and_operator                    = false
+            is_logical_or_operator                     = false
+            is_minus_sign                              = false
+            is_modify_operator                         = false
+            is_multiply_operator                       = false
+            is__optional_comma__right_parenthesis      = false
+            is__optional_comma__right_square_bracket   = false
+            is_parameters_0                            = false
+            is_postfix_operator                        = false
+            is_power_operator                          = false
+            is_right_brace                             = false
+            is_right_parenthesis                       = false
+            is_right_square_bracket                    = false
+            is_special_operator                        = false
+            is_star_sign                               = false
+            is_tail_index                              = false
+            is_tilde_sign                              = false
 
 
         def __repr__(t):
@@ -83,20 +83,48 @@ def gem():
         display_token = display_short_token
 
 
-    @export
-    class KeywordImport(KeywordAndOperatorBase):
-        __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
-        display_name = 'import'
-        keyword      = 'import'
+    if (gem_global.java_parser) or (gem_global.python_parser):
+        @export
+        class KeywordImport(KeywordAndOperatorBase):
+            __slots__    = (())
+            class_order  = CLASS_ORDER__NORMAL_TOKEN
+            display_name = 'import'
+            keyword      = 'import'
 
 
-    [
-            conjure_keyword_import, conjure_keyword_import__ends_in_newline,
-    ] = produce_conjure_action_word('keyword_import', KeywordImport, produce_ends_in_newline = true)
+        if gem_global.java_parser:
+            [
+                    conjure_keyword_import, conjure_keyword_import__ends_in_newline,
+            ] = produce_conjure_action_word('keyword_import', KeywordImport, produce_ends_in_newline = true)
+        else:
+            conjure_keyword_import = produce_conjure_action_word('keyword_import', KeywordImport)
+            
+
+        export(
+            'conjure_keyword_import',   conjure_keyword_import,
+        )
 
 
-    export(
-        'conjure_keyword_import',                   conjure_keyword_import,
-        'conjure_keyword_import__ends_in_newline',  conjure_keyword_import__ends_in_newline,
-    )
+        if gem_global.java_parser:
+            export(
+                'conjure_keyword_import__ends_in_newline',  conjure_keyword_import__ends_in_newline,
+            )
+
+
+    if gem_global.tremolite_parser:
+        #
+        #   Tremolite Parser
+        #
+        @export
+        class KeywordLanguage(KeywordAndOperatorBase):
+            __slots__    = (())
+            class_order  = CLASS_ORDER__NORMAL_TOKEN
+            display_name = 'language'
+            keyword      = 'language'
+
+
+        conjure_keyword_language = produce_conjure_action_word('keyword_language', KeywordLanguage)
+
+        export(
+            'conjure_keyword_language',     conjure_keyword_language,
+        )

@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Indentation')
+@gem('CoreParser.CrystalIndentation')
 def gem():
-    require_gem('PythonParser.Atom')
-    require_gem('PythonParser.TokenCache')
+    require_gem('CoreParser.Atom')
+    require_gem('CoreParser.Core')
 
 
     next_indentation_cache   = {}
@@ -12,7 +12,7 @@ def gem():
     provide_next_indentation = next_indentation_cache.setdefault
 
 
-    class Indentation(CoreParserToken):
+    class Indentation(ParserToken):
         __slots__ = ((
             'total',                    #   Integer {> 0}
         ))
@@ -48,23 +48,27 @@ def gem():
             return arrange('{+%d %s}', t.total, portray_string(t.s))
 
 
-        def mutate(t, vary, priority):
-            if vary.remove_indentation:
-                return vary.indentation
+        if gem_global.python_parser:
+            def mutate(t, vary, priority):
+                if vary.remove_indentation:
+                    return vary.indentation
 
-            return t
-
-
-        order = order__s
+                return t
 
 
-        def transform(t, vary):
-            if vary.remove_indentation:
-                return vary.indentation
-
-            return t
+        if gem_global.python_parser:
+            order = order__s
 
 
+        if gem_global.python_parser:
+            def transform(t, vary):
+                if vary.remove_indentation:
+                    return vary.indentation
+
+                return t
+
+
+    @export
     def conjure_indentation(s):
         r = lookup_indentation(s)
 
@@ -79,15 +83,15 @@ def gem():
     empty_indentation = conjure_indentation('')
 
 
-    def next_indentation(indentation):
-        return (
-                      lookup_next_indentation(indentation)
-                   or provide_next_indentation(indentation, conjure_indentation(indentation.s + ' '))
-               )
+    if gem_global.python_parser:
+        @export
+        def next_indentation(indentation):
+            return (
+                          lookup_next_indentation(indentation)
+                       or provide_next_indentation(indentation, conjure_indentation(indentation.s + ' '))
+                   )
 
 
-    share(
-        'conjure_indentation',  conjure_indentation,
+    export(
         'empty_indentation',    empty_indentation,
-        'next_indentation',     next_indentation,
     )

@@ -17,9 +17,9 @@ def gem():
     #
     class BookcaseManyFrill(Object):
         __slots__ = ((
-            'begin',                    #   CoreParserToken+
+            'begin',                    #   ParserToken+
             'many',                     #   ManyFrill
-            'end',                      #   CoreParserToken+
+            'end',                      #   ParserToken+
         ))
 
 

@@ -26,6 +26,15 @@ def boot():
 
 @gem('SqlParser.Main')
 def gem():
+    require_gem('Gem.Global')
+
+
+    from Gem import gem_global
+
+
+    gem_global.sql_parser = true
+
+
     require_gem('SqlParser.Core')
     require_gem('SqlParser.Pattern')
 

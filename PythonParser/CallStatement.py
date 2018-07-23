@@ -6,10 +6,9 @@ def gem():
     require_gem('PythonParser.BookcaseExpression')
     require_gem('PythonParser.MemberExpression')
     require_gem('PythonParser.Method')
-    require_gem('PythonParser.Tree')
 
 
-    class CallStatementBase(PythonParserTrunk):
+    class CallStatementBase(ParserTrunk):
         __slots__ = ((
             'frill',                    #   VW_Frill | Commented_VW_Frill
             'left',                     #   Expression
@@ -26,7 +25,7 @@ def gem():
 
 
         def __init__(t, frill, left, arguments):
-            assert type(left) is not VW_Frill
+            assert not left.is_vw_frill
 
             t.frill     = frill
             t.left      = left
@@ -154,9 +153,9 @@ def gem():
     static_conjure_call_statement        = static_method(conjure_call_statement)
     static_conjure_method_call_statement = static_method(conjure_method_call_statement)
 
-    CoreParserToken  .call_statement = static_conjure_call_statement
-    MemberExpression .call_statement = static_conjure_method_call_statement
-    PythonParserTrunk.call_statement = static_conjure_call_statement
+    MemberExpression.call_statement = static_conjure_method_call_statement
+    ParserToken     .call_statement = static_conjure_call_statement
+    ParserTrunk     .call_statement = static_conjure_call_statement
 
     CallStatement      .conjure_call = static_conjure_call_statement
     MethodCallStatement.conjure_call = static_conjure_method_call_statement
