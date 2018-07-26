@@ -32,7 +32,7 @@ def gem():
 
 
     @share
-    class QuadrupleTwig(PythonParserTrunk):
+    class QuadrupleTwig(ParserTrunk):
         __slots__ = ((
             'a',                        #   Any
             'b',                        #   Any

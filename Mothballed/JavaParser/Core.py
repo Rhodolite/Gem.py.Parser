@@ -7,7 +7,6 @@ def gem():
     require_gem('CoreParser.Tokenizer')
     require_gem('Gem.Cache')
     require_gem('Gem.Cache2')
-    require_gem('Gem.DelayedFileOutput')
     require_gem('Gem.DumpCache')
     require_gem('Gem.Exception')
     require_gem('Gem.GeneratedConjureQuadruple')
@@ -22,7 +21,7 @@ def gem():
     from CoreParser import conjure_keyword_import, conjure_keyword_import__ends_in_newline, conjure_name
     from CoreParser import la, parse_context, qd, qi, qj, qk, ql, qn, qs, raise_unknown_line
     from CoreParser import wd, wd0, wd1, wi, wj, wk, wn, ws, z_initialize
-    from Gem import create_cache, create_DelayedFileOutput, create_SimpleStringOutput, create_StringOutput
+    from Gem import create_cache, create_SimpleStringOutput
     from Gem import empty_herd, module_path, path_join, print_cache, print_exception_chain
     from Gem import produce_conjure_dual, produce_conjure_dual__21
     from Gem import produce_conjure_quadruple__4123
@@ -70,9 +69,7 @@ def gem():
         #   Imported functions (Gem)
         #
         'create_cache',                         create_cache,
-#       'create_DelayedFileOutput',             create_DelayedFileOutput,
 #       'create_SimpleStringOutput',            create_SimpleStringOutput,
-        'create_StringOutput',                  create_StringOutput,
         'path_join',                            path_join,
         'print_cache',                          print_cache,
         'print_exception_chain',                print_exception_chain,

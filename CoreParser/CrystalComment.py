@@ -1,9 +1,11 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Comment')
+@gem('CoreParser.CrystalComment')
 def gem():
-    require_gem('PythonParser.Indentation')
+    require_gem('CoreParser.Core')
+    require_gem('CoreParser.ClassOrder')
+    require_gem('CoreParser.CrystalIndentation')
 
 
     comment_line_cache   = {}
@@ -24,23 +26,28 @@ def gem():
 
     class CommentLine(String):
         __slots__                        = (())
-        class_order                      = CLASS_ORDER__COMMENT_LINE__STRING
+
+
         ends_in_newline                  = true
         impression                       = empty_indentation
         indentation                      = none
-        is_any_else                      = false
-        is_any_except_or_finally         = false
-        is_comment_line                  = true
-        is_comment__or__empty_line       = true
-        is_comment_suite                 = false
-        is_else_header_or_fragment       = false
         is_empty_line                    = false
         is_end_of_data                   = false
         is_end_of_data__or__unknown_line = false
-        is_statement                     = false
-        is_statement_header              = false
         line_marker                      = false
         newlines                         = 1
+
+        
+        if gem_global.python_parser:
+            class_order = CLASS_ORDER__COMMENT_LINE__STRING
+            is_any_else                      = false
+            is_any_except_or_finally         = false
+            is_comment_line                  = true
+            is_comment__or__empty_line       = true
+            is_comment_suite                 = false
+            is_else_header_or_fragment       = false
+            is_statement                     = false
+            is_statement_header              = false
 
 
         def __repr__(t):
@@ -61,38 +68,43 @@ def gem():
 
 
         dump_token       = dump_token__comment
-        find_require_gem = find_require_gem__0
-        order            = order__string
-        scout_variables  = scout_variables__0
-        transform        = transform__remove_comments_0
+
+        if gem_global.python_parser:
+            find_require_gem = find_require_gem__0
+            order            = order__string
+            scout_variables  = scout_variables__0
+            transform        = transform__remove_comments_0
 
 
         def write(t, w):
             w('#' + t + '\n')
 
 
-    class CommentLine_WithTrailer(CoreParserToken):
+    class CommentLine_WithTrailer(ParserToken):
         __slots__ = ((
             'comment',                  #   CommentLine
             'newline',                  #   EmptyLine
         ))
 
 
-        class_order                      = CLASS_ORDER__COMMENT_LINE
         ends_in_newline                  = true
         impression                       = empty_indentation
         indentation                      = none
-        is_any_else                      = false
-        is_any_except_or_finally         = false
-        is_comment_line                  = true
-        is_comment__or__empty_line       = true
-        is_else_header_or_fragment       = false
         is_empty_line                    = false
         is_end_of_data                   = false
         is_end_of_data__or__unknown_line = false
-        is_statement                     = false
-        is_statement_header              = false
         newlines                         = 1
+
+
+        if gem_global.python_parser:
+            class_order = CLASS_ORDER__COMMENT_LINE
+            is_any_else                = false
+            is_any_except_or_finally   = false
+            is_comment_line            = true
+            is_comment__or__empty_line = true
+            is_else_header_or_fragment = false
+            is_statement               = false
+            is_statement_header        = false
 
 
         def __init__(t, s, comment, newline):
@@ -116,34 +128,40 @@ def gem():
             return arrange('<# %s %s>', portray_string(t.comment), portray_string(t.newline))
 
 
-        dump_token       = dump_token__comment
-        find_require_gem = find_require_gem__0
-        order            = order__s
-        scout_variables  = scout_variables__0
-        transform        = transform__remove_comments_0
+        dump_token = dump_token__comment
 
 
-    class IndentedCommentLine(CoreParserToken):
+        if gem_global.python_parser:
+            find_require_gem = find_require_gem__0
+            order            = order__s
+            scout_variables  = scout_variables__0
+            transform        = transform__remove_comments_0
+
+
+    class IndentedCommentLine(ParserToken):
         __slots__ = ((
             'impression',               #   Indentation
             'comment',                  #   CommentLine
         ))
 
 
-        class_order                      = CLASS_ORDER__COMMENT_LINE
         ends_in_newline                  = true
         indentation                      = none
-        is_any_else                      = false
-        is_any_except_or_finally         = false
-        is_comment_line                  = true
-        is_comment__or__empty_line       = true
-        is_else_header_or_fragment       = false
         is_empty_line                    = false
         is_end_of_data                   = false
         is_end_of_data__or__unknown_line = false
-        is_statement                     = false
-        is_statement_header              = false
         newlines                         = 1
+
+
+        if gem_global.python_parser:
+            class_order                = CLASS_ORDER__COMMENT_LINE
+            is_any_else                = false
+            is_any_except_or_finally   = false
+            is_comment_line            = true
+            is_comment__or__empty_line = true
+            is_else_header_or_fragment = false
+            is_statement               = false
+            is_statement_header        = false
 
 
         def __init__(t, s, impression, comment):
@@ -170,14 +188,17 @@ def gem():
             return arrange('<# ++%d %s>', t.impression.total, portray_string(t.comment))
 
 
-        dump_token       = dump_token__comment
-        find_require_gem = find_require_gem__0
-        order            = order__s
-        scout_variables  = scout_variables__0
-        transform        = transform__remove_comments_0
+        dump_token = dump_token__comment
 
 
-    class IndentedCommentLine_WithTrailer(CoreParserToken):
+        if gem_global.python_parser:
+            find_require_gem = find_require_gem__0
+            order            = order__s
+            scout_variables  = scout_variables__0
+            transform        = transform__remove_comments_0
+
+
+    class IndentedCommentLine_WithTrailer(ParserToken):
         __slots__ = ((
             'impression',               #   Indentation
             'comment',                  #   CommentLine
@@ -185,18 +206,21 @@ def gem():
         ))
 
 
-        class_order                = CLASS_ORDER__COMMENT_LINE
-        ends_in_newline            = true
-        indentation                = none
-        is_any_else                = false
-        is_any_except_or_finally   = false
-        is_comment_line            = true
-        is_comment__or__empty_line = true
-        is_else_header_or_fragment = false
-        is_empty_line              = false
-        is_statement               = false
-        is_statement_header        = false
-        newlines                   = 1
+        ends_in_newline = true
+        indentation     = none
+        is_empty_line   = false
+        newlines        = 1
+
+
+        if gem_global.python_parser:
+            class_order                = CLASS_ORDER__COMMENT_LINE
+            is_any_else                = false
+            is_any_except_or_finally   = false
+            is_comment_line            = true
+            is_comment__or__empty_line = true
+            is_else_header_or_fragment = false
+            is_statement               = false
+            is_statement_header        = false
 
 
         def __init__(t, s, impression, comment, newline):
@@ -223,10 +247,13 @@ def gem():
             return arrange('<# ++%d %s %s>', t.impression.total, portray_string(t.comment), portray_string(t.newline))
 
 
-        dump_token      = dump_token__comment
-        order           = order__s
-        scout_variables = scout_variables__0
-        transform       = transform__remove_comments_0
+        dump_token = dump_token__comment
+
+
+        if gem_global.python_parser:
+            order           = order__s
+            scout_variables = scout_variables__0
+            transform       = transform__remove_comments_0
 
 
     def conjure_comment_line(comment):
@@ -240,6 +267,7 @@ def gem():
         return provide_comment_line(r, r)
 
 
+    @export
     def conjure_any_comment_line(impression_end, comment_end):
         r = lookup_comment_line(qs())
 
@@ -274,7 +302,6 @@ def gem():
     append_cache('comment-line', comment_line_cache)
 
 
-    share(
-        'conjure_any_comment_line',     conjure_any_comment_line,
+    export(
         'empty_comment_line',           empty_comment_line,
     )

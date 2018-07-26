@@ -3,10 +3,6 @@
 #
 @gem('PythonParser.Elemental')
 def gem():
-    require_gem('PythonParser.LineMarker')
-    require_gem('PythonParser.Tree')
-
-
     def construct_action_word__line_marker_1(t, s):
         assert (t.ends_in_newline is t.line_marker is true) and (t.newlines is 1)
         assert (s.count('\n') is 1) and (s[-1] == '\n')
@@ -915,7 +911,6 @@ def gem():
     conjure_equal_sign       = produce_conjure_action_word('equal_sign',       OperatorEqualSign)
     conjure_keyword_as       = produce_conjure_action_word('keyword_as',       KeywordAs)
     conjure_keyword_break    = produce_conjure_action_word('keyword_break',    KeywordBreak)
-    conjure_keyword_import   = produce_conjure_action_word('keyword_import',   KeywordImport)
     conjure_keyword_class    = produce_conjure_action_word('keyword_class',    KeywordClass)
     conjure_keyword_continue = produce_conjure_action_word('keyword_continue', KeywordContinue)
     conjure_keyword_finally  = produce_conjure_action_word('keyword_finally',  KeywordFinally)

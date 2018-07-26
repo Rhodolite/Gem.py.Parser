@@ -7,7 +7,6 @@ def gem():
 
     require_gem('PythonParser.Atom')
     require_gem('PythonParser.BinaryExpression')
-    require_gem('PythonParser.Comment')
     require_gem('PythonParser.Parse1Atom')
     require_gem('PythonParser.Parse1Call')
     require_gem('PythonParser.Parse1Complex')

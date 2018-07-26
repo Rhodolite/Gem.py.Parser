@@ -1,24 +1,20 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.Comment')
+@gem('SqlParser.Comment')
 def gem():
-    require_gem('CoreParser.Core')
-    require_gem('CoreParser.Token')
-
-
-    class CommentOperator(Token):
+    class CommentOperator(ParserToken):
         display_name        = 'comment-operator'
         is_comment_operator = true
 
 
-    class TokenComment(Token):
+    class TokenComment(ParserToken):
         __slots__        = (())
         display_name     = 'comment'
         is_token_comment = true
 
 
-    class TokenCommentNewline(Token):
+    class TokenCommentNewline(ParserToken):
         __slots__        = (())
         display_name     = 'comment-newline'
         is_token_comment = true
@@ -29,7 +25,7 @@ def gem():
             return portray_raw_string(t.s)
 
 
-    class TokenNewline(Token):
+    class TokenNewline(ParserToken):
         display_name     = 'newline'
         is_token_newline = true
 
@@ -88,7 +84,7 @@ def gem():
     )
 
 
-    export(
+    share(
         'conjure_comment_newline',     conjure_comment_newline,
         'conjure_token_newline',       conjure_token_newline,
     )

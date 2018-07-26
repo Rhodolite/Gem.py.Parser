@@ -7,7 +7,6 @@ def gem():
 
 
     require_gem('PythonParser.DualStatement')
-    require_gem('PythonParser.DumpToken')
     require_gem('PythonParser.MosiacDefinition')
     require_gem('PythonParser.QuadrupleStatement')
     require_gem('PythonParser.Suite')

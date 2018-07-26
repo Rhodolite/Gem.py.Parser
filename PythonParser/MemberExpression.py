@@ -10,7 +10,7 @@ def gem():
 
 
     @share
-    class MemberExpression(PythonParserTrunk):
+    class MemberExpression(ParserTrunk):
         __slots__ = ((
             'left',                     #   Expression
             'postfix',                  #   DotName
@@ -86,9 +86,9 @@ def gem():
     static_conjure_call_expression = static_method(conjure_call_expression)
 
 
-    CoreParserToken  .call_expression = static_conjure_call_expression
-    MemberExpression .call_expression = static_method(conjure_method_call_expression)
-    PythonParserTrunk.call_expression = static_conjure_call_expression
+    MemberExpression.call_expression = static_method(conjure_method_call_expression)
+    ParserToken     .call_expression = static_conjure_call_expression
+    ParserTrunk     .call_expression = static_conjure_call_expression
 
 
     conjure_member_expression = produce_conjure_dual('member-expession', MemberExpression, member_expression_cache)

@@ -25,10 +25,20 @@ def boot():
 
 @gem('PythonParser.Main')
 def gem():
+    require_gem('Gem.Global')
+
+
+    from Gem import gem_global
+
+
+    gem_global.crystal_parser = true
+    gem_global.python_parser  = true
+
+
     require_gem('PythonParser.Core')
 
 
-    choice = 3
+    choice = 1
     show   = 0
 
 
@@ -87,12 +97,6 @@ def gem():
         #    print_cache(name)
 
         #print_cache()
-
-
-    def test_parse2():
-        require_gem('PythonParser.Parse2')                              #   Must be after `create_python_parser_match`
-
-        parse2_python_from_path('test2.py')
 
 
     @share

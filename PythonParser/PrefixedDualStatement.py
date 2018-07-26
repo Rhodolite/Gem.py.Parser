@@ -4,7 +4,6 @@
 @gem('PythonParser.PrefixedDualStatement')
 def gem():
     require_gem('PythonParser.DualStatement')
-    require_gem('PythonParser.DumpToken')
 
 
     prefixed_dual_twig_cache  = create_cache('prefixed-dual-twig', conjure_nub)

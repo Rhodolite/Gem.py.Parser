@@ -1,9 +1,11 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.DualTwig')
+@gem('CoreParser.DualTwig')
 def gem():
-    require_gem('PythonParser.Tree')
+    require_gem('CoreParser.Core')
+    require_gem('CoreParser.Method')
+    require_gem('CoreParser.ParserTrunk')
 
 
     dual_twig_cache  = {}
@@ -11,29 +13,8 @@ def gem():
     store_dual_twig  = dual_twig_cache.__setitem__
 
 
-    @share
-    def construct__ab(t, a, b):
-        t.a = a
-        t.b = b
-
-
-    @share
-    def portray__ab(t):
-        return arrange('<%s %r %r>', t.__class__.__name__, t.a, t.b)
-
-
-    @share
-    def count_newlines__ab(t):
-        return t.a.count_newlines() + t.b.count_newlines()
-
-
-    @share
-    def display_token__ab(t):
-        return arrange('<%s %s %s>', t.display_name, t.a.display_token(), t.b.display_token())
-
-
-    @share
-    class DualTwig(PythonParserTrunk):
+    @export
+    class DualTwig(ParserTrunk):
         __slots__ = ((
             'a',                        #   Any
             'b',                        #   Any
@@ -55,7 +36,8 @@ def gem():
             return f.token_result(r, newline)
 
 
-        order = order__ab
+        if gem_global.python_parser:
+            order = order__ab
 
 
         def write(t, w):
@@ -67,7 +49,7 @@ def gem():
     DualTwig.k2 = DualTwig.b
 
 
-    @share
+    @export
     def produce_conjure_dual_twig(name, Meta):
         return produce_conjure_dual__21(name, Meta, dual_twig_cache, lookup_dual_twig, store_dual_twig)
 

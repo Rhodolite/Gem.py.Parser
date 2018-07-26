@@ -3,9 +3,6 @@
 #
 @gem('PythonParser.Transform')
 def gem():
-    require_gem('PythonParser.Indentation')
-
-
     class PythonParserTransform(Object):
         __slots__ = ((
             'remove_comments',          #   Boolean

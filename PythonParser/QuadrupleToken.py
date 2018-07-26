@@ -125,19 +125,20 @@ def gem():
             return arrange('<%s %r %r %r %r>', t.__class__.__name__, t.a, t.b, t.c, t.d)
 
 
-        def display_full_token(t):
-            display_name = t.display_name
-            a_s          = t.a.s
-            b_s          = t.b.s
-            c_s          = t.c.s
-            d_s          = t.d.s
+        if 0:                                                           #   Not currently used
+            def display_full_token(t):
+                display_name = t.display_name
+                a_s          = t.a.s
+                b_s          = t.b.s
+                c_s          = t.c.s
+                d_s          = t.d.s
 
-            return arrange('<%s <%s> <%s> <%s> <%s>>',
-                           display_name,
-                           (portray_string(a_s)   if '\n' in a_s else   a_s),
-                           (portray_string(b_s)   if '\n' in b_s else   b_s),
-                           (portray_string(c_s)   if '\n' in b_s else   c_s),
-                           (portray_string(d_s)   if '\n' in d_s else   d_s))
+                return arrange('<%s <%s> <%s> <%s> <%s>>',
+                               display_name,
+                               (portray_string(a_s)   if '\n' in a_s else   a_s),
+                               (portray_string(b_s)   if '\n' in b_s else   b_s),
+                               (portray_string(c_s)   if '\n' in b_s else   c_s),
+                               (portray_string(d_s)   if '\n' in d_s else   d_s))
 
 
         def display_token(t):

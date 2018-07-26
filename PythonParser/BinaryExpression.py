@@ -4,10 +4,8 @@
 @gem('PythonParser.BinaryExpression')
 def gem():
     require_gem('PythonParser.DualToken')
-    require_gem('PythonParser.DualTwig')
     require_gem('PythonParser.Elemental')
     require_gem('PythonParser.Priority')
-    require_gem('PythonParser.Tree')
 
 
     binary_frill_cache  = create_cache('binary_frill_cache', conjure_nub)

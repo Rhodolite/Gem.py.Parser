@@ -4,10 +4,9 @@
 @gem('PythonParser.DefinitionHeader')
 def gem():
     require_gem('PythonParser.Method')
-    require_gem('PythonParser.Tree')
 
 
-    class DefinitionHeader(PythonParserTrunk):
+    class DefinitionHeader(ParserTrunk):
         __slots__ = ((
             'frill',                    #   XY_Frill | Commented_VW_Frill
             'name',                     #   String

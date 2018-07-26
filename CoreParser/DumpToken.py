@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.DumpToken')
+@gem('CoreParser.DumpToken')
 def gem():
-    require_gem('PythonParser.Tree')
+    require_gem('CoreParser.Core')
 
 
     class TokenOutput(StringOutput):
@@ -19,12 +19,12 @@ def gem():
             return r
 
 
-    @share
+    @export
     def create_TokenOutput(f = none):
         return TokenOutput((f) or (create_SimpleStringOutput()))
 
 
-    @share
+    @export
     def dump_token(name, token):
         with create_TokenOutput() as f:
             f.line('===  %s  ===', name)

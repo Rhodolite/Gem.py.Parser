@@ -3,8 +3,9 @@
 #
 @gem('SqlParser.Parse1')
 def gem():
+    require_gem('SqlParser.Comment')
+    require_gem('SqlParser.ConjureTreeComment')
     require_gem('SqlParser.Match')
-    require_gem('SqlParser.Core')
 
 
     show = true
@@ -12,13 +13,14 @@ def gem():
 
     @share
     def parse1_mysql_from_path(path):
-        data   = read_text_from_path(path)
+        data = read_text_from_path(path)
+
+        parse_context = z_initialize(path, data)
+
         many   = []
         append = many.append
 
-        iterate_lines = z_initialize(path, data)
-
-        for s in iterate_lines:
+        for s in parse_context.iterate_lines:
             m1 = mysql_line_match(s)
 
             if m1 is none:
@@ -27,7 +29,7 @@ def gem():
             identifier_s = m1.group('identifier')
 
             if identifier_s is not none:
-                identifier = lookup_identifier(identifier_s)
+                identifier = lookup_name(identifier_s)
 
                 if identifier is none:
                     lower = identifier_s.lower()
@@ -49,7 +51,7 @@ def gem():
                 comment_start = m1.end('dash_dash') + 1
 
                 if comment_start is 0:                          #   '0' instead of '-1' due to the '+ 1' above.
-                    append(EmptyLine(s))
+                    append(conjure_empty_line(s))
                     continue
 
                 comment_end = m1.end('dash_dash_comment')

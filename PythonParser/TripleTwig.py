@@ -7,7 +7,7 @@ def gem():
 
 
     @share
-    class TripleTwig(PythonParserTrunk):
+    class TripleTwig(ParserTrunk):
         __slots__ = ((
             'a',                        #   Any
             'b',                        #   Any
