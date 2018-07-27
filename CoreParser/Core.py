@@ -21,7 +21,9 @@ def gem():
     from Gem import cadence_reuse, caller_frame_1, create_cache, create_DelayedFileOutput, create_SimpleStringOutput
     from Gem import create_StringOutput, Exception, gem_global
     from Gem import path_basename, produce_cache_functions, produce_conjure_by_name, produce_conjure_dual
-    from Gem import produce_conjure_dual__21
+    from Gem import produce_conjure_dual__21, produce_conjure_triple, produce_conjure_unique_dual
+    from Gem import produce_conjure_unique_triple
+    from Gem import produce_conjure_unique_triple__312
     from Gem import return_self, slice_all, StringOutput
 
 
@@ -41,17 +43,21 @@ def gem():
         #
         #   Functions
         #
-        'caller_frame_1',               caller_frame_1,
-        'create_cache',                 create_cache,
-        'create_DelayedFileOutput',     create_DelayedFileOutput,
-        'create_SimpleStringOutput',    create_SimpleStringOutput,
-        'create_StringOutput',          create_StringOutput,
-        'path_basename',                path_basename,
-        'produce_cache_functions',      produce_cache_functions,
-        'produce_conjure_by_name',      produce_conjure_by_name,
-        'produce_conjure_dual',         produce_conjure_dual,
-        'produce_conjure_dual__21',     produce_conjure_dual__21,
-        'return_self',                  return_self,
+        'caller_frame_1',                       caller_frame_1,
+        'create_cache',                         create_cache,
+        'create_DelayedFileOutput',             create_DelayedFileOutput,
+        'create_SimpleStringOutput',            create_SimpleStringOutput,
+        'create_StringOutput',                  create_StringOutput,
+        'path_basename',                        path_basename,
+        'produce_cache_functions',              produce_cache_functions,
+        'produce_conjure_by_name',              produce_conjure_by_name,
+        'produce_conjure_dual__21',             produce_conjure_dual__21,
+        'produce_conjure_dual',                 produce_conjure_dual,
+        'produce_conjure_triple',               produce_conjure_triple,
+        'produce_conjure_unique_dual',          produce_conjure_unique_dual,
+        'produce_conjure_unique_triple__312',   produce_conjure_unique_triple__312,
+        'produce_conjure_unique_triple',        produce_conjure_unique_triple,
+        'return_self',                          return_self,
 
 
         #

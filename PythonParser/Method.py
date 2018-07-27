@@ -48,54 +48,16 @@ def gem():
 
 
     #
-    #   construct
+    #   find_require_gem
     #
-    @share
-    def construct__123(t, k1, k2, k3):
-        t.k1 = k1
-        t.k2 = k2
-        t.k3 = k3
-
-
-    #
-    #   count_newlines
-    #
-    @share
-    def count_newlines__123(t):
-        return t.k1.count_newlines() + t.k2.count_newlines() + t.k3.count_newlines()
-
-
-    #
-    #   display_token
-    #
-    @share
-    def display_token__123(t):
-        return arrange('<%s %s %s %s>',
-                       t.display_name,
-                       t.k1.display_token(),
-                       t.k2.display_token(),
-                       t.k3.display_token())
-
-
-    #
-    #   dump_token
-    #
-    @share
-    def dump_token__123(t, f, newline = true):
-        f.partial('<%s ', t.display_name)
-
-        t    .k1.dump_token(f)
-        t    .k2.dump_token(f)
-        r = t.k3.dump_token(f, false)
-
-        return f.token_result(r, newline)
-
-
     @share
     def find_require_gem__b(t, e):
         t.b.find_require_gem(e)
 
 
+    #
+    #   mutate
+    #
     @share
     def produce_mutate__ab(name, conjure):
         @rename('mutate_%s', name)
@@ -281,22 +243,6 @@ def gem():
     #   order
     #
     @share
-    def order__abc(a, b):
-        a_order = a.class_order
-        b_order = b.class_order
-
-        if a_order is b_order:
-            return (a.a.order(b.a)) or (a.b.order(b.b)) or (a.c.order(b.c))
-
-        if a_order < b_order:
-            return -1
-
-        assert a_order > b_order
-
-        return 1
-
-
-    @share
     def order__abcd(a, b):
         a_order = a.class_order
         b_order = b.class_order
@@ -319,22 +265,6 @@ def gem():
 
         if a_order is b_order:
             return (a.frill.order(b.frill)) or (a.a.order(b.a))
-
-        if a_order < b_order:
-            return -1
-
-        assert a_order > b_order
-
-        return 1
-
-
-    @share
-    def order__frill_ab(a, b):
-        a_order = a.class_order
-        b_order = b.class_order
-
-        if a_order is b_order:
-            return (a.frill.order(b.frill)) or (a.a.order(b.a)) or (a.b.order(b.b))
 
         if a_order < b_order:
             return -1
@@ -382,14 +312,6 @@ def gem():
     @share
     def parameters_1_named__false(t, name):
         return false
-
-
-    #
-    #   portray
-    #
-    @share
-    def portray__123(t):
-        return arrange('<%s %s %r %r>', t.__class__.__name__, t.k1, t.k2, t.k3)
 
 
     #
@@ -486,27 +408,6 @@ def gem():
                 return t
 
             return conjure(a__2, b__2)
-
-
-        return transform
-
-
-    @share
-    def produce_transform__abc(name, conjure):
-        @rename('transform_%s', name)
-        def transform(t, vary):
-            a = t.a
-            b = t.b
-            c = t.c
-
-            a__2 = a.transform(vary)
-            b__2 = b.transform(vary)
-            c__2 = c.transform(vary)
-
-            if (a is a__2) and (b is b__2) and (c is c__2):
-                return t
-
-            return conjure(a__2, b__2, c__2)
 
 
         return transform
@@ -616,22 +517,45 @@ def gem():
 
 
     @share
-    def produce_transform__frill__ab_with_priority(name, a_priority, b_priority, conjure_with_frill):
-        @rename('transform_%s', name)
-        def transform(t, vary):
-            frill = t.frill
-            a     = t.a
-            b     = t.b
+    def produce_transform__frill__ab_with_priority(
+            name, a_priority, b_priority, conjure_with_frill,
+            
+            frill_morph_priority = none,
+    ):
+        if frill_morph_priority is none:
+            @rename('transform_%s', name)
+            def transform(t, vary):
+                frill = t.frill
+                a     = t.a
+                b     = t.b
 
-            frill__2 = frill.transform(vary)
-            a__2     = a    .mutate(vary, a_priority)
-            b__2     = b    .mutate(vary, b_priority)
+                frill__2 = frill.transform(vary)
+                a__2     = a    .mutate(vary, a_priority)
+                b__2     = b    .mutate(vary, b_priority)
 
-            if (frill is frill__2) and (a is a__2) and (b is b__2):
-                return t
+                if (frill is frill__2) and (a is a__2) and (b is b__2):
+                    return t
 
-            return conjure_with_frill(frill__2, a__2, b__2)
+                return conjure_with_frill(frill__2, a__2, b__2)
+        else:
+            #
+            #   This version is used by `FromImportStatement` since `.morph` has to be called on `frill_2`
+            #   to indicate that the `AS` keyword is used in a statement context instead of an expression context.
+            #
+            @rename('transform_%s', name)
+            def transform(t, vary):
+                frill = t.frill
+                a     = t.a
+                b     = t.b
 
+                frill__2 = frill.morph (vary, 0, frill_morph_priority, 0)
+                a__2     = a    .mutate(vary, a_priority)
+                b__2     = b    .mutate(vary, b_priority)
+
+                if (frill is frill__2) and (a is a__2) and (b is b__2):
+                    return t
+
+                return conjure_with_frill(frill__2, a__2, b__2)
 
         return transform
 
@@ -715,16 +639,6 @@ def gem():
 
 
         return transform
-
-
-    #
-    #   write
-    #
-    @share
-    def write__123(t, w):
-        t.k1.write(w)
-        t.k2.write(w)
-        t.k3.write(w)
 
 
     #

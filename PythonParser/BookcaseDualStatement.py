@@ -3,9 +3,6 @@
 #
 @gem('PythonParser.BookcaseDualStatement')
 def gem():
-    require_gem('PythonParser.BookcaseDualExpression')
-
-
     def produce_add_comment(name, conjure_with_frill):
         @rename('add_comment__%s', name)
         def add_comment(t, comment):
@@ -23,7 +20,7 @@ def gem():
         return add_comment
 
 
-    class DualExpressionStatement(BookcaseDualExpression):
+    class DualExpressionStatement(BookcaseDualTwig):
         __slots__ = (())
 
 
@@ -133,22 +130,16 @@ def gem():
 
     [
             conjure_assign_1, AssignStatement_1.conjure_plain, conjure_assign_1__with_frill,
-    ] = produce_conjure_bookcase_dual_expression(
+    ] = produce_conjure_bookcase_dual_twig(
             'assign-1',
             AssignStatement_1,
 
-            produce_conjure_plain      = true,
-            produce_conjure_with_frill = 1,
+            produce_conjure_plain = true,
         )
 
     [
             conjure_modify_statement, conjure_modify_statement__with_frill,
-    ] = produce_conjure_bookcase_dual_expression(
-            'modify-statement',
-            ModifyStatement,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_dual_twig('modify-statement', ModifyStatement)
 
     AssignStatement_1.add_comment = produce_add_comment('assign_statement_1', conjure_assign_1__with_frill)
 

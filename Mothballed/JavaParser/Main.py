@@ -54,9 +54,6 @@ def gem():
 
         parse_java('test.java', test = 7, show = show)
 
-        #for name in ['arguments-2', 'list-expression-2', 'range-index', 'tuple-expression-2']:
-        #    print_cache(name)
-
         print_cache()
 
 

@@ -3,10 +3,7 @@
 #
 @gem('PythonParser.BookcaseKeywordDualStatement')
 def gem():
-    require_gem('PythonParser.BookcaseDualExpression')
-
-
-    class KeywordDualExpressionStatement(BookcaseDualExpression):
+    class KeywordDualExpressionStatement(BookcaseDualTwig):
         __slots__ = (())
 
 
@@ -129,21 +126,6 @@ def gem():
             t.b.write_variables(art)
 
 
-        def transform(t, vary):
-            frill = t.frill
-            a     = t.a
-            b     = t.b
-
-            frill__2 = frill.morph (vary, 0, PRIORITY_AS_LIST, 0)
-            a__2     = a    .mutate(vary, PRIORITY_POSTFIX)
-            b__2     = b    .mutate(vary, PRIORITY_NORMAL_LIST)
-
-            if (frill is frill__2) and (a is a__2) and (b is b__2):
-                return t
-
-            return t.conjure_with_frill(frill__2, a__2, b__2)
-
-
     class RaiseStatement_2(KeywordDualExpressionStatement):
         __slots__    = (())
         display_name = 'raise-statement-2'
@@ -177,82 +159,74 @@ def gem():
 
     [
         conjure_assert_statement_2, conjure_assert_statement_2__with_frill,
-    ] = produce_conjure_bookcase_dual_expression(
-            'assert-statement-2',
-            AssertStatement_2,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_dual_twig('assert-statement-2', AssertStatement_2)
 
 
     [
         conjure_except_header_2, conjure_except_header_2__with_frill,
-    ] = produce_conjure_bookcase_dual_expression(
-            'except-header2',
-            ExceptHeader_2,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_dual_twig('except-header2', ExceptHeader_2)
 
     [
         conjure_for_header, conjure_for_header__with_frill,
-    ] = produce_conjure_bookcase_dual_expression(
-            'for-header',
-            ForHeader,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_dual_twig('for-header', ForHeader)
 
     [
-        conjure_from_statement, FromImportStatement.conjure_with_frill,
-    ] = produce_conjure_bookcase_dual_expression(
-            'from-statement',
-            FromImportStatement,
+        conjure_from_statement, conjure_from_import_statement__with_frill,
+    ] = produce_conjure_bookcase_dual_twig('from-statement', FromImportStatement)
 
-            produce_conjure_with_frill = true,
-        )
-
-    conjure_raise_statement_2  = produce_conjure_bookcase_dual_expression('raise-statement-2',  RaiseStatement_2)
+    [
+        conjure_raise_statement_2, conjure_raise_statement_2__with_frill,
+    ] = produce_conjure_bookcase_dual_twig('raise-statement-2', RaiseStatement_2)
 
     [
         conjure_with_header_2, conjure_with_header_2__with_frill,
-    ] = produce_conjure_bookcase_dual_expression(
-            'with-header-2',
-            WithHeader_2,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_dual_twig('with-header-2', WithHeader_2)
 
 
     AssertStatement_2.transform = produce_transform__frill__ab_with_priority(
-                                      'assert_statement_2',
-                                      PRIORITY_TERNARY,
-                                      PRIORITY_TERNARY,
-                                      conjure_assert_statement_2__with_frill,
-                                  )
+            'assert_statement_2',
+            PRIORITY_TERNARY,
+            PRIORITY_TERNARY,
+            conjure_assert_statement_2__with_frill,
+        )
 
     ExceptHeader_2.transform = produce_transform__frill__ab_with_priority(
-                                   'except_header_2',
-                                   PRIORITY_TERNARY,
-                                   PRIORITY_ASSIGN,
-                                   conjure_except_header_2__with_frill,
-                                )
+            'except_header_2',
+            PRIORITY_TERNARY,
+            PRIORITY_ASSIGN,
+            conjure_except_header_2__with_frill,
+        )
 
 
     ForHeader.transform = produce_transform__frill__ab_with_priority(
-                              'for_header',
-                              PRIORITY_NORMAL_LIST,
-                              PRIORITY_ASSIGN,
-                              conjure_for_header__with_frill,
-                         )
+            'for_header',
+            PRIORITY_NORMAL_LIST,
+            PRIORITY_ASSIGN,
+            conjure_for_header__with_frill,
+        )
+
+    FromImportStatement.transform = produce_transform__frill__ab_with_priority(
+            'from-import-statement',
+            PRIORITY_POSTFIX,
+            PRIORITY_NORMAL_LIST,
+            conjure_from_import_statement__with_frill,
+
+            frill_morph_priority = PRIORITY_AS_LIST
+        )
+
+    RaiseStatement_2.transform = produce_transform__frill__ab_with_priority(
+            'raise-statement-2',
+            PRIORITY_TERNARY,
+            PRIORITY_TERNARY,
+            conjure_raise_statement_2__with_frill,
+        )
 
     WithHeader_2.transform = produce_transform__frill__ab_with_priority(
-                                 'with_header_2',
-                                 PRIORITY_TERNARY,
-                                 PRIORITY_ASSIGN,
-                                 conjure_with_header_2__with_frill,
-                            )
-
+            'with_header_2',
+            PRIORITY_TERNARY,
+            PRIORITY_ASSIGN,
+            conjure_with_header_2__with_frill,
+        )
 
     share(
         'conjure_assert_statement_2',   conjure_assert_statement_2,

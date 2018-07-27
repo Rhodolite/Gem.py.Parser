@@ -3,6 +3,7 @@
 #
 @gem('PythonParser.Parse1Call')
 def gem():
+    require_gem('PythonParser.BookcaseDualExpression')
     require_gem('PythonParser.CallStatement')
 
 

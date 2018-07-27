@@ -12,7 +12,8 @@ def gem():
         'CLASS_ORDER__COMMENT_LINE__STRING',            13,     #   CommentLine token, inherited from String
 
         'CLASS_ORDER__FRILL_2',                         20,     #   Commented_V_Frill & VW_Frill
-        'CLASS_ORDER__LINE_MARKER',                     21,     #   LineMarker token
+        'CLASS_ORDER__FRILL_3',                         21,     #   Commented_VW_Frill & VWX_Frill
+        'CLASS_ORDER__LINE_MARKER',                     22,     #   LineMarker token
         
         'CLASS_ORDER__PYTHON_START',                    30,
         'CLASS_ORDER__PYTHON_END',                      70,
