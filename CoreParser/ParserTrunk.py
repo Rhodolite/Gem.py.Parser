@@ -8,9 +8,7 @@ def module():
 
     @export
     class ParserTrunk(Object):
-        __slots__ = (())
-
-
+        __slots__     = (())
         herd_estimate = 0
         is_herd       = false
 

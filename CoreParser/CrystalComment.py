@@ -26,8 +26,7 @@ def module():
 
     class CommentLine(String):
         __slots__                        = (())
-
-
+        class_order                      = CLASS_ORDER__COMMENT_LINE__STRING
         ends_in_newline                  = true
         impression                       = empty_indentation
         indentation                      = none
@@ -39,7 +38,6 @@ def module():
 
         
         if capital_global.python_parser:
-            class_order = CLASS_ORDER__COMMENT_LINE__STRING
             is_any_else                      = false
             is_any_except_or_finally         = false
             is_comment_line                  = true
@@ -88,6 +86,7 @@ def module():
         ))
 
 
+        class_order                      = CLASS_ORDER__COMMENT_LINE
         ends_in_newline                  = true
         impression                       = empty_indentation
         indentation                      = none
@@ -98,7 +97,6 @@ def module():
 
 
         if capital_global.python_parser:
-            class_order = CLASS_ORDER__COMMENT_LINE
             is_any_else                = false
             is_any_except_or_finally   = false
             is_comment_line            = true
@@ -146,6 +144,7 @@ def module():
         ))
 
 
+        class_order                      = CLASS_ORDER__COMMENT_LINE
         ends_in_newline                  = true
         indentation                      = none
         is_empty_line                    = false
@@ -155,7 +154,6 @@ def module():
 
 
         if capital_global.python_parser:
-            class_order                = CLASS_ORDER__COMMENT_LINE
             is_any_else                = false
             is_any_except_or_finally   = false
             is_comment_line            = true
@@ -207,6 +205,7 @@ def module():
         ))
 
 
+        class_order     = CLASS_ORDER__COMMENT_LINE
         ends_in_newline = true
         indentation     = none
         is_empty_line   = false
@@ -214,7 +213,6 @@ def module():
 
 
         if capital_global.python_parser:
-            class_order                = CLASS_ORDER__COMMENT_LINE
             is_any_else                = false
             is_any_except_or_finally   = false
             is_comment_line            = true
@@ -304,5 +302,5 @@ def module():
 
 
     export(
-        'empty_comment_line',           empty_comment_line,
+        'empty_comment_line',   empty_comment_line,
     )

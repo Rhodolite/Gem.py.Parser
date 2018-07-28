@@ -14,7 +14,10 @@ def module():
         'CLASS_ORDER__FRILL_2',                         20,     #   Commented_V_Frill & VW_Frill
         'CLASS_ORDER__FRILL_3',                         21,     #   Commented_VW_Frill & VWX_Frill
         'CLASS_ORDER__LINE_MARKER',                     22,     #   LineMarker token
+
+        'CLASS_ORDER__BOOKCASE_COUPLE_TWIG',            30,     #   BookcaseCoupleTwig+
+        'CLASS_ORDER__BOOKCASE_DUAL_TWIG',              31,     #   BookcaseDualExpression+
         
-        'CLASS_ORDER__PYTHON_START',                    30,
-        'CLASS_ORDER__PYTHON_END',                      70,
+        'CLASS_ORDER__PYTHON_START',                    40,
+        'CLASS_ORDER__PYTHON_END',                      80,
     )

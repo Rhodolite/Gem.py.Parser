@@ -315,8 +315,8 @@ def module():
     @share
     class Indented_Else_Colon_LineMarker(BaseQuadrupleOperator):
         __slots__                  = (())
-        class_order                = CLASS_ORDER__LINE_MARKER
-        display_name               = 'else'
+        class_order                = CLASS_ORDER__INDENTED__KEYWORD__COLON__LINE_MARKER
+        display_name               = r'indented-else:\n'
         ends_in_newline            = true
         is_any_else                = true
         is_any_except_or_finally   = false
@@ -340,8 +340,8 @@ def module():
     @share
     class Indented_Except_Colon_LineMarker(BaseQuadrupleOperator):
         __slots__                = (())
-        class_order              = CLASS_ORDER__LINE_MARKER
-        display_name             = 'except'
+        class_order              = CLASS_ORDER__INDENTED__KEYWORD__COLON__LINE_MARKER
+        display_name             = r'indented-except:\n'
         ends_in_newline          = true
         is_any_else              = false
         is_any_except_or_finally = true
@@ -364,8 +364,8 @@ def module():
     @share
     class Indented_Finally_Colon_LineMarker(BaseQuadrupleOperator):
         __slots__                = (())
-        class_order              = CLASS_ORDER__LINE_MARKER
-        display_name             = 'finally'
+        class_order              = CLASS_ORDER__INDENTED__KEYWORD__COLON__LINE_MARKER
+        display_name             = r'indented-finally:\n'
         ends_in_newline          = true
         is_any_except_or_finally = true
         is_statement             = false
@@ -387,8 +387,8 @@ def module():
     @share
     class Indented_Try_Colon_LineMarker(BaseQuadrupleOperator):
         __slots__           = (())
-        class_order         = CLASS_ORDER__LINE_MARKER
-        display_name        = 'try'
+        class_order         = CLASS_ORDER__INDENTED__KEYWORD__COLON__LINE_MARKER
+        display_name        = r'indented-try:\n'
         ends_in_newline     = true
         is_any_else         = false
         is_statement        = false

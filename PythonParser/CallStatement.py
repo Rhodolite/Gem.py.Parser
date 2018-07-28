@@ -12,7 +12,6 @@ def module():
         __slots__ = (())
 
 
-        class_order                = CLASS_ORDER__CALL_STATEMENT
         is_any_else                = false
         is_any_except_or_finally   = false
         is_else_header_or_fragment = false

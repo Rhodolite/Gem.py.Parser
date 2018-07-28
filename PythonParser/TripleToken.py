@@ -344,7 +344,7 @@ def module():
         __slots__   = (())
         indentation = BaseTripleOperator.a
 
-        class_order                = CLASS_ORDER__LINE_MARKER
+        class_order                = CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER
         display_name               = r'indented-break\n'
         ends_in_newline            = true
         is_any_else                = false
@@ -367,7 +367,7 @@ def module():
         __slots__   = (())
         indentation = BaseTripleOperator.a
 
-        class_order                = CLASS_ORDER__LINE_MARKER
+        class_order                = CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER
         display_name               = r'indented-continue\n'
         ends_in_newline            = true
         indentation                = BaseTripleOperator.a
@@ -400,7 +400,7 @@ def module():
         __slots__   = (())
         indentation = BaseTripleOperator.a
 
-        class_order                = CLASS_ORDER__LINE_MARKER
+        class_order                = CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER
         display_name               = r'indented-pass\n'
         ends_in_newline            = true
         is_any_else                = false
@@ -423,7 +423,7 @@ def module():
         __slots__   = (())
         indentation = BaseTripleOperator.a
 
-        class_order                = CLASS_ORDER__LINE_MARKER
+        class_order                = CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER
         display_name               = r'indented-raise\n'
         ends_in_newline            = true
         is_any_else                = false
@@ -446,7 +446,7 @@ def module():
         __slots__   = (())
         indentation = BaseTripleOperator.a
 
-        class_order                = CLASS_ORDER__LINE_MARKER
+        class_order                = CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER
         display_name               = r'indented-return\n'
         ends_in_newline            = true
         is_any_else                = false
@@ -469,7 +469,7 @@ def module():
         __slots__   = (())
         indentation = BaseTripleOperator.a
 
-        class_order                = CLASS_ORDER__LINE_MARKER
+        class_order                = CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER
         display_name               = r'indented-yield\n'
         ends_in_newline            = true
         is_any_else                = false

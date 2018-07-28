@@ -373,7 +373,7 @@ def module():
 
     class Colon_LineMarker_1(BaseDualOperator):
         __slots__                               = (())
-        class_order                             = CLASS_ORDER__LINE_MARKER
+        class_order                             = CLASS_ORDER__COLON__LINE_MARKER
         display_name                            = r':\n'
         ends_in_newline                         = true
         is_colon__line_marker                   = true

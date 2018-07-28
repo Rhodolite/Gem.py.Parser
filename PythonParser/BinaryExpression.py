@@ -46,9 +46,7 @@ def module():
 
     class BinaryExpression(DualTwig):
         __slots__ = (())
-
-
-        k3 = none
+        k3        = none
 
 
         def dump_token(t, f, newline = true):

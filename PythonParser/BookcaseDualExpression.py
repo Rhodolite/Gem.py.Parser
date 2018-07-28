@@ -8,7 +8,6 @@ def module():
 
     class Arguments_2(BookcaseDualTwig):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BOOKCASE_DUAL_EXPRESSION
         display_name = '(2)'
         frill        = conjure_vwx_frill(LP, COMMA__W, RP)
 
@@ -17,7 +16,6 @@ def module():
 
     class ListExpression_2(BookcaseDualTwig):
         __slots__                      = (())
-        class_order                    = CLASS_ORDER__BOOKCASE_DUAL_EXPRESSION
         display_name                   = '[2]'
         frill                          = conjure_vwx_frill(LSB, COMMA__W, RSB)
         is__atom__or__special_operator = true
@@ -30,7 +28,6 @@ def module():
 
     class RangeIndex(BookcaseDualTwig):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BOOKCASE_DUAL_EXPRESSION
         display_name = 'range-index'
         frill        = conjure_vwx_frill(LSB, conjure_colon(' : '), RSB)
 
@@ -39,7 +36,6 @@ def module():
 
     class TupleExpression_2(BookcaseDualTwig):
         __slots__                      = (())
-        class_order                    = CLASS_ORDER__BOOKCASE_DUAL_EXPRESSION
         display_name                   = '{,2}'
         frill                          = conjure_vwx_frill(LP, COMMA__W, RP)
         is__atom__or__special_operator = true

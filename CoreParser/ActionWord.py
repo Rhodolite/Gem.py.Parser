@@ -22,6 +22,16 @@ def module():
         t.newlines        = newlines
 
 
+    #
+    #   conjure_action_word:
+    #
+    #       This version is not typically used, the more commonly used version is produced by
+    #       `produce_conjure_action_word`, which is more efficient as that version is bound
+    #       to the proper `Meta`.
+    #
+    #       This version, uses `find_action_word__Meta(full)` to find the proper `Meta`
+    #       for the action word.
+    #
     @export
     def conjure_action_word(full, s):
         assert s[-1] != '\n'

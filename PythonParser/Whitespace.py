@@ -7,6 +7,7 @@ def module():
 
 
     class TokenWhitespace(ParserToken):
+        __slots__    = (())
         display_name = 'whitespace'
 
 

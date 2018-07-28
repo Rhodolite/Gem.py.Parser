@@ -144,10 +144,10 @@ def module():
         return conjure_triple_expression
 
 
-    @privileged
     def produce_mutate_triple_expression(
             name, frill_priority, a_priority, b_priority, c_priority, conjure_with_frill,
     ):
+        @rename('mutate_%s', name)
         def mutate(t, vary, priority):
             frill = t.frill
             a     = t.a
@@ -164,9 +164,6 @@ def module():
 
             return conjure_with_frill(frill__2, a__2, b__2, c__2)
 
-
-        if __debug__:
-            mutate.__name__ = intern_arrange('mutate_%s', name)
 
         return mutate
 

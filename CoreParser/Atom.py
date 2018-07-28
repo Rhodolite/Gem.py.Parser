@@ -15,6 +15,32 @@ def module():
 
 
     @export
+    class DoubleQuote(ParserToken):
+        __slots__    = (())
+        class_order  = CLASS_ORDER__NORMAL_TOKEN
+        display_name = '"'
+
+
+        if capital_global.python_parser:
+            is__atom__or__special_operator = true
+            is_atom                        = true
+            is_colon                       = false
+            is_right_brace                 = false
+            is_right_parenthesis           = false
+            is_right_square_bracket        = false
+            is_special_operator            = false
+
+
+        def display_token(t):
+            return arrange('<%s>', t.s)
+
+
+        if capital_global.python_parser:
+            mutate          = mutate__self
+            scout_variables = scout_variables__0
+
+
+    @export
     class Identifier(ParserToken):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
@@ -73,6 +99,33 @@ def module():
 
 
     @export
+    class SingleQuote(ParserToken):
+        __slots__    = (())
+        class_order  = CLASS_ORDER__NORMAL_TOKEN
+        display_name = "'"
+
+
+        if capital_global.python_parser:
+            is__atom__or__special_operator = true
+            is_atom                        = true
+            is_colon                       = false
+            is_right_brace                 = false
+            is_right_parenthesis           = false
+            is_right_square_bracket        = false
+            is_single_quote                = true
+            is_special_operator            = false
+
+
+        def display_token(t):
+            return arrange('<%s>', t.s)
+
+
+        if capital_global.python_parser:
+            mutate          = mutate__self
+            scout_variables = scout_variables__0
+
+
+    @export
     def produce_conjure_atom(name, Meta):
         assert type(name) is String
         assert type(Meta) is Type
@@ -95,11 +148,15 @@ def module():
         return conjure_atom
 
 
-    conjure_name = produce_conjure_atom('name', Identifier)
+    conjure_double_quote = produce_conjure_atom('double-quote', DoubleQuote)
+    conjure_name         = produce_conjure_atom('name', Identifier)
+    conjure_single_quote = produce_conjure_atom('single-quote', SingleQuote)
 
 
     export(
-        'conjure_name',     conjure_name,
+        'conjure_double_quote',     conjure_double_quote,
+        'conjure_name',             conjure_name,
+        'conjure_single_quote',     conjure_single_quote,
     )
 
 
