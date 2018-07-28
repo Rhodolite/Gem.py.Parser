@@ -1,54 +1,64 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Core')
-def gem():
-    require_gem('CoreParser.ActionWord')
-    require_gem('CoreParser.Atom')
-    require_gem('CoreParser.BookcaseCoupleTwig')
-    require_gem('CoreParser.BookcaseDualTwig')
-    require_gem('CoreParser.ClassOrder')
-    require_gem('CoreParser.CreateMeta')
-    require_gem('CoreParser.CrystalComment')
-    require_gem('CoreParser.CrystalIndentation')
-    require_gem('CoreParser.DualFrill')
-    require_gem('CoreParser.DualTwig')
-    require_gem('CoreParser.DumpToken')
-    require_gem('CoreParser.Elemental')
-    require_gem('CoreParser.EmptyLine')
-    require_gem('CoreParser.LineMarker')
-    require_gem('CoreParser.Method')
-    require_gem('CoreParser.Nub')
-    require_gem('CoreParser.ParserToken')
-    require_gem('CoreParser.ParserTrunk')
-    require_gem('CoreParser.TestTree')
-    require_gem('CoreParser.Tokenizer')
-    require_gem('CoreParser.TripleFrill')
-    require_gem('CoreParser.TripleTwig')
-    require_gem('Gem.Cache')
-    require_gem('Gem.Cache2')
-    require_gem('Gem.DelayedFileOutput')
-    require_gem('Gem.DumpCache')
-    require_gem('Gem.Exception')
-    require_gem('Gem.GeneratedConjureQuadruple')
-    require_gem('Gem.Herd')
-    require_gem('Gem.Method')
-    require_gem('Gem.Path')
-    require_gem('Gem.PortrayString')                                    #   For builtin `portray_string`
-    require_gem('Gem.System')
-    require_gem('Gem.Traceback')
+@module('PythonParser.Core')
+def module():
+    require_module('Capital.Cache')
+    require_module('Capital.Cache2')
+    require_module('Capital.DelayedFileOutput')
+    require_module('Capital.DumpCache')
+    require_module('Capital.Exception')
+    require_module('Capital.GeneratedConjureQuadruple')
+    require_module('Capital.Herd')
+    require_module('Capital.Method')
+    require_module('Capital.Path')
+    require_module('Capital.PortrayString')                                #   For builtin `portray_string`
+    require_module('Capital.System')
+    require_module('Capital.Traceback')
+    require_module('CoreParser.ActionWord')
+    require_module('CoreParser.Atom')
+    require_module('CoreParser.BookcaseCoupleTwig')
+    require_module('CoreParser.BookcaseDualTwig')
+    require_module('CoreParser.ClassOrder')
+    require_module('CoreParser.CreateMeta')
+    require_module('CoreParser.CrystalComment')
+    require_module('CoreParser.CrystalIndentation')
+    require_module('CoreParser.DualFrill')
+    require_module('CoreParser.DualTwig')
+    require_module('CoreParser.DumpToken')
+    require_module('CoreParser.Elemental')
+    require_module('CoreParser.EmptyLine')
+    require_module('CoreParser.LineMarker')
+    require_module('CoreParser.Method')
+    require_module('CoreParser.Nub')
+    require_module('CoreParser.ParserToken')
+    require_module('CoreParser.ParserTrunk')
+    require_module('CoreParser.TestTree')
+    require_module('CoreParser.Tokenizer')
+    require_module('CoreParser.TripleFrill')
+    require_module('CoreParser.TripleTwig')
 
 
+    from Capital import create_cache, create_DelayedFileOutput, create_SimpleStringOutput, create_StringOutput
+    from Capital import empty_herd, module_path, path_join, path_normalize, print_cache, print_exception_chain
+    from Capital import produce_conjure_dual, produce_conjure_dual__21
+    from Capital import produce_conjure_quadruple__4123
+    from Capital import produce_conjure_single, produce_conjure_triple
+    from Capital import produce_conjure_triple__312, produce_conjure_tuple
+    from Capital import produce_conjure_unique_dual, produce_conjure_unique_dual__21
+    from Capital import produce_conjure_unique_triple, produce_conjure_unique_triple__312
+    from Capital import program_exit, read_text_from_path, return_self, slice_all
     from CoreParser import BookcaseCoupleTwig, BookcaseDualTwig
     from CoreParser import CLASS_ORDER__EMPTY_LINE, CLASS_ORDER__INDENTATION, CLASS_ORDER__LINE_MARKER
     from CoreParser import CLASS_ORDER__NORMAL_TOKEN, CLASS_ORDER__PYTHON_END, CLASS_ORDER__PYTHON_START
     from CoreParser import conjure_action_word, conjure_action_word__ends_in_newline, conjure_ActionWord_WithNewlines
     from CoreParser import conjure_any_comment_line, conjure_commented_v_frill, conjure_empty_line
+    from CoreParser import conjure_commented_vw_frill, produce_conjure_dual_twig, produce_conjure_triple_twig
     from CoreParser import conjure_indentation, conjure_keyword_import, conjure_line_marker
     from CoreParser import conjure_name, conjure_nub, conjure_vw_frill, conjure_vwx_frill
     from CoreParser import construct__123, construct__ab, count_newlines__123, count_newlines__ab, create_TokenOutput
     from CoreParser import display_token__123, display_token__ab, dump_token, dump_token__12, DualTwig
-    from CoreParser import empty_comment_line, empty_indentation, find_require_gem__0
+    from CoreParser import empty_comment_line, empty_indentation, find_require_module__0
     from CoreParser import Identifier, initialize_action_word__Meta, is_name__0, KeywordAndOperatorBase
     from CoreParser import KeywordImport
     from CoreParser import la, LINE_MARKER
@@ -56,10 +66,9 @@ def gem():
     from CoreParser import mutate__self, next_indentation
     from CoreParser import order__ab, order__abc, order__frill_ab, order__s, order__string
     from CoreParser import parse_context, ParserToken, ParserTrunk, portray__123, portray__ab
-    from CoreParser import produce_conjure_bookcase_couple_twig, produce_conjure_bookcase_dual_twig
     from CoreParser import produce_conjure_action_word, produce_conjure_atom, produce_conjure_dual_twig
+    from CoreParser import produce_conjure_bookcase_couple_twig, produce_conjure_bookcase_dual_twig
     from CoreParser import produce_conjure_bookcase_dual_twig, produce_conjure_action_word, produce_conjure_atom
-    from CoreParser import conjure_commented_vw_frill, produce_conjure_dual_twig, produce_conjure_triple_twig
     from CoreParser import produce_mutate__uncommented, produce_transform__ab, produce_transform__abc
     from CoreParser import produce_transform__uncommented
     from CoreParser import provide_indentation, provide_line_marker, provide_normal_token
@@ -68,15 +77,6 @@ def gem():
     from CoreParser import test_count_newlines, test_identical_output, transform__remove_comments_0, transform__self
     from CoreParser import TripleTwig
     from CoreParser import wd, wd0, wd1, wi, wj, wk, wn, ws, z_initialize
-    from Gem import create_cache, create_DelayedFileOutput, create_SimpleStringOutput, create_StringOutput
-    from Gem import empty_herd, module_path, path_join, path_normalize, print_cache, print_exception_chain
-    from Gem import produce_conjure_dual, produce_conjure_dual__21
-    from Gem import produce_conjure_quadruple__4123
-    from Gem import produce_conjure_single, produce_conjure_triple
-    from Gem import produce_conjure_triple__312, produce_conjure_tuple
-    from Gem import produce_conjure_unique_dual, produce_conjure_unique_dual__21
-    from Gem import produce_conjure_unique_triple, produce_conjure_unique_triple__312
-    from Gem import program_exit, read_text_from_path, return_self, slice_all
 
 
     path_0 = module_path[0]
@@ -112,6 +112,32 @@ def gem():
 
         
         #
+        #   Imported functions (Capital)
+        #
+        'create_cache',                         create_cache,
+        'create_DelayedFileOutput',             create_DelayedFileOutput,
+        'create_SimpleStringOutput',            create_SimpleStringOutput,
+        'create_StringOutput',                  create_StringOutput,
+        'path_join',                            path_join,
+        'print_cache',                          print_cache,
+        'print_exception_chain',                print_exception_chain,
+        'produce_conjure_dual__21',             produce_conjure_dual__21,
+        'produce_conjure_dual',                 produce_conjure_dual,
+        'produce_conjure_single',               produce_conjure_single,
+        'produce_conjure_triple__312',          produce_conjure_triple__312,
+        'produce_conjure_triple',               produce_conjure_triple,
+        'produce_conjure_tuple',                produce_conjure_tuple,
+        'produce_conjure_unique_dual__21',      produce_conjure_unique_dual__21,
+        'produce_conjure_unique_dual',          produce_conjure_unique_dual,
+        'produce_conjure_quadruple__4123',      produce_conjure_quadruple__4123,
+        'produce_conjure_unique_triple',        produce_conjure_unique_triple,
+        'produce_conjure_unique_triple__312',   produce_conjure_unique_triple__312,
+        'program_exit',                         program_exit,
+        'read_text_from_path',                  read_text_from_path,
+        'return_self',                          return_self,
+
+
+        #
         #   Imported functions (CoreParser)
         #
         'conjure_action_word',                      conjure_action_word,
@@ -137,7 +163,7 @@ def gem():
         'display_token__ab',                        display_token__ab,
         'dump_token__12',                           dump_token__12,
         'dump_token',                               dump_token,
-        'find_require_gem__0',                      find_require_gem__0,
+        'find_require_module__0',                   find_require_module__0,
         'initialize_action_word__Meta',             initialize_action_word__Meta,
         'is_name__0',                               is_name__0,
         'la',                                       la,
@@ -194,29 +220,13 @@ def gem():
 
 
         #
-        #   Imported functions (Gem)
+        #   Values (Capital)
         #
-        'create_cache',                         create_cache,
-        'create_DelayedFileOutput',             create_DelayedFileOutput,
-        'create_SimpleStringOutput',            create_SimpleStringOutput,
-        'create_StringOutput',                  create_StringOutput,
-        'path_join',                            path_join,
-        'print_cache',                          print_cache,
-        'print_exception_chain',                print_exception_chain,
-        'produce_conjure_dual__21',             produce_conjure_dual__21,
-        'produce_conjure_dual',                 produce_conjure_dual,
-        'produce_conjure_single',               produce_conjure_single,
-        'produce_conjure_triple__312',          produce_conjure_triple__312,
-        'produce_conjure_triple',               produce_conjure_triple,
-        'produce_conjure_tuple',                produce_conjure_tuple,
-        'produce_conjure_unique_dual__21',      produce_conjure_unique_dual__21,
-        'produce_conjure_unique_dual',          produce_conjure_unique_dual,
-        'produce_conjure_quadruple__4123',      produce_conjure_quadruple__4123,
-        'produce_conjure_unique_triple',        produce_conjure_unique_triple,
-        'produce_conjure_unique_triple__312',   produce_conjure_unique_triple__312,
-        'program_exit',                         program_exit,
-        'read_text_from_path',                  read_text_from_path,
-        'return_self',                          return_self,
+        'binary_path',          binary_path,
+        'empty_herd',           empty_herd,
+        'source_path',          source_path,
+        'slice_all',            slice_all,
+        'tuple_of_2_nones',     ((none, none)),
 
 
         #
@@ -232,14 +242,4 @@ def gem():
         'empty_indentation',            empty_indentation,
         'LINE_MARKER',                  LINE_MARKER,
         'parse_context',                parse_context,
-
-
-        #
-        #   Values (Gem)
-        #
-        'binary_path',          binary_path,
-        'empty_herd',           empty_herd,
-        'source_path',          source_path,
-        'slice_all',            slice_all,
-        'tuple_of_2_nones',     ((none, none)),
     )

@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.MosiacDefinition')
-def gem():
+@module('PythonParser.MosiacDefinition')
+def module():
     def scout_variables__definition(t, art):
         t.a.scout_variables(art)
         art.add_definition(t)
@@ -21,10 +21,10 @@ def gem():
         prefix                     = 0
         prefixed_display_name      = '#class-definition'
 
-        dump_token       = dump_token__ab
-        find_require_gem = find_require_gem__b
-        indentation      = indentation__a_indentation
-        scout_variables  = scout_variables__definition
+        dump_token          = dump_token__ab
+        find_require_module = find_require_module__b
+        indentation         = indentation__a_indentation
+        scout_variables     = scout_variables__definition
 
 
     class FunctionDefinition(DualTwig):
@@ -68,10 +68,10 @@ def gem():
                 return conjure_prefixed_function_definition(prefix, a__2, b__2)
 
 
-        dump_token       = dump_token__ab
-        find_require_gem = find_require_gem__b
-        indentation      = indentation__a_indentation
-        scout_variables  = scout_variables__definition
+        dump_token          = dump_token__ab
+        find_require_module = find_require_module__b
+        indentation         = indentation__a_indentation
+        scout_variables     = scout_variables__definition
 
 
     [

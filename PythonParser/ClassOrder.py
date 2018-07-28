@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.ClassOrder')
-def gem():
+@module('PythonParser.ClassOrder')
+def module():
     export(
         'CLASS_ORDER__ARGUMENT_0',                      30,     #   Arguments_0 token
         'CLASS_ORDER__PARAMETERS_0',                    31,     #   Parameters_0 token

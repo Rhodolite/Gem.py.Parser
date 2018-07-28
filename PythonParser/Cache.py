@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Cache')
-def gem():
+@module('PythonParser.Cache')
+def module():
     cache_many        = []
     append_cache_many = cache_many.append
 

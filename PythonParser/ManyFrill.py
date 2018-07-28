@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.ManyFrill')
-def gem():
-    require_gem('PythonParser.QuadrupleFrill')
-    require_gem('PythonParser.TokenTuple')
+@module('PythonParser.ManyFrill')
+def module():
+    require_module('PythonParser.QuadrupleFrill')
+    require_module('PythonParser.TokenTuple')
 
 
     many_frill_cache   = {}

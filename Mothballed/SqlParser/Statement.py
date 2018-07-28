@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('SqlParser.Statement')
-def gem():
-    require_gem('SqlParser.Core')
+@module('SqlParser.Statement')
+def module():
+    require_module('SqlParser.Core')
 
 
     @share

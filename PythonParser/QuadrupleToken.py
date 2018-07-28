@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.QuadrupleToken')
-def gem():
-    require_gem('PythonParser.CreateMeta')
+@module('PythonParser.QuadrupleToken')
+def module():
+    require_module('PythonParser.CreateMeta')
 
 
     def construct_quadruple_token(t, s, a, b, c, d):

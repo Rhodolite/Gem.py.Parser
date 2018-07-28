@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.BookcaseKeywordStatement')
-def gem():
+@module('PythonParser.BookcaseKeywordStatement')
+def module():
     empty_indentation__at_sign = conjure_indented_token(empty_indentation, conjure_at_sign('@'))
 
 
@@ -107,8 +107,8 @@ def gem():
         display_name = 'assert-1'
         frill        = conjure_vw_frill(empty_indentation__at_sign, LINE_MARKER)
 
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__a
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__a
 
 
     @share
@@ -140,7 +140,7 @@ def gem():
                            LINE_MARKER,
                        )
 
-        find_require_gem = find_require_gem__0
+        find_require_module = find_require_module__0
 
 
         def scout_variables(t, art):
@@ -212,7 +212,7 @@ def gem():
                            LINE_MARKER,
                        )
 
-        find_require_gem = find_require_gem__0
+        find_require_module = find_require_module__0
 
 
         def scout_variables(t, art):
@@ -228,8 +228,8 @@ def gem():
                            LINE_MARKER,
                        )
 
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__a
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__a
 
 
     class ReturnStatement(KeywordExpressionStatement):
@@ -241,8 +241,8 @@ def gem():
                            LINE_MARKER,
                        )
 
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__a
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__a
 
 
     @export
@@ -290,8 +290,8 @@ def gem():
                            LINE_MARKER,
                        )
 
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__a
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__a
 
 
     [

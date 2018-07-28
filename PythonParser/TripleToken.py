@@ -1,12 +1,12 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.TripleToken')
-def gem():
-    require_gem('PythonParser.CreateMeta')
-    require_gem('PythonParser.DualStatement')
-    require_gem('PythonParser.Elemental')
-    require_gem('PythonParser.Whitespace')
+@module('PythonParser.TripleToken')
+def module():
+    require_module('PythonParser.CreateMeta')
+    require_module('PythonParser.DualStatement')
+    require_module('PythonParser.Elemental')
+    require_module('PythonParser.Whitespace')
 
 
     def add_comment__commented_statement(t, comment):
@@ -355,12 +355,12 @@ def gem():
         line_marker                = true
         newlines                   = 1
 
-        __init__         = construct_triple_operator__line_marker_1
-        add_comment      = add_comment__commented_statement
-        count_newlines   = count_newlines__line_marker
-        dump_token       = dump_token__indented__keyword__line_marker
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__0
+        __init__            = construct_triple_operator__line_marker_1
+        add_comment         = add_comment__commented_statement
+        count_newlines      = count_newlines__line_marker
+        dump_token          = dump_token__indented__keyword__line_marker
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__0
 
 
     class Indented_Continue_LineMarker_1(BaseTripleOperator):
@@ -379,12 +379,12 @@ def gem():
         line_marker                = true
         newlines                   = 1
 
-        __init__         = construct_triple_operator__line_marker_1
-        add_comment      = add_comment__commented_statement
-        count_newlines   = count_newlines__line_marker
-        dump_token       = dump_token__indented__keyword__line_marker
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__0
+        __init__            = construct_triple_operator__line_marker_1
+        add_comment         = add_comment__commented_statement
+        count_newlines      = count_newlines__line_marker
+        dump_token          = dump_token__indented__keyword__line_marker
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__0
 
 
     class Indented_Else_Colon(BaseTripleOperator):
@@ -411,12 +411,12 @@ def gem():
         line_marker                = true
         newlines                   = 1
 
-        __init__         = construct_triple_operator__line_marker_1
-        add_comment      = add_comment__commented_statement
-        count_newlines   = count_newlines__line_marker
-        dump_token       = dump_token__indented__keyword__line_marker
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__0
+        __init__            = construct_triple_operator__line_marker_1
+        add_comment         = add_comment__commented_statement
+        count_newlines      = count_newlines__line_marker
+        dump_token          = dump_token__indented__keyword__line_marker
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__0
 
 
     class Indented_Raise_LineMarker_1(BaseTripleOperator):
@@ -434,12 +434,12 @@ def gem():
         line_marker                = true
         newlines                   = 1
 
-        __init__         = construct_triple_operator__line_marker_1
-        add_comment      = add_comment__commented_statement
-        count_newlines   = count_newlines__line_marker
-        dump_token       = dump_token__indented__keyword__line_marker
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__0
+        __init__            = construct_triple_operator__line_marker_1
+        add_comment         = add_comment__commented_statement
+        count_newlines      = count_newlines__line_marker
+        dump_token          = dump_token__indented__keyword__line_marker
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__0
 
 
     class Indented_Return_LineMarker_1(BaseTripleOperator):
@@ -457,12 +457,12 @@ def gem():
         line_marker                = true
         newlines                   = 1
 
-        __init__         = construct_triple_operator__line_marker_1
-        add_comment      = add_comment__commented_statement
-        count_newlines   = count_newlines__line_marker
-        dump_token       = dump_token__indented__keyword__line_marker
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__0
+        __init__            = construct_triple_operator__line_marker_1
+        add_comment         = add_comment__commented_statement
+        count_newlines      = count_newlines__line_marker
+        dump_token          = dump_token__indented__keyword__line_marker
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__0
 
 
     class Indented_Yield_LineMarker_1(BaseTripleOperator):
@@ -480,12 +480,12 @@ def gem():
         line_marker                = true
         newlines                   = 1
 
-        __init__         = construct_triple_operator__line_marker_1
-        add_comment      = add_comment__commented_statement
-        count_newlines   = count_newlines__line_marker
-        dump_token       = dump_token__indented__keyword__line_marker
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__0
+        __init__            = construct_triple_operator__line_marker_1
+        add_comment         = add_comment__commented_statement
+        count_newlines      = count_newlines__line_marker
+        dump_token          = dump_token__indented__keyword__line_marker
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__0
 
 
     class Whitespace_Atom_Whitespace(BaseTripleOperator):

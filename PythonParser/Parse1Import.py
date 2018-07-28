@@ -1,11 +1,11 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Parse1Import')
-def gem():
-    require_gem('PythonParser.Core')
-    require_gem('PythonParser.Elemental')
-    require_gem('PythonParser.Match')
+@module('PythonParser.Parse1Import')
+def module():
+    require_module('PythonParser.Core')
+    require_module('PythonParser.Elemental')
+    require_module('PythonParser.Match')
 
 
     def parse1_statement_import_module():

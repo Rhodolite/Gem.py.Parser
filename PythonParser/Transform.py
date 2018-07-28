@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Transform')
-def gem():
+@module('PythonParser.Transform')
+def module():
     class PythonParserTransform(Object):
         __slots__ = ((
             'remove_comments',          #   Boolean

@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Atom')
-def gem():
-    require_gem('PythonParser.Method')
+@module('PythonParser.Atom')
+def module():
+    require_module('PythonParser.Method')
 
 
     lookup_atom  = lookup_normal_token

@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.DualFrill')
-def gem():
-    require_gem('CoreParser.Core')
-    require_gem('CoreParser.DualTwig')
+@module('CoreParser.DualFrill')
+def module():
+    require_module('CoreParser.Core')
+    require_module('CoreParser.DualTwig')
 
 
     dual_frill_cache  = {}
@@ -12,7 +12,7 @@ def gem():
     store_dual_frill  = dual_frill_cache.__setitem__
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         class Commented_V_Frill(DualTwig):
             __slots__ = (())
             comment   = DualTwig.a
@@ -22,7 +22,7 @@ def gem():
             display_name = '#v-frill'
 
 
-            if gem_global.python_parser:
+            if capital_global.python_parser:
                 def transform(t, vary):
                     comment = t.comment
                     v       = t.v
@@ -59,7 +59,7 @@ def gem():
         dump_token     = dump_token__12
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             #
             #   NOTE:
             #       This is deliberatly called .morph, as its not appropriate to do .mutate on a general
@@ -83,12 +83,12 @@ def gem():
                 return conjure_vw_frill(a__2, b__2)
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             order = order__ab
 
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         conjure_commented_v_frill = produce_conjure_dual(
                                         '#v-frill',
                                         Commented_V_Frill,
@@ -109,14 +109,14 @@ def gem():
     #
     #   .transform
     #
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         VW_Frill.transform = produce_transform__ab('vw_frill', conjure_vw_frill)
 
 
     append_cache('dual-frill', dual_frill_cache)
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         export(
             'conjure_commented_v_frill',    conjure_commented_v_frill,
         )

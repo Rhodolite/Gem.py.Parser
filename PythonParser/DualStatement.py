@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.DualStatement')
-def gem():
+@module('PythonParser.DualStatement')
+def module():
     @share
     def dump_token__ab(t, f, newline = true):
         assert newline is true
@@ -12,9 +12,9 @@ def gem():
             t.b.dump_token(f)
 
 
-    def find_require_gem__ab(t, e):
-        t.a.find_require_gem(e)
-        t.b.find_require_gem(e)
+    def find_require_module__ab(t, e):
+        t.a.find_require_module(e)
+        t.b.find_require_module(e)
 
 
     @property
@@ -32,10 +32,10 @@ def gem():
         is_statement_header        = false
         is_statement               = true
 
-        dump_token       = dump_token__ab
-        find_require_gem = find_require_gem__ab
-        indentation      = indentation__a_indentation
-        scout_variables  = scout_variables__ab
+        dump_token          = dump_token__ab
+        find_require_module = find_require_module__ab
+        indentation         = indentation__a_indentation
+        scout_variables     = scout_variables__ab
 
 
     class CommentedStatement(DualTwig):
@@ -57,7 +57,7 @@ def gem():
                 t.b.dump_token(f)
 
 
-        find_require_gem = find_require_gem__b
+        find_require_module = find_require_module__b
 
 
         @property

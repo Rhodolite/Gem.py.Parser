@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.ParserTrunk')
-def gem():
-    require_gem('CoreParser.Core')
+@module('CoreParser.ParserTrunk')
+def module():
+    require_module('CoreParser.Core')
 
 
     @export
@@ -15,13 +15,13 @@ def gem():
         is_herd       = false
 
 
-        if gem_global.crystal_parser:
+        if capital_global.crystal_parser:
             is_empty_line                    = false
             is_end_of_data                   = false
             is_end_of_data__or__unknown_line = false
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             is_class_decorator_or_function_header = false
             is_comment_line                       = false
             is_comment__or__empty_line            = false
@@ -38,5 +38,5 @@ def gem():
                 return t.display_token()
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             nub = static_conjure_nub

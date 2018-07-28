@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.TokenCache')
-def gem():
-    require_gem('CoreParser.Cache')
-    require_gem('CoreParser.Core')
+@module('CoreParser.TokenCache')
+def module():
+    require_module('CoreParser.Cache')
+    require_module('CoreParser.Core')
 
 
     #

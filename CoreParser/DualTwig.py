@@ -1,11 +1,11 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.DualTwig')
-def gem():
-    require_gem('CoreParser.Core')
-    require_gem('CoreParser.Method')
-    require_gem('CoreParser.ParserTrunk')
+@module('CoreParser.DualTwig')
+def module():
+    require_module('CoreParser.Core')
+    require_module('CoreParser.Method')
+    require_module('CoreParser.ParserTrunk')
 
 
     dual_twig_cache  = {}
@@ -36,7 +36,7 @@ def gem():
             return f.token_result(r, newline)
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             order = order__ab
 
 

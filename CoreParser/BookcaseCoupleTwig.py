@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.BookcaseCoupleTwig')
-def gem():
-    require_gem('CoreParser.Core')
-    require_gem('CoreParser.DualTwig')
+@module('CoreParser.BookcaseCoupleTwig')
+def module():
+    require_module('CoreParser.Core')
+    require_module('CoreParser.DualTwig')
 
 
     #
@@ -73,7 +73,7 @@ def gem():
                            frill.w.display_token())
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             order = order__frill_ab
 
 

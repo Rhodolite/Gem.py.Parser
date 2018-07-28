@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.EmptyLine')
-def gem():
-    require_gem('CoreParser.Core')
-    require_gem('CoreParser.Cache')
+@module('CoreParser.EmptyLine')
+def module():
+    require_module('CoreParser.Core')
+    require_module('CoreParser.Cache')
 
 
     empty_line_cache   = {}
@@ -16,7 +16,7 @@ def gem():
         __slots__                        = (())
 
 
-        if gem_global.crystal_parser:
+        if capital_global.crystal_parser:
             ends_in_newline                  = true
             indentation                      = none
             impression                       = 0
@@ -27,7 +27,7 @@ def gem():
             newlines                         = 1
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             class_order                = CLASS_ORDER__EMPTY_LINE
             is_any_else                = false
             is_any_except_or_finally   = false
@@ -42,7 +42,7 @@ def gem():
             return arrange('<EmptyLine %s>', portray_string(t))
 
 
-        if gem_global.crystal_parser:
+        if capital_global.crystal_parser:
             def count_newlines(t):
                 assert (t.ends_in_newline is true) and (t.newlines is 1) and (t.line_marker is false)
                 assert (t.count('\n') is 1) and (t[-1] == '\n')
@@ -63,11 +63,11 @@ def gem():
             f.line('<%s>', portray_string(t)[1:-1])
 
 
-        if gem_global.python_parser:
-            find_require_gem = find_require_gem__0
-            order            = order__string
-            scout_variables  = scout_variables__0
-            transform        = transform__remove_comments_0
+        if capital_global.python_parser:
+            find_require_module = find_require_module__0
+            order               = order__string
+            scout_variables     = scout_variables__0
+            transform           = transform__remove_comments_0
 
 
         def write(t, w):

@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.QuadrupleFrill')
-def gem():
-    require_gem('PythonParser.QuadrupleTwig')
+@module('PythonParser.QuadrupleFrill')
+def module():
+    require_module('PythonParser.QuadrupleTwig')
 
 
     quadruple_frill_cache  = create_cache('quadruple_frill')

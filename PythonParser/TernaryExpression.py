@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.TernaryExpression')
-def gem():
+@module('PythonParser.TernaryExpression')
+def module():
     triple_expression_with_frill_cache  = create_cache('triple-expression-with-frill')
     lookup_triple_expression_with_frill = triple_expression_with_frill_cache.lookup
     store_triple_expression_with_frill  = triple_expression_with_frill_cache.store

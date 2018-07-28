@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Variable')
-def gem():
-    require_gem('PythonParser.Cache')
+@module('PythonParser.Variable')
+def module():
+    require_module('PythonParser.Cache')
 
 
     cell_function_parameter_cache = create_cache('cell-function-parameter')

@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.ActionWord')
-def gem():
-    require_gem('CoreParser.CreateMeta')
-    require_gem('CoreParser.TokenCache')
+@module('CoreParser.ActionWord')
+def module():
+    require_module('CoreParser.CreateMeta')
+    require_module('CoreParser.TokenCache')
 
 
     lookup_action_word  = lookup_normal_token

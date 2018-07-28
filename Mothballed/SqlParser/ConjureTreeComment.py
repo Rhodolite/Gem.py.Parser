@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('SqlParser.ConjureTreeComment')
-def gem():
-    require_gem('SqlParser.Core')
-    require_gem('SqlParser.Comment')
+@module('SqlParser.ConjureTreeComment')
+def module():
+    require_module('SqlParser.Core')
+    require_module('SqlParser.Comment')
 
 
     tree_comment_cache   = {}
@@ -113,7 +113,7 @@ def gem():
         return third
 
 
-    if gem_global.testing:
+    if capital_global.testing:
         export(
             'tree_comment_cache',   tree_comment_cache,
         )

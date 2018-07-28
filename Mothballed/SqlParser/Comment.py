@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('SqlParser.Comment')
-def gem():
+@module('SqlParser.Comment')
+def module():
     class CommentOperator(ParserToken):
         display_name        = 'comment-operator'
         is_comment_operator = true

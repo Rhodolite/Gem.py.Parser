@@ -16,26 +16,26 @@ def boot():
     path_0 = module_path[0]
 
     module_path.insert(0, path_absolute(path_join(path_0, '../')))
-    module_path.insert(1, path_absolute(path_join(path_0, '../../Gem')))
+    module_path.insert(1, path_absolute(path_join(path_0, '../../Capital')))
     module_path.insert(2, path_absolute(path_join(path_0, '../../Tremolite')))
 
 
-    import Gem
+    import Capital
 
 
-@gem('PythonParser.Main')
-def gem():
-    require_gem('Gem.Global')
+@module('PythonParser.Main')
+def module():
+    require_module('Capital.Global')
 
 
-    from Gem import gem_global
+    from Capital import capital_global
 
 
-    gem_global.crystal_parser = true
-    gem_global.python_parser  = true
+    capital_global.crystal_parser = true
+    capital_global.python_parser  = true
 
 
-    require_gem('PythonParser.Core')
+    require_module('PythonParser.Core')
 
 
     choice = 3
@@ -47,7 +47,7 @@ def gem():
             remove_comments    = false,
             remove_indentation = false,
     ):
-        require_gem('PythonParser.Transform')
+        require_module('PythonParser.Transform')
 
         vary = create_python_parser_transform(
                    remove_comments    = remove_comments,
@@ -55,11 +55,11 @@ def gem():
                )
 
         if fast_cache is 0:
-            require_gem('PythonParser.Pattern')
+            require_module('PythonParser.Pattern')
 
             create_python_parser_match()
 
-        require_gem('PythonParser.Combine')
+        require_module('PythonParser.Combine')
 
         command_combine__X(module_name, vary)
 
@@ -69,7 +69,7 @@ def gem():
 
 
     def command_development():
-        require_gem('PythonParser.Development')
+        require_module('PythonParser.Development')
 
         development()
 
@@ -79,12 +79,12 @@ def gem():
             remove_indentation = false,
             show               = 0,
     ):
-        require_gem('PythonParser.Pattern')
+        require_module('PythonParser.Pattern')
 
         create_python_parser_match()
 
-        require_gem('PythonParser.Transform')
-        require_gem('PythonParser.Parse')                               #   Must be after `create_python_parser_match`
+        require_module('PythonParser.Transform')
+        require_module('PythonParser.Parse')                            #   Must be after `create_python_parser_match`
 
         vary = create_python_parser_transform(
                    remove_comments    = remove_comments,

@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.ClassOrder')
-def gem():
+@module('CoreParser.ClassOrder')
+def module():
     export(
         'CLASS_ORDER__NORMAL_TOKEN',                     1,     #   Normal token
 

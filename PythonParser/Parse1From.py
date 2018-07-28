@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Parse1From')
-def gem():
-    require_gem('PythonParser.BookcaseKeywordDualStatement')
+@module('PythonParser.Parse1From')
+def module():
+    require_module('PythonParser.BookcaseKeywordDualStatement')
 
 
     def parse1_statement_from_module(index):

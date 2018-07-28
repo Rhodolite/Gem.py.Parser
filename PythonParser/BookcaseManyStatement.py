@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.BookcaseManyStatement')
-def gem():
-    require_gem('PythonParser.BookcaseManyExpression')
+@module('PythonParser.BookcaseManyStatement')
+def module():
+    require_module('PythonParser.BookcaseManyExpression')
 
 
     def write__comment_many(t, w):
@@ -115,8 +115,8 @@ def gem():
             return f.token_result(r, newline)
 
 
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__assign_statement_many
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__assign_statement_many
 
 
         @property
@@ -156,7 +156,7 @@ def gem():
                 frill.end    .dump_token(f)
 
 
-        find_require_gem = find_require_gem__0
+        find_require_module = find_require_module__0
 
 
         @property
@@ -211,9 +211,9 @@ def gem():
                 frill         .end.dump_token(f)
 
 
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__delete_statement_many
-        write            = write__comment_many
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__delete_statement_many
+        write               = write__comment_many
 
 
     class DeleteStatement_Many(BookcaseManyExpression):
@@ -263,8 +263,8 @@ def gem():
             return f.token_result(r, newline)
 
 
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__delete_statement_many
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__delete_statement_many
 
 
     [

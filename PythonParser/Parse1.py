@@ -1,26 +1,26 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Parse1')
-def gem():
-    require_gem('PythonParser.Core')
+@module('PythonParser.Parse1')
+def module():
+    require_module('PythonParser.Core')
 
-    require_gem('PythonParser.Atom')
-    require_gem('PythonParser.BinaryExpression')
-    require_gem('PythonParser.Parse1Atom')
-    require_gem('PythonParser.Parse1Call')
-    require_gem('PythonParser.Parse1Complex')
-    require_gem('PythonParser.Parse1Expression')
-    require_gem('PythonParser.Parse1ExpressionStatement')
-    require_gem('PythonParser.Parse1From')
-    require_gem('PythonParser.Parse1Function')
-    require_gem('PythonParser.Parse1Import')
-    require_gem('PythonParser.Parse1Simple')
-    require_gem('PythonParser.QuadrupleToken')
-    require_gem('PythonParser.Tokenize1Atom')
-    require_gem('PythonParser.Tokenize1Header')
-    require_gem('PythonParser.Tokenize1Name')
-    require_gem('PythonParser.Tokenize1Operator')
+    require_module('PythonParser.Atom')
+    require_module('PythonParser.BinaryExpression')
+    require_module('PythonParser.Parse1Atom')
+    require_module('PythonParser.Parse1Call')
+    require_module('PythonParser.Parse1Complex')
+    require_module('PythonParser.Parse1Expression')
+    require_module('PythonParser.Parse1ExpressionStatement')
+    require_module('PythonParser.Parse1From')
+    require_module('PythonParser.Parse1Function')
+    require_module('PythonParser.Parse1Import')
+    require_module('PythonParser.Parse1Simple')
+    require_module('PythonParser.QuadrupleToken')
+    require_module('PythonParser.Tokenize1Atom')
+    require_module('PythonParser.Tokenize1Header')
+    require_module('PythonParser.Tokenize1Name')
+    require_module('PythonParser.Tokenize1Operator')
 
 
     find_parse1_colon_line = {

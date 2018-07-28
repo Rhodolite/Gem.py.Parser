@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Elemental')
-def gem():
+@module('PythonParser.Elemental')
+def module():
     def construct_action_word__line_marker_1(t, s):
         assert (t.ends_in_newline is t.line_marker is true) and (t.newlines is 1)
         assert (s.count('\n') is 1) and (s[-1] == '\n')

@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Whitespace')
-def gem():
-    require_gem('PythonParser.Method')
+@module('PythonParser.Whitespace')
+def module():
+    require_module('PythonParser.Method')
 
 
     class TokenWhitespace(ParserToken):

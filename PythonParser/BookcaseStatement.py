@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.BookcaseStatement')
-def gem():
+@module('PythonParser.BookcaseStatement')
+def module():
     class ExpressionStatement(BookcaseExpression):
         __slots__                  = (())
         display_name               = 'expression-statement'
@@ -56,7 +56,7 @@ def gem():
                 frill.w.dump_token(f)
 
 
-        find_require_gem = find_require_gem__0
+        find_require_module = find_require_module__0
 
 
         @property

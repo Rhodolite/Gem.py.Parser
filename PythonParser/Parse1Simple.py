@@ -1,11 +1,11 @@
 #
 #   Copyright (c) 2017 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Parse1Simple')
-def gem():
-    require_gem('PythonParser.BookcaseKeywordStatement')
-    require_gem('PythonParser.BookcaseStatement')
-    require_gem('PythonParser.BookcaseTriple')
+@module('PythonParser.Parse1Simple')
+def module():
+    require_module('PythonParser.BookcaseKeywordStatement')
+    require_module('PythonParser.BookcaseStatement')
+    require_module('PythonParser.BookcaseTriple')
 
 
     show = 7

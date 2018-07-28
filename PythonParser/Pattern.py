@@ -1,12 +1,12 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Pattern')
-def gem():
-    require_gem('PythonParser.Core')
-    require_gem('Restructure.Build')
-    require_gem('Restructure.CreateMatch')
-    require_gem('Restructure.Name')
+@module('PythonParser.Pattern')
+def module():
+    require_module('PythonParser.Core')
+    require_module('Restructure.Build')
+    require_module('Restructure.CreateMatch')
+    require_module('Restructure.Name')
 
 
     from Restructure import create_match_code, ANY_OF, BACKSLASH, DOT, EMPTY, END_OF_PATTERN, EXACT

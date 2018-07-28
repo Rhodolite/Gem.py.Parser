@@ -1,16 +1,16 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Parse3')
-def gem():
+@module('PythonParser.Parse3')
+def module():
     debug = 0
 
 
-    require_gem('PythonParser.DualStatement')
-    require_gem('PythonParser.MosiacDefinition')
-    require_gem('PythonParser.QuadrupleStatement')
-    require_gem('PythonParser.Suite')
-    require_gem('PythonParser.TripleStatement')
+    require_module('PythonParser.DualStatement')
+    require_module('PythonParser.MosiacDefinition')
+    require_module('PythonParser.QuadrupleStatement')
+    require_module('PythonParser.Suite')
+    require_module('PythonParser.TripleStatement')
 
 
     @share

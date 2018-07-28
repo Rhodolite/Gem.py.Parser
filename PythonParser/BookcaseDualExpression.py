@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.BookcaseDualExpression')
-def gem():
-    require_gem('PythonParser.Elemental')
+@module('PythonParser.BookcaseDualExpression')
+def module():
+    require_module('PythonParser.Elemental')
 
 
     class Arguments_2(BookcaseDualTwig):

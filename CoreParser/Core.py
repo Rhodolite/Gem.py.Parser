@@ -1,30 +1,30 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.Core')
-def gem():
-    require_gem('Gem.Absent')
-    require_gem('Gem.Cache')
-    require_gem('Gem.Cache2')
-    require_gem('Gem.Cadence')
-    require_gem('Gem.DelayedFileOutput')
-    require_gem('Gem.Exception')
-    require_gem('Gem.Global')
-    require_gem('Gem.Method')
-    require_gem('Gem.Path')
-    require_gem('Gem.SimpleStringIO')
-    require_gem('Gem.StringOutput')
-    require_gem('Gem.System')
+@module('CoreParser.Core')
+def module():
+    require_module('Capital.Absent')
+    require_module('Capital.Cache')
+    require_module('Capital.Cache2')
+    require_module('Capital.Cadence')
+    require_module('Capital.DelayedFileOutput')
+    require_module('Capital.Exception')
+    require_module('Capital.Global')
+    require_module('Capital.Method')
+    require_module('Capital.Path')
+    require_module('Capital.SimpleStringIO')
+    require_module('Capital.StringOutput')
+    require_module('Capital.System')
 
 
-    from Gem import cadence_constructing, cadence_entered, cadence_exception, cadence_exited, cadence_initialized
-    from Gem import cadence_reuse, caller_frame_1, create_cache, create_DelayedFileOutput, create_SimpleStringOutput
-    from Gem import create_StringOutput, Exception, gem_global
-    from Gem import path_basename, produce_cache_functions, produce_conjure_by_name, produce_conjure_dual
-    from Gem import produce_conjure_dual__21, produce_conjure_triple, produce_conjure_unique_dual
-    from Gem import produce_conjure_unique_triple
-    from Gem import produce_conjure_unique_triple__312
-    from Gem import return_self, slice_all, StringOutput
+    from Capital import cadence_constructing, cadence_entered, cadence_exception, cadence_exited, cadence_initialized
+    from Capital import cadence_reuse, caller_frame_1, create_cache, create_DelayedFileOutput
+    from Capital import create_SimpleStringOutput, create_StringOutput, Exception, capital_global
+    from Capital import path_basename, produce_cache_functions, produce_conjure_by_name, produce_conjure_dual
+    from Capital import produce_conjure_dual__21, produce_conjure_triple, produce_conjure_unique_dual
+    from Capital import produce_conjure_unique_triple
+    from Capital import produce_conjure_unique_triple__312
+    from Capital import return_self, slice_all, StringOutput
 
 
     share(
@@ -69,6 +69,6 @@ def gem():
         'cadence_exited',               cadence_exited,
         'cadence_initialized',          cadence_initialized,
         'cadence_reuse',                cadence_reuse,
-        'gem_global',                   gem_global,
+        'capital_global',               capital_global,
         'slice_all',                    slice_all,
     )

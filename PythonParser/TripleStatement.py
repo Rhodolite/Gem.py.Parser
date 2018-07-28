@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.TripleStatement')
-def gem():
+@module('PythonParser.TripleStatement')
+def module():
     class TripleStatement(TripleTwig):
         __slots__                  = (())
         display_name               = 'triple-statement'
@@ -22,10 +22,10 @@ def gem():
                 t.c.dump_token(f)
 
 
-        def find_require_gem(t, e):
-            t.a.find_require_gem(e)
-            t.b.find_require_gem(e)
-            t.c.find_require_gem(e)
+        def find_require_module(t, e):
+            t.a.find_require_module(e)
+            t.b.find_require_module(e)
+            t.c.find_require_module(e)
 
 
         indentation     = indentation__a_indentation

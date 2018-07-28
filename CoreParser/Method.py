@@ -1,19 +1,19 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.Method')
-def gem():
+@module('CoreParser.Method')
+def module():
     #
     #   construct
     #
-    if gem_global.crystal_parser:
+    if capital_global.crystal_parser:
         @export
         def construct__ab(t, a, b):
             t.a = a
             t.b = b
 
 
-    if gem_global.crystal_parser:
+    if capital_global.crystal_parser:
         @export
         def construct__123(t, k1, k2, k3):
             t.k1 = k1
@@ -24,13 +24,13 @@ def gem():
     #
     #   count_newlines
     #
-    if gem_global.crystal_parser:
+    if capital_global.crystal_parser:
         @export
         def count_newlines__ab(t):
             return t.a.count_newlines() + t.b.count_newlines()
 
 
-    if gem_global.crystal_parser:
+    if capital_global.crystal_parser:
         @export
         def count_newlines__123(t):
             return t.k1.count_newlines() + t.k2.count_newlines() + t.k3.count_newlines()
@@ -39,13 +39,13 @@ def gem():
     #
     #   display_token
     #
-    if gem_global.crystal_parser:
+    if capital_global.crystal_parser:
         @export
         def display_token__ab(t):
             return arrange('<%s %s %s>', t.display_name, t.a.display_token(), t.b.display_token())
     
 
-    if gem_global.crystal_parser:
+    if capital_global.crystal_parser:
         @export
         def display_token__123(t):
             return arrange('<%s %s %s %s>',
@@ -58,7 +58,7 @@ def gem():
     #
     #   dump_token
     #
-    if gem_global.crystal_parser:
+    if capital_global.crystal_parser:
         @export
         def dump_token__12(t, f, newline = true):
             f.partial('<%s ', t.display_name)
@@ -69,7 +69,7 @@ def gem():
             return f.token_result(r, newline)
 
 
-    if gem_global.crystal_parser:
+    if capital_global.crystal_parser:
         @share
         def dump_token__123(t, f, newline = true):
             f.partial('<%s ', t.display_name)
@@ -82,18 +82,18 @@ def gem():
 
 
     #
-    #   find_require_gem
+    #   find_require_module
     #
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
-        def find_require_gem__0(t, e):
+        def find_require_module__0(t, e):
             pass
 
 
     #
     #   is_name
     #
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def is_name__0(t, name):
             return false
@@ -102,13 +102,13 @@ def gem():
     #
     #   mutate
     #
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def mutate__self(t, vary, priority):
             return t
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def produce_mutate__uncommented(name, uncommented):
             @rename('mutate_%s', name)
@@ -125,7 +125,7 @@ def gem():
     #
     #   order
     #
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def order__ab(a, b):
             a_order = a.class_order
@@ -142,7 +142,7 @@ def gem():
             return 1
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def order__abc(a, b):
             a_order = a.class_order
@@ -159,7 +159,7 @@ def gem():
             return 1
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def order__frill_ab(a, b):
             a_order = a.class_order
@@ -177,7 +177,7 @@ def gem():
 
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def order__s(a, b):
             a_order = a.class_order
@@ -199,7 +199,7 @@ def gem():
     #
     #   order__string
     #
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def order__string(a, b):
             if a < b:   return -1
@@ -211,13 +211,13 @@ def gem():
     #
     #   portray
     #
-    if gem_global.crystal_parser:
+    if capital_global.crystal_parser:
         @export
         def portray__ab(t):
             return arrange('<%s %r %r>', t.__class__.__name__, t.a, t.b)
 
 
-    if gem_global.crystal_parser:
+    if capital_global.crystal_parser:
         @export
         def portray__123(t):
             return arrange('<%s %s %r %r>', t.__class__.__name__, t.k1, t.k2, t.k3)
@@ -226,7 +226,7 @@ def gem():
     #
     #   scout_default_values
     #
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def scout_default_values__0(t, art):
             pass
@@ -235,7 +235,7 @@ def gem():
     #
     #   scout_variables
     #
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def scout_variables__0(t, art):
             pass
@@ -244,7 +244,7 @@ def gem():
     #
     #   transform
     #
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def produce_transform__ab(name, conjure):
             @rename('transform_%s', name)
@@ -264,7 +264,7 @@ def gem():
             return transform
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def produce_transform__abc(name, conjure):
             @rename('transform_%s', name)
@@ -286,7 +286,7 @@ def gem():
             return transform
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def produce_transform__uncommented(name, uncommented):
             @rename('transform_%s', name)
@@ -300,7 +300,7 @@ def gem():
             return transform
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def transform__remove_comments_0(t, vary):
             if vary.remove_comments:
@@ -309,7 +309,7 @@ def gem():
             return t
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def transform__self(t, vary):
             return t
@@ -318,7 +318,7 @@ def gem():
     #
     #   write
     #
-    if gem_global.crystal_parser:
+    if capital_global.crystal_parser:
         @share
         def write__123(t, w):
             t.k1.write(w)

@@ -1,11 +1,11 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.LineMarker')
-def gem():
-    require_gem('CoreParser.Core')
-    require_gem('CoreParser.ClassOrder')
-    require_gem('CoreParser.Method')
+@module('CoreParser.LineMarker')
+def module():
+    require_module('CoreParser.Core')
+    require_module('CoreParser.ClassOrder')
+    require_module('CoreParser.Method')
 
 
     def construct_token__line_marker__many(t, s, newlines):
@@ -19,13 +19,13 @@ def gem():
         display_name = 'line-marker'
 
 
-        if gem_global.crystal_parser:
+        if capital_global.crystal_parser:
             ends_in_newline = true
             line_marker     = true
             newlines        = 1
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             class_order                             = CLASS_ORDER__LINE_MARKER
             is_end_of_arithmetic_expression         = true
             is_end_of_boolean_and_expression        = true
@@ -74,7 +74,7 @@ def gem():
             return true
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             order = order__s
 
 
@@ -90,7 +90,7 @@ def gem():
         return provide_line_marker(s, LineMarker(s))
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def produce_conjure_action_word__line_marker(name, Meta):
             @rename('conjure_%s__line_marker', name)
@@ -121,7 +121,7 @@ def gem():
             return conjure_action_word__line_marker
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         LINE_MARKER = conjure_line_marker('\n')
 
 
