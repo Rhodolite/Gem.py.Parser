@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.QuadrupleTwig')
-def gem():
+@module('PythonParser.QuadrupleTwig')
+def module():
     @share
     def construct__abcd(t, a, b, c, d):
         t.a = a

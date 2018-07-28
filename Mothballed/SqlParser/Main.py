@@ -16,33 +16,33 @@ def boot():
     path_0 = module_path[0]
 
     module_path.insert(0, path_absolute(path_join(path_0, '../')))
-    module_path.insert(1, path_absolute(path_join(path_0, '../../../Gem')))
+    module_path.insert(1, path_absolute(path_join(path_0, '../../../Capital')))
     module_path.insert(2, path_absolute(path_join(path_0, '../../../Parser')))
     module_path.insert(3, path_absolute(path_join(path_0, '../../../Tremolite')))
 
 
-    import Gem
+    import Capital
 
 
-@gem('SqlParser.Main')
-def gem():
-    require_gem('Gem.Global')
+@module('SqlParser.Main')
+def module():
+    require_module('Capital.Global')
 
 
-    from Gem import gem_global
+    from Capital import capital_global
 
 
-    gem_global.sql_parser = true
+    capital_global.sql_parser = true
 
 
-    require_gem('SqlParser.Core')
-    require_gem('SqlParser.Pattern')
+    require_module('SqlParser.Core')
+    require_module('SqlParser.Pattern')
 
 
     @share
     def main(arguments):
         create_sql_parser_match()
 
-        require_gem('SqlParser.Parse1')                                 #   Must be after `create_sql_parser_match`
+        require_module('SqlParser.Parse1')                              #   Must be after `create_sql_parser_match`
 
         parse1_mysql_from_path('test.sql')

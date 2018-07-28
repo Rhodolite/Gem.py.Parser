@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.DefinitionHeader')
-def gem():
-    require_gem('PythonParser.Method')
+@module('PythonParser.DefinitionHeader')
+def module():
+    require_module('PythonParser.Method')
 
 
     class DefinitionHeader(ParserTrunk):

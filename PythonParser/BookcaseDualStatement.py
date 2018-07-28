@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.BookcaseDualStatement')
-def gem():
+@module('PythonParser.BookcaseDualStatement')
+def module():
     def produce_add_comment(name, conjure_with_frill):
         @rename('add_comment__%s', name)
         def add_comment(t, comment):
@@ -110,8 +110,8 @@ def gem():
         frill            = conjure_vwx_frill(empty_indentation, W__ASSIGN__W, LINE_MARKER)
 
 
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__a_with_write__b
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__a_with_write__b
 
 
     class ModifyStatement(DualExpressionStatement):
@@ -124,8 +124,8 @@ def gem():
                            LINE_MARKER,
                        )
 
-        scout_variables  = scout_variables__a_with_write__b
-        find_require_gem = find_require_gem__0
+        scout_variables     = scout_variables__a_with_write__b
+        find_require_module = find_require_module__0
 
 
     [

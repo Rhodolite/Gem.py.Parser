@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.Nub')
-def gem():
-    require_gem('CoreParser.Core')
+@module('CoreParser.Nub')
+def module():
+    require_module('CoreParser.Core')
 
 
     nub_cache   = create_cache('nub')

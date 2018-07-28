@@ -1,11 +1,11 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.CrystalComment')
-def gem():
-    require_gem('CoreParser.Core')
-    require_gem('CoreParser.ClassOrder')
-    require_gem('CoreParser.CrystalIndentation')
+@module('CoreParser.CrystalComment')
+def module():
+    require_module('CoreParser.Core')
+    require_module('CoreParser.ClassOrder')
+    require_module('CoreParser.CrystalIndentation')
 
 
     comment_line_cache   = {}
@@ -38,7 +38,7 @@ def gem():
         newlines                         = 1
 
         
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             class_order = CLASS_ORDER__COMMENT_LINE__STRING
             is_any_else                      = false
             is_any_except_or_finally         = false
@@ -67,10 +67,11 @@ def gem():
             return arrange('<# %s>', portray_string(t))
 
 
-        dump_token       = dump_token__comment
+        dump_token = dump_token__comment
 
-        if gem_global.python_parser:
-            find_require_gem = find_require_gem__0
+
+        if capital_global.python_parser:
+            find_require_module = find_require_module__0
             order            = order__string
             scout_variables  = scout_variables__0
             transform        = transform__remove_comments_0
@@ -96,7 +97,7 @@ def gem():
         newlines                         = 1
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             class_order = CLASS_ORDER__COMMENT_LINE
             is_any_else                = false
             is_any_except_or_finally   = false
@@ -131,11 +132,11 @@ def gem():
         dump_token = dump_token__comment
 
 
-        if gem_global.python_parser:
-            find_require_gem = find_require_gem__0
-            order            = order__s
-            scout_variables  = scout_variables__0
-            transform        = transform__remove_comments_0
+        if capital_global.python_parser:
+            find_require_module = find_require_module__0
+            order               = order__s
+            scout_variables     = scout_variables__0
+            transform           = transform__remove_comments_0
 
 
     class IndentedCommentLine(ParserToken):
@@ -153,7 +154,7 @@ def gem():
         newlines                         = 1
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             class_order                = CLASS_ORDER__COMMENT_LINE
             is_any_else                = false
             is_any_except_or_finally   = false
@@ -191,11 +192,11 @@ def gem():
         dump_token = dump_token__comment
 
 
-        if gem_global.python_parser:
-            find_require_gem = find_require_gem__0
-            order            = order__s
-            scout_variables  = scout_variables__0
-            transform        = transform__remove_comments_0
+        if capital_global.python_parser:
+            find_require_module = find_require_module__0
+            order               = order__s
+            scout_variables     = scout_variables__0
+            transform           = transform__remove_comments_0
 
 
     class IndentedCommentLine_WithTrailer(ParserToken):
@@ -212,7 +213,7 @@ def gem():
         newlines        = 1
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             class_order                = CLASS_ORDER__COMMENT_LINE
             is_any_else                = false
             is_any_except_or_finally   = false
@@ -250,7 +251,7 @@ def gem():
         dump_token = dump_token__comment
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             order           = order__s
             scout_variables = scout_variables__0
             transform       = transform__remove_comments_0

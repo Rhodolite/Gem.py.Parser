@@ -1,12 +1,12 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.BookcaseExpression')
-def gem():
-    require_gem('PythonParser.DualToken')
-    require_gem('PythonParser.Elemental')
-    require_gem('PythonParser.Priority')
-    require_gem('PythonParser.TripleToken')
+@module('PythonParser.BookcaseExpression')
+def module():
+    require_module('PythonParser.DualToken')
+    require_module('PythonParser.Elemental')
+    require_module('PythonParser.Priority')
+    require_module('PythonParser.TripleToken')
 
 
     LP_RP   = conjure_vw_frill(LP,  RP)

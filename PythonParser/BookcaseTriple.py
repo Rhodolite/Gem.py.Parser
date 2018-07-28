@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.BookcaseTriple')
-def gem():
-    require_gem('PythonParser.QuadrupleFrill')
+@module('PythonParser.BookcaseTriple')
+def module():
+    require_module('PythonParser.QuadrupleFrill')
 
 
     triple_expression_cache  = create_cache('triple-expression', conjure_nub)

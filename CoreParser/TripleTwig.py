@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.TripleTwig')
-def gem():
-    require_gem('CoreParser.Method')
+@module('CoreParser.TripleTwig')
+def module():
+    require_module('CoreParser.Method')
 
 
     @export

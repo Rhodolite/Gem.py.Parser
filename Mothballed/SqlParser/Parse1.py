@@ -1,11 +1,11 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('SqlParser.Parse1')
-def gem():
-    require_gem('SqlParser.Comment')
-    require_gem('SqlParser.ConjureTreeComment')
-    require_gem('SqlParser.Match')
+@module('SqlParser.Parse1')
+def module():
+    require_module('SqlParser.Comment')
+    require_module('SqlParser.ConjureTreeComment')
+    require_module('SqlParser.Match')
 
 
     show = true

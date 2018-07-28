@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Parse1Function')
-def gem():
-    require_gem('PythonParser.BookcaseDualStatement')
-    require_gem('PythonParser.DefinitionHeader')
+@module('PythonParser.Parse1Function')
+def module():
+    require_module('PythonParser.BookcaseDualStatement')
+    require_module('PythonParser.DefinitionHeader')
 
 
     @share

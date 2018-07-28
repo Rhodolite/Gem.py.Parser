@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.BookcaseManyExpression')
-def gem():
-    require_gem('PythonParser.BookcaseManyFrill')
-    require_gem('PythonParser.TupleOfExpression')
+@module('PythonParser.BookcaseManyExpression')
+def module():
+    require_module('PythonParser.BookcaseManyFrill')
+    require_module('PythonParser.TupleOfExpression')
 
 
     @share

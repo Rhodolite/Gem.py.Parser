@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.QuadrupleStatement')
-def gem():
+@module('PythonParser.QuadrupleStatement')
+def module():
     class QuadrupleStatement(QuadrupleTwig):
         __slots__                  = (())
         display_name               = 'quadruple-statement'
@@ -23,11 +23,11 @@ def gem():
                 t.d.dump_token(f)
 
 
-        def find_require_gem(t, e):
-            t.a.find_require_gem(e)
-            t.b.find_require_gem(e)
-            t.c.find_require_gem(e)
-            t.d.find_require_gem(e)
+        def find_require_module(t, e):
+            t.a.find_require_module(e)
+            t.b.find_require_module(e)
+            t.c.find_require_module(e)
+            t.d.find_require_module(e)
 
 
         indentation     = indentation__a_indentation

@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Parse1Atom')
-def gem():
+@module('PythonParser.Parse1Atom')
+def module():
     show = 7
 
 

@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.PrefixedDualStatement')
-def gem():
-    require_gem('PythonParser.DualStatement')
+@module('PythonParser.PrefixedDualStatement')
+def module():
+    require_module('PythonParser.DualStatement')
 
 
     prefixed_dual_twig_cache  = create_cache('prefixed-dual-twig', conjure_nub)
@@ -67,10 +67,10 @@ def gem():
         prefix                     = 0
         prefixed_display_name      = '#decorated-definition'
 
-        dump_token       = dump_token__ab
-        find_require_gem = find_require_gem__b
-        indentation      = indentation__a_indentation
-        scout_variables  = scout_variables__ab
+        dump_token          = dump_token__ab
+        find_require_module = find_require_module__b
+        indentation         = indentation__a_indentation
+        scout_variables     = scout_variables__ab
 
 
     @share
@@ -88,11 +88,11 @@ def gem():
         prefixed_display_name      = 'prefixed-else-fragment'
         split_comment              = 0
 
-        add_comment      = 0
-        dump_token       = dump_token__ab
-        find_require_gem = find_require_gem__b
-        indentation      = indentation__a_indentation
-        scout_variables  = scout_variables__ab
+        add_comment         = 0
+        dump_token          = dump_token__ab
+        find_require_module = find_require_module__b
+        indentation         = indentation__a_indentation
+        scout_variables     = scout_variables__ab
 
 
     @share
@@ -110,11 +110,11 @@ def gem():
         prefixed_display_name      = 'prefixed-else-if-fragment'
         split_comment              = 0
 
-        add_comment      = 0
-        dump_token       = dump_token__ab
-        find_require_gem = find_require_gem__b
-        indentation      = indentation__a_indentation
-        scout_variables  = scout_variables__ab
+        add_comment         = 0
+        dump_token          = dump_token__ab
+        find_require_module = find_require_module__b
+        indentation         = indentation__a_indentation
+        scout_variables     = scout_variables__ab
 
 
     @share
@@ -132,11 +132,11 @@ def gem():
         prefixed_display_name      = 'prefixed-except-fragment'
         split_comment              = 0
 
-        add_comment      = 0
-        dump_token       = dump_token__ab
-        find_require_gem = find_require_gem__b
-        indentation      = indentation__a_indentation
-        scout_variables  = scout_variables__ab
+        add_comment         = 0
+        dump_token          = dump_token__ab
+        find_require_module = find_require_module__b
+        indentation         = indentation__a_indentation
+        scout_variables     = scout_variables__ab
 
 
     @share
@@ -154,11 +154,11 @@ def gem():
         prefixed_display_name      = 'prefixed-finally-fragment'
         split_comment              = 0
 
-        add_comment      = 0
-        dump_token       = dump_token__ab
-        find_require_gem = find_require_gem__b
-        indentation      = indentation__a_indentation
-        scout_variables  = scout_variables__ab
+        add_comment         = 0
+        dump_token          = dump_token__ab
+        find_require_module = find_require_module__b
+        indentation         = indentation__a_indentation
+        scout_variables     = scout_variables__ab
 
 
     class ForStatement(DualTwig):
@@ -174,11 +174,11 @@ def gem():
         prefixed_display_name      = '#for-statement'
         split_comment              = 0
 
-        add_comment      = 0
-        dump_token       = dump_token__ab
-        find_require_gem = find_require_gem__b
-        indentation      = indentation__a_indentation
-        scout_variables  = scout_variables__ab
+        add_comment         = 0
+        dump_token          = dump_token__ab
+        find_require_module = find_require_module__b
+        indentation         = indentation__a_indentation
+        scout_variables     = scout_variables__ab
 
 
     @share
@@ -195,11 +195,11 @@ def gem():
         prefixed_display_name      = '#if-statement'
         split_comment              = 0
 
-        add_comment      = 0
-        dump_token       = dump_token__ab
-        find_require_gem = find_require_gem__b
-        indentation      = indentation__a_indentation
-        scout_variables  = scout_variables__ab
+        add_comment         = 0
+        dump_token          = dump_token__ab
+        find_require_module = find_require_module__b
+        indentation         = indentation__a_indentation
+        scout_variables     = scout_variables__ab
 
 
     @share
@@ -215,11 +215,11 @@ def gem():
         prefixed_display_name        = '#try-statement'
         split_comment                = 0
 
-        add_comment      = 0
-        dump_token       = dump_token__ab
-        find_require_gem = find_require_gem__b
-        indentation      = indentation__a_indentation
-        scout_variables  = scout_variables__ab
+        add_comment         = 0
+        dump_token          = dump_token__ab
+        find_require_module = find_require_module__b
+        indentation         = indentation__a_indentation
+        scout_variables     = scout_variables__ab
 
 
     class WhileStatement(DualTwig):
@@ -235,11 +235,11 @@ def gem():
         prefixed_display_name      = '#while-statement'
         split_comment              = 0
 
-        add_comment      = 0
-        dump_token       = dump_token__ab
-        find_require_gem = find_require_gem__b
-        indentation      = indentation__a_indentation
-        scout_variables  = scout_variables__ab
+        add_comment         = 0
+        dump_token          = dump_token__ab
+        find_require_module = find_require_module__b
+        indentation         = indentation__a_indentation
+        scout_variables     = scout_variables__ab
 
 
     class WithStatement(DualTwig):
@@ -255,11 +255,11 @@ def gem():
         prefixed_display_name      = '#with-statement'
         split_comment              = 0
 
-        add_comment      = 0
-        dump_token       = dump_token__ab
-        find_require_gem = find_require_gem__b
-        indentation      = indentation__a_indentation
-        scout_variables  = scout_variables__ab
+        add_comment         = 0
+        dump_token          = dump_token__ab
+        find_require_module = find_require_module__b
+        indentation         = indentation__a_indentation
+        scout_variables     = scout_variables__ab
 
 
     @share

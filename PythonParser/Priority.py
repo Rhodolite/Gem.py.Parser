@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Priority')
-def gem():
+@module('PythonParser.Priority')
+def module():
     share(
         'PRIORITY_ATOM',                     1,     #   atom
         'PRIORITY_TUPLE',                    2,     #   tuple

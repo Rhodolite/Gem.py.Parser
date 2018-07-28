@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Parse')
-def gem():
-    require_gem('PythonParser.Parse1')
-    require_gem('PythonParser.Parse3')
+@module('PythonParser.Parse')
+def module():
+    require_module('PythonParser.Parse1')
+    require_module('PythonParser.Parse3')
 
 
     def show_indentation(data_many):

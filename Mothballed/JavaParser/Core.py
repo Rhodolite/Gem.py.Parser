@@ -1,20 +1,20 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('JavaParser.Core')
-def gem():
-    require_gem('CoreParser.Elemental')
-    require_gem('CoreParser.Tokenizer')
-    require_gem('Gem.DumpCache')
-    require_gem('Gem.Traceback')
+@module('JavaParser.Core')
+def module():
+    require_module('CoreParser.Elemental')
+    require_module('CoreParser.Tokenizer')
+    require_module('Capital.DumpCache')
+    require_module('Capital.Traceback')
 
 
+    from Capital import create_cache
+    from Capital import module_path, path_join, print_cache, print_exception_chain
+    from Capital import program_exit, read_text_from_path, StringOutput
     from CoreParser import conjure_keyword_import, conjure_keyword_import__ends_in_newline, conjure_name
     from CoreParser import la, parse_context, qd, qi, qj, qk, ql, qn, qs, raise_unknown_line
     from CoreParser import wd, wd0, wd1, wi, wj, wk, wn, ws, z_initialize
-    from Gem import create_cache
-    from Gem import module_path, path_join, print_cache, print_exception_chain
-    from Gem import program_exit, read_text_from_path, StringOutput
 
 
     share(
@@ -24,6 +24,17 @@ def gem():
         'StringOutput',     StringOutput,
 
         
+        #
+        #   Imported functions (Capital)
+        #
+        'create_cache',             create_cache,
+        'path_join',                path_join,
+        'print_cache',              print_cache,
+        'print_exception_chain',    print_exception_chain,
+        'program_exit',             program_exit,
+        'read_text_from_path',      read_text_from_path,
+
+
         #
         #   Imported functions (CoreParser)
         #
@@ -51,24 +62,13 @@ def gem():
 
 
         #
-        #   Imported functions (Gem)
+        #   Values (Capital)
         #
-        'create_cache',             create_cache,
-        'path_join',                path_join,
-        'print_cache',              print_cache,
-        'print_exception_chain',    print_exception_chain,
-        'program_exit',             program_exit,
-        'read_text_from_path',      read_text_from_path,
+        'module_path',  module_path,
 
 
         #
         #   Values (CoreParser)
         #
-        'parse_context',                            parse_context,
-
-
-        #
-        #   Values (Gem)
-        #
-        'module_path',          module_path,
+        'parse_context',    parse_context,
     )

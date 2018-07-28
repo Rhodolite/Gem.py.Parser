@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Tokenize1Atom')
-def gem():
-    require_gem('PythonParser.Tokenize1Operator')
+@module('PythonParser.Tokenize1Atom')
+def module():
+    require_module('PythonParser.Tokenize1Operator')
 
 
     conjure_atom_whitespace             = Shared.conjure_atom_whitespace

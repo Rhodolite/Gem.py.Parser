@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.BookcaseManyFrill')
-def gem():
-    require_gem('PythonParser.ManyExpression')
+@module('PythonParser.BookcaseManyFrill')
+def module():
+    require_module('PythonParser.ManyExpression')
 
 
     bookcase_many_frill_cache = create_cache('bookcase-many-frill', conjure_nub)

@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Parse1ExpressionStatement')
-def gem():
-    require_gem('PythonParser.BookcaseManyStatement')
+@module('PythonParser.Parse1ExpressionStatement')
+def module():
+    require_module('PythonParser.BookcaseManyStatement')
 
 
     show = 0

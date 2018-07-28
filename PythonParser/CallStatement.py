@@ -1,11 +1,11 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.CallStatement')
-def gem():
-    require_gem('PythonParser.BookcaseExpression')
-    require_gem('PythonParser.MemberExpression')
-    require_gem('PythonParser.Method')
+@module('PythonParser.CallStatement')
+def module():
+    require_module('PythonParser.BookcaseExpression')
+    require_module('PythonParser.MemberExpression')
+    require_module('PythonParser.Method')
 
 
     class CallStatementBase(BookcaseCoupleTwig):
@@ -32,13 +32,13 @@ def gem():
                    )
 
 
-        def find_require_gem(t, e):
-            if not t.left.is_name('require_gem'):
+        def find_require_module(t, e):
+            if not t.left.is_name('require_module'):
                 return
 
             assert t.arguments.is_arguments_1
 
-            e.add_require_gem(t.arguments.a)
+            e.add_require_module(t.arguments.a)
 
 
         @property

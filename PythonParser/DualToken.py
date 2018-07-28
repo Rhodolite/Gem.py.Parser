@@ -1,13 +1,13 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.DualToken')
-def gem():
-    require_gem('PythonParser.ClassOrder')
-    require_gem('PythonParser.CreateMeta')
-    require_gem('PythonParser.Elemental')
-    require_gem('PythonParser.TokenCache')
-    require_gem('PythonParser.Whitespace')
+@module('PythonParser.DualToken')
+def module():
+    require_module('PythonParser.ClassOrder')
+    require_module('PythonParser.CreateMeta')
+    require_module('PythonParser.Elemental')
+    require_module('PythonParser.TokenCache')
+    require_module('PythonParser.Whitespace')
 
 
     def construct_dual_token(t, s, a, b):

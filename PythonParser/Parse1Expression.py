@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Parse1Expression')
-def gem():
-    require_gem('PythonParser.TernaryExpression')
-    require_gem('PythonParser.UnaryExpression')
+@module('PythonParser.Parse1Expression')
+def module():
+    require_module('PythonParser.TernaryExpression')
+    require_module('PythonParser.UnaryExpression')
 
 
     show = 0

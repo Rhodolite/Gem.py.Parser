@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.BuildSymbolTable')
-def gem():
-    require_gem('PythonParser.Variable')
+@module('PythonParser.BuildSymbolTable')
+def module():
+    require_module('PythonParser.Variable')
 
 
     def finalize_variables__build_nested_symbol_table(t):

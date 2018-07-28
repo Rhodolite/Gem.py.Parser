@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.TripleFrill')
-def gem():
-    require_gem('CoreParser.Core')
-    require_gem('CoreParser.TripleTwig')
+@module('CoreParser.TripleFrill')
+def module():
+    require_module('CoreParser.Core')
+    require_module('CoreParser.TripleTwig')
 
 
     triple_frill_cache  = {}
@@ -12,7 +12,7 @@ def gem():
     store_triple_frill  = triple_frill_cache.__setitem__
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         class Commented_VW_Frill(TripleTwig):
             __slots__ = (())
             comment   = TripleTwig.a
@@ -23,11 +23,11 @@ def gem():
             display_name = '#vw-frill'
 
 
-            if gem_global.python_parser:
+            if capital_global.python_parser:
                 order = order__abc
 
 
-            if gem_global.python_parser:
+            if capital_global.python_parser:
                 def transform(t, vary):
                     comment = t.comment
                     v       = t.v
@@ -58,7 +58,7 @@ def gem():
         frill_estimate = 3
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             def morph(t, vary, v_priority, w_priority, x_priority):
                 assert v_priority is x_priority is 0
 
@@ -76,11 +76,11 @@ def gem():
                 return conjure_vwx_frill(v__2, w__2, x__2)
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             order = order__abc
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         conjure_commented_vw_frill = produce_conjure_triple(
                                          '#vw-frill',
                                          Commented_VW_Frill,
@@ -99,14 +99,14 @@ def gem():
                         )
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         VWX_Frill.transform = produce_transform__abc('vwx-frill', conjure_vwx_frill)
 
 
     append_cache('triple-frill', triple_frill_cache)
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         export(
             'conjure_commented_vw_frill',   conjure_commented_vw_frill,
         )

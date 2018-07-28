@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.ManyExpression')
-def gem():
-    require_gem('PythonParser.ManyFrill')
-    require_gem('PythonParser.TupleOfExpression')
+@module('PythonParser.ManyExpression')
+def module():
+    require_module('PythonParser.ManyFrill')
+    require_module('PythonParser.TupleOfExpression')
 
 
     if __debug__:

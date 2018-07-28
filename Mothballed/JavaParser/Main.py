@@ -16,26 +16,26 @@ def boot():
     path_0 = module_path[0]
 
     module_path.insert(0, path_absolute(path_join(path_0, '../')))
-    module_path.insert(1, path_absolute(path_join(path_0, '../../../Gem')))
+    module_path.insert(1, path_absolute(path_join(path_0, '../../../Capital')))
     module_path.insert(2, path_absolute(path_join(path_0, '../../../Parser')))
     module_path.insert(3, path_absolute(path_join(path_0, '../../../Tremolite')))
 
 
-    import Gem
+    import Capital
 
 
-@gem('JavaParser.Main')
-def gem():
-    require_gem('Gem.Global')
+@module('JavaParser.Main')
+def module():
+    require_module('Capital.Global')
 
 
-    from Gem import gem_global
+    from Capital import capital_global
 
 
-    gem_global.java_parser = true
+    capital_global.java_parser = true
 
 
-    require_gem('JavaParser.Core')
+    require_module('JavaParser.Core')
 
 
     show = 0
@@ -46,11 +46,11 @@ def gem():
             remove_indentation = false,
             show               = 0,
     ):
-        require_gem('JavaParser.Pattern')
+        require_module('JavaParser.Pattern')
 
         create_java_parser_match()
 
-        require_gem('JavaParser.Parse')                                 #   Must be after `create_java_parser_match`
+        require_module('JavaParser.Parse')                              #   Must be after `create_java_parser_match`
 
         parse_java('test.java', test = 7, show = show)
 

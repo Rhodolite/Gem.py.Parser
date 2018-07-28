@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.Tokenizer')
-def gem():
-    require_gem('CoreParser.Core')
+@module('CoreParser.Tokenizer')
+def module():
+    require_module('CoreParser.Core')
 
 
     tokenizer = [none, 0, 0, 0, none, none, none, 0]

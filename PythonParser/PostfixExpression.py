@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.PostfixExpression')
-def gem():
+@module('PythonParser.PostfixExpression')
+def module():
     class CallExpression(DualTwig):
         __slots__          = (())
         class_order        = CLASS_ORDER__DUAL_TWIG

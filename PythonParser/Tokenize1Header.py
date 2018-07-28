@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Tokenize1Header')
-def gem():
+@module('PythonParser.Tokenize1Header')
+def module():
     show = 0
 
 

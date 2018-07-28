@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Combine')
-def gem():
-    require_gem('PythonParser.Parse')
-    require_gem('PythonParser.SymbolTable')
+@module('PythonParser.Combine')
+def module():
+    require_module('PythonParser.Parse')
+    require_module('PythonParser.SymbolTable')
 
 
     variables = [
@@ -25,13 +25,13 @@ def gem():
     #
     empty_indentation__function = conjure_indented_token(empty_indentation, FUNCTION__W)
 
-    #def gem():
-    gem__function_header = conjure_function_header(
-                               empty_indentation__function,
-                               conjure_name('gem'),
-                               conjure_parameters_0(LP, RP),
-                               COLON__LINE_MARKER,
-                           )
+    #def module_function():
+    module_function__function_header = conjure_function_header(
+            empty_indentation__function,
+            conjure_name('module'),
+            conjure_parameters_0(LP, RP),
+            COLON__LINE_MARKER,
+        )
 
 
     class Copyright(Object):
@@ -165,12 +165,12 @@ def gem():
             #
             #   Ignore these file, pretend we already saw them
             #
-            t._add_processed('Gem.Path2')
+            t._add_processed('Capital.Path2')
             t._add_processed('PythonParser.Boot')
             t._add_processed('PythonParser.Parse2')
 
 
-        def add_require_gem(t, module_name):
+        def add_require_module(t, module_name):
             assert module_name.is_single_quote
 
             s = module_name.s[1:-1]
@@ -235,8 +235,8 @@ def gem():
 
             if module.startswith('CoreParser.'):
                 parent = '../Parser'
-            elif module.startswith('Gem.'):
-                parent = '../Gem'
+            elif module.startswith('Capital.'):
+                parent = '../Capital'
             elif module.startswith('PythonParser.'):
                 parent = '../Parser'
             elif module.startswith('Restructure.'):
@@ -248,19 +248,19 @@ def gem():
 
             path = path_join(parent, arrange('%s.py', module.replace('.', '/')))
 
-            gem = extract_gem(module, path, t.vary)
+            module_function = extract_module_function(module, path, t.vary)
 
-            t._append_twig(gem)
+            t._append_twig(module_function)
 
-            gem.twig.find_require_gem(t)
+            module_function.twig.find_require_module(t)
 
 
-    def conjure_gem_decorator_header(module):
-        #@gem('Gem.Something')
+    def conjure__module_function__decorator_header(module):
+        #@module_function('Capital.Something')
         return conjure_decorator_header(
                    empty_indentation__at_sign,
                    conjure_call_expression(
-                       conjure_name('gem'),
+                       conjure_name('module'),
                        conjure_arguments_1(LP, conjure_single_quote(portray(module)), RP),
                    ),
                    LINE_MARKER,
@@ -329,25 +329,25 @@ def gem():
         return conjure_copyright(m.group('year'), m.group('author'))
 
 
-    def extract_gem(module, path, vary):
+    def extract_module_function(module, path, vary):
         tree = parse_python(path)
 
         assert length(tree) is 1
 
         copyright = extract_copyright(tree)
 
-        gem = tree[0]
+        module_function = tree[0]
 
-        if gem.a is not conjure_gem_decorator_header(module):
-            dump_token('gem.a', gem.a)
-            dump_token('other', conjure_gem_decorator_header(module))
+        #if module_function.a is not conjure__module_function__decorator_header(module):
+        #    dump_token('module_function.a', module_function.a)
+        #    dump_token('other', conjure__module_function__decorator_header(module))
 
-        assert gem.is_decorated_definition
-        assert gem.a is conjure_gem_decorator_header(module)
-        assert gem.b.is_function_definition
-        assert gem.b.a is gem__function_header
+        assert module_function.is_decorated_definition
+        assert module_function.a is conjure__module_function__decorator_header(module)
+        assert module_function.b.is_function_definition
+        assert module_function.b.a is module_function__function_header
 
-        return create_twig_code(path, '[0]', copyright, gem, vary)
+        return create_twig_code(path, '[0]', copyright, module_function, vary)
 
 
     def extract__single_python_file_boot(vary):
@@ -360,9 +360,9 @@ def gem():
         return extract_boot(path, tree, 0, extract_copyright(tree), vary)
 
 
-    def extract_gem_boot(vary):
-        module_name = 'Gem.Boot'
-        path        = path_join(source_path, 'Gem/Gem/Boot.py')
+    def extract_capital_boot(vary):
+        module_name = 'Capital.Boot'
+        path        = path_join(source_path, 'Capital/Capital/Boot.py')
         #path       = 'b2.py'
 
         tree = parse_python(path)
@@ -376,7 +376,7 @@ def gem():
         #       def boot(module_name):
         #           ...
         #
-        boot_decorator = extract_boot_decorator('gem', path, tree, copyright)
+        boot_decorator = extract_boot_decorator('module', path, tree, copyright)
 
         del boot_decorator  #   We don't really want this, but just extracted it for testing purposes
 
@@ -387,19 +387,19 @@ def gem():
 
         #
         #   [2]:
-        #       @gem('Gem.Boot')
-        #       def gem():
+        #       @module('Capital.Boot')
+        #       def module():
         #           ...
         #
-        gem = tree[2]
+        module_function = tree[2]
 
-        assert gem.is_decorated_definition
-        assert gem.a is conjure_gem_decorator_header(module_name)
-        assert gem.b.is_function_definition
-        assert gem.b.a is gem__function_header
-        assert gem.b.b.is_statement_suite
+        assert module_function.is_decorated_definition
+        assert module_function.a is conjure__module_function__decorator_header(module_name)
+        assert module_function.b.is_function_definition
+        assert module_function.b.a is module_function__function_header
+        assert module_function.b.b.is_statement_suite
 
-        return create_twig_code(path, '[2]', copyright, gem, vary)
+        return create_twig_code(path, '[2]', copyright, module_function, vary)
 
 
     def extract_python_parser_main(vary):
@@ -447,16 +447,16 @@ def gem():
 
         #
         #   [4]:
-        #       @gem('PythonParser.Main')
-        #       def gem():
+        #       @module('PythonParser.Main')
+        #       def module():
         #           ...
         #
         main = tree[4]
 
         assert main.is_decorated_definition
-        assert main.a is conjure_gem_decorator_header(module_name)
+        assert main.a is conjure__module_function__decorator_header(module_name)
         assert main.b.is_function_definition
-        assert main.b.a is gem__function_header
+        assert main.b.a is module_function__function_header
         assert main.b.b.is_statement_suite
 
 
@@ -474,12 +474,12 @@ def gem():
         [boot_decorator, main_code] = extract_python_parser_main(vary)
 
         single_python_file_boot__code = extract__single_python_file_boot(vary)
-        gem_boot_code                 = extract_gem_boot(vary)
+        capital_boot_code             = extract_capital_boot(vary)
 
         require_many = RequireMany(vary)
 
-        require_many.process_module('Gem.Core')
-        main_code.twig.find_require_gem(require_many)
+        require_many.process_module('Capital.Core')
+        main_code.twig.find_require_module(require_many)
         require_many.loop()
 
         output_path = path_join(binary_path, arrange('.pyxie/%s.py', module_name))
@@ -491,8 +491,8 @@ def gem():
             for v in require_many.twig_many:
                 v.write(f, tree)
 
-            gem_boot_code.write(f, tree)
-            main_code    .write(f, tree)
+            capital_boot_code.write(f, tree)
+            main_code        .write(f, tree)
 
             close_copyright(f)
 

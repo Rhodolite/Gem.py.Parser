@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.TupleOfExpression')
-def gem():
-    require_gem('PythonParser.Cache')
-    require_gem('PythonParser.TokenTuple')
+@module('PythonParser.TupleOfExpression')
+def module():
+    require_module('PythonParser.Cache')
+    require_module('PythonParser.TokenTuple')
 
 
     tuple_of_expression_cache = {}

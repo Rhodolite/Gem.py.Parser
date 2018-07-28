@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.TokenTuple')
-def gem():
-    require_gem('PythonParser.ClassOrder')
+@module('PythonParser.TokenTuple')
+def module():
+    require_module('PythonParser.ClassOrder')
 
 
     @share

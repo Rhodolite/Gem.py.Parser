@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.CrystalIndentation')
-def gem():
-    require_gem('CoreParser.Atom')
-    require_gem('CoreParser.Core')
+@module('CoreParser.CrystalIndentation')
+def module():
+    require_module('CoreParser.Atom')
+    require_module('CoreParser.Core')
 
 
     next_indentation_cache   = {}
@@ -48,7 +48,7 @@ def gem():
             return arrange('{+%d %s}', t.total, portray_string(t.s))
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             def mutate(t, vary, priority):
                 if vary.remove_indentation:
                     return vary.indentation
@@ -56,11 +56,11 @@ def gem():
                 return t
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             order = order__s
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             def transform(t, vary):
                 if vary.remove_indentation:
                     return vary.indentation
@@ -83,7 +83,7 @@ def gem():
     empty_indentation = conjure_indentation('')
 
 
-    if gem_global.python_parser:
+    if capital_global.python_parser:
         @export
         def next_indentation(indentation):
             return (

@@ -1,11 +1,11 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.BinaryExpression')
-def gem():
-    require_gem('PythonParser.DualToken')
-    require_gem('PythonParser.Elemental')
-    require_gem('PythonParser.Priority')
+@module('PythonParser.BinaryExpression')
+def module():
+    require_module('PythonParser.DualToken')
+    require_module('PythonParser.Elemental')
+    require_module('PythonParser.Priority')
 
 
     binary_frill_cache  = create_cache('binary_frill_cache', conjure_nub)

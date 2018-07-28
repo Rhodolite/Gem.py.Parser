@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.TokenCache')
-def gem():
-    require_gem('PythonParser.Cache')
+@module('PythonParser.TokenCache')
+def module():
+    require_module('PythonParser.Cache')
 
 
     #

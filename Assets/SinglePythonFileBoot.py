@@ -4,7 +4,7 @@
 @boot('Boot')
 def boot():
     #
-    #   This really belongs in Gem.Core, but is here since we need it during Boot
+    #   This really belongs in Capital.Core, but is here since we need it during Boot
     #
     PythonSystem = __import__('sys')
     PythonTypes  = __import__('types')
@@ -49,9 +49,9 @@ def boot():
 
 
     #
-    #   Gem_name
+    #   Capital_name
     #
-    Gem_name = intern_string('Gem')
+    Capital_name = intern_string('Capital')
 
 
     #
@@ -84,44 +84,44 @@ def boot():
     #
     #   Set flag to indicate using fast loading mode
     #
-    Gem = create_module('Gem')
+    Capital = create_module('Capital')
 
-    Gem.fast_cache = fast_cache = {}
+    Capital.fast_cache = fast_cache = {}
 
     store_fast = fast_cache.__setitem__
 
 
-    def gem(module_name):
+    def module(module_name):
         def execute(f):
             store_fast(module_name, f)
 
-            return gem
+            return module
 
 
         return execute
 
 
-    __import__(__name__).gem = gem
+    __import__(__name__).module = module
 
 
     def boot():
-        fast_cache.pop('Gem.Boot')()
+        fast_cache.pop('Capital.Boot')()
 
-        produce_export_and_share = Gem.Shared.produce_export_and_share
-        store_gem_module         = Gem.Shared.store_gem_module
+        produce_export_and_share = Capital.Shared.produce_export_and_share
+        store_capital_module     = Capital.Shared.store_capital_module
 
-        del Gem.Shared.produce_export_and_share, Gem.Shared.store_gem_module
+        del Capital.Shared.produce_export_and_share, Capital.Shared.store_capital_module
 
         for module_name in ['CoreParser', 'PythonParser', 'Rex', 'Restructure']:
             module = create_module(module_name)
 
             produce_export_and_share(module)
-            store_gem_module(module_name, module)
+            store_capital_module(module_name, module)
 
-        f        = fast_cache.pop('PythonParser.Main')
-        gem_main = __import__('__main__').gem('PythonParser.Main')
+        f           = fast_cache.pop('PythonParser.Main')
+        module_main = __import__('__main__').module('PythonParser.Main')
 
-        gem_main(f)
+        module_main(f)
 
 
     return boot

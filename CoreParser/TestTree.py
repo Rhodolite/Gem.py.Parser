@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.TestTree')
-def gem():
-    if gem_global.crystal_parser:
+@module('CoreParser.TestTree')
+def module():
+    if capital_global.crystal_parser:
         @export
         def test_count_newlines(data_lines, tree_many):
             total = 0
@@ -18,7 +18,7 @@ def gem():
             line('Passed#2: Total counted lines %d matches input', total)
 
 
-    if gem_global.crystal_parser:
+    if capital_global.crystal_parser:
         @export
         def test_identical_output(path, data, data_many, tree_many):
             with create_StringOutput() as f:

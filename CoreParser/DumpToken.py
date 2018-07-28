@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.DumpToken')
-def gem():
-    require_gem('CoreParser.Core')
+@module('CoreParser.DumpToken')
+def module():
+    require_module('CoreParser.Core')
 
 
     class TokenOutput(StringOutput):

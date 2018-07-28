@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('JavaParser.Parse1')
-def gem():
-    require_gem('JavaParser.Core')
-    require_gem('JavaParser.Match')
+@module('JavaParser.Parse1')
+def module():
+    require_module('JavaParser.Core')
+    require_module('JavaParser.Match')
 
 
     def parse_java_statement_import(m):

@@ -1,16 +1,16 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.Elemental')
-def gem():
-    require_gem('CoreParser.ActionWord')
-    require_gem('CoreParser.Atom')
-    require_gem('CoreParser.ClassOrder')
+@module('CoreParser.Elemental')
+def module():
+    require_module('CoreParser.ActionWord')
+    require_module('CoreParser.Atom')
+    require_module('CoreParser.ClassOrder')
 
 
     @export
     class KeywordAndOperatorBase(ParserToken):
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             is_all_index                               = false
             is_arguments_0                             = false
             is__arguments_0__or__left_parenthesis      = false
@@ -83,7 +83,7 @@ def gem():
         display_token = display_short_token
 
 
-    if (gem_global.java_parser) or (gem_global.python_parser):
+    if (capital_global.java_parser) or (capital_global.python_parser):
         @export
         class KeywordImport(KeywordAndOperatorBase):
             __slots__    = (())
@@ -92,7 +92,7 @@ def gem():
             keyword      = 'import'
 
 
-        if gem_global.java_parser:
+        if capital_global.java_parser:
             [
                     conjure_keyword_import, conjure_keyword_import__ends_in_newline,
             ] = produce_conjure_action_word('keyword_import', KeywordImport, produce_ends_in_newline = true)
@@ -105,13 +105,13 @@ def gem():
         )
 
 
-        if gem_global.java_parser:
+        if capital_global.java_parser:
             export(
                 'conjure_keyword_import__ends_in_newline',  conjure_keyword_import__ends_in_newline,
             )
 
 
-    if gem_global.tremolite_parser:
+    if capital_global.tremolite_parser:
         #
         #   Tremolite Parser
         #

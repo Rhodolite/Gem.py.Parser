@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.SymbolTable')
-def gem():
-    require_gem('PythonParser.BuildSymbolTable')
+@module('PythonParser.SymbolTable')
+def module():
+    require_module('PythonParser.BuildSymbolTable')
 
 
     dump = 0

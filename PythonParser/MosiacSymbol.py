@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.MosiacSymbol')
-def gem():
+@module('PythonParser.MosiacSymbol')
+def module():
     class CodeValue(Object):
         __slots__ = ((
             'header',                   #   FunctionHeader

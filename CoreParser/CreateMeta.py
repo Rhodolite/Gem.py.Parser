@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.CreateMeta')
-def gem():
+@module('CoreParser.CreateMeta')
+def module():
     adjusted_meta_cache = {}
 
     lookup_adjusted_meta = adjusted_meta_cache.get

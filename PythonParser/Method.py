@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Method')
-def gem():
-    require_gem('PythonParser.TupleOfExpression')
+@module('PythonParser.Method')
+def module():
+    require_module('PythonParser.TupleOfExpression')
 
 
     #
@@ -48,11 +48,11 @@ def gem():
 
 
     #
-    #   find_require_gem
+    #   find_require_module
     #
     @share
-    def find_require_gem__b(t, e):
-        t.b.find_require_gem(e)
+    def find_require_module__b(t, e):
+        t.b.find_require_module(e)
 
 
     #

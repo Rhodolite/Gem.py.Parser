@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.BookcaseKeywordDualStatement')
-def gem():
+@module('PythonParser.BookcaseKeywordDualStatement')
+def module():
     class KeywordDualExpressionStatement(BookcaseDualTwig):
         __slots__ = (())
 
@@ -66,8 +66,8 @@ def gem():
                            LINE_MARKER,
                        )
 
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__ab
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__ab
 
 
     @share
@@ -116,7 +116,7 @@ def gem():
                            LINE_MARKER,
                        )
 
-        find_require_gem = find_require_gem__0
+        find_require_module = find_require_module__0
 
 
         def scout_variables(t, art):
@@ -135,8 +135,8 @@ def gem():
                            LINE_MARKER,
                        )
 
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__ab
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__ab
 
 
     @share

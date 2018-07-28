@@ -1,13 +1,13 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.Atom')
-def gem():
-    require_gem('CoreParser.ClassOrder')
-    require_gem('CoreParser.Core')
-    require_gem('CoreParser.Method')
-    require_gem('CoreParser.ParserToken')
-    require_gem('CoreParser.TokenCache')
+@module('CoreParser.Atom')
+def module():
+    require_module('CoreParser.ClassOrder')
+    require_module('CoreParser.Core')
+    require_module('CoreParser.Method')
+    require_module('CoreParser.ParserToken')
+    require_module('CoreParser.TokenCache')
 
 
     lookup_atom  = lookup_normal_token
@@ -21,7 +21,7 @@ def gem():
         display_name = 'Identifier'
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             is__atom__or__special_operator = true
             is_atom                        = true
             is_colon                       = false
@@ -30,7 +30,7 @@ def gem():
             is_special_operator            = false
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             def add_parameters(t, art):
                art.add_parameter(t)
 
@@ -39,29 +39,29 @@ def gem():
             return t.s
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             find_identifier = return_self
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             def is_name(t, s):
                 return t.s == s
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             mutate = mutate__self
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             scout_default_values = scout_default_values__0
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             def scout_variables(t, art):
                 art.fetch_variable(t)
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             transform = transform__self
 
 
@@ -103,7 +103,7 @@ def gem():
     )
 
 
-    if gem_global.sql_parser:
+    if capital_global.sql_parser:
         export(
             'lookup_name',  lookup_atom,                                #   lookup_name = lookup_atom [on purpose]
         )

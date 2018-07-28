@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('CoreParser.BookcaseDualTwig')
-def gem():
-    require_gem('CoreParser.Core')
-    require_gem('CoreParser.DualTwig')
+@module('CoreParser.BookcaseDualTwig')
+def module():
+    require_module('CoreParser.Core')
+    require_module('CoreParser.DualTwig')
 
 
     bookcase_dual_twig_with_frill_cache  = create_cache('bookcase-dual-twig-with-frill', conjure_nub)
@@ -32,7 +32,7 @@ def gem():
             return f.token_result(r, newline)
 
 
-        if gem_global.python_parser:
+        if capital_global.python_parser:
             order = order__frill_ab
 
 

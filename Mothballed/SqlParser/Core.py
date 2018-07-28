@@ -1,24 +1,24 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('SqlParser.Core')
-def gem():
-    require_gem('Gem.Cache')
-    require_gem('CoreParser.Atom')
-    require_gem('CoreParser.EmptyLine')
-    require_gem('CoreParser.Tokenizer')
-    require_gem('Gem.Cache')
-    require_gem('Gem.DelayedFileOutput')
-    require_gem('Gem.Exception')
-    require_gem('Gem.Global')
-    require_gem('Gem.Path')
-    require_gem('Gem.StringOutput')
+@module('SqlParser.Core')
+def module():
+    require_module('Capital.Cache')
+    require_module('Capital.Cache')
+    require_module('Capital.DelayedFileOutput')
+    require_module('Capital.Exception')
+    require_module('Capital.Global')
+    require_module('Capital.Path')
+    require_module('Capital.StringOutput')
+    require_module('CoreParser.Atom')
+    require_module('CoreParser.EmptyLine')
+    require_module('CoreParser.Tokenizer')
 
 
+    from Capital import capital_global, create_DelayedFileOutput, create_StringOutput, module_path, path_join
+    from Capital import read_text_from_path, produce_conjure_by_name
     from CoreParser import ParserToken, conjure_empty_line, lookup_name
     from CoreParser import qj, qk, qs, raise_unknown_line, wj, wk, z_initialize
-    from Gem import create_DelayedFileOutput, create_StringOutput, gem_global, module_path, path_join
-    from Gem import read_text_from_path, produce_conjure_by_name
 
 
     share(
@@ -28,6 +28,15 @@ def gem():
         'ParserToken',  ParserToken,
 
         
+        #
+        #   Functions (Capital)
+        #
+        'create_DelayedFileOutput',     create_DelayedFileOutput,
+        'create_StringOutput',          create_StringOutput,
+        'path_join',                    path_join,
+        'produce_conjure_by_name',      produce_conjure_by_name,
+
+
         #
         #   Functions (CoreParser)
         #
@@ -44,17 +53,8 @@ def gem():
 
 
         #
-        #   Functions (Gem)
+        #   Values (Capital)
         #
-        'create_DelayedFileOutput',     create_DelayedFileOutput,
-        'create_StringOutput',          create_StringOutput,
-        'path_join',                    path_join,
-        'produce_conjure_by_name',      produce_conjure_by_name,
-
-
-        #
-        #   Values (Gem)
-        #
-        'gem_global',   gem_global,
-        'module_path',  module_path,
+        'capital_global',   capital_global,
+        'module_path',      module_path,
     )

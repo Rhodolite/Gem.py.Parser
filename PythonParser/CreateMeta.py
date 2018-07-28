@@ -1,8 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.CreateMeta')
-def gem():
+@module('PythonParser.CreateMeta')
+def module():
     @share
     def conjure_ActionWord_LineMarker_Many(Meta, constructor):
         assert Meta.__name__.endswith('_1')

@@ -1,15 +1,15 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Suite')
-def gem():
+@module('PythonParser.Suite')
+def module():
     suite_cache   = {}
     provide_suite = suite_cache.setdefault
 
 
-    def find_require_gem__many(t, e):
+    def find_require_module__many(t, e):
         for v in t:
-            v.find_require_gem(e)
+            v.find_require_module(e)
 
 
     def dump_token__no_impression(t, f, newline = true):
@@ -54,7 +54,7 @@ def gem():
                     v.dump_token(f)
 
 
-        find_require_gem = find_require_gem__0
+        find_require_module = find_require_module__0
 
 
         @property
@@ -79,10 +79,10 @@ def gem():
         is_statement_header        = false
         is_statement               = true
 
-        dump_token       = dump_token__no_impression
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__0
-        transform        = transform__remove_comments_0
+        dump_token          = dump_token__no_impression
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__0
+        transform           = transform__remove_comments_0
 
 
     class IfStatement_Many(TokenTuple):
@@ -94,10 +94,10 @@ def gem():
         is_statement_header        = false
         is_statement               = true
 
-        dump_token       = dump_token__many
-        find_require_gem = find_require_gem__many
-        indentation      = indentation__index_0
-        scout_variables  = scout_variables__tuple
+        dump_token          = dump_token__many
+        find_require_module = find_require_module__many
+        indentation         = indentation__index_0
+        scout_variables     = scout_variables__tuple
 
 
     class MixedSuite(TokenTuple):
@@ -118,10 +118,10 @@ def gem():
             #TokenTuple.__init__(t, many)
 
 
-        dump_token       = dump_token__no_impression
-        find_require_gem = find_require_gem__0
-        scout_variables  = scout_variables__0
-        transform        = transform__remove_comments_0
+        dump_token          = dump_token__no_impression
+        find_require_module = find_require_module__0
+        scout_variables     = scout_variables__0
+        transform           = transform__remove_comments_0
 
 
     class StatementSuite(TokenTuple):
@@ -147,7 +147,7 @@ def gem():
                     v.dump_token(f)
 
 
-        find_require_gem = find_require_gem__many
+        find_require_module = find_require_module__many
 
 
         if __debug__:
@@ -262,9 +262,9 @@ def gem():
         is_statement_header        = false
         is_statement               = true
 
-        dump_token       = dump_token__many
-        find_require_gem = find_require_gem__many
-        indentation      = indentation__index_0
+        dump_token          = dump_token__many
+        find_require_module = find_require_module__many
+        indentation         = indentation__index_0
 
 
     conjure_comment_suite     = produce_conjure_tuple('comment-*',      CommentSuite,     suite_cache, provide_suite)

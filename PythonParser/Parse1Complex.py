@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Parse1Complex')
-def gem():
-    require_gem('PythonParser.PrefixedDualStatement')
+@module('PythonParser.Parse1Complex')
+def module():
+    require_module('PythonParser.PrefixedDualStatement')
 
 
     show = 0

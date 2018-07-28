@@ -1,26 +1,26 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.Development')
-def gem():
+@module('PythonParser.Development')
+def module():
     adorn = 7
     dump  = 0
     show  = 7
 
 
-    require_gem('PythonParser.Cache')
-    require_gem('PythonParser.SymbolTable')
+    require_module('PythonParser.Cache')
+    require_module('PythonParser.SymbolTable')
 
 
     @share
     def development():
         path = 'test.py'
 
-        require_gem('PythonParser.Pattern')
+        require_module('PythonParser.Pattern')
 
         create_python_parser_match()
 
-        require_gem('PythonParser.Parse')                               #   Must be after `create_python_parser_match`
+        require_module('PythonParser.Parse')                            #   Must be after `create_python_parser_match`
 
         tree = parse_python(path, test = 7, show = 0)
 

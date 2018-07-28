@@ -1,10 +1,10 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('JavaParser.Parse')
-def gem():
-    require_gem('JavaParser.Core')
-    require_gem('JavaParser.Parse1')
+@module('JavaParser.Parse')
+def module():
+    require_module('JavaParser.Core')
+    require_module('JavaParser.Parse1')
 
 
     @share
