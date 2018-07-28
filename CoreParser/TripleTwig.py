@@ -1,12 +1,12 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@gem('PythonParser.TripleTwig')
+@gem('CoreParser.TripleTwig')
 def gem():
-    require_gem('PythonParser.Method')
+    require_gem('CoreParser.Method')
 
 
-    @share
+    @export
     class TripleTwig(ParserTrunk):
         __slots__ = ((
             'a',                        #   Any
@@ -28,7 +28,7 @@ def gem():
     TripleTwig.k3 = TripleTwig.c
 
 
-    @share
+    @export
     def produce_conjure_triple_twig(name, Meta):
         cache = create_cache(name, conjure_nub)
 

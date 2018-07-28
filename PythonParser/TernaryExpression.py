@@ -3,9 +3,6 @@
 #
 @gem('PythonParser.TernaryExpression')
 def gem():
-    require_gem('PythonParser.TripleTwig')
-
-
     triple_expression_with_frill_cache  = create_cache('triple-expression-with-frill')
     lookup_triple_expression_with_frill = triple_expression_with_frill_cache.lookup
     store_triple_expression_with_frill  = triple_expression_with_frill_cache.store

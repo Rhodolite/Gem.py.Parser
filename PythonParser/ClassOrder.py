@@ -22,9 +22,8 @@ def gem():
         'CLASS_ORDER__MEMBER_EXPRESSION',               59,     #   Member expression
         'CLASS_ORDER__QUADRUPLE_TWIG',                  60,     #   Commented_VWX_Frill & VWXY_Frill
         'CLASS_ORDER__TRIPLE_EXPRESSION',               61,     #   ?: expression
-        'CLASS_ORDER__TRIPLE_TWIG',                     62,     #   Commented_VW_Frill & VWX_Frill
-        'CLASS_ORDER__TUPLE',                           63,     #   Tuple of expressions
-        'CLASS_ORDER__UNARY_EXPRESSION',                64,     #   * expression
+        'CLASS_ORDER__TUPLE',                           62,     #   Tuple of expressions
+        'CLASS_ORDER__UNARY_EXPRESSION',                63,     #   * expression
     )
 
 

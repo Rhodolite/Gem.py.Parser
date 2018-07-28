@@ -38,7 +38,7 @@ def gem():
     require_gem('PythonParser.Core')
 
 
-    choice = 1
+    choice = 3
     show   = 0
 
 

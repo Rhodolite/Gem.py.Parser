@@ -4,7 +4,6 @@
 @gem('PythonParser.BookcaseTriple')
 def gem():
     require_gem('PythonParser.QuadrupleFrill')
-    require_gem('PythonParser.TripleTwig')
 
 
     triple_expression_cache  = create_cache('triple-expression', conjure_nub)

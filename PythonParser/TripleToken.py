@@ -6,7 +6,6 @@ def gem():
     require_gem('PythonParser.CreateMeta')
     require_gem('PythonParser.DualStatement')
     require_gem('PythonParser.Elemental')
-    require_gem('PythonParser.TripleTwig')
     require_gem('PythonParser.Whitespace')
 
 
