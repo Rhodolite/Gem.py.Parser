@@ -4,6 +4,7 @@
 @module('CoreParser.ParserTrunk')
 def module():
     require_module('CoreParser.Core')
+    require_module('CoreParser.Nub')
 
 
     @export

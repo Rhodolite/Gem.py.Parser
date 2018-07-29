@@ -17,7 +17,7 @@ def module():
 
         'CLASS_ORDER__BOOKCASE_COUPLE_TWIG',            30,     #   BookcaseCoupleTwig+
         'CLASS_ORDER__BOOKCASE_DUAL_TWIG',              31,     #   BookcaseDualExpression+
-        
+
         'CLASS_ORDER__PYTHON_START',                    40,
         'CLASS_ORDER__PYTHON_END',                      80,
     )

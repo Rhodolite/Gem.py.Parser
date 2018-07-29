@@ -240,6 +240,10 @@ def module():
         display_name = 'arguments-*'
 
 
+        def first_argument(t):
+            return t.many[0]
+
+
         scout_variables = scout_variables__many
 
 

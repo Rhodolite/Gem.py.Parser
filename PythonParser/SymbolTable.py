@@ -89,7 +89,7 @@ def module():
         variable_map = build_symbol_table.variable_map
 
         if variable_map is not 0:
-            for v in iterate_values_sorted_by_key(variable_map, key = Identifier.s.__get__):
+            for v in iterate_values_sorted_by_key(variable_map, key = TokenName.s.__get__):
                 append_global_variable(v)
 
         return GlobalSymbolTable(Tuple(nested_header_many), Tuple(global_variable_many))

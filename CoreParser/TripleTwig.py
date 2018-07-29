@@ -3,7 +3,10 @@
 #
 @module('CoreParser.TripleTwig')
 def module():
+    require_module('CoreParser.Cache')
+    require_module('CoreParser.ClassOrder')
     require_module('CoreParser.Method')
+    require_module('CoreParser.ParserTrunk')
 
 
     @export

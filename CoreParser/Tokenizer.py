@@ -11,10 +11,17 @@ def module():
     query = tokenizer.__getitem__
     write = tokenizer.__setitem__
 
+    #
+    #   NOTE:
+    #       Not currently used (other than `lz`?)
+    #
+    #   TODO:
+    #       Investigate this
+    #
     line_tokens = []
 
-    la = line_tokens.append
-    lt = Method(Tuple, line_tokens)
+    #la = line_tokens.append
+    #lt = Method(Tuple, line_tokens)
     lz = Method(line_tokens.__delitem__, slice_all)
 
     #
@@ -240,10 +247,6 @@ def module():
 
     export(
         'parse_context',    parse_context,
-
-        'la',               la,
-        'lt',               lt,
-        'lz',               lz,
 
         'qd',               qd,
         'qi',               qi,

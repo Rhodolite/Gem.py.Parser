@@ -3,72 +3,21 @@
 #
 @module('JavaParser.Core')
 def module():
-    require_module('CoreParser.Elemental')
-    require_module('CoreParser.Tokenizer')
-    require_module('Capital.DumpCache')
-    require_module('Capital.Traceback')
-
-
-    from Capital import create_cache
-    from Capital import module_path, path_join, print_cache, print_exception_chain
-    from Capital import program_exit, read_text_from_path, StringOutput
-    from CoreParser import conjure_keyword_import, conjure_keyword_import__ends_in_newline, conjure_name
-    from CoreParser import la, parse_context, qd, qi, qj, qk, ql, qn, qs, raise_unknown_line
-    from CoreParser import wd, wd0, wd1, wi, wj, wk, wn, ws, z_initialize
-
-
-    share(
-        #
-        #   Imported types
-        #
-        'StringOutput',     StringOutput,
-
-        
-        #
-        #   Imported functions (Capital)
-        #
-        'create_cache',             create_cache,
-        'path_join',                path_join,
-        'print_cache',              print_cache,
-        'print_exception_chain',    print_exception_chain,
-        'program_exit',             program_exit,
-        'read_text_from_path',      read_text_from_path,
-
-
-        #
-        #   Imported functions (CoreParser)
-        #
-        'conjure_keyword_import',                   conjure_keyword_import,
-        'conjure_keyword_import__ends_in_newline',  conjure_keyword_import__ends_in_newline,
-        'conjure_name',                             conjure_name,
-        'la',                                       la,
-        'qd',                                       qd,
-        'qi',                                       qi,
-        'qj',                                       qj,
-        'qk',                                       qk,
-        'ql',                                       ql,
-        'qn',                                       qn,
-        'qs',                                       qs,
-        'raise_unknown_line',                       raise_unknown_line,
-        'wd0',                                      wd0,
-        'wd1',                                      wd1,
-        'wd',                                       wd,
-        'wi',                                       wi,
-        'wj',                                       wj,
-        'wk',                                       wk,
-        'wn',                                       wn,
-        'ws',                                       ws,
-        'z_initialize',                             z_initialize,
-
-
-        #
-        #   Values (Capital)
-        #
-        'module_path',  module_path,
-
-
-        #
-        #   Values (CoreParser)
-        #
-        'parse_context',    parse_context,
-    )
+    transport('Capital.DumpCache',                  'print_cache')
+    transport('Capital.Path',                       'path_join')
+    transport('Capital.Path',                       'read_text_from_path')
+    transport('Capital.System',                     'module_path')
+    transport('Capital.System',                     'program_exit')
+    transport('Capital.Traceback',                  'print_exception_chain')
+    transport('CoreParser.Atom',                    'conjure_name')
+    transport('CoreParser.CrystalComment',          'conjure_any_comment_line')
+    transport('CoreParser.Elemental',               'conjure_keyword_import')
+    transport('CoreParser.Elemental',               'conjure_keyword_import__ends_in_newline')
+    transport('CoreParser.EmptyLine',               'conjure_empty_line')
+    transport('CoreParser.Tokenizer',               'parse_context')
+    transport('CoreParser.Tokenizer',               'qj')
+    transport('CoreParser.Tokenizer',               'qs')
+    transport('CoreParser.Tokenizer',               'raise_unknown_line')
+    transport('CoreParser.Tokenizer',               'wi')
+    transport('CoreParser.Tokenizer',               'wj')
+    transport('CoreParser.Tokenizer',               'z_initialize')

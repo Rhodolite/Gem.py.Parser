@@ -56,7 +56,7 @@ def module():
 
         def dump_token(t, f, newline = true):
             frill = t.frill
-            
+
             f.partial('<%s +%d ', t.display_name, frill.v.total)
 
             t        .a.dump_token(f)

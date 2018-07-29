@@ -25,7 +25,7 @@ def module():
 
 
     @export
-    def dump_token(name, token):
+    def dump_all_tokens(name, token):
         with create_TokenOutput() as f:
             f.line('===  %s  ===', name)
             token.dump_token(f)

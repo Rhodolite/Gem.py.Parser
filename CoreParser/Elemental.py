@@ -101,7 +101,7 @@ def module():
             ] = produce_conjure_action_word('keyword_import', KeywordImport, produce_ends_in_newline = true)
         else:
             conjure_keyword_import = produce_conjure_action_word('keyword_import', KeywordImport)
-            
+
 
         export(
             'conjure_keyword_import',   conjure_keyword_import,

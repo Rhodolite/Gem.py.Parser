@@ -32,12 +32,19 @@ def module():
 
 
         def find_require_module(t, e):
-            if not t.left.is_name('require_module'):
+            left = t.left
+
+            if left.is_name('require_module'):
+                assert t.arguments.is_arguments_1
+
+                e.add_require_module(t.arguments.a)
                 return
 
-            assert t.arguments.is_arguments_1
+            if left.is_name('transport'):
+                e.add_require_module(t.arguments.first_argument())
+                return
 
-            e.add_require_module(t.arguments.a)
+            return
 
 
         @property
@@ -99,7 +106,7 @@ def module():
             w(frill.w.s)
 
 
-    CallStatementBase.left      = CallStatementBase.a 
+    CallStatementBase.left      = CallStatementBase.a
     CallStatementBase.arguments = CallStatementBase.b
 
 

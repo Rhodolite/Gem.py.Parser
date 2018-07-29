@@ -67,10 +67,10 @@ def module():
 
 
         def conjure_Meta_WithFrill(frill, a, b):
-            BookcaseDualTwig_WithFrill = lookup_adjusted_meta(Meta)
+            BookcaseDualTwig__WithFrill = lookup_adjusted_meta(Meta)
 
-            if BookcaseDualTwig_WithFrill is none:
-                class BookcaseDualTwig_WithFrill(Meta):
+            if BookcaseDualTwig__WithFrill is none:
+                class BookcaseDualTwig__WithFrill(Meta):
                     __slots__ = ((
                         'frill',                #   TripleFrill
                     ))
@@ -101,29 +101,29 @@ def module():
                                            frill.x.display_token())
 
 
-                BookcaseDualTwig_WithFrill.k1 = BookcaseDualTwig_WithFrill.frill
-                BookcaseDualTwig_WithFrill.k2 = BookcaseDualTwig_WithFrill.a
-                BookcaseDualTwig_WithFrill.k3 = BookcaseDualTwig_WithFrill.b
+                BookcaseDualTwig__WithFrill.k1 = BookcaseDualTwig__WithFrill.frill
+                BookcaseDualTwig__WithFrill.k2 = BookcaseDualTwig__WithFrill.a
+                BookcaseDualTwig__WithFrill.k3 = BookcaseDualTwig__WithFrill.b
 
 
                 dump_token = attribute(Meta, 'dump_token__frill', none)
 
                 if dump_token is not none:
-                    BookcaseDualTwig_WithFrill.dump_token = dump_token
+                    BookcaseDualTwig__WithFrill.dump_token = dump_token
 
 
                 write = attribute(Meta, 'write__frill', none)
 
                 if write is not none:
-                    BookcaseDualTwig_WithFrill.write = write
+                    BookcaseDualTwig__WithFrill.write = write
 
 
                 if __debug__:
-                    BookcaseDualTwig_WithFrill.__name__ = intern_arrange('%s_WithFrill', Meta.__name__)
+                    BookcaseDualTwig__WithFrill.__name__ = intern_arrange('%s__WithFrill', Meta.__name__)
 
-                store_adjusted_meta(Meta, BookcaseDualTwig_WithFrill)
+                store_adjusted_meta(Meta, BookcaseDualTwig__WithFrill)
 
-            return BookcaseDualTwig_WithFrill(frill, a, b)
+            return BookcaseDualTwig__WithFrill(frill, a, b)
 
 
         conjure_dual = produce_conjure_unique_dual(name, Meta, cache)

@@ -36,7 +36,7 @@ def module():
     class CellFunctionParameter(Object):
         __slots__ = ((
             'index',                    #   Integer
-            'name',                     #   Identifier
+            'name',                     #   TokenName
             'cell_index',               #   Integer
         ))
 
@@ -61,7 +61,7 @@ def module():
     class CellLocal(Object):
         __slots__ = ((
             'index',                    #   Integer
-            'name',                     #   Identifier
+            'name',                     #   TokenName
             'cell_index',               #   Integer
         ))
 
@@ -84,7 +84,7 @@ def module():
     class FreeVariable(Object):
         __slots__ = ((
             'index',                    #   Integer
-            'name',                     #   Identifier
+            'name',                     #   TokenName
         ))
 
 
@@ -111,7 +111,7 @@ def module():
     class FunctionParameter(Object):
         __slots__ = ((
             'index',                    #   Integer
-            'name',                     #   Identifier
+            'name',                     #   TokenName
         ))
 
 
@@ -131,7 +131,7 @@ def module():
 
     class GlobalVariable(Object):
         __slots__ = ((
-            'name',                     #   Identifier
+            'name',                     #   TokenName
         ))
 
 
@@ -153,7 +153,7 @@ def module():
     class LocalVariable(Object):
         __slots__ = ((
             'index',                    #   Integer
-            'name',                     #   Identifier
+            'name',                     #   TokenName
         ))
 
 
@@ -198,7 +198,7 @@ def module():
                                  )
 
     conjure_global_variable__X = produce_conjure_single  ('global_variable', GlobalVariable, global_variable_cache)
-    conjure_local_variable  = produce_conjure_dual__21('local_variable',  LocalVariable,  local_variable_cache)
+    conjure_local_variable     = produce_conjure_dual__21('local_variable',  LocalVariable,  local_variable_cache)
 
 
     def conjure_global_variable(name):
