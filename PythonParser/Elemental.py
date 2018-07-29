@@ -970,6 +970,7 @@ def module():
             produce_ends_in_newline = true,
         )
 
+
     #
     #   Fix these to have 'WithPythonNewline' version
     #

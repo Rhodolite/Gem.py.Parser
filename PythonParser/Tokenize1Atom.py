@@ -6,27 +6,11 @@ def module():
     require_module('PythonParser.Tokenize1Operator')
 
 
-    conjure_atom_whitespace             = Shared.conjure_atom_whitespace
-    conjure_line_marker                 = Shared.conjure_line_marker
-    conjure_whitespace_atom_whitespace  = Shared.conjure_whitespace_atom_whitespace
-    conjure_whitespace__ends_in_newline = Shared.conjure_whitespace__ends_in_newline
-    conjure_whitespace                  = Shared.conjure_whitespace
-    parse_context                       = Shared.parse_context
-    qd                                  = Shared.qd
-    qi                                  = Shared.qi
-    qj                                  = Shared.qj
-    qs                                  = Shared.qs
-    raise_unknown_line                  = Shared.raise_unknown_line
-    skip_tokenize_prefix                = Shared.skip_tokenize_prefix
-    wi                                  = Shared.wi
-    wj                                  = Shared.wj
-    wn                                  = Shared.wn
-
-    @privileged
     def produce_tokenize_multiline_quote(name, next_triple_quote_match, conjure_quote__with_newlines):
         group_name = intern_arrange('missing_%s_quote', name)
 
 
+        @rename('tokenize_multiline_%s_quote', name)
         def tokenize_multiline_quote(m):
             j = qj()
 
@@ -82,9 +66,6 @@ def module():
                 return conjure_whitespace_atom_whitespace(prefix, r, suffix)
 
 
-        if __debug__:
-            tokenize_multiline_quote.__name__ = intern_arrange('tokenize_multiline_%s_quote', name)
-
         return tokenize_multiline_quote
 
 
@@ -103,18 +84,18 @@ def module():
 
     #
     #   Note:
-    #       Below a few tests of 'i == j' (or the equivalent 'qi() = qj()').
+    #       Below a few tests of `i == j` (or the equivalent `qi() = qj()`).
     #
-    #       None of these tests can be optimized to 'i is j' since [the original] 'i' & 'j' could have been created
+    #       None of these tests can be optimized to `i is j` since [the original] `i` & `j` could have been created
     #       with two different calls, such as:
     #
     #           1.  m.end('atom'); .vs.
     #           2.  m.end()
     #
-    #       with 'ow' is empty -- and thus have the same value (but different internal addresses).
+    #       with `ow` is empty -- and thus have the same value (but different internal addresses).
     #
     #   Note #2:
-    #       The previous note also applies to tests like 'qi() != j', cannot replace this with 'qi() is not j'
+    #       The previous note also applies to tests like `qi() != j` ... cannot replace this with `qi() is not j`.
     #
     @share
     def analyze_atom(m):

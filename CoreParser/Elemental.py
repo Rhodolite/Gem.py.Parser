@@ -10,6 +10,9 @@ def module():
 
     @export
     class KeywordAndOperatorBase(ParserToken):
+        __slots__ = (())
+
+
         if capital_global.python_parser:
             is_all_index                               = false
             is_arguments_0                             = false

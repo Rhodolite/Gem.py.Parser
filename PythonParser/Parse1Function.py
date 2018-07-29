@@ -3,8 +3,8 @@
 #
 @module('PythonParser.Parse1Function')
 def module():
-    require_module('PythonParser.BookcaseDualStatement')
     require_module('PythonParser.DefinitionHeader')
+    require_module('PythonParser.DualExpressionStatement')
 
 
     @share

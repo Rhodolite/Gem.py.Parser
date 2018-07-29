@@ -68,28 +68,6 @@ def module():
         return t.newlines
 
 
-    @share
-    class DoubleQuote(ParserToken):
-        __slots__                      = (())
-        class_order                    = CLASS_ORDER__NORMAL_TOKEN
-        display_name                   = '"'
-        is__atom__or__special_operator = true
-        is_atom                        = true
-        is_colon                       = false
-        is_right_brace                 = false
-        is_right_parenthesis           = false
-        is_right_square_bracket        = false
-        is_special_operator            = false
-
-
-        def display_token(t):
-            return arrange('<%s>', t.s)
-
-
-        mutate          = mutate__self
-        scout_variables = scout_variables__0
-
-
     class EndOfData(ParserToken):
         __slots__                        = (())
         indentation                      = none
@@ -129,32 +107,7 @@ def module():
         scout_variables = scout_variables__0
 
 
-    @share
-    class SingleQuote(ParserToken):
-        __slots__                      = (())
-        class_order                    = CLASS_ORDER__NORMAL_TOKEN
-        display_name                   = "'"
-        is__atom__or__special_operator = true
-        is_atom                        = true
-        is_colon                       = false
-        is_right_brace                 = false
-        is_right_parenthesis           = false
-        is_right_square_bracket        = false
-        is_single_quote                = true
-        is_special_operator            = false
-
-
-        def display_token(t):
-            return arrange('<%s>', t.s)
-
-
-        mutate          = mutate__self
-        scout_variables = scout_variables__0
-
-
-    conjure_double_quote = produce_conjure_atom('double-quote', DoubleQuote)
     conjure_number       = produce_conjure_atom('number',       Number)
-    conjure_single_quote = produce_conjure_atom('single-quote', SingleQuote)
 
     conjure_triple_double_quote__with_newlines = produce_conjure_triple_quote__with_newlines(
             'triple-double-quote',

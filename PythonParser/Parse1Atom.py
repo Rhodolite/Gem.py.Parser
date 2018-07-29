@@ -387,5 +387,4 @@ def module():
             return conjure_star_argument(token, parse1_ternary_expression())
 
         my_line('token: %r', token)
-        assert 0
         raise_unknown_line()

@@ -14,6 +14,10 @@ def module():
 
     @export
     class BookcaseDualTwig(DualTwig):
+        __slots__   = (())
+        class_order = CLASS_ORDER__BOOKCASE_DUAL_TWIG
+
+
         def count_newlines(t):
             return t.a.count_newlines() + t.b.count_newlines() + t.frill.count_newlines()
 
@@ -102,8 +106,13 @@ def module():
                 BookcaseDualTwig_WithFrill.k3 = BookcaseDualTwig_WithFrill.b
 
 
-                write = attribute(Meta, 'write__frill', none)
+                dump_token = attribute(Meta, 'dump_token__frill', none)
 
+                if dump_token is not none:
+                    BookcaseDualTwig_WithFrill.dump_token = dump_token
+
+
+                write = attribute(Meta, 'write__frill', none)
 
                 if write is not none:
                     BookcaseDualTwig_WithFrill.write = write

@@ -13,7 +13,8 @@ def module():
 
 
     class EmptyLine(String):
-        __slots__                        = (())
+        __slots__    = (())
+        class_order = CLASS_ORDER__EMPTY_LINE
 
 
         if capital_global.crystal_parser:
@@ -28,7 +29,6 @@ def module():
 
 
         if capital_global.python_parser:
-            class_order                = CLASS_ORDER__EMPTY_LINE
             is_any_else                = false
             is_any_except_or_finally   = false
             is_comment_line            = false

@@ -4,6 +4,7 @@
 @module('CoreParser.BookcaseCoupleTwig')
 def module():
     require_module('CoreParser.Core')
+    require_module('CoreParser.ClassOrder')
     require_module('CoreParser.DualTwig')
 
 
@@ -37,6 +38,9 @@ def module():
         __slots__ = ((
             'frill',
         ))
+
+
+        class_order = CLASS_ORDER__BOOKCASE_COUPLE_TWIG
 
 
         __init__ = construct__123

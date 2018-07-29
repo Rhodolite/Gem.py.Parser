@@ -4,6 +4,7 @@
 @module('SqlParser.Comment')
 def module():
     class CommentOperator(ParserToken):
+        __slots__           = (())
         display_name        = 'comment-operator'
         is_comment_operator = true
 
@@ -26,6 +27,7 @@ def module():
 
 
     class TokenNewline(ParserToken):
+        __slots__       = (())
         display_name     = 'newline'
         is_token_newline = true
 

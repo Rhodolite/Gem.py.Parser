@@ -16,6 +16,8 @@ def module():
 
 
     class LineMarker(ParserToken):
+        __slots__    = (())
+        class_order  = CLASS_ORDER__LINE_MARKER
         display_name = 'line-marker'
 
 
@@ -26,7 +28,6 @@ def module():
 
 
         if capital_global.python_parser:
-            class_order                             = CLASS_ORDER__LINE_MARKER
             is_end_of_arithmetic_expression         = true
             is_end_of_boolean_and_expression        = true
             is_end_of_boolean_or_expression         = true
@@ -121,14 +122,14 @@ def module():
             return conjure_action_word__line_marker
 
 
+    LINE_MARKER = conjure_line_marker('\n')
+
+
     if capital_global.python_parser:
-        LINE_MARKER = conjure_line_marker('\n')
-
-
         LineMarker.mutate    = produce_mutate__uncommented   ('line_marker', LINE_MARKER)
         LineMarker.transform = produce_transform__uncommented('line_marker', LINE_MARKER)
 
 
-        export(
-            'LINE_MARKER',    LINE_MARKER,
-        )
+    export(
+        'LINE_MARKER',    LINE_MARKER,
+    )
