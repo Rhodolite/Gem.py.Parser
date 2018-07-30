@@ -45,7 +45,7 @@ def module():
         if newline is not none:
             return conjure_decorator_header(indentation__at_sign, name, newline)
 
-        operator = tokenize_operator()
+        operator = tokenize_python_operator()
 
         if operator.is_arguments_0:
             newline = qn()

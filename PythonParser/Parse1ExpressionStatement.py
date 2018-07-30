@@ -22,7 +22,7 @@ def module():
             if newline is not none:
                 return conjure_assign_1(conjure_indentation(indented), left, equal_sign, right, newline)
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
         if not operator.is_equal_sign:
             #my_line('indented: %r; left: %r; equal_sign: %r; right: %s; operator: %r; s: %s',
@@ -46,7 +46,7 @@ def module():
                 if newline is not none:
                     return conjure_assign_many(conjure_indentation(indented), many, many_frill, newline)
 
-                operator = tokenize_operator()
+                operator = tokenize_python_operator()
 
             if not operator.is_equal_sign:
                 #my_line('right: %s; operator; %r; s: %s', right, operator, portray_string(qs()[qj():]))
@@ -96,7 +96,7 @@ def module():
             if newline is not none:
                 return conjure_expression_statement(conjure_indentation(indented), left, newline)
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
         if operator.is_postfix_operator:
             left = parse1_postfix_expression__left_operator(left, operator, indentation)
@@ -117,7 +117,7 @@ def module():
             wk(none)
 
         if not operator.is_end_of_ternary_expression_list:
-            left = parse1_ternary_expression_list__X_any_expresion(left, operator)
+            left = parse1_ternary_expression_list__X_any_expression(left, operator)
 
             operator = qk()
 

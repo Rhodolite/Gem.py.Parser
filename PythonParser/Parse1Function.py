@@ -24,7 +24,7 @@ def module():
         if qn() is not none:
             raise_unknown_line()
 
-        operator = tokenize_operator()
+        operator = tokenize_python_operator()
 
         if not operator.is__arguments_0__or__left_parenthesis:
             raise_unknown_line()

@@ -125,7 +125,7 @@ def module():
                         append(
                             parse1_statement_expression__atom(
                                 m.group('indented'),
-                                analyze_atom(m)
+                                analyze_python_atom(m)
                             ),
                         )
 
