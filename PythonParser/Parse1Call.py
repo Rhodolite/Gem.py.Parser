@@ -20,7 +20,7 @@ def module():
         operator = qk()
 
         if operator is none:
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
         else:
             wk(none)
 
@@ -51,7 +51,7 @@ def module():
         operator_1 = qk()
 
         if operator_1 is none:
-            operator_1 = tokenize_operator()
+            operator_1 = tokenize_python_operator()
         else:
             wk(none)
 
@@ -64,7 +64,7 @@ def module():
             operator_1 = qk()
 
             if operator_1 is none:
-                operator_1 = tokenize_operator()
+                operator_1 = tokenize_python_operator()
             else:
                 wk(none)
         else:
@@ -74,7 +74,7 @@ def module():
                 operator_1 = qk()
 
                 if operator_1 is none:
-                    operator_1 = tokenize_operator()
+                    operator_1 = tokenize_python_operator()
                 else:
                     wk(none)
 

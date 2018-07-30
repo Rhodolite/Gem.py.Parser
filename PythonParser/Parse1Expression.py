@@ -7,9 +7,6 @@ def module():
     require_module('PythonParser.UnaryExpression')
 
 
-    show = 0
-
-
     #
     #   3.  Postfix-Expression (Python 2.7.14rc1 grammer calls this 'trailer')
     #
@@ -59,7 +56,7 @@ def module():
                 if qn() is not none:
                     return conjure_member_expression(left, conjure_dot_name(operator, name))
 
-                operator_2 = tokenize_operator()
+                operator_2 = tokenize_python_operator()
 
                 if operator_2.is_dot:
                     if qn() is not none:
@@ -76,7 +73,7 @@ def module():
                                    ),
                                )
 
-                    operator_3 = tokenize_operator()
+                    operator_3 = tokenize_python_operator()
 
                     if operator_3.is_dot:
                         if qn() is not none:
@@ -94,7 +91,7 @@ def module():
                                        ),
                                    )
 
-                        operator_4 = tokenize_operator()
+                        operator_4 = tokenize_python_operator()
 
                         if operator_4.is_dot:
                             if qn() is not none:
@@ -115,7 +112,7 @@ def module():
                             if qn() is not none:
                                 return left
 
-                            operator_5 = tokenize_operator()
+                            operator_5 = tokenize_python_operator()
 
                             if not operator_5.is_postfix_operator:
                                 wk(operator_5)
@@ -193,7 +190,7 @@ def module():
                     if newline is not none:
                         return left
 
-                    operator = tokenize_operator()
+                    operator = tokenize_python_operator()
 
                     if not operator.is_postfix_operator:
                         wk(operator)
@@ -218,7 +215,7 @@ def module():
                         if qn() is not none:
                             raise_unknown_line()
 
-                        operator_2 = tokenize_operator()
+                        operator_2 = tokenize_python_operator()
                     else:
                         wk(none)
 
@@ -258,7 +255,7 @@ def module():
                                 if qn() is not none:
                                     raise_unknown_line()
 
-                                operator_3 = tokenize_operator()
+                                operator_3 = tokenize_python_operator()
                             else:
                                 wk(none)
 
@@ -299,7 +296,7 @@ def module():
                         if qn() is not none:
                             return left
 
-                        operator = tokenize_operator()
+                        operator = tokenize_python_operator()
 
                         if not operator.is_postfix_operator:
                             wk(operator)
@@ -320,7 +317,7 @@ def module():
                         if qn() is not none:
                             raise_unknown_line()
 
-                        operator_2 = tokenize_operator()
+                        operator_2 = tokenize_python_operator()
                     else:
                         wk(none)
 
@@ -350,7 +347,7 @@ def module():
                         if qn() is not none:
                             return left
 
-                        operator = tokenize_operator()
+                        operator = tokenize_python_operator()
 
                         if not operator.is_postfix_operator:
                             wk(operator)
@@ -374,7 +371,7 @@ def module():
                     if qn() is not none:
                         return left
 
-                    operator = tokenize_operator()
+                    operator = tokenize_python_operator()
 
                     if not operator.is_postfix_operator:
                         wk(operator)
@@ -422,7 +419,7 @@ def module():
             if qn() is not none:
                 return left
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if qk() is not none:
                 raise_unknown_line()
@@ -509,7 +506,7 @@ def module():
             if qn() is not none:
                 return multiply_operator.expression_meta(left, multiply_operator, right)
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_multiply_expression:
                 wk(operator)
@@ -536,7 +533,7 @@ def module():
                 if qn() is not none:
                     break
 
-                operator = tokenize_operator()
+                operator = tokenize_python_operator()
 
                 if operator.is_end_of_multiply_expression:
                     wk(operator)
@@ -569,7 +566,7 @@ def module():
             if qn() is not none:
                 return left
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_multiply_expression:
                 wk(operator)
@@ -619,7 +616,7 @@ def module():
     #   7.  Arithmetic-Expression (Python 2.7.14rc1 grammer calls this 'arith_expr')
     #
     def parse1_arithmetic_expression__left_operator(left, add_operator):
-        assert add_operator.is_arithmetic_operator
+        assert add_operator.is_python_arithmetic_operator
 
         right = parse1_multiply_expression()
 
@@ -629,7 +626,7 @@ def module():
             if qn() is not none:
                 return add_operator.expression_meta(left, add_operator, right)
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_arithmetic_expression:
                 wk(operator)
@@ -641,7 +638,7 @@ def module():
 
             wk(none)
 
-        if not operator.is_arithmetic_operator:
+        if not operator.is_python_arithmetic_operator:
             raise_unknown_line()
 
         many       = [left, right]
@@ -656,7 +653,7 @@ def module():
                 if qn() is not none:
                     break
 
-                operator = tokenize_operator()
+                operator = tokenize_python_operator()
 
                 if operator.is_end_of_arithmetic_expression:
                     wk(operator)
@@ -667,7 +664,7 @@ def module():
 
                 wk(none)
 
-            if not operator.is_arithmetic_operator:
+            if not operator.is_python_arithmetic_operator:
                 raise_unknown_line()
 
             many_frill.append(operator)
@@ -689,7 +686,7 @@ def module():
             if qn() is not none:
                 return left
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_arithmetic_expression:
                 wk(operator)
@@ -744,7 +741,7 @@ def module():
 
             wk(none)
 
-        if operator.is_arithmetic_operator:
+        if operator.is_python_arithmetic_operator:
             return parse1_arithmetic_expression__left_operator(left, operator)
 
         #my_line('left: %r; operator: %r; s: %s', left, operator, portray_string(qs()[qj():]))
@@ -769,7 +766,7 @@ def module():
             if qn() is not none:
                 return conjure_logical_and_expression(left, logical_and_operator, right)
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_logical_and_expression:
                 wk(operator)
@@ -795,7 +792,7 @@ def module():
                 if qn() is not none:
                     return LogicalAndExpression_Many(Tuple(many))
 
-                operator = tokenize_operator()
+                operator = tokenize_python_operator()
 
                 if operator.is_end_of_logical_and_expression:
                     wk(operator)
@@ -828,7 +825,7 @@ def module():
             if qn() is not none:
                 return left
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_logical_and_expression:
                 wk(operator)
@@ -883,7 +880,7 @@ def module():
 
             wk(none)
 
-        if operator.is_arithmetic_operator:
+        if operator.is_python_arithmetic_operator:
             left = parse1_arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
@@ -924,7 +921,7 @@ def module():
             if qn() is not none:
                 return conjure_logical_or_expression(left, logical_or_operator, right)
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_logical_or_expression:
                 wk(operator)
@@ -951,7 +948,7 @@ def module():
                 if qn() is not none:
                     break
 
-                operator = tokenize_operator()
+                operator = tokenize_python_operator()
 
                 if operator.is_end_of_logical_or_expression:
                     wk(operator)
@@ -985,7 +982,7 @@ def module():
             if qn() is not none:
                 return left
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_logical_or_expression:
                 wk(operator)
@@ -1040,7 +1037,7 @@ def module():
 
             wk(none)
 
-        if operator.is_arithmetic_operator:
+        if operator.is_python_arithmetic_operator:
             left = parse1_arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
@@ -1105,7 +1102,7 @@ def module():
             if qn() is not none:
                 return compare_operator.expression_meta(left, compare_operator, right)
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_compare_expression:
                 wk(operator)
@@ -1129,7 +1126,7 @@ def module():
                 if qn() is not none:
                     break
 
-                operator = tokenize_operator()
+                operator = tokenize_python_operator()
 
                 if operator.is_end_of_compare_expression:
                     wk(operator)
@@ -1161,7 +1158,7 @@ def module():
             if qn() is not none:
                 return left
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_compare_expression:
                 wk(operator)
@@ -1216,7 +1213,7 @@ def module():
 
             wk(none)
 
-        if operator.is_arithmetic_operator:
+        if operator.is_python_arithmetic_operator:
             left = parse1_arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
@@ -1303,7 +1300,7 @@ def module():
             if qn() is not none:
                 return conjure_and_expression_1(left, operator, right)
 
-            operator_2 = tokenize_operator()
+            operator_2 = tokenize_python_operator()
 
             if operator_2.is_end_of_boolean_and_expression:
                 wk(operator_2)
@@ -1327,7 +1324,7 @@ def module():
                 if qn() is not none:
                     return conjure_and_expression_many(many, many_frill)
 
-                operator_7 = tokenize_operator()
+                operator_7 = tokenize_python_operator()
 
                 if operator_7.is_end_of_boolean_and_expression:
                     wk(operator_7)
@@ -1359,7 +1356,7 @@ def module():
             if qn() is not none:
                 return left
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_boolean_and_expression:
                 wk(operator)
@@ -1414,7 +1411,7 @@ def module():
 
             wk(none)
 
-        if operator.is_arithmetic_operator:
+        if operator.is_python_arithmetic_operator:
             left = parse1_arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
@@ -1500,7 +1497,7 @@ def module():
             if qn() is not none:
                 return conjure_or_expression_1(left, operator, right)
 
-            operator_2 = tokenize_operator()
+            operator_2 = tokenize_python_operator()
 
             if operator_2.is_end_of_boolean_or_expression:
                 wk(operator_2)
@@ -1524,7 +1521,7 @@ def module():
                 if qn() is not none:
                     break
 
-                operator_7 = tokenize_operator()
+                operator_7 = tokenize_python_operator()
 
                 if operator_7.is_end_of_boolean_or_expression:
                     wk(operator_7)
@@ -1557,7 +1554,7 @@ def module():
             if qn() is not none:
                 return left
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_boolean_or_expression:
                 wk(operator)
@@ -1612,7 +1609,7 @@ def module():
 
             wk(none)
 
-        if operator.is_arithmetic_operator:
+        if operator.is_python_arithmetic_operator:
             left = parse1_arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
@@ -1783,7 +1780,7 @@ def module():
 
             wk(none)
 
-        if operator.is_arithmetic_operator:
+        if operator.is_python_arithmetic_operator:
             left = parse1_arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
@@ -1902,7 +1899,7 @@ def module():
             if qn() is not none:
                 return left
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_ternary_expression:
                 wk(operator)
@@ -1916,7 +1913,7 @@ def module():
     #   19. Ternary-Expression-List (Python 2.7.14rc1 grammer calls this 'testlist')
     #
     @share
-    def parse1_ternary_expression_list__X_any_expresion(left, operator):
+    def parse1_ternary_expression_list__X_any_expression(left, operator):
         if operator.is_postfix_operator:
             left = parse1_postfix_expression__left_operator(left, operator)
 
@@ -1965,7 +1962,7 @@ def module():
 
             wk(none)
 
-        if operator.is_arithmetic_operator:
+        if operator.is_python_arithmetic_operator:
             left = parse1_arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
@@ -2096,14 +2093,14 @@ def module():
             if qn() is not none:
                 return left
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if operator.is_end_of_ternary_expression_list:
                 wk(operator)
 
                 return left
 
-        return parse1_ternary_expression_list__X_any_expresion(left, operator)
+        return parse1_ternary_expression_list__X_any_expression(left, operator)
 
 
     #
@@ -2215,7 +2212,7 @@ def module():
 
             wk(none)
 
-        if operator.is_arithmetic_operator:
+        if operator.is_python_arithmetic_operator:
             left = parse1_arithmetic_expression__left_operator(left, operator)
 
             operator = qk()

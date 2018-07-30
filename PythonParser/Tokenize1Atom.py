@@ -98,7 +98,7 @@ def module():
     #       The previous note also applies to tests like `qi() != j` ... cannot replace this with `qi() is not j`.
     #
     @share
-    def analyze_atom(m):
+    def analyze_python_atom(m):
         if m.start('newline') is -1:
             atom_s = m.group('atom')
 

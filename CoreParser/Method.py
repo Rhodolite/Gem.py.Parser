@@ -58,6 +58,12 @@ def module():
                            t.k3.display_token())
 
 
+    if capital_global.crystal_parser:
+        @export
+        def display_token__with_braces(t):
+            return arrange('{%s %s %s}', t.display_name, t.a.display_token(), t.b.display_token())
+
+
     #
     #   dump_token
     #
@@ -226,6 +232,12 @@ def module():
             return arrange('<%s %s %r %r>', t.__class__.__name__, t.k1, t.k2, t.k3)
 
 
+    if capital_global.crystal_parser:
+        @export
+        def portray_with_braces(t):
+            return arrange('{%s %r %r}', t.__class__.__name__, t.a, t.b)
+
+
     #
     #   scout_default_values
     #
@@ -234,7 +246,6 @@ def module():
         def scout_default_values__0(t, art):
             pass
 
-
     #
     #   scout_variables
     #
@@ -242,6 +253,13 @@ def module():
         @export
         def scout_variables__0(t, art):
             pass
+
+
+    if capital_global.python_parser:
+        @export
+        def scout_variables__ab(t, art):
+            t.a.scout_variables(art)
+            t.b.scout_variables(art)
 
 
     #

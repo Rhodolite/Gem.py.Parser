@@ -13,13 +13,15 @@ def module():
         __slots__ = (())
 
 
+        if capital_global.crystal_parser:
+            is__atom__or__special_operator = false
+
+
         if capital_global.python_parser:
             is_all_index                               = false
             is_arguments_0                             = false
             is__arguments_0__or__left_parenthesis      = false
-            is_arithmetic_operator                     = false
             is_atom                                    = false
-            is__atom__or__special_operator             = false
             is_colon                                   = false
             is_colon__line_marker                      = false
             is_colon__right_square_bracket             = false
@@ -66,6 +68,7 @@ def module():
             is_parameters_0                            = false
             is_postfix_operator                        = false
             is_power_operator                          = false
+            is_python_arithmetic_operator              = false
             is_right_brace                             = false
             is_right_parenthesis                       = false
             is_right_square_bracket                    = false
@@ -73,6 +76,10 @@ def module():
             is_star_sign                               = false
             is_tail_index                              = false
             is_tilde_sign                              = false
+
+
+        if capital_global.tremolite_parser:
+            is_tremolite_arithmetic_operator = false
 
 
         def __repr__(t):
@@ -130,4 +137,33 @@ def module():
 
         export(
             'conjure_keyword_language',     conjure_keyword_language,
+        )
+
+
+    if (capital_global.python_parser) or (capital_global.tremolite_parser):
+        @export
+        class OperatorPlusSign(KeywordAndOperatorBase):
+            __slots__                     = (())
+            class_order                   = CLASS_ORDER__NORMAL_TOKEN
+            display_name                  = '+'
+            keyword                       = '+'
+
+
+            if capital_global.python_parser:
+                is_end_of_multiply_expression = true
+                is_end_of_unary_expression    = true
+                is_python_arithmetic_operator = true
+
+
+            if capital_global.tremolite_parser:
+                is_tremolite_arithmetic_operator = true
+
+
+    if capital_global.crystal_parser:
+        #   {[((
+        is_close_operator = { ')' : 7, ']' : 7, '}' : 7 }.get
+
+
+        export(
+            'is_close_operator',    is_close_operator,
         )

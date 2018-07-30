@@ -698,10 +698,10 @@ def module():
         __slots__                     = (())
         class_order                   = CLASS_ORDER__NORMAL_TOKEN
         display_name                  = '-'
-        is_minus_sign                 = true
-        is_end_of_unary_expression    = true
         is_end_of_multiply_expression = true
-        is_arithmetic_operator        = true
+        is_end_of_unary_expression    = true
+        is_minus_sign                 = true
+        is_python_arithmetic_operator = true
         keyword                       = '-'
 
 
@@ -722,17 +722,6 @@ def module():
         display_name      = '**'
         is_power_operator = true
         keyword           = '**'
-
-
-    @share
-    class OperatorPlusSign(KeywordAndOperatorBase):
-        __slots__                     = (())
-        class_order                   = CLASS_ORDER__NORMAL_TOKEN
-        display_name                  = '+'
-        is_arithmetic_operator        = true
-        is_end_of_unary_expression    = true
-        is_end_of_multiply_expression = true
-        keyword                       = '+'
 
 
     class OperatorRightBrace(KeywordAndOperatorBase):
@@ -1207,11 +1196,6 @@ def module():
         }.__getitem__
 
 
-    #   {[((
-    is_right_parenthesis_7  = { ')' : 7 }.get
-    is_colon_7              = { ':' : 7 }.get
-    is_close_operator       = { ')' : 7, ']' : 7, '}' : 7 }.get
-
     lookup_keyword_conjure_function = {
                                           'not'    : conjure_keyword_not,
                                           'return' : conjure_keyword_return,
@@ -1270,7 +1254,6 @@ def module():
         'conjure_star_sign',                                conjure_star_sign,
         'conjure_try_colon',                                conjure_try_colon,
         'find_atom_type',                                   find_atom_type,
-        'is_close_operator',                                is_close_operator,
         'AT_SIGN',                                          AT_SIGN,
         'BREAK',                                            BREAK,
         'CONTINUE',                                         CONTINUE,
@@ -1284,8 +1267,6 @@ def module():
         'FUNCTION__W',                                      FUNCTION__W,
         'IF__W',                                            IF__W,
         'IN__W',                                            IN__W,
-        'is_colon_7',                                       is_colon_7,
-        'is_right_parenthesis_7',                           is_right_parenthesis_7,
         'LEFT_BRACE',                                       LEFT_BRACE,
         'lookup_keyword_conjure_function',                  lookup_keyword_conjure_function,
         'LP',                                               LP,

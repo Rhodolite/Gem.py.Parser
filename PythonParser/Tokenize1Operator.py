@@ -45,7 +45,7 @@ def module():
 
 
     @share
-    def tokenize_operator():
+    def tokenize_python_operator():
         assert qk() is none
         assert qn() is none
 

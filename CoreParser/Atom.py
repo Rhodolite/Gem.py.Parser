@@ -21,14 +21,17 @@ def module():
         display_name = '"'
 
 
-        if capital_global.python_parser:
+        if capital_global.crystal_parser:
             is__atom__or__special_operator = true
-            is_atom                        = true
-            is_colon                       = false
-            is_right_brace                 = false
-            is_right_parenthesis           = false
-            is_right_square_bracket        = false
-            is_special_operator            = false
+
+
+        if capital_global.python_parser:
+            is_atom                 = true
+            is_colon                = false
+            is_right_brace          = false
+            is_right_parenthesis    = false
+            is_right_square_bracket = false
+            is_special_operator     = false
 
 
         def display_token(t):
@@ -47,13 +50,16 @@ def module():
         display_name = 'token-name'
 
 
-        if capital_global.python_parser:
+        if capital_global.crystal_parser:
             is__atom__or__special_operator = true
-            is_atom                        = true
-            is_colon                       = false
-            is_identifier                  = true
-            is_right_brace                 = false
-            is_special_operator            = false
+
+
+        if capital_global.python_parser:
+            is_atom             = true
+            is_colon            = false
+            is_identifier       = true
+            is_right_brace      = false
+            is_special_operator = false
 
 
         if capital_global.python_parser:
@@ -105,15 +111,18 @@ def module():
         display_name = "'"
 
 
-        if capital_global.python_parser:
+        if capital_global.crystal_parser:
             is__atom__or__special_operator = true
-            is_atom                        = true
-            is_colon                       = false
-            is_right_brace                 = false
-            is_right_parenthesis           = false
-            is_right_square_bracket        = false
-            is_single_quote                = true
-            is_special_operator            = false
+
+
+        if capital_global.python_parser:
+            is_atom                 = true
+            is_colon                = false
+            is_right_brace          = false
+            is_right_parenthesis    = false
+            is_right_square_bracket = false
+            is_single_quote         = true
+            is_special_operator     = false
 
 
         def display_token(t):

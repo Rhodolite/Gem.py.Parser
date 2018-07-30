@@ -35,7 +35,7 @@ def module():
     require_module('PythonParser.Core')
 
 
-    choice = 1
+    choice = 3
     show   = 0
 
 

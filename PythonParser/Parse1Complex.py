@@ -27,7 +27,7 @@ def module():
         if operator is not none:
             wk(none)
         else:
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
         if qn() is not none:
             raise_unknown_line()
@@ -49,7 +49,7 @@ def module():
             #my_line('full: %r; s: %r', portray_string(qs()), portray_string(qs()[qj() :]))
             raise_unknown_line()
 
-        token = analyze_atom(m)
+        token = analyze_python_atom(m)
 
         if token.is_keyword_return:
             if qn() is not none:
@@ -149,7 +149,7 @@ def module():
         if operator is not none:
             wk(none)
         else:
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
         if operator.is_colon__line_marker:
             return conjure_except_header_1(indented_keyword, left, operator)
@@ -164,7 +164,7 @@ def module():
         if operator_2 is not none:
             wk(none)
         else:
-            operator_2 = tokenize_operator()
+            operator_2 = tokenize_python_operator()
 
         if operator_2.is_colon__line_marker:
             return conjure_except_header_2(indented_keyword, left, operator, right, operator_2)
@@ -210,7 +210,7 @@ def module():
             if qn() is not none:
                 raise_unknown_line()
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
             if qn() is not none:
                 raise_unknown_line()
@@ -228,7 +228,7 @@ def module():
             if qn() is not none:
                 raise_unknown_line()
 
-            operator_2 = tokenize_operator()
+            operator_2 = tokenize_python_operator()
 
             if qn() is not none:
                 raise_unknown_line()
@@ -276,7 +276,7 @@ def module():
         if operator is not none:
             wk(none)
         else:
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
 
         if operator.is_colon__line_marker:
             return conjure_with_header_1(indented_keyword, left, operator)
@@ -291,7 +291,7 @@ def module():
         if operator_2 is not none:
             wk(none)
         else:
-            operator_2 = tokenize_operator()
+            operator_2 = tokenize_python_operator()
 
         if operator_2.is_colon__line_marker:
             return conjure_with_header_2(indented_keyword, left, operator, right, operator_2)

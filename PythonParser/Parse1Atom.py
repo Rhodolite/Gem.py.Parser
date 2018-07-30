@@ -3,9 +3,6 @@
 #
 @module('PythonParser.Parse1Atom')
 def module():
-    show = 7
-
-
     @share
     def parse1_map_element():
         if qk() is not none:
@@ -26,7 +23,7 @@ def module():
             if qn() is not none:
                 raise_unknown_line()
 
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
         else:
             wk(none)
 
@@ -59,7 +56,7 @@ def module():
         operator = qk()
 
         if operator is none:
-            operator = tokenize_operator()
+            operator = tokenize_python_operator()
         else:
             wk(none)
 
@@ -69,7 +66,7 @@ def module():
             operator = qk()
 
             if operator is none:
-                operator = tokenize_operator()
+                operator = tokenize_python_operator()
             else:
                 wk(none)
 
@@ -136,7 +133,7 @@ def module():
         operator_1 = qk()
 
         if operator_1 is none:
-            operator_1 = tokenize_operator()
+            operator_1 = tokenize_python_operator()
         else:
             wk(none)
 
@@ -172,7 +169,7 @@ def module():
         if middle_2.is_special_operator:
             raise_unknown_line()
 
-        operator_2 = tokenize_operator()
+        operator_2 = tokenize_python_operator()
 
         if not operator_2.is_end_of_ternary_expression:
             middle_2 = parse1_ternary_expression__X__any_expression(middle_2, operator_2)
@@ -207,7 +204,7 @@ def module():
         many_frill = [operator_1, operator_2]
 
         while 7 is 7:
-            operator_7 = tokenize_operator()
+            operator_7 = tokenize_python_operator()
 
             if not operator_7.is_end_of_ternary_expression:
                 middle_3 = parse1_ternary_expression__X__any_expression(middle_3, operator_7)
@@ -252,7 +249,7 @@ def module():
         if middle_1.is_special_operator:
             raise_unknown_line()
 
-        operator_1 = tokenize_operator()
+        operator_1 = tokenize_python_operator()
 
         if not operator_1.is_end_of_comprehension_expression:
             middle_1 = parse1_comprehension_expression__X__any_expression(middle_1, operator_1)
@@ -282,7 +279,7 @@ def module():
         if middle_2.is_special_operator:
             raise_unknown_line()
 
-        operator_2 = tokenize_operator()
+        operator_2 = tokenize_python_operator()
 
         if not operator_2.is_end_of_ternary_expression:
             middle_2 = parse1_ternary_expression__X__any_expression(middle_2, operator_2)
@@ -317,7 +314,7 @@ def module():
         many_frill = [operator_1, operator_2]
 
         while 7 is 7:
-            operator_7 = tokenize_operator()
+            operator_7 = tokenize_python_operator()
 
             if not operator_7.is_end_of_ternary_expression:
                 middle_3 = parse1_ternary_expression__X__any_expression(middle_3, operator_7)
@@ -360,7 +357,7 @@ def module():
             #my_line('full: %r; s: %r', portray_string(qs()), portray_string(qs()[qj() :]))
             raise_unknown_line()
 
-        token = analyze_atom(m)
+        token = analyze_python_atom(m)
 
         if token.is__atom__or__special_operator:
             return token
@@ -386,5 +383,5 @@ def module():
         if token.is_star_sign:
             return conjure_star_argument(token, parse1_ternary_expression())
 
-        my_line('token: %r', token)
+        #my_line('token: %r', token)
         raise_unknown_line()
