@@ -25,6 +25,7 @@ def boot():
 
 @module('PythonParser.Main')
 def module():
+    transport('Capital.Core',                       'true')
     transport('Capital.Global',                     'capital_global')
 
 

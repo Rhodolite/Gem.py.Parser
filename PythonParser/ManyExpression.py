@@ -7,7 +7,7 @@ def module():
     require_module('PythonParser.TupleOfExpression')
 
 
-    if __debug__:
+    if python_debug_mode:
         cache_many = []
 
 
@@ -186,11 +186,11 @@ def module():
             return conjure_dual(conjure_many_frill(frill_list), conjure_tuple_of_many_expression(list))
 
 
-        if __debug__:
+        if python_debug_mode:
             append_cache(name, cache)
 
         if produce_conjure_with_frill:
-            if __debug__:
+            if python_debug_mode:
                 conjure_dual= rename('conjure_%s__with_frill', name)(conjure_dual)
 
             return ((

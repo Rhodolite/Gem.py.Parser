@@ -327,7 +327,7 @@ def module():
                 PrefixedDualTwig.k2 = PrefixedDualTwig.a
                 PrefixedDualTwig.k3 = PrefixedDualTwig.b
 
-                if __debug__:
+                if python_debug_mode:
                     PrefixedDualTwig.__name__ = intern_arrange('Prefixed%s', Meta.__name__)
 
                 store_adjusted_meta(Meta, PrefixedDualTwig)

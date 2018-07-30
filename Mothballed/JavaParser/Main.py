@@ -26,6 +26,7 @@ def boot():
 
 @module('JavaParser.Main')
 def module():
+    transport('Capital.Core',                       'true')
     transport('Capital.Global',                     'capital_global')
 
 

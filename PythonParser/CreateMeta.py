@@ -3,6 +3,9 @@
 #
 @module('PythonParser.CreateMeta')
 def module():
+    require_module('PythonParser.Core')
+
+
     @share
     def conjure_ActionWord_LineMarker_Many(Meta, constructor):
         assert Meta.__name__.endswith('_1')
@@ -19,7 +22,7 @@ def module():
 
 
 
-            if __debug__:
+            if python_debug_mode:
                 Actionword_LineMarker_Many.__name__ = intern_arrange('%s_Many', Meta.__name__[:-2])
 
             store_adjusted_meta(Meta, Actionword_LineMarker_Many)

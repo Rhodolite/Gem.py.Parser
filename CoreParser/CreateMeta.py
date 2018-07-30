@@ -3,8 +3,10 @@
 #
 @module('CoreParser.CreateMeta')
 def module():
-    adjusted_meta_cache = {}
+    require_module('CoreParser.Core')
 
+
+    adjusted_meta_cache  = {}
     lookup_adjusted_meta = adjusted_meta_cache.get
     store_adjusted_meta  = adjusted_meta_cache.__setitem__
 
@@ -32,7 +34,7 @@ def module():
                     return t.newlines
 
 
-            if __debug__:
+            if python_debug_mode:
                 ActionWord_WithNewlines.__name__ = intern_arrange('%s_WithNewlines', Meta.__name__)
 
             store_adjusted_meta(Meta, ActionWord_WithNewlines)
@@ -40,7 +42,7 @@ def module():
         return ActionWord_WithNewlines
 
 
-    if __debug__:
+    if python_debug_mode:
         @share
         def dump_newline_meta_cache():
             for k in iterate_values_sorted_by_key({ k.__name__ : k   for k in adjusted_meta_cache }):

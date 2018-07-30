@@ -150,7 +150,7 @@ def module():
         find_require_module = find_require_module__many
 
 
-        if __debug__:
+        if python_debug_mode:
             @property
             def indentation(t):
                 indentation = (t[0].indentation) or (t[1].indentation)

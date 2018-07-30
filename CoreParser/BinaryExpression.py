@@ -107,7 +107,7 @@ def module():
                 BinaryExpression_WithFrill.k3 = BinaryExpression_WithFrill.frill
 
 
-                if __debug__:
+                if python_debug_mode:
                     BinaryExpression_WithFrill.__name__ = intern_arrange('%s_WithFrill', Meta.__name__)
 
                 store_adjusted_meta(Meta, BinaryExpression_WithFrill)
@@ -142,7 +142,7 @@ def module():
             return conjure_triple(a, b, frill)
 
 
-        if __debug__:
+        if python_debug_mode:
             return ((
                        rename_function(intern_arrange('conjure_%s',             name), conjure_binary_expression),
                        rename_function(intern_arrange('conjure_%s__with_frill', name), conjure_binary_expression__with_frill),

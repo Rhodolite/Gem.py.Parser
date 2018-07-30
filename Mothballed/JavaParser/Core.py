@@ -3,7 +3,13 @@
 #
 @module('JavaParser.Core')
 def module():
+    transport('Capital.Core',                       'false')
+    transport('Capital.Core',                       'length')
+    transport('Capital.Core',                       'line')
+    transport('Capital.Core',                       'none')
     transport('Capital.DumpCache',                  'print_cache')
+    transport('Capital.Exception',                  'except_any_clause')
+    transport('Capital.Exception',                  'raise_runtime_error')
     transport('Capital.Path',                       'path_join')
     transport('Capital.Path',                       'read_text_from_path')
     transport('Capital.System',                     'module_path')

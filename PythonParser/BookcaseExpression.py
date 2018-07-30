@@ -111,7 +111,7 @@ def module():
                 #BookcaseExpression_WithFrill.k2 = BookcaseExpression_WithFrill.frill
 
 
-                if __debug__:
+                if python_debug_mode:
                     BookcaseExpression_WithFrill.__name__ = intern_arrange('%s_WithFrill', Meta.__name__)
 
                 store_adjusted_meta(Meta, BookcaseExpression_WithFrill)
@@ -148,7 +148,7 @@ def module():
             return conjure_dual__with_frill(a, frill)
 
 
-        if __debug__:
+        if python_debug_mode:
             append_cache(name, cache)
 
 

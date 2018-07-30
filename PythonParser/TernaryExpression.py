@@ -95,7 +95,7 @@ def module():
 
                 TripleExpression_WithFrill.k4 = TripleExpression_WithFrill.frill
 
-                if __debug__:
+                if python_debug_mode:
                     TripleExpression_WithFrill.__name__ = intern_arrange('%s_WithFrill', Meta.__name__)
 
                 store_adjusted_meta(Meta, TripleExpression_WithFrill)

@@ -92,7 +92,7 @@ def module():
                 UnaryExpression_WithFrill.k2 = UnaryExpression_WithFrill.frill
 
 
-                if __debug__:
+                if python_debug_mode:
                     UnaryExpression_WithFrill.__name__ = intern_arrange('%s_WithFrill', Meta.__name__)
 
                 store_adjusted_meta(Meta, UnaryExpression_WithFrill)
