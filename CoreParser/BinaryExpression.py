@@ -3,7 +3,9 @@
 #
 @module('CoreParser.BinaryExpression')
 def module():
+    require_module('CoreParser.Core')
     require_module('CoreParser.DualTwig')
+    require_module('CoreParser.Elemental')
 
 
     binary_frill_cache  = create_cache('binary_frill_cache', conjure_nub)
@@ -40,6 +42,9 @@ def module():
         __slots__ = (())
 
 
+        class_order = CLASS_ORDER__BINARY_EXPRESSION
+
+
         def dump_token(t, f, newline = true):
             frill = t.frill
 
@@ -52,8 +57,10 @@ def module():
             return f.token_result(r, newline)
 
 
+        order = order__frill_ab
+
+
         if capital_global.python_parser:
-            order           = order__frill_ab
             scout_variables = scout_variables__ab
 
 
@@ -61,6 +68,13 @@ def module():
             t.a.write(w)
             w(t.frill.s)
             t.b.write(w)
+
+
+    @export
+    class AddExpression(BinaryExpression):
+        __slots__    = (())
+        display_name = 'add'
+        frill        = conjure_action_word('+', ' + ')
 
 
     @export
@@ -152,3 +166,23 @@ def module():
                    conjure_binary_expression,
                    conjure_binary_expression__with_frill,
                ))
+
+
+    [
+        conjure_add_expression, conjure_add_expression__with_frill,
+    ] = produce_conjure_binary_expression('add', AddExpression)
+
+
+    #
+    #   .expression_meta
+    #
+    OperatorPlusSign.expression_meta = static_method(conjure_add_expression)
+
+
+    #
+    #   export
+    #
+    export(
+        'conjure_add_expression',               conjure_add_expression,
+        'conjure_add_expression__with_frill',   conjure_add_expression__with_frill,
+    )

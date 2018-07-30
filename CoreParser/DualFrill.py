@@ -83,8 +83,7 @@ def module():
                 return conjure_vw_frill(a__2, b__2)
 
 
-        if capital_global.python_parser:
-            order = order__ab
+        order = order__ab
 
 
 

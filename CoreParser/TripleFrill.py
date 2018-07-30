@@ -23,8 +23,7 @@ def module():
             display_name = '#vw-frill'
 
 
-            if capital_global.python_parser:
-                order = order__abc
+            order = order__abc
 
 
             if capital_global.python_parser:
@@ -76,8 +75,7 @@ def module():
                 return conjure_vwx_frill(v__2, w__2, x__2)
 
 
-        if capital_global.python_parser:
-            order = order__abc
+        order = order__abc
 
 
     if capital_global.python_parser:

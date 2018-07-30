@@ -628,12 +628,12 @@ def module():
 
             operator = tokenize_python_operator()
 
-            if operator.is_end_of_arithmetic_expression:
+            if operator.is_end_of_python_arithmetic_expression:
                 wk(operator)
 
                 return add_operator.expression_meta(left, add_operator, right)
         else:
-            if operator.is_end_of_arithmetic_expression:
+            if operator.is_end_of_python_arithmetic_expression:
                 return add_operator.expression_meta(left, add_operator, right)
 
             wk(none)
@@ -655,11 +655,11 @@ def module():
 
                 operator = tokenize_python_operator()
 
-                if operator.is_end_of_arithmetic_expression:
+                if operator.is_end_of_python_arithmetic_expression:
                     wk(operator)
                     break
             else:
-                if operator.is_end_of_arithmetic_expression:
+                if operator.is_end_of_python_arithmetic_expression:
                     break
 
                 wk(none)
@@ -678,7 +678,7 @@ def module():
         operator = qk()
 
         if operator is not none:
-            if operator.is_end_of_arithmetic_expression:
+            if operator.is_end_of_python_arithmetic_expression:
                 return left
 
             wk(none)
@@ -688,7 +688,7 @@ def module():
 
             operator = tokenize_python_operator()
 
-            if operator.is_end_of_arithmetic_expression:
+            if operator.is_end_of_python_arithmetic_expression:
                 wk(operator)
 
                 return left
@@ -704,7 +704,7 @@ def module():
 
                 return left
 
-            if operator.is_end_of_arithmetic_expression:
+            if operator.is_end_of_python_arithmetic_expression:
                 return left
 
             wk(none)
@@ -720,7 +720,7 @@ def module():
 
                 return left
 
-            if operator.is_end_of_arithmetic_expression:
+            if operator.is_end_of_python_arithmetic_expression:
                 return left
 
             wk(none)
@@ -736,7 +736,7 @@ def module():
 
                 return left
 
-            if operator.is_end_of_arithmetic_expression:
+            if operator.is_end_of_python_arithmetic_expression:
                 return left
 
             wk(none)

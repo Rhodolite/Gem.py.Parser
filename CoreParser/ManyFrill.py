@@ -1,10 +1,12 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.ManyFrill')
+@module('CoreParser.ManyFrill')
 def module():
-    require_module('PythonParser.QuadrupleFrill')
-    require_module('PythonParser.TokenTuple')
+    require_module('CoreParser.Cache')
+    require_module('CoreParser.Method')
+    require_module('CoreParser.QuadrupleFrill')
+    require_module('CoreParser.TokenTuple')
 
 
     many_frill_cache   = {}
@@ -26,7 +28,7 @@ def module():
                 yield
 
 
-    @share
+    @export
     def conjure_many_frill(many):
         if type(many) is not List:
             assert many.frill_estimate
@@ -59,7 +61,8 @@ def module():
     #
     #   .transform
     #
-    ManyFrill.transform = produce_transform_many('many-frill', conjure_many_frill)
+    if capital_global.python_parser:
+        ManyFrill.transform = produce_transform_many('many-frill', conjure_many_frill)
 
 
     append_cache('many-frill', many_frill_cache)

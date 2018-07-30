@@ -115,8 +115,10 @@ def module():
 
         if capital_global.python_parser:
             is_name = is_name__0
-            nub     = static_conjure_nub
-            order   = order__s
+
+
+        nub   = static_conjure_nub
+        order = order__s
 
 
         def write(t, w):

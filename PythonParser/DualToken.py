@@ -377,7 +377,6 @@ def module():
         display_name                            = r':\n'
         ends_in_newline                         = true
         is_colon__line_marker                   = true
-        is_end_of_arithmetic_expression         = true
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -388,6 +387,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
+        is_end_of_python_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -404,7 +404,6 @@ def module():
         #   [
         display_name                            = ':]'
         is_colon__right_square_bracket          = true
-        is_end_of_arithmetic_expression         = true
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -415,6 +414,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
+        is_end_of_python_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -433,7 +433,6 @@ def module():
         #   (
         display_name                          = ',)'
         is_comma__right_parenthesis           = true
-        is_end_of_arithmetic_expression       = true
         is_end_of_boolean_and_expression      = true
         is_end_of_boolean_or_expression       = true
         is_end_of_compare_expression          = true
@@ -442,6 +441,7 @@ def module():
         is_end_of_logical_or_expression       = true
         is_end_of_multiply_expression         = true
         is_end_of_normal_expression           = true
+        is_end_of_python_arithmetic_expression= true
         is_end_of_ternary_expression          = true
         is_end_of_unary_expression            = true
         is__optional_comma__right_parenthesis = true
@@ -452,7 +452,6 @@ def module():
         class_order                              = CLASS_ORDER__NORMAL_TOKEN
         #   [
         display_name                             = ',]'
-        is_end_of_arithmetic_expression          = true
         is_end_of_boolean_and_expression         = true
         is_end_of_boolean_or_expression          = true
         is_end_of_compare_expression             = true
@@ -461,6 +460,7 @@ def module():
         is_end_of_logical_or_expression          = true
         is_end_of_multiply_expression            = true
         is_end_of_normal_expression              = true
+        is_end_of_python_arithmetic_expression   = true
         is_end_of_ternary_expression             = true
         is_end_of_unary_expression               = true
         is__optional_comma__right_square_bracket = true
@@ -541,16 +541,16 @@ def module():
 
     @share
     class Is_Not(BaseDualOperator):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = 'is-not'
-        is_compare_operator              = true
-        is_end_of_arithmetic_expression  = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
+        __slots__                               = (())
+        class_order                             = CLASS_ORDER__NORMAL_TOKEN
+        display_name                            = 'is-not'
+        is_compare_operator                     = true
+        is_end_of_logical_and_expression        = true
+        is_end_of_logical_or_expression         = true
+        is_end_of_normal_expression_list        = true
+        is_end_of_normal_expression             = true
+        is_end_of_python_arithmetic_expression  = true
+        is_end_of_unary_expression              = true
 
 
     class LeftSquareBracket_Colon(BaseDualOperator):
@@ -575,16 +575,16 @@ def module():
 
     @share
     class Not_In(BaseDualOperator):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = 'not-in'
-        is_compare_operator              = true
-        is_end_of_arithmetic_expression  = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = 'not-in'
+        is_compare_operator                    = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
 
 
     class Parameters_0(BaseDualOperator):

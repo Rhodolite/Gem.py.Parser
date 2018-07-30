@@ -44,7 +44,6 @@ def module():
     transport('Capital.Core',                       'sorted_list')
     transport('Capital.Core',                       'static_method')
     transport('Capital.Core',                       'String')
-    transport('Capital.Core',                       'sum')
     transport('Capital.Core',                       'true')
     transport('Capital.Core',                       'Tuple')
     transport('Capital.Core',                       'type')
@@ -77,7 +76,10 @@ def module():
     transport('CoreParser.Atom',                    'produce_conjure_atom')
     transport('CoreParser.Atom',                    'SingleQuote')
     transport('CoreParser.Atom',                    'TokenName')
+    transport('CoreParser.BinaryExpression',        'AddExpression')
     transport('CoreParser.BinaryExpression',        'BinaryExpression')
+    transport('CoreParser.BinaryExpression',        'conjure_add_expression')
+    transport('CoreParser.BinaryExpression',        'conjure_add_expression__with_frill')
     transport('CoreParser.BinaryExpression',        'produce_conjure_binary_expression')
     transport('CoreParser.BookcaseCoupleTwig',      'BookcaseCoupleTwig')
     transport('CoreParser.BookcaseCoupleTwig',      'produce_conjure_bookcase_couple_twig')
@@ -109,6 +111,14 @@ def module():
     transport('CoreParser.EmptyLine',               'conjure_empty_line')
     transport('CoreParser.LineMarker',              'conjure_line_marker')
     transport('CoreParser.LineMarker',              'LINE_MARKER')
+    transport('CoreParser.ManyExpression',          'ArithmeticExpression_Many')
+    transport('CoreParser.ManyExpression',          'conjure_arithmetic_expression_many')
+    transport('CoreParser.ManyExpression',          'conjure_arithmetic_expression_many__with_frill')
+    transport('CoreParser.ManyExpression',          'ManyExpression')
+    transport('CoreParser.ManyExpression',          'order__frill_many')
+    transport('CoreParser.ManyExpression',          'produce_conjure_many_expression')
+    transport('CoreParser.ManyExpression',          'scout_variables__many')
+    transport('CoreParser.ManyFrill',               'conjure_many_frill')
     transport('CoreParser.Method',                  'construct__123')
     transport('CoreParser.Method',                  'count_newlines__123')
     transport('CoreParser.Method',                  'display_token__123')
@@ -126,6 +136,8 @@ def module():
     transport('CoreParser.Method',                  'produce_mutate__uncommented')
     transport('CoreParser.Method',                  'produce_transform__ab')
     transport('CoreParser.Method',                  'produce_transform__abc')
+    transport('CoreParser.Method',                  'produce_transform__abcd')
+    transport('CoreParser.Method',                  'produce_transform_many')
     transport('CoreParser.Method',                  'produce_transform__uncommented')
     transport('CoreParser.Method',                  'scout_variables__0')
     transport('CoreParser.Method',                  'scout_variables__ab')
@@ -135,6 +147,10 @@ def module():
     transport('CoreParser.Nub',                     'static_conjure_nub')
     transport('CoreParser.ParserToken',             'ParserToken')
     transport('CoreParser.ParserTrunk',             'ParserTrunk')
+    transport('CoreParser.QuadrupleFrill',          'conjure_commented_vwx_frill')
+    transport('CoreParser.QuadrupleFrill',          'conjure_vwxy_frill')
+    transport('CoreParser.QuadrupleTwig',           'produce_conjure_quadruple_twig')
+    transport('CoreParser.QuadrupleTwig',           'QuadrupleTwig')
     transport('CoreParser.TestTree',                'test_count_newlines')
     transport('CoreParser.TestTree',                'test_identical_output')
     transport('CoreParser.TokenCache',              'lookup_indentation')
@@ -161,33 +177,9 @@ def module():
     transport('CoreParser.Tokenizer',               'wn')
     transport('CoreParser.Tokenizer',               'ws')
     transport('CoreParser.Tokenizer',               'z_initialize')
+    transport('CoreParser.TokenTuple',              'TokenTuple')
     transport('CoreParser.TripleFrill',             'conjure_commented_vw_frill')
     transport('CoreParser.TripleFrill',             'conjure_vwx_frill')
     transport('CoreParser.TripleTwig',              'produce_conjure_triple_twig')
     transport('CoreParser.TripleTwig',              'TripleTwig')
-
-
-    path_0 = module_path[0]
-
-    if path_0.endswith('/Gems'):
-        root_path   = path_0
-        source_path = path_join(root_path, 'py')
-    else:
-        source_path = path_normalize(path_join(path_0,      '..'))
-        root_path   = path_normalize(path_join(source_path, '..'))
-
-    binary_path = path_join(root_path, 'bin')
-
-    if false:
-        line('root_path: %s', root_path)
-        line('binary_path: %s', binary_path)
-        line('source_path: %s', source_path)
-
-
-    share(
-        #
-        #   Values (Capital)
-        #
-        'binary_path',          binary_path,
-        'source_path',          source_path,
-    )
+    transport('CoreParser.TupleOfExpression',       'conjure_tuple_of_many_expression')

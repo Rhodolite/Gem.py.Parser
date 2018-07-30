@@ -1,10 +1,11 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.TupleOfExpression')
+@module('CoreParser.TupleOfExpression')
 def module():
-    require_module('PythonParser.Cache')
-    require_module('PythonParser.TokenTuple')
+    require_module('CoreParser.Cache')
+    require_module('CoreParser.Core')
+    require_module('CoreParser.TokenTuple')
 
 
     tuple_of_expression_cache = {}
@@ -73,6 +74,6 @@ def module():
     append_cache('tuple-of-expression', tuple_of_expression_cache)
 
 
-    share(
+    export(
         'conjure_tuple_of_many_expression',     conjure_tuple_of_many_expression,
     )

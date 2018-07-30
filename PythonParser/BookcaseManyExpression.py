@@ -4,7 +4,6 @@
 @module('PythonParser.BookcaseManyExpression')
 def module():
     require_module('PythonParser.BookcaseManyFrill')
-    require_module('PythonParser.TupleOfExpression')
 
 
     @share

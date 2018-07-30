@@ -37,8 +37,7 @@ def module():
             return f.token_result(r, newline)
 
 
-        if capital_global.python_parser:
-            order = order__ab
+        order = order__ab
 
 
         def write(t, w):

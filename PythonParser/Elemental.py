@@ -11,26 +11,25 @@ def module():
 
 
     class KeywordAnd(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = 'and'
-        is_end_of_arithmetic_expression  = true
-        is_end_of_compare_expression     = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_multiply_expression    = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
-        is_keyword_and                   = true
-        keyword                          = 'and'
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = 'and'
+        is_end_of_compare_expression           = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        is_keyword_and                         = true
+        keyword                                = 'and'
 
 
     class KeywordAs(KeywordAndOperatorBase):
         __slots__                               = (())
         class_order                             = CLASS_ORDER__NORMAL_TOKEN
         display_name                            = 'as'
-        is_end_of_arithmetic_expression         = true
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -41,6 +40,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
+        is_end_of_python_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -84,21 +84,21 @@ def module():
 
 
     class KeywordElse(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = 'else'
-        is_end_of_arithmetic_expression  = true
-        is_end_of_boolean_and_expression = true
-        is_end_of_boolean_or_expression  = true
-        is_end_of_compare_expression     = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_multiply_expression    = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
-        is_keyword_else                  = true
-        keyword                          = 'else'
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = 'else'
+        is_end_of_boolean_and_expression       = true
+        is_end_of_boolean_or_expression        = true
+        is_end_of_compare_expression           = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        is_keyword_else                        = true
+        keyword                                = 'else'
 
 
     class KeywordElseColon(KeywordAndOperatorBase):
@@ -144,23 +144,23 @@ def module():
 
 
     class KeywordFor(KeywordAndOperatorBase):
-        __slots__                         = (())
-        class_order                       = CLASS_ORDER__NORMAL_TOKEN
-        display_name                      = 'for'
-        is_end_of_arithmetic_expression   = true
-        is_end_of_boolean_and_expression  = true
-        is_end_of_boolean_or_expression   = true
-        is_end_of_compare_expression      = true
-        is_end_of_logical_and_expression  = true
-        is_end_of_logical_or_expression   = true
-        is_end_of_multiply_expression     = true
-        is_end_of_normal_expression_list  = true
-        is_end_of_normal_expression       = true
-        is_end_of_ternary_expression      = true
-        is_end_of_ternary_expression_list = true        #   Not really, but for consistency
-        is_end_of_unary_expression        = true
-        is_keyword_for                    = true
-        keyword                           = 'for'
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = 'for'
+        is_end_of_boolean_and_expression       = true
+        is_end_of_boolean_or_expression        = true
+        is_end_of_compare_expression           = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_ternary_expression_list      = true        #   Not really, but for consistency
+        is_end_of_ternary_expression           = true
+        is_end_of_unary_expression             = true
+        is_keyword_for                         = true
+        keyword                                = 'for'
 
 
     class KeywordFrom(KeywordAndOperatorBase):
@@ -178,54 +178,54 @@ def module():
 
 
     class KeywordIf(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = 'if'
-        is_end_of_arithmetic_expression  = true
-        is_end_of_boolean_and_expression = true
-        is_end_of_boolean_or_expression  = true
-        is_end_of_compare_expression     = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_multiply_expression    = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
-        is_keyword_if                    = true
-        keyword                          = 'if'
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = 'if'
+        is_end_of_boolean_and_expression       = true
+        is_end_of_boolean_or_expression        = true
+        is_end_of_compare_expression           = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        is_keyword_if                          = true
+        keyword                                = 'if'
 
 
     @share
     class KeywordIn(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = 'in'
-        is_compare_operator              = true
-        is_end_of_arithmetic_expression  = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_multiply_expression    = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
-        is_keyword_in                    = true
-        keyword                          = 'in'
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = 'in'
+        is_compare_operator                    = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        is_keyword_in                          = true
+        keyword                                = 'in'
 
 
     @share
     class KeywordIs(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = 'is'
-        is_compare_operator              = true
-        is_end_of_arithmetic_expression  = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_multiply_expression    = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
-        keyword                          = 'is'
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = 'is'
+        is_compare_operator                    = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        keyword                                = 'is'
 
 
     class KeywordNot(KeywordAndOperatorBase):
@@ -245,31 +245,31 @@ def module():
         #       it will still be treated properly in expression parsing (which has not yet parsed the following
         #       'in' keyword).
         #
-        is_compare_operator              = true
-        is_end_of_arithmetic_expression  = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_multiply_expression    = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
+        is_compare_operator                    = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
 
 
     class KeywordOr(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = 'or'
-        is_end_of_arithmetic_expression  = true
-        is_end_of_boolean_and_expression = true
-        is_end_of_compare_expression     = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_multiply_expression    = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
-        is_keyword_or                    = true
-        keyword                          = 'or'
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = 'or'
+        is_end_of_boolean_and_expression       = true
+        is_end_of_compare_expression           = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        is_keyword_or                          = true
+        keyword                                = 'or'
 
 
     class KeywordPass(KeywordAndOperatorBase):
@@ -336,7 +336,6 @@ def module():
         __slots__                               = (())
         class_order                             = CLASS_ORDER__NORMAL_TOKEN
         display_name                            = '+='
-        is_end_of_arithmetic_expression         = true
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -347,6 +346,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
+        is_end_of_python_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -367,7 +367,6 @@ def module():
         display_name                            = ':'
         is_colon                                = true
         is__atom__or__special_operator          = true
-        is_end_of_arithmetic_expression         = true
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -378,48 +377,49 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
-        is_end_of_ternary_expression            = true
+        is_end_of_python_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
+        is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
         is_special_operator                     = true
         keyword                                 = ':'
 
 
     class OperatorComma(KeywordAndOperatorBase):
-        __slots__                          = (())
-        class_order                        = CLASS_ORDER__NORMAL_TOKEN
-        display_name                       = ','
-        is__comma__or__right_parenthesis   = true
-        is_comma                           = true
-        is_end_of_arithmetic_expression    = true
-        is_end_of_boolean_and_expression   = true
-        is_end_of_boolean_or_expression    = true
-        is_end_of_comprehension_expression = true
-        is_end_of_compare_expression       = true
-        is_end_of_logical_and_expression   = true
-        is_end_of_logical_or_expression    = true
-        is_end_of_multiply_expression      = true
-        is_end_of_normal_expression        = true
-        is_end_of_ternary_expression       = true
-        is_end_of_unary_expression         = true
-        frill_estimate                     = 1
-        keyword                            = ','
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = ','
+        frill_estimate                         = 1
+        is__comma__or__right_parenthesis       = true
+        is_comma                               = true
+        is_end_of_boolean_and_expression       = true
+        is_end_of_boolean_or_expression        = true
+        is_end_of_compare_expression           = true
+        is_end_of_comprehension_expression     = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_ternary_expression           = true
+        is_end_of_unary_expression             = true
+        keyword                                = ','
 
 
     @share
     class OperatorCompareEqual(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = '=='
-        is_compare_operator              = true
-        is_end_of_arithmetic_expression  = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_multiply_expression    = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
-        keyword                          = '=='
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = '=='
+        is_compare_operator                    = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        keyword                                = '=='
 
 
         def display_token(t):
@@ -431,18 +431,18 @@ def module():
 
     @share
     class OperatorCompareNotEqual(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = '!='
-        is_compare_operator              = true
-        is_end_of_arithmetic_expression  = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_multiply_expression    = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
-        keyword                          = '!='
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = '!='
+        is_compare_operator                    = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        keyword                                = '!='
 
 
     @share
@@ -468,7 +468,6 @@ def module():
         __slots__                               = (())
         class_order                             = CLASS_ORDER__NORMAL_TOKEN
         display_name                            = '='
-        is_end_of_arithmetic_expression         = true
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -479,6 +478,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
+        is_end_of_python_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -488,18 +488,18 @@ def module():
 
     @share
     class OperatorGreaterThan(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = '>'
-        is_compare_operator              = true
-        is_end_of_arithmetic_expression  = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_multiply_expression    = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
-        keyword                          = '>'
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = '>'
+        is_compare_operator                    = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        keyword                                = '>'
 
 
         def __repr__(t):
@@ -518,18 +518,18 @@ def module():
 
     @share
     class OperatorGreaterThanOrEqual(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = '>='
-        is_compare_operator              = true
-        is_end_of_arithmetic_expression  = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_multiply_expression    = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
-        keyword                          = '>='
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = '>='
+        is_compare_operator                    = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        keyword                                = '>='
 
 
         def __repr__(t):
@@ -588,18 +588,18 @@ def module():
 
     @share
     class OperatorLessThan(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = '<'
-        is_compare_operator              = true
-        is_end_of_arithmetic_expression  = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_multiply_expression    = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
-        keyword                          = '<'
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = '<'
+        is_compare_operator                    = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        keyword                                = '<'
 
 
         def __repr__(t):
@@ -618,18 +618,18 @@ def module():
 
     @share
     class OperatorLessThanOrEqual(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = '<='
-        is_compare_operator              = true
-        is_end_of_arithmetic_expression  = true
-        is_end_of_logical_and_expression = true
-        is_end_of_logical_or_expression  = true
-        is_end_of_multiply_expression    = true
-        is_end_of_normal_expression_list = true
-        is_end_of_normal_expression      = true
-        is_end_of_unary_expression       = true
-        keyword                          = '<='
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = '<='
+        is_compare_operator                    = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression_list       = true
+        is_end_of_normal_expression            = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        keyword                                = '<='
 
 
         def __repr__(t):
@@ -648,34 +648,33 @@ def module():
 
     @share
     class OperatorLogicalAndSign(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = '&'
-        is_logical_and_operator          = true
-        is_end_of_unary_expression       = true
-        is_end_of_multiply_expression    = true
-        is_end_of_arithmetic_expression  = true
-        keyword                          = '&'
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = '&'
+        is_end_of_multiply_expression          = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        is_logical_and_operator                = true
+        keyword                                = '&'
 
 
     @share
     class OperatorLogicalOrSign(KeywordAndOperatorBase):
-        __slots__                        = (())
-        class_order                      = CLASS_ORDER__NORMAL_TOKEN
-        display_name                     = '|'
-        is_logical_or_operator           = true
-        is_end_of_unary_expression       = true
-        is_end_of_multiply_expression    = true
-        is_end_of_arithmetic_expression  = true
-        is_end_of_logical_and_expression = true
-        keyword                          = '|'
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = '|'
+        is_end_of_logical_and_expression       = true
+        is_end_of_multiply_expression          = true
+        is_end_of_python_arithmetic_expression = true
+        is_end_of_unary_expression             = true
+        is_logical_or_operator                 = true
+        keyword                                = '|'
 
 
     class OperatorLogicalOrModify(KeywordAndOperatorBase):
         __slots__                               = (())
         class_order                             = CLASS_ORDER__NORMAL_TOKEN
         display_name                            = '|='
-        is_end_of_arithmetic_expression         = true
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -686,6 +685,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
+        is_end_of_python_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -730,7 +730,6 @@ def module():
         #  {
         display_name                            = '}'
         is__atom__or__special_operator          = true
-        is_end_of_arithmetic_expression         = true
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -741,6 +740,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
+        is_end_of_python_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -757,7 +757,6 @@ def module():
         display_name                            = ')'
         is__atom__or__special_operator          = true
         is__comma__or__right_parenthesis        = true
-        is_end_of_arithmetic_expression         = true
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -768,6 +767,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
+        is_end_of_python_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -784,9 +784,7 @@ def module():
         class_order                              = CLASS_ORDER__NORMAL_TOKEN
         #   [
         display_name                             = ']'
-        is__optional_comma__right_square_bracket = true
         is__atom__or__special_operator           = true
-        is_end_of_arithmetic_expression          = true
         is_end_of_boolean_and_expression         = true
         is_end_of_boolean_or_expression          = true
         is_end_of_compare_expression             = true
@@ -797,9 +795,11 @@ def module():
         is_end_of_multiply_expression            = true
         is_end_of_normal_expression_list         = true
         is_end_of_normal_expression              = true
+        is_end_of_python_arithmetic_expression   = true
         is_end_of_ternary_expression_list        = true
         is_end_of_ternary_expression             = true
         is_end_of_unary_expression               = true
+        is__optional_comma__right_square_bracket = true
         is_right_square_bracket                  = true
         is_special_operator                      = true
         #   [
@@ -821,7 +821,6 @@ def module():
         __slots__                               = (())
         class_order                             = CLASS_ORDER__NORMAL_TOKEN
         display_name                            = '-='
-        is_end_of_arithmetic_expression         = true
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -832,6 +831,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
+        is_end_of_python_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -1197,9 +1197,9 @@ def module():
 
 
     lookup_keyword_conjure_function = {
-                                          'not'    : conjure_keyword_not,
-                                          'return' : conjure_keyword_return,
-                                      }.get
+            'not'    : conjure_keyword_not,
+            'return' : conjure_keyword_return,
+        }.get
 
 
     share(
