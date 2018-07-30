@@ -216,11 +216,11 @@ def module():
                    )
 
 
-        if __debug__:
+        if python_debug_mode:
             append_cache(name, cache)
 
         if produce_conjure_with_frill == 1:
-            if __debug__:
+            if python_debug_mode:
                 conjure_dual = rename('conjure_%s__with_frill', name)(conjure_dual)
 
             return ((

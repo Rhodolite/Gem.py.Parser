@@ -109,7 +109,7 @@ def module():
                 BookcaseTripleExpression_WithFrill.k4 = BookcaseTripleExpression_WithFrill.frill
 
 
-                if __debug__:
+                if python_debug_mode:
                     BookcaseTripleExpression_WithFrill.__name__ = intern_arrange('%s_WithFrill', Meta.__name__)
 
                 store_adjusted_meta(Meta, BookcaseTripleExpression_WithFrill)

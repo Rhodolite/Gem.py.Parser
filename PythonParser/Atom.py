@@ -46,7 +46,7 @@ def module():
                     count_newlines = count_newlines__quote_with_newlines
 
 
-                if __debug__:
+                if python_debug_mode:
                     TripleXQuote_WithNewlines.__name__ = intern_arrange('%s_WithNewlines', Meta.__name__)
 
                 store_adjusted_meta(Meta, TripleXQuote_WithNewlines)

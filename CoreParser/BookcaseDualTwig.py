@@ -118,7 +118,7 @@ def module():
                     BookcaseDualTwig__WithFrill.write = write
 
 
-                if __debug__:
+                if python_debug_mode:
                     BookcaseDualTwig__WithFrill.__name__ = intern_arrange('%s__WithFrill', Meta.__name__)
 
                 store_adjusted_meta(Meta, BookcaseDualTwig__WithFrill)

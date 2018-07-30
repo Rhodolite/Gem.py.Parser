@@ -11,8 +11,8 @@ def boot():
     PythonPath   = __import__('os.path').path
 
 
-    is_python_2     = (PythonSystem.version_info.major is 2)
-    is_python_3     = (PythonSystem.version_info.major is 3)
+    is_python_2 = (PythonSystem.version_info.major is 2)
+#   is_python_3 = (PythonSystem.version_info.major is 3)
 
 
     PythonBuiltIn = __import__('__builtin__'  if is_python_2 else   'builtins')
@@ -21,9 +21,9 @@ def boot():
     #
     #   Python Keywords
     #
-    false = False
-    none  = None
-    true  = True
+#   false = False
+#   none  = None
+#   true  = True
 
 
     #
@@ -33,6 +33,7 @@ def boot():
     module_path   = PythonSystem.path
     path_absolute = PythonPath.abspath
     path_join     = PythonPath.join
+    type          = PythonBuiltIn.type
 
 
     #

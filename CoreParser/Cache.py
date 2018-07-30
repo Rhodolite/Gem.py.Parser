@@ -10,7 +10,7 @@ def module():
     append_cache_many = cache_many.append
 
 
-    if __debug__:
+    if python_debug_mode:
         @share
         def append_cache(name, cache):
             append_cache_many( ((name, cache)) )
@@ -20,7 +20,7 @@ def module():
             pass
 
 
-    if __debug__:
+    if python_debug_mode:
         def dump_single_cache__OLD(name, cache):
             line('===  %s  ===', name)
 
