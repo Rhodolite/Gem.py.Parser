@@ -41,10 +41,10 @@ def module():
 
 
     @export
-    class Identifier(ParserToken):
+    class TokenName(ParserToken):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
-        display_name = 'Identifier'
+        display_name = 'token-name'
 
 
         if capital_global.python_parser:
@@ -121,6 +121,7 @@ def module():
 
 
         if capital_global.python_parser:
+            find_atom       = return_self
             mutate          = mutate__self
             scout_variables = scout_variables__0
 
@@ -149,7 +150,7 @@ def module():
 
 
     conjure_double_quote = produce_conjure_atom('double-quote', DoubleQuote)
-    conjure_name         = produce_conjure_atom('name', Identifier)
+    conjure_name         = produce_conjure_atom('name', TokenName)
     conjure_single_quote = produce_conjure_atom('single-quote', SingleQuote)
 
 

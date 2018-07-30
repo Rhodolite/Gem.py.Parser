@@ -26,7 +26,7 @@ def module():
 
         if show is 7:
             for v in tree:
-                dump_token('v', v)
+                dump_all_tokens('v', v)
 
         if adorn is 7:
             [art, tree] = build_global_symbol_table(tree)

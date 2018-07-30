@@ -3,6 +3,9 @@
 #
 @module('CoreParser.Cache')
 def module():
+    require_module('CoreParser.Core')
+
+
     cache_many        = []
     append_cache_many = cache_many.append
 

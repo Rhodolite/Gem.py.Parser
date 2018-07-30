@@ -3,8 +3,6 @@
 #
 @module('PythonParser.Parse1')
 def module():
-    require_module('PythonParser.Core')
-
     require_module('PythonParser.Atom')
     require_module('PythonParser.BinaryExpression')
     require_module('PythonParser.Parse1Atom')

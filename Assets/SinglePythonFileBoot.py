@@ -107,15 +107,15 @@ def boot():
     def boot():
         fast_cache.pop('Capital.Boot')()
 
-        produce_export_and_share = Capital.Shared.produce_export_and_share
-        store_capital_module     = Capital.Shared.store_capital_module
+        produce_export_transport_and_share = Capital.Shared.produce_export_transport_and_share
+        store_capital_module               = Capital.Shared.store_capital_module
 
-        del Capital.Shared.produce_export_and_share, Capital.Shared.store_capital_module
+        del Capital.Shared.produce_export_transport_and_share, Capital.Shared.store_capital_module
 
         for module_name in ['CoreParser', 'PythonParser', 'Rex', 'Restructure']:
             module = create_module(module_name)
 
-            produce_export_and_share(module)
+            produce_export_transport_and_share(module)
             store_capital_module(module_name, module)
 
         f           = fast_cache.pop('PythonParser.Main')

@@ -3,11 +3,14 @@
 #
 @module('CoreParser.Method')
 def module():
+    require_module('CoreParser.Core')
+
+
     #
     #   construct
     #
     if capital_global.crystal_parser:
-        @export
+        @share
         def construct__ab(t, a, b):
             t.a = a
             t.b = b
@@ -25,7 +28,7 @@ def module():
     #   count_newlines
     #
     if capital_global.crystal_parser:
-        @export
+        @share
         def count_newlines__ab(t):
             return t.a.count_newlines() + t.b.count_newlines()
 
@@ -40,10 +43,10 @@ def module():
     #   display_token
     #
     if capital_global.crystal_parser:
-        @export
+        @share
         def display_token__ab(t):
             return arrange('<%s %s %s>', t.display_name, t.a.display_token(), t.b.display_token())
-    
+
 
     if capital_global.crystal_parser:
         @export
@@ -59,7 +62,7 @@ def module():
     #   dump_token
     #
     if capital_global.crystal_parser:
-        @export
+        @share
         def dump_token__12(t, f, newline = true):
             f.partial('<%s ', t.display_name)
 
@@ -200,7 +203,7 @@ def module():
     #   order__string
     #
     if capital_global.python_parser:
-        @export
+        @share
         def order__string(a, b):
             if a < b:   return -1
             if a > b:   return 1

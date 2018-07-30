@@ -527,7 +527,7 @@ def module():
 
     class Indented_Token(BaseDualOperator):
         __slots__    = (())
-        class_order  = CLASS_ORDER__INDENTATION
+        class_order  = CLASS_ORDER__INDENTED_TOKEN
         display_name = 'indented-token'
 
 
@@ -606,6 +606,10 @@ def module():
         is__atom__or__special_operator = true
         is_atom                        = true
         is_special_operator            = false
+
+
+        def find_atom(t):
+            return t.b
 
 
         scout_variables = scout_variables__0

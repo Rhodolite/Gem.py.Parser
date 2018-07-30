@@ -165,7 +165,7 @@ def module():
            #t.contains_definition = vacant
            #t.store_definition    = vacant
 
-            #t.variable_drove   = empty_herd
+           #t.variable_drove   = empty_herd
 
             t.variable_index   = t.variable_map = 0
            #t.lookup_variable  = vacant

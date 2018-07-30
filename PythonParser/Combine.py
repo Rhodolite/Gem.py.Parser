@@ -170,7 +170,9 @@ def module():
             t._add_processed('PythonParser.Parse2')
 
 
-        def add_require_module(t, module_name):
+        def add_require_module(t, module_argument):
+            module_name = module_argument.find_atom()
+
             assert module_name.is_single_quote
 
             s = module_name.s[1:-1]

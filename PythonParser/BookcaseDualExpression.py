@@ -11,6 +11,11 @@ def module():
         display_name = '(2)'
         frill        = conjure_vwx_frill(LP, COMMA__W, RP)
 
+
+        def first_argument(t):
+            return t.a
+
+
         scout_variables = scout_variables__ab
 
 

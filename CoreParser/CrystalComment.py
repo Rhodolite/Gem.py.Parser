@@ -36,7 +36,7 @@ def module():
         line_marker                      = false
         newlines                         = 1
 
-        
+
         if capital_global.python_parser:
             is_any_else                      = false
             is_any_except_or_finally         = false

@@ -3,7 +3,8 @@
 #
 @module('CoreParser.DualTwig')
 def module():
-    require_module('CoreParser.Core')
+    require_module('CoreParser.Cache')
+    require_module('CoreParser.ClassOrder')
     require_module('CoreParser.Method')
     require_module('CoreParser.ParserTrunk')
 

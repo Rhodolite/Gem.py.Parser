@@ -26,10 +26,7 @@ def boot():
 
 @module('JavaParser.Main')
 def module():
-    require_module('Capital.Global')
-
-
-    from Capital import capital_global
+    transport('Capital.Global',                     'capital_global')
 
 
     capital_global.java_parser = true
