@@ -4,6 +4,7 @@
 @module('PythonParser.Pattern')
 def module():
     require_module('PythonParser.Core')
+    require_module('PythonParser.Path')
     require_module('Restructure.Build')
     require_module('Restructure.CreateMatch')
     require_module('Restructure.Name')

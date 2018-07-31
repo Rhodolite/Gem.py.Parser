@@ -1,16 +1,16 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.TokenTuple')
+@module('CoreParser.TokenTuple')
 def module():
-    require_module('PythonParser.ClassOrder')
+    require_module('CoreParser.ClassOrder')
+    require_module('CoreParser.Core')
+    require_module('CoreParser.Nub')
 
 
-    @share
+    @export
     class TokenTuple(Tuple):
-        __slots__ = (())
-
-
+        __slots__   = (())
         class_order = CLASS_ORDER__TUPLE
 
 

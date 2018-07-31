@@ -1,8 +1,12 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.QuadrupleTwig')
+@module('CoreParser.QuadrupleTwig')
 def module():
+    require_module('CoreParser.ClassOrder')
+    require_module('CoreParser.ParserTrunk')
+
+
     @share
     def construct__abcd(t, a, b, c, d):
         t.a = a
@@ -31,7 +35,7 @@ def module():
         return arrange('<%s %r %r %r %r>', t.__class__.__name__, t.a, t.b, t.c, t.d)
 
 
-    @share
+    @export
     class QuadrupleTwig(ParserTrunk):
         __slots__ = ((
             'a',                        #   Any
@@ -39,6 +43,9 @@ def module():
             'c',                        #   Any
             'd',                        #   Any
         ))
+
+
+        class_order = CLASS_ORDER__QUADRUPLE_TWIG
 
 
         __init__       = construct__abcd
@@ -71,6 +78,6 @@ def module():
     QuadrupleTwig.k4 = QuadrupleTwig.d
 
 
-    @share
+    @export
     def produce_conjure_quadruple_twig(name, Meta):
         return produce_conjure_quadruple__4123(name, Meta, create_cache(name, conjure_nub))

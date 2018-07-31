@@ -56,8 +56,7 @@ def module():
                 return t
 
 
-        if capital_global.python_parser:
-            order = order__s
+        order = order__s
 
 
         if capital_global.python_parser:

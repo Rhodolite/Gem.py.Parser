@@ -11,23 +11,14 @@ def module():
     #class BinaryExpression(DualTwig):
 
 
-    class AddExpression(BinaryExpression):
-        __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
-        display_name = 'add'
-        frill        = conjure_action_word('+', ' + ')
-
-
     class AndExpression_1(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = 'and-1'
         frill        = conjure_action_word('and', ' and ')
 
 
     class AsFragment(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = 'as-fragment'
         frill        = conjure_action_word('as', ' as ')
 
@@ -45,7 +36,6 @@ def module():
 
     class CommaExpression_1(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = ','
         frill        = COMMA__W
 
@@ -55,21 +45,18 @@ def module():
 
     class ComprehensionIfExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = 'comprehension-if'
         frill        = conjure_keyword_if(' if ')
 
 
     class CompareContainsExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = 'in'
         frill        = conjure_keyword_in(' in ')
 
 
     class CompareEqualExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = '=='
         frill        = conjure_action_word('==', ' == ')
 
@@ -79,7 +66,6 @@ def module():
 
     class CompareDifferentExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = 'is-not'
         frill        = conjure_is_not(W__IS__W, NOT__W)
 
@@ -89,7 +75,6 @@ def module():
 
     class CompareExcludeExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = 'not-in'
         frill        = conjure_not_in(W__NOT__W, conjure_keyword_in('in '))
 
@@ -99,7 +84,6 @@ def module():
 
     class CompareGreaterThanExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = '>'
         frill        = conjure_action_word('>', ' > ')
 
@@ -109,7 +93,6 @@ def module():
 
     class CompareGreaterThanOrEqualExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = '>='
         frill        = conjure_action_word('>=', ' >= ')
 
@@ -119,14 +102,12 @@ def module():
 
     class CompareIdentityExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = 'is'
         frill        = conjure_keyword_is(' is ')
 
 
     class CompareLessThanExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = '<'
         frill        = conjure_action_word('<', ' < ')
 
@@ -136,7 +117,6 @@ def module():
 
     class CompareLessThanOrEqualExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = '<='
         frill        = conjure_action_word('<=', ' <= ')
 
@@ -146,7 +126,6 @@ def module():
 
     class CompareNotEqualExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = '!='
         frill        = conjure_action_word('!=', ' != ')
 
@@ -156,7 +135,6 @@ def module():
 
     class DivideExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = '/'
         frill        = conjure_action_word('/', ' / ')
 
@@ -167,7 +145,6 @@ def module():
 
     class IntegerDivideExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = '//'
         frill        = conjure_action_word('//', ' // ')
 
@@ -178,7 +155,6 @@ def module():
 
     class KeywordArgument(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = 'keyword-argument'
         frill        = W__ASSIGN__W
 
@@ -192,7 +168,6 @@ def module():
 
     class KeywordParameter(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = 'keyword-parameter'
         frill        = W__ASSIGN__W
 
@@ -210,63 +185,51 @@ def module():
 
     class LogicalAndExpression_1(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = '&'
         frill        = conjure_action_word('&', ' & ')
 
 
     class LogicalOrExpression_1(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = '|'
         frill        = conjure_action_word('|', ' | ')
 
 
     class MapElement(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = ':'
         frill        = W__COLON__W
 
 
     class ModulusExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = '%'
         frill        = W__PERCENT_SIGN__W
 
 
     class MultiplyExpression_1(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = '*'
         frill        = W__STAR_SIGN__W
 
 
     class OrExpression_1(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = 'or'
         frill        = conjure_action_word('or', ' or ')
 
 
     class PowerExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = 'power'
         frill        = conjure_action_word('**', ' ** ')
 
 
     class SubtractExpression(BinaryExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BINARY_EXPRESSION
         display_name = '-'
         frill        = conjure_action_word('-', ' - ')
 
-
-    [
-        conjure_add_expression, conjure_add_expression__with_frill,
-    ] = produce_conjure_binary_expression('add', AddExpression)
 
     [
         conjure_and_expression_1, conjure_and_expression_1__with_frill,
@@ -590,7 +553,6 @@ def module():
     OperatorLessThanOrEqual   .expression_meta = static_method(conjure_compare_less_than_or_equal)
     OperatorMinusSign         .expression_meta = static_method(conjure_subtract_expression)
     OperatorPercentSign       .expression_meta = static_method(conjure_modulus_expression)
-    OperatorPlusSign          .expression_meta = static_method(conjure_add_expression)
     OperatorStarSign          .expression_meta = static_method(conjure_multiple_expression_1)
 
 

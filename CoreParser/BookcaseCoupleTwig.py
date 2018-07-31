@@ -77,8 +77,7 @@ def module():
                            frill.w.display_token())
 
 
-        if capital_global.python_parser:
-            order = order__frill_ab
+        order = order__frill_ab
 
 
         def write(t, w):

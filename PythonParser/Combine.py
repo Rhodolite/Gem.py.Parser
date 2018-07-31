@@ -4,6 +4,7 @@
 @module('PythonParser.Combine')
 def module():
     require_module('PythonParser.Parse')
+    require_module('PythonParser.Path')
     require_module('PythonParser.SymbolTable')
 
 

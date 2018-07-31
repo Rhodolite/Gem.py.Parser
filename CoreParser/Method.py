@@ -134,87 +134,110 @@ def module():
     #
     #   order
     #
-    if capital_global.python_parser:
-        @export
-        def order__ab(a, b):
-            a_order = a.class_order
-            b_order = b.class_order
+    @export
+    def order__ab(a, b):
+        a_order = a.class_order
+        b_order = b.class_order
 
-            if a_order is b_order:
-                return (a.a.order(b.a)) or (a.b.order(b.b))
+        if a_order is b_order:
+            return (a.a.order(b.a)) or (a.b.order(b.b))
 
-            if a_order < b_order:
-                return -1
+        if a_order < b_order:
+            return -1
 
-            assert a_order > b_order
+        assert a_order > b_order
 
-            return 1
-
-
-    if capital_global.python_parser:
-        @export
-        def order__abc(a, b):
-            a_order = a.class_order
-            b_order = b.class_order
-
-            if a_order is b_order:
-                return (a.a.order(b.a)) or (a.b.order(b.b)) or (a.c.order(b.c))
-
-            if a_order < b_order:
-                return -1
-
-            assert a_order > b_order
-
-            return 1
+        return 1
 
 
-    if capital_global.python_parser:
-        @export
-        def order__frill_ab(a, b):
-            a_order = a.class_order
-            b_order = b.class_order
+    @export
+    def order__abc(a, b):
+        a_order = a.class_order
+        b_order = b.class_order
 
-            if a_order is b_order:
-                return (a.frill.order(b.frill)) or (a.a.order(b.a)) or (a.b.order(b.b))
+        if a_order is b_order:
+            return (a.a.order(b.a)) or (a.b.order(b.b)) or (a.c.order(b.c))
 
-            if a_order < b_order:
-                return -1
+        if a_order < b_order:
+            return -1
 
-            assert a_order > b_order
+        assert a_order > b_order
 
-            return 1
-
+        return 1
 
 
-    if capital_global.python_parser:
-        @export
-        def order__s(a, b):
-            a_order = a.class_order
-            b_order = b.class_order
+    @share
+    def order__abcd(a, b):
+        a_order = a.class_order
+        b_order = b.class_order
 
-            if a_order is b_order:
-                if a.s < b.s:   return -1
-                if a.s > b.s:   return 1
+        if a_order is b_order:
+            return (a.a.order(b.a)) or (a.b.order(b.b)) or (a.c.order(b.c)) or (a.d.order(b.d))
 
-                return 0
+        if a_order < b_order:
+            return -1
 
-            if a_order < b_order: return -1
+        assert a_order > b_order
 
-            assert a_order > b_order
-
-            return 1
+        return 1
 
 
-    #
-    #   order__string
-    #
-    if capital_global.python_parser:
-        @share
-        def order__string(a, b):
-            if a < b:   return -1
-            if a > b:   return 1
+    @export
+    def order__frill_ab(a, b):
+        a_order = a.class_order
+        b_order = b.class_order
+
+        if a_order is b_order:
+            return (a.frill.order(b.frill)) or (a.a.order(b.a)) or (a.b.order(b.b))
+
+        if a_order < b_order:
+            return -1
+
+        assert a_order > b_order
+
+        return 1
+
+
+    @export
+    def order__frill_many(a, b):
+        a_order = a.class_order
+        b_order = b.class_order
+
+        if a_order is b_order:
+            return (a.frill.order(b.frill)) or (a.many.order(b.many))
+
+        if a_order < b_order:
+            return -1
+
+        assert a_order > b_order
+
+        return 1
+
+
+    @export
+    def order__s(a, b):
+        a_order = a.class_order
+        b_order = b.class_order
+
+        if a_order is b_order:
+            if a.s < b.s:   return -1
+            if a.s > b.s:   return 1
 
             return 0
+
+        if a_order < b_order: return -1
+
+        assert a_order > b_order
+
+        return 1
+
+
+    @share
+    def order__string(a, b):
+        if a < b:   return -1
+        if a > b:   return 1
+
+        return 0
 
 
     #
@@ -262,6 +285,13 @@ def module():
             t.b.scout_variables(art)
 
 
+    if capital_global.python_parser:
+        @export
+        def scout_variables__many(t, art):
+            for v in t.many:
+                v.scout_variables(art)
+
+
     #
     #   transform
     #
@@ -302,6 +332,68 @@ def module():
                     return t
 
                 return conjure(a__2, b__2, c__2)
+
+
+            return transform
+
+
+    if capital_global.python_parser:
+        @export
+        def produce_transform__abcd(name, conjure):
+            @rename('transform_%s', name)
+            def transform(t, vary):
+                a = t.a
+                b = t.b
+                c = t.c
+                d = t.d
+
+                a__2 = a.transform(vary)
+                b__2 = b.transform(vary)
+                c__2 = c.transform(vary)
+                d__2 = d.transform(vary)
+
+                if (a is a__2) and (b is b__2) and (c is c__2) and (d is d__2):
+                    return t
+
+                return conjure(a__2, b__2, c__2, d__2)
+
+
+            return transform
+
+
+    if capital_global.python_parser:
+        @export
+        def produce_transform_many(name, conjure):
+            @rename('transform_%s', name)
+            def transform(t, vary):
+                iterator = iterate(t)
+
+                i = 0
+
+                for v in iterator:
+                    v__2 = v.transform(vary)
+
+                    if v is not v__2:
+                        break
+
+                    i += 1
+                else:
+                    return t
+
+                many__2 = (
+                              []       if i is 0 else
+                              [t[0]]   if i is 1 else
+                              List(t[:i])
+                          )
+
+                append = many__2.append
+
+                append(v__2)
+
+                for v in iterator:
+                    append(v.transform(vary))
+
+                return conjure(many__2)
 
 
             return transform

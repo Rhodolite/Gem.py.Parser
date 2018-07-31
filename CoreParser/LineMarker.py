@@ -29,7 +29,6 @@ def module():
 
 
         if capital_global.python_parser:
-            is_end_of_arithmetic_expression         = true
             is_end_of_boolean_and_expression        = true
             is_end_of_boolean_or_expression         = true
             is_end_of_compare_expression            = true
@@ -40,9 +39,15 @@ def module():
             is_end_of_multiply_expression           = true
             is_end_of_normal_expression_list        = true
             is_end_of_normal_expression             = true
+            is_end_of_python_arithmetic_expression  = true
             is_end_of_ternary_expression_list       = true
             is_end_of_ternary_expression            = true
             is_end_of_unary_expression              = true
+
+
+        if capital_global.tremolite_parser:
+            is_end_of_tremolite_arithmetic_expression = true
+            is_end_of_tremolite_unary_expression      = true
 
 
         def __init__(t, s):
@@ -76,8 +81,7 @@ def module():
             return true
 
 
-        if capital_global.python_parser:
-            order = order__s
+        order = order__s
 
 
     @export

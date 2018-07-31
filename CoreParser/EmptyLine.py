@@ -65,7 +65,12 @@ def module():
 
         if capital_global.python_parser:
             find_require_module = find_require_module__0
-            order               = order__string
+
+
+        order = order__string
+
+
+        if capital_global.python_parser:
             scout_variables     = scout_variables__0
             transform           = transform__remove_comments_0
 

@@ -37,5 +37,4 @@ def module():
                 return t.display_token()
 
 
-        if capital_global.python_parser:
-            nub = static_conjure_nub
+        nub = static_conjure_nub

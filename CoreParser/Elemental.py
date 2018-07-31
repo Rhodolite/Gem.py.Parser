@@ -31,7 +31,6 @@ def module():
             is_comma__right_square_bracket             = false
             is_compare_operator                        = false
             is_dot                                     = false
-            is_end_of_arithmetic_expression            = false
             is_end_of_boolean_and_expression           = false
             is_end_of_boolean_or_expression            = false
             is_end_of_compare_expression               = false
@@ -42,6 +41,7 @@ def module():
             is_end_of_multiply_expression              = false
             is_end_of_normal_expression                = false
             is_end_of_normal_expression_list           = false
+            is_end_of_python_arithmetic_expression     = false
             is_end_of_ternary_expression               = false
             is_end_of_ternary_expression_list          = false
             is_end_of_unary_expression                 = false
@@ -79,7 +79,9 @@ def module():
 
 
         if capital_global.tremolite_parser:
-            is_tremolite_arithmetic_operator = false
+            is_end_of_tremolite_arithmetic_expression = false
+            is_end_of_tremolite_unary_expression      = false
+            is_tremolite_arithmetic_operator          = false
 
 
         def __repr__(t):
@@ -156,7 +158,15 @@ def module():
 
 
             if capital_global.tremolite_parser:
-                is_tremolite_arithmetic_operator = true
+                is_end_of_tremolite_unary_expression = true
+                is_tremolite_arithmetic_operator     = true
+
+
+        initialize_action_word__Meta(
+            ((
+                 ((     '+',        OperatorPlusSign            )),
+            )),
+        )
 
 
     if capital_global.crystal_parser:

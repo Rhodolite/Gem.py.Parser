@@ -84,9 +84,9 @@ def module():
         provide_action_word__Meta = action_word__Meta__cache.setdefault
 
         for [k, Meta] in many:
-            provide_action_word__Meta(k, Meta)
+            previous = provide_action_word__Meta(k, Meta)
 
-        assert length(many) == length(action_word__Meta__cache)
+            assert previous is Meta
 
 
     @export

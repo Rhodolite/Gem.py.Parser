@@ -3,9 +3,6 @@
 #
 @module('PythonParser.BookcaseTriple')
 def module():
-    require_module('PythonParser.QuadrupleFrill')
-
-
     triple_expression_cache  = create_cache('triple-expression', conjure_nub)
     lookup_triple_expression = triple_expression_cache.get
     store_triple_expression  = triple_expression_cache.__setitem__
