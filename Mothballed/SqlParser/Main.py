@@ -26,17 +26,6 @@ def boot():
 
 @module('SqlParser.Main')
 def module():
-    transport('Capital.Core',                       'true')
-    transport('Capital.Global',                     'capital_global')
-
-
-    from Capital import capital_global
-
-
-    capital_global.sql_parser = true
-
-
-    require_module('SqlParser.Core')
     require_module('SqlParser.Pattern')
 
 

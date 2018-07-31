@@ -3,9 +3,6 @@
 #
 @module('CoreParser.Tokenizer')
 def module():
-    require_module('CoreParser.Core')
-
-
     tokenizer = [none, 0, 0, 0, none, none, none, 0]
 
     query = tokenizer.__getitem__

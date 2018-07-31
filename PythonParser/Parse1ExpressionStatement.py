@@ -6,9 +6,6 @@ def module():
     require_module('PythonParser.BookcaseManyStatement')
 
 
-    show = 0
-
-
     def parse1_statement_assign__left__equal_sign(indented, left, equal_sign):
         right = parse1_ternary_expression_list()
 

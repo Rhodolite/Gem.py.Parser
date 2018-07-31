@@ -3,9 +3,6 @@
 #
 @module('CoreParser.CreateMeta')
 def module():
-    require_module('CoreParser.Core')
-
-
     adjusted_meta_cache  = {}
     lookup_adjusted_meta = adjusted_meta_cache.get
     store_adjusted_meta  = adjusted_meta_cache.__setitem__

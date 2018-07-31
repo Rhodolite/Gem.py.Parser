@@ -4,7 +4,6 @@
 @module('CoreParser.TokenTuple')
 def module():
     require_module('CoreParser.ClassOrder')
-    require_module('CoreParser.Core')
     require_module('CoreParser.Nub')
 
 

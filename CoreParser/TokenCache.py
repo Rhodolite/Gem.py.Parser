@@ -4,7 +4,6 @@
 @module('CoreParser.TokenCache')
 def module():
     require_module('CoreParser.Cache')
-    require_module('CoreParser.Core')
 
 
     #

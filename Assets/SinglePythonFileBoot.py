@@ -79,6 +79,13 @@ def boot():
 
         store_python_module(module_name, module)
 
+        if (module_name.rfind('.') == -1) and (module_name != 'Capital'):
+            produce_export_transport_and_share = Capital.Shared.produce_export_transport_and_share
+            store_capital_module               = Capital.Shared.store_capital_module
+
+            produce_export_transport_and_share(module)
+            store_capital_module(module_name, module)
+
         return module
 
 
@@ -107,17 +114,6 @@ def boot():
 
     def boot():
         fast_cache.pop('Capital.Boot')()
-
-        produce_export_transport_and_share = Capital.Shared.produce_export_transport_and_share
-        store_capital_module               = Capital.Shared.store_capital_module
-
-        del Capital.Shared.produce_export_transport_and_share, Capital.Shared.store_capital_module
-
-        for module_name in ['CoreParser', 'PythonParser', 'Rex', 'Restructure']:
-            module = create_module(module_name)
-
-            produce_export_transport_and_share(module)
-            store_capital_module(module_name, module)
 
         f           = fast_cache.pop('PythonParser.Main')
         module_main = __import__('__main__').module('PythonParser.Main')

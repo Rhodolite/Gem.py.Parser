@@ -3,7 +3,6 @@
 #
 @module('PythonParser.Parse1Import')
 def module():
-    require_module('PythonParser.Core')
     require_module('PythonParser.Elemental')
     require_module('PythonParser.Match')
 

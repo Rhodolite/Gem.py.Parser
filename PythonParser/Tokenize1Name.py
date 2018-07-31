@@ -3,9 +3,6 @@
 #
 @module('PythonParser.Tokenize1Name')
 def module():
-    show = 0
-
-
     def tokenize_name__X__newline(m):
         if qd() is not 0:
             if qi() == qj():

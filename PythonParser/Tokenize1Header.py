@@ -3,9 +3,6 @@
 #
 @module('PythonParser.Tokenize1Header')
 def module():
-    show = 0
-
-
     @share
     def tokenize_header_parenthesis_atom():
         assert qd() is 0

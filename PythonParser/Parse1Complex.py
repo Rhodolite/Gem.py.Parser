@@ -6,9 +6,6 @@ def module():
     require_module('PythonParser.PrefixedDualStatement')
 
 
-    show = 0
-
-
     def parse1_condition_statement__X__m(m, conjure_indented_keyword, evoke_header, conjure_body_statement):
         if m.end('newline') is not -1:
             raise_unknown_line()

@@ -3,7 +3,6 @@
 #
 @module('SqlParser.Pattern')
 def module():
-    require_module('SqlParser.Core')
     require_module('Restructure.Build')
     require_module('Restructure.CreateMatch')
     require_module('Restructure.Name')

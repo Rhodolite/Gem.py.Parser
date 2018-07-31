@@ -3,7 +3,6 @@
 #
 @module('JavaParser.Pattern')
 def module():
-    require_module('JavaParser.Core')
     require_module('Restructure.Build')
     require_module('Restructure.CreateMatch')
     require_module('Restructure.Name')
