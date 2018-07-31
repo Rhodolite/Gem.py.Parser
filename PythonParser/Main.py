@@ -25,15 +25,7 @@ def boot():
 
 @module('PythonParser.Main')
 def module():
-    transport('Capital.Core',                       'true')
-    transport('Capital.Global',                     'capital_global')
-
-
-    capital_global.crystal_parser = true
-    capital_global.python_parser  = true
-
-
-    require_module('PythonParser.Core')
+    require_module('PythonParser')
 
 
     choice = 3

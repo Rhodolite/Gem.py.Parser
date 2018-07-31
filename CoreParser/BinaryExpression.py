@@ -3,7 +3,6 @@
 #
 @module('CoreParser.BinaryExpression')
 def module():
-    require_module('CoreParser.Core')
     require_module('CoreParser.DualTwig')
     require_module('CoreParser.Elemental')
 

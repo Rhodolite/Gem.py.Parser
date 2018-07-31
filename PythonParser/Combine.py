@@ -233,25 +233,28 @@ def module():
                 extend_latest(other)
 
 
-        def process_module(t, module):
-            t._add_processed(module)
+        def process_module(t, module_name):
+            t._add_processed(module_name)
 
-            if module.startswith('CoreParser.'):
+            if module_name.startswith('CoreParser'):                    #   No ending `.` on purpose
                 parent = '../Parser'
-            elif module.startswith('Capital.'):
+            elif module_name.startswith('Capital.'):
                 parent = '../Capital'
-            elif module.startswith('PythonParser.'):
+            elif module_name.startswith('PythonParser'):                #   No ending `.` on purpose
                 parent = '../Parser'
-            elif module.startswith('Restructure.'):
+            elif module_name.startswith('Restructure'):                 #   No ending `.` on purpose
                 parent = '../Tremolite'
-            elif module.startswith('Rex.'):
+            elif module_name.startswith('Rex'):                         #   No ending `.` on purpose
                 parent = '../Tremolite'
             else:
-                line('module: %s', module)
+                raise_runtime_error('unknown prefix: %s', module_name)
 
-            path = path_join(parent, arrange('%s.py', module.replace('.', '/')))
+            if (module_name.rfind('.') == -1):
+                path = path_join(parent, arrange('%s/__init__.py', module_name.replace('.', '/')))
+            else:
+                path = path_join(parent, arrange('%s.py', module_name.replace('.', '/')))
 
-            module_function = extract_module_function(module, path, t.vary)
+            module_function = extract_module_function(module_name, path, t.vary)
 
             t._append_twig(module_function)
 
@@ -341,9 +344,9 @@ def module():
 
         module_function = tree[0]
 
-        #if module_function.a is not conjure__module_function__decorator_header(module):
-        #    dump_token('module_function.a', module_function.a)
-        #    dump_token('other', conjure__module_function__decorator_header(module))
+        if module_function.a is not conjure__module_function__decorator_header(module):
+            dump_all_tokens('module_function.a', module_function.a)
+            dump_all_tokens('other', conjure__module_function__decorator_header(module))
 
         assert module_function.is_decorated_definition
         assert module_function.a is conjure__module_function__decorator_header(module)

@@ -3,7 +3,6 @@
 #
 @module('CoreParser.BookcaseDualTwig')
 def module():
-    require_module('CoreParser.Core')
     require_module('CoreParser.DualTwig')
 
 

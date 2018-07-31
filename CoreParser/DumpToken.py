@@ -3,9 +3,6 @@
 #
 @module('CoreParser.DumpToken')
 def module():
-    require_module('CoreParser.Core')
-
-
     class TokenOutput(StringOutput):
         __slots_ = (())
 

@@ -4,7 +4,6 @@
 @module('CoreParser.CrystalIndentation')
 def module():
     require_module('CoreParser.Atom')
-    require_module('CoreParser.Core')
 
 
     next_indentation_cache   = {}

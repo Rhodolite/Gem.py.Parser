@@ -3,9 +3,6 @@
 #
 @module('SqlParser.Statement')
 def module():
-    require_module('SqlParser.Core')
-
-
     @share
     class PoundSignComment(Object):
         __slots__ = ((

@@ -3,9 +3,6 @@
 #
 @module('CoreParser.Method')
 def module():
-    require_module('CoreParser.Core')
-
-
     #
     #   construct
     #

@@ -3,9 +3,6 @@
 #
 @module('PythonParser.CreateMeta')
 def module():
-    require_module('PythonParser.Core')
-
-
     @share
     def conjure_ActionWord_LineMarker_Many(Meta, constructor):
         assert Meta.__name__.endswith('_1')

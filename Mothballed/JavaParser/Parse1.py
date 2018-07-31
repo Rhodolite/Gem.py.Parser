@@ -3,7 +3,6 @@
 #
 @module('JavaParser.Parse1')
 def module():
-    require_module('JavaParser.Core')
     require_module('JavaParser.Match')
 
 

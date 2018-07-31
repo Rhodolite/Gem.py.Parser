@@ -3,7 +3,6 @@
 #
 @module('SqlParser.ConjureTreeComment')
 def module():
-    require_module('SqlParser.Core')
     require_module('SqlParser.Comment')
 
 

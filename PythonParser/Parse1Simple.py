@@ -8,9 +8,6 @@ def module():
     require_module('PythonParser.BookcaseTriple')
 
 
-    show = 7
-
-
     @share
     def parse1_statement_break(m):
         if m.end('newline') is -1:

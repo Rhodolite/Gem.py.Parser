@@ -4,7 +4,6 @@
 @module('CoreParser.TupleOfExpression')
 def module():
     require_module('CoreParser.Cache')
-    require_module('CoreParser.Core')
     require_module('CoreParser.TokenTuple')
 
 

@@ -3,9 +3,6 @@
 #
 @module('PythonParser.Tokenize1Operator')
 def module():
-    show = 0
-
-
     @share
     def skip_tokenize_prefix():
         next = next_method(parse_context.iterate_lines)

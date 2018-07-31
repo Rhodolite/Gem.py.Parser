@@ -4,7 +4,6 @@
 @module('CoreParser.ParserToken')
 def module():
     require_module('CoreParser.ClassOrder')
-    require_module('CoreParser.Core')
     require_module('CoreParser.Method')
     require_module('CoreParser.Nub')
     require_module('CoreParser.TokenCache')

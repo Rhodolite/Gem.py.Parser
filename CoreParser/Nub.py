@@ -3,9 +3,6 @@
 #
 @module('CoreParser.Nub')
 def module():
-    require_module('CoreParser.Core')
-
-
     nub_cache   = create_cache('nub')
     lookup_nub  = nub_cache.lookup
     provide_nub = nub_cache.provide

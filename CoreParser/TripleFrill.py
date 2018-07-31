@@ -3,7 +3,6 @@
 #
 @module('CoreParser.TripleFrill')
 def module():
-    require_module('CoreParser.Core')
     require_module('CoreParser.TripleTwig')
 
 
