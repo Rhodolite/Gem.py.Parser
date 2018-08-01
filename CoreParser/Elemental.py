@@ -83,6 +83,7 @@ def module():
             is_end_of_tremolite_range_expression      = false
             is_end_of_tremolite_unary_expression      = false
             is_tremolite_arithmetic_operator          = false
+            is_tremolite_range_operator               = false
 
 
         def __repr__(t):

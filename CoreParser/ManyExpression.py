@@ -175,7 +175,7 @@ def module():
     @export
     class ArithmeticExpression_Many(ManyExpression):
         __slots__    = (())
-        display_name = 'arithmetic-*'
+        display_name = 'arithmetic-many'
 
         if capital_global.python_parser:
             scout_variables = scout_variables__many
@@ -211,7 +211,7 @@ def module():
 
     [
         conjure_arithmetic_expression_many, conjure_arithmetic_expression_many__with_frill,
-    ] = produce_conjure_many_expression('arithmetic-*', ArithmeticExpression_Many)
+    ] = produce_conjure_many_expression('arithmetic-many', ArithmeticExpression_Many)
 
 
     export(
