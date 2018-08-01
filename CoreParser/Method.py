@@ -4,6 +4,15 @@
 @module('CoreParser.Method')
 def module():
     #
+    #   add_parameters
+    #
+    if capital_global.python_parser:
+        @share
+        def add_parameters__b(t, art):
+            t.b.add_parameters(art)
+
+
+    #
     #   construct
     #
     if capital_global.crystal_parser:
@@ -266,6 +275,14 @@ def module():
         def scout_default_values__0(t, art):
             pass
 
+
+    if capital_global.python_parser:
+        @share
+        def scout_default_values__b(t, art):
+            t.b.scout_default_values(art)
+
+
+
     #
     #   scout_variables
     #
@@ -277,8 +294,20 @@ def module():
 
     if capital_global.python_parser:
         @export
+        def scout_variables__a(t, art):
+            t.a.scout_variables(art)
+
+
+    if capital_global.python_parser:
+        @export
         def scout_variables__ab(t, art):
             t.a.scout_variables(art)
+            t.b.scout_variables(art)
+
+
+    if capital_global.python_parser:
+        @export
+        def scout_variables__b(t, art):
             t.b.scout_variables(art)
 
 
@@ -434,3 +463,18 @@ def module():
             t.k1.write(w)
             t.k2.write(w)
             t.k3.write(w)
+
+
+    #
+    #   write_variables
+    #
+    if capital_global.python_parser:
+        @share
+        def write_variables__b(t, art):
+            t.b.write_variables(art)
+
+
+    if capital_global.python_parser:
+        @export
+        def write_variables__a(t, art):
+            t.a.write_variables(art)

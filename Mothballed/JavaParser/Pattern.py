@@ -121,4 +121,9 @@ def module():
         #
         #   Create .../JavaParser/Match.py
         #
-        create_match_code(path_join(module_path[0], 'Match.py'), '2017-2018', 'Joy Diamond', 'JavaParser.Match')
+        create_match_code(
+                path_join(module_path[0], 'JavaParser/Match.py'),
+                '2017-2018',
+                'Joy Diamond',
+                'JavaParser.Match',
+            )

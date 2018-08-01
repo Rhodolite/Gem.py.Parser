@@ -152,21 +152,14 @@ def module():
         w_as_w                  = NAME('w_as_w',                  w + keyword_as + w)
         w_import_w              = NAME('w_import_w',              w + keyword_import + w)
 
-        #
-        #   OLD
-        #
-        #   (
-        OLD__middle_ow = NAME('OLD__middle_ow', P(w + NOT_FOLLOWED_BY(ANY_OF(LINEFEED, '#'))))
-
-        OLD__right_parenthesis   = NAME('OLD__right_parenthesis',   ow + ')' + OLD__middle_ow)
-        ow__left_parenthesis__ow = NAME('ow__left_parenthesis__ow', ow + '(' + ow)              #   )
 
         #
         #   Generic
         #
-        name_match             = MATCH('name_match', name)
-        name_ow_match          = MATCH('name_ow_match', G(name) + ow + Q(comment_newline))
-        next_nested_line_match = MATCH('next_nested_line_match', ow + Q(comment_newline))
+        name_match                     = MATCH('name_match', name)
+        name_ow_match                  = MATCH('name_ow_match', G(name) + ow + Q(comment_newline))
+        next_crystal_nested_line_match = MATCH('next_crystal_nested_line_match', ow + Q(comment_newline))
+
 
         #
         #   Copyright

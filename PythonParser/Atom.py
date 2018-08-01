@@ -85,30 +85,6 @@ def module():
             return t.s
 
 
-    @share
-    class Number(ParserToken):
-        __slots__                      = (())
-        class_order                    = CLASS_ORDER__NORMAL_TOKEN
-        display_name                   = 'number'
-        is__atom__or__special_operator = true
-        is_atom                        = true
-        is_colon                       = false
-        is_right_brace                 = false
-        is_right_parenthesis           = false
-        is_right_square_bracket        = false
-        is_special_operator            = false
-
-
-        def display_token(t):
-            return t.s
-
-
-        mutate          = mutate__self
-        scout_variables = scout_variables__0
-
-
-    conjure_number       = produce_conjure_atom('number',       Number)
-
     conjure_triple_double_quote__with_newlines = produce_conjure_triple_quote__with_newlines(
             'triple-double-quote',
             DoubleQuote,
@@ -124,7 +100,7 @@ def module():
 
     share(
         'conjure_double_quote',                         conjure_double_quote,
-        'conjure_number',                               conjure_number,
+        'conjure_token_number',                         conjure_token_number,
         'conjure_single_quote',                         conjure_single_quote,
         'conjure_triple_double_quote__with_newlines',   conjure_triple_double_quote__with_newlines,
         'conjure_triple_single_quote__with_newlines',   conjure_triple_single_quote__with_newlines,

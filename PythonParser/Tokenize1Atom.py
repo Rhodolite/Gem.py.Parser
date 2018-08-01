@@ -6,6 +6,38 @@ def module():
     require_module('PythonParser.Tokenize1Operator')
 
 
+    #
+    #   produce_analyze_LANGUAGE_* (without `newline` in the name)
+    #
+    analyze_python_keyword_atom = produce_analyze_LANGUAGE_keyword_atom(
+            'python',
+            find_python_atom_type,
+            lookup_python_keyword_conjure_function,
+        )
+
+    analyze_python_quote = produce_analyze_LANGUAGE_quote('python', find_python_atom_type)
+
+
+    #
+    #   analyze_LANGUAGE_newline_* (with `newline` in the name)
+    #
+    analyze_python_newline_keyword_atom = produce_analyze_LANGUAGE_newline_keyword_atom(
+            'python',
+            find_python_atom_type,
+            lookup_python_keyword_conjure_function,
+            python__skip_tokenize_prefix,
+        )
+
+    analyze_LANGUAGE_newline_quote = produce_analyze_LANGUAGE_newline_quote(
+            'python',
+            find_python_atom_type,
+            python__skip_tokenize_prefix,
+        )
+
+
+    #
+    #   produce_tokenize_multiline_quote
+    #
     def produce_tokenize_multiline_quote(name, next_triple_quote_match, conjure_quote__with_newlines):
         group_name = intern_arrange('missing_%s_quote', name)
 
@@ -58,7 +90,7 @@ def module():
 
                 suffix = conjure_whitespace__ends_in_newline(qs()[quote_end : ])
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 if prefix is 0:
                     return conjure_atom_whitespace(r, suffix)
@@ -84,15 +116,7 @@ def module():
 
     #
     #   Note:
-    #       Below a few tests of `i == j` (or the equivalent `qi() = qj()`).
-    #
-    #       None of these tests can be optimized to `i is j` since [the original] `i` & `j` could have been created
-    #       with two different calls, such as:
-    #
-    #           1.  m.end('atom'); .vs.
-    #           2.  m.end()
-    #
-    #       with `ow` is empty -- and thus have the same value (but different internal addresses).
+    #       See note in "CoreParser.TokenizeAtom" on the need to use `==` instead of `is` when comparing `i` & `j`
     #
     #   Note #2:
     #       The previous note also applies to tests like `qi() != j` ... cannot replace this with `qi() is not j`.
@@ -103,29 +127,7 @@ def module():
             atom_s = m.group('atom')
 
             if atom_s is not none:
-                conjure = lookup_keyword_conjure_function(atom_s)
-
-                if conjure is not none:
-                    j = m.end()
-
-                    r = conjure(qs()[qi() : j])
-
-                    wi(j)
-                    wj(j)
-
-                    return r
-
-                atom_end = m.end('atom')
-
-                if qi() != qj():
-                    r = find_evoke_whitespace_atom(atom_s[0])(qj(), atom_end)
-                else:
-                    r = find_atom_type(atom_s[0])(atom_s)
-
-                wi(atom_end)
-                wj(m.end())
-
-                return r
+                return analyze_python_keyword_atom(m, atom_s)
 
             operator_s = m.group('operator')
 
@@ -254,26 +256,13 @@ def module():
             quote_start = m.start('quote')
 
             if quote_start is not -1:
-                j         = qj()
-                quote_end = m.end('quote')
-
                 if m.start('missing_double_quote') is not -1:
                     return tokenize_multiline_double_quote(m)
 
                 if m.start('missing_single_quote') is not -1:
                     return tokenize_multiline_single_quote(m)
 
-                if qi() != j:
-                    r = find_evoke_whitespace_atom(qs()[quote_start])(j, quote_end)
-                else:
-                    s = qs()
-
-                    r = find_atom_type(s[quote_start])(s[j : quote_end])
-
-                wi(quote_end)
-                wj(m.end())
-
-                return r
+                return analyze_python_quote(m, quote_start)
 
             raise_unknown_line()
 
@@ -283,53 +272,7 @@ def module():
         atom_s = m.group('atom')
 
         if atom_s is not none:
-            conjure = lookup_keyword_conjure_function(atom_s)
-
-            if conjure is not none:
-                if qd() is 0:
-                    atom_end = m.end('atom')
-
-                    r = conjure(atom_s)(qs()[qi() : atom_end])
-
-                    wn(conjure_line_marker(s[atom_end : ]))
-
-                    return r
-
-                r = conjure(atom_s)(qs()[qi() : ])
-
-                skip_tokenize_prefix()
-
-                return r
-
-            #
-            #<similiar-to: {quote_s} below>
-            #
-            #   Differences:
-            #
-            #       Uses "m.end('atom')" instead of "quote_end"
-            #       Uses "qs()" intead of "s"
-            #
-            if qd() is not 0:
-                if qi() == qj():
-                    r = find_evoke_atom_whitespace(atom_s[0])(m.end('atom'), none)
-                else:
-                    r = find_evoke_whitespace_atom_whitespace(atom_s[0])(qj(), m.end('atom'), none)
-
-                skip_tokenize_prefix()
-
-                return r
-
-            atom_end = m.end('atom')
-
-            if qi() == qj():
-                r = find_atom_type(atom_s[0])(atom_s)
-            else:
-                r = find_evoke_whitespace_atom(atom_s[0])(qj(), m.end('atom'))
-
-            wn(conjure_line_marker(qs()[atom_end : ]))
-
-            return r
-            #</similiar-to>
+            return analyze_python_newline_keyword_atom(m, atom_s)
 
         operator_s = m.group('operator')
 
@@ -352,7 +295,7 @@ def module():
 
                 r = conjure_action_word__ends_in_newline(operator_s, qs()[qi() : ])
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 return r
 
@@ -369,7 +312,7 @@ def module():
 
             r = conjure_action_word__ends_in_newline(operator_s, qs()[qi() : ])
 
-            skip_tokenize_prefix()
+            python__skip_tokenize_prefix()
 
             return r
 
@@ -397,7 +340,7 @@ def module():
 
                 r = evoke_empty_tuple(left_end, none)
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 return r
 
@@ -405,7 +348,7 @@ def module():
 
             r = conjure_left_parenthesis__ends_in_newline(qs()[qi() : ])
 
-            skip_tokenize_prefix()
+            python__skip_tokenize_prefix()
 
             return r
         #</same-as>
@@ -434,7 +377,7 @@ def module():
 
                 r = evoke_empty_map(left_brace, none)
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 return r
 
@@ -442,7 +385,7 @@ def module():
 
             r = conjure_left_brace__ends_in_newline(qs()[qi() : ])
 
-            skip_tokenize_prefix()
+            python__skip_tokenize_prefix()
 
             return r
         #</same-as>
@@ -471,7 +414,7 @@ def module():
 
                 r = evoke_empty_list(left_end, none)
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 return r
 
@@ -479,7 +422,7 @@ def module():
 
             r = conjure_left_square_bracket__ends_in_newline(qs()[qi() : ])
 
-            skip_tokenize_prefix()
+            python__skip_tokenize_prefix()
 
             return r
         #</same-as>
@@ -489,43 +432,6 @@ def module():
         if quote_start is not -1:
             assert m.start('missing_double_quote') is m.start('missing_single_quote') is -1
 
-            #
-            #   NOTE:
-            #
-            #       In the code below: Use 'qj()' instead of "m.start('quote')" to be sure to pick up any letters
-            #       prefixing the quote, such as r'prefixed'
-            #
-
-            #
-            #<similiar-to: {atom_s} above>
-            #
-            #   Differences:
-            #
-            #       Uses "quote_end" instead of "m.end('atom')"
-            #       Uses "s" intead of "qs()"
-            #
-            if qd() is not 0:
-                if qi() == qj():
-                    r = find_evoke_atom_whitespace(qs()[quote_start])(m.end('quote'), none)
-                else:
-                    r = find_evoke_whitespace_atom_whitespace(qs()[quote_start])(qj(), m.end('quote'), none)
-
-                skip_tokenize_prefix()
-
-                return r
-
-            j         = qj()
-            quote_end = m.end('quote')
-            s         = qs()
-
-            if qi() == qj():
-                r = find_atom_type(s[quote_start])(s[j : quote_end])
-            else:
-                r = find_evoke_whitespace_atom(s[quote_start])(j, quote_end)
-
-            wn(conjure_line_marker(s[m.end('quote') : ]))
-
-            return r
-            #</similiar-to>
+            return analyze_LANGUAGE_newline_quote(m, quote_start)
 
         raise_unknown_line()
