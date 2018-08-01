@@ -16,11 +16,6 @@ def module():
         t.a.add_parameters(art)
 
 
-    @share
-    def add_parameters__b(t, art):
-        t.b.add_parameters(art)
-
-
     #
     #   adorn
     #
@@ -319,11 +314,6 @@ def module():
         t.a.scout_default_values(art)
 
 
-    @share
-    def scout_default_values__b(t, art):
-        t.b.scout_default_values(art)
-
-
     #
     #   scout_variables
     #
@@ -357,11 +347,6 @@ def module():
         t.b.scout_variables(art)
         t.c.scout_variables(art)
         t.d.scout_variables(art)
-
-
-    @share
-    def scout_variables__b(t, art):
-        t.b.scout_variables(art)
 
 
     @share
@@ -616,11 +601,6 @@ def module():
     @share
     def write_variables__ab(t, art):
         t.a.write_variables(art)
-        t.b.write_variables(art)
-
-
-    @share
-    def write_variables__b(t, art):
         t.b.write_variables(art)
 
 

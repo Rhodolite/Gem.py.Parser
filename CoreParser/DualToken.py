@@ -272,3 +272,46 @@ def module():
 
 
         order = order__s
+
+
+    @export
+    class Whitespace_Name(DualToken):
+        __slots__    = (())
+        class_order  = CLASS_ORDER__NORMAL_TOKEN
+        display_name = 'whitespace+name'
+
+
+        if capital_global.python_parser:
+            is__atom__or__special_operator = true
+            is_atom                        = true
+            is_identifier                  = true
+            is_special_operator            = false
+
+
+        if capital_global.python_parser:
+            add_parameters = add_parameters__b
+
+
+        if capital_global.python_parser:
+            def mutate(t, vary, priority):
+                if vary.remove_comments:
+                    return t.b
+
+                return t
+
+
+        if capital_global.python_parser:
+            scout_default_values = scout_default_values__b
+            scout_variables      = scout_variables__b
+
+
+        if capital_global.python_parser:
+            def transform(t, vary):
+                if vary.remove_comments:
+                    return t.b
+
+                return t
+
+
+        if capital_global.python_parser:
+            write_variables = write_variables__b

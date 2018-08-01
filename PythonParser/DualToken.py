@@ -374,40 +374,6 @@ def module():
         scout_variables = scout_variables__0
 
 
-    class Whitespace_Name(DualToken):
-        __slots__                      = (())
-        class_order                    = CLASS_ORDER__NORMAL_TOKEN
-        display_name                   = 'whitespace+name'
-        is__atom__or__special_operator = true
-        is_atom                        = true
-        is_identifier                  = true
-        is_special_operator            = false
-
-
-        add_parameters = add_parameters__b
-
-
-        def mutate(t, vary, priority):
-            if vary.remove_comments:
-                return t.b
-
-            return t
-
-
-        scout_default_values = scout_default_values__b
-        scout_variables      = scout_variables__b
-
-
-        def transform(t, vary):
-            if vary.remove_comments:
-                return t.b
-
-            return t
-
-
-        write_variables = write_variables__b
-
-
     conjure_atom_whitespace = produce_conjure_dual_token__normal('atom_whitespace', Atom_Whitespace)
 
     conjure_arguments_0 = produce_conjure_dual_token__normal(

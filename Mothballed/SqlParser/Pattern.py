@@ -64,4 +64,9 @@ def module():
         #
         #   Create ../SqlParser/Match.py
         #
-        create_match_code(path_join(module_path[0], 'Match.py'), '2017-2018', 'Joy Diamond', 'SqlParser.Match')
+        create_match_code(
+                path_join(module_path[0], 'SqlParser/Match.py'),
+                '2017-2018',
+                'Joy Diamond',
+                'SqlParser.Match',
+            )
