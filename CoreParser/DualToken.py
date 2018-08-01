@@ -3,6 +3,18 @@
 #
 @module('CoreParser.DualToken')
 def module():
+    def construct_dual_token__line_marker__many(t, s, a, b, newlines):
+        assert (t.ends_in_newline is t.line_marker is true) and (newlines >= 1)
+        assert s == a.s + b.s
+        assert s.count('\n') == newlines
+        assert b.s[-1] == '\n'
+
+        t.s        = s
+        t.a        = a
+        t.b        = b
+        t.newlines = newlines
+
+
     def construct_dual_token__with_newlines(t, s, a, b, ends_in_newline, newlines):
         assert t.line_marker is false
         assert s == a.s + b.s

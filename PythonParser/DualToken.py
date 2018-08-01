@@ -10,16 +10,6 @@ def module():
     require_module('PythonParser.Whitespace')
 
 
-    def construct_dual_token(t, s, a, b):
-        assert (t.ends_in_newline is t.line_marker is false) and (t.newlines is 0)
-        assert s == a.s + b.s
-        assert '\n' not in s
-
-        t.s = s
-        t.a = a
-        t.b = b
-
-
     def construct_dual_token__line_marker_1(t, s, a, b):
         assert (t.ends_in_newline is t.line_marker is true) and (t.newlines is 1)
         assert s == a.s + b.s
@@ -29,20 +19,6 @@ def module():
         t.s = s
         t.a = a
         t.b = b
-
-
-    def construct_dual_token__line_marker__many(t, s, a, b, newlines):
-        assert (t.ends_in_newline is t.line_marker is true) and (newlines >= 1)
-        assert s == a.s + b.s
-        assert s.count('\n') == newlines
-        assert b.s[-1] == '\n'
-
-        t.s        = s
-        t.a        = a
-        t.b        = b
-        t.newlines = newlines
-
-
 
 
     def produce_mutate_atom_whitespace(name, conjure):
