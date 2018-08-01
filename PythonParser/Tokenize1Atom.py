@@ -8,8 +8,8 @@ def module():
 
     analyze_python_keyword_atom = produce_analyze_LANGUAGE_keyword_atom(
             'python',
-            lookup_python_keyword_conjure_function,
             find_python_atom_type,
+            lookup_python_keyword_conjure_function,
         )
 
     analyze_python_quote = produce_analyze_LANGUAGE_quote('python', find_python_atom_type)

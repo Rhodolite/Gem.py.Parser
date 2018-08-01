@@ -25,7 +25,7 @@ def module():
             r = conjure_left_parenthesis__ends_in_newline(s[qi() : ])
 
             wd1()
-            skip_tokenize_prefix()
+            python__skip_tokenize_prefix()
 
             return r
 
@@ -143,7 +143,7 @@ def module():
     def tokenize_nested__X__equal_sign__blankline():
         r = conjure_equal_sign(s[qi() : ])
 
-        skip_tokenize_prefix()
+        python__skip_tokenize_prefix()
 
         return r
 
@@ -202,7 +202,7 @@ def module():
             if m.end('comment_newline') is not -1:
                 r = conjure_comma__ends_in_newline(s[qi() :])
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 return r
 

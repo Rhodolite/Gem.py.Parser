@@ -5,7 +5,7 @@
 def module():
     @export
     def produce_analyze_LANGUAGE_keyword_atom(
-            language, lookup_LANGUAGE_keyword_conjure_function, find_LANGUAGE_atom_type,
+            language, find_LANGUAGE_atom_type, lookup_LANGUAGE_keyword_conjure_function,
     ):
         @rename('analyze_%s_keyword_atom', language)
         def analyze_LANGUAGE_keyword_atom(m, atom_s):
