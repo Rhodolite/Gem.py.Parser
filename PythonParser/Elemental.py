@@ -1254,7 +1254,7 @@ def module():
         'conjure_right_square_bracket__ends_in_newline',    conjure_right_square_bracket__ends_in_newline,
         'conjure_star_sign',                                conjure_star_sign,
         'conjure_try_colon',                                conjure_try_colon,
-        'find_python_atom_type',                            find_python_atom_type
+        'find_python_atom_type',                            find_python_atom_type,
         'AT_SIGN',                                          AT_SIGN,
         'BREAK',                                            BREAK,
         'CONTINUE',                                         CONTINUE,

@@ -6,6 +6,13 @@ def module():
     require_module('PythonParser.Tokenize1Operator')
 
 
+    analyze_keyword_atom = produce_analyze_keyword_atom(
+            lookup_python_keyword_conjure_function,
+            find_crystal_evoke_whitespace_atom,
+            find_python_atom_type,
+        )
+
+
     def produce_tokenize_multiline_quote(name, next_triple_quote_match, conjure_quote__with_newlines):
         group_name = intern_arrange('missing_%s_quote', name)
 
@@ -103,29 +110,7 @@ def module():
             atom_s = m.group('atom')
 
             if atom_s is not none:
-                conjure = lookup_python_keyword_conjure_function(atom_s)
-
-                if conjure is not none:
-                    j = m.end()
-
-                    r = conjure(qs()[qi() : j])
-
-                    wi(j)
-                    wj(j)
-
-                    return r
-
-                atom_end = m.end('atom')
-
-                if qi() != qj():
-                    r = find_crystal_evoke_whitespace_atom(atom_s[0])(qj(), atom_end)
-                else:
-                    r = find_python_atom_type(atom_s[0])(atom_s)
-
-                wi(atom_end)
-                wj(m.end())
-
-                return r
+                return analyze_keyword_atom(m, atom_s)
 
             operator_s = m.group('operator')
 
