@@ -92,7 +92,6 @@ def module():
     transport('CoreParser.BinaryExpression',        'AddExpression')
     transport('CoreParser.BinaryExpression',        'BinaryExpression')
     transport('CoreParser.BinaryExpression',        'conjure_add_expression')
-    transport('CoreParser.BinaryExpression',        'conjure_add_expression__with_frill')
     transport('CoreParser.BinaryExpression',        'produce_conjure_binary_expression')
     transport('CoreParser.BookcaseCoupleTwig',      'BookcaseCoupleTwig')
     transport('CoreParser.BookcaseCoupleTwig',      'produce_conjure_bookcase_couple_twig')
