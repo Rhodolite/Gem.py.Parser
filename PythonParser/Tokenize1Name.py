@@ -10,7 +10,7 @@ def module():
             else:
                 r = evoke_whitespace_name_whitespace(qj(), m.end('name'), none)
 
-            skip_tokenize_prefix()
+            python__skip_tokenize_prefix()
 
             return r
 

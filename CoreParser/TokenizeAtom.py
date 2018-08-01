@@ -4,8 +4,11 @@
 @module('CoreParser.TokenizeAtom')
 def module():
     @export
-    def produce_analyze_keyword_atom(lookup_LANGUAGE_keyword_conjure_function, find_LANGUAGE_atom_type):
-        def analyze_keyword_atom(m, atom_s):
+    def produce_analyze_LANGUAGE_keyword_atom(
+            language, lookup_LANGUAGE_keyword_conjure_function, find_LANGUAGE_atom_type,
+    ):
+        @rename('analyze_%s_keyword_atom', language)
+        def analyze_LANGUAGE_keyword_atom(m, atom_s):
             conjure = lookup_LANGUAGE_keyword_conjure_function(atom_s)
 
             if conjure is not none:
@@ -31,12 +34,13 @@ def module():
             return r
 
 
-        return analyze_keyword_atom
+        return analyze_LANGUAGE_keyword_atom
 
                 
     @export
-    def produce_analyze_quote(find_LANGUAGE_atom_type):
-        def analyze_quote(m, quote_start):
+    def produce_analyze_LANGUAGE_quote(language, find_LANGUAGE_atom_type):
+        @rename('analyze_%s_quote', language)
+        def analyze_LANGUAGE_quote(m, quote_start):
             j         = qj()
             quote_end = m.end('quote')
 
@@ -53,4 +57,4 @@ def module():
             return r
 
 
-        return analyze_quote
+        return analyze_LANGUAGE_quote

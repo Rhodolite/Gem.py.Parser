@@ -6,12 +6,13 @@ def module():
     require_module('PythonParser.Tokenize1Operator')
 
 
-    analyze_keyword_atom = produce_analyze_keyword_atom(
+    analyze_python_keyword_atom = produce_analyze_LANGUAGE_keyword_atom(
+            'python',
             lookup_python_keyword_conjure_function,
             find_python_atom_type,
         )
 
-    analyze_quote = produce_analyze_quote(find_python_atom_type)
+    analyze_python_quote = produce_analyze_LANGUAGE_quote('python', find_python_atom_type)
 
 
     def produce_tokenize_multiline_quote(name, next_triple_quote_match, conjure_quote__with_newlines):
@@ -66,7 +67,7 @@ def module():
 
                 suffix = conjure_whitespace__ends_in_newline(qs()[quote_end : ])
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 if prefix is 0:
                     return conjure_atom_whitespace(r, suffix)
@@ -111,7 +112,7 @@ def module():
             atom_s = m.group('atom')
 
             if atom_s is not none:
-                return analyze_keyword_atom(m, atom_s)
+                return analyze_python_keyword_atom(m, atom_s)
 
             operator_s = m.group('operator')
 
@@ -246,7 +247,7 @@ def module():
                 if m.start('missing_single_quote') is not -1:
                     return tokenize_multiline_single_quote(m)
 
-                return analyze_quote(m, quote_start)
+                return analyze_python_quote(m, quote_start)
 
             raise_unknown_line()
 
@@ -270,7 +271,7 @@ def module():
 
                 r = conjure(atom_s)(qs()[qi() : ])
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 return r
 
@@ -288,7 +289,7 @@ def module():
                 else:
                     r = find_evoke_whitespace_atom_whitespace(atom_s[0])(qj(), m.end('atom'), none)
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 return r
 
@@ -325,7 +326,7 @@ def module():
 
                 r = conjure_action_word__ends_in_newline(operator_s, qs()[qi() : ])
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 return r
 
@@ -342,7 +343,7 @@ def module():
 
             r = conjure_action_word__ends_in_newline(operator_s, qs()[qi() : ])
 
-            skip_tokenize_prefix()
+            python__skip_tokenize_prefix()
 
             return r
 
@@ -370,7 +371,7 @@ def module():
 
                 r = evoke_empty_tuple(left_end, none)
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 return r
 
@@ -378,7 +379,7 @@ def module():
 
             r = conjure_left_parenthesis__ends_in_newline(qs()[qi() : ])
 
-            skip_tokenize_prefix()
+            python__skip_tokenize_prefix()
 
             return r
         #</same-as>
@@ -407,7 +408,7 @@ def module():
 
                 r = evoke_empty_map(left_brace, none)
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 return r
 
@@ -415,7 +416,7 @@ def module():
 
             r = conjure_left_brace__ends_in_newline(qs()[qi() : ])
 
-            skip_tokenize_prefix()
+            python__skip_tokenize_prefix()
 
             return r
         #</same-as>
@@ -444,7 +445,7 @@ def module():
 
                 r = evoke_empty_list(left_end, none)
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 return r
 
@@ -452,7 +453,7 @@ def module():
 
             r = conjure_left_square_bracket__ends_in_newline(qs()[qi() : ])
 
-            skip_tokenize_prefix()
+            python__skip_tokenize_prefix()
 
             return r
         #</same-as>
@@ -483,7 +484,7 @@ def module():
                 else:
                     r = find_evoke_whitespace_atom_whitespace(qs()[quote_start])(qj(), m.end('quote'), none)
 
-                skip_tokenize_prefix()
+                python__skip_tokenize_prefix()
 
                 return r
 
