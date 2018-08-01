@@ -670,7 +670,7 @@ def module():
                                              'whitespace+number+whitespace',
                                              Whitespace_Atom_Whitespace,
                                              conjure_whitespace,
-                                             conjure_number,
+                                             conjure_token_number,
                                              conjure_whitespace,
                                              conjure_whitespace__ends_in_newline,
                                          )

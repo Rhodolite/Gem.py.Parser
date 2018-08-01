@@ -1171,11 +1171,12 @@ def module():
 
             #   (
             ')' : conjure_right_parenthesis,
-            '.' : conjure_number,
+            '.' : conjure_token_number,
 
-            '0' : conjure_number, '1' : conjure_number, '2' : conjure_number, '3' : conjure_number,
-            '4' : conjure_number, '5' : conjure_number, '6' : conjure_number, '7' : conjure_number,
-            '8' : conjure_number, '9' : conjure_number,
+            '0' : conjure_token_number, '1' : conjure_token_number, '2' : conjure_token_number,
+            '3' : conjure_token_number, '4' : conjure_token_number, '5' : conjure_token_number,
+            '6' : conjure_token_number, '7' : conjure_token_number, '8' : conjure_token_number,
+            '9' : conjure_token_number,
 
             'A' : conjure_name, 'B' : conjure_name, 'C' : conjure_name, 'D' : conjure_name, 'E' : conjure_name,
             'F' : conjure_name, 'G' : conjure_name, 'H' : conjure_name, 'I' : conjure_name, 'J' : conjure_name,

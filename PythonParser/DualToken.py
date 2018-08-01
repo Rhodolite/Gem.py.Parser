@@ -333,22 +333,6 @@ def module():
         scout_variables    = scout_variables__0
 
 
-    class Whitespace_Atom(DualToken):
-        __slots__                      = (())
-        class_order                    = CLASS_ORDER__NORMAL_TOKEN
-        display_name                   = 'whitespace+atom'
-        is__atom__or__special_operator = true
-        is_atom                        = true
-        is_special_operator            = false
-
-
-        def find_atom(t):
-            return t.b
-
-
-        scout_variables = scout_variables__0
-
-
     conjure_atom_whitespace = produce_conjure_dual_token__normal('atom_whitespace', Atom_Whitespace)
 
     conjure_arguments_0 = produce_conjure_dual_token__normal(
@@ -618,7 +602,7 @@ def module():
     evoke_number_whitespace = produce_evoke_dual_token__ends_in_newline(
                                   'number+whitespace',
                                   Atom_Whitespace,
-                                  conjure_number,
+                                  conjure_token_number,
                                   conjure_whitespace,
                                   conjure_whitespace__ends_in_newline,
                               )
@@ -665,34 +649,6 @@ def module():
                                           conjure_whitespace,
                                           conjure_whitespace__ends_in_newline,
                                       )
-
-    evoke_whitespace__double_quote = produce_evoke_dual_token__whitespace(
-                                         'whitespace+double-quote',
-                                         Whitespace_Atom,
-                                         conjure_whitespace,
-                                         conjure_double_quote,
-                                     )
-
-    evoke_whitespace_name = produce_evoke_dual_token__whitespace(
-                                'whitespace+name',
-                                Whitespace_Name,
-                                conjure_whitespace,
-                                conjure_name,
-                            )
-
-    evoke_whitespace_number = produce_evoke_dual_token__whitespace(
-                                  'whitespace+number',
-                                  Whitespace_Atom,
-                                  conjure_whitespace,
-                                  conjure_number,
-                              )
-
-    evoke_whitespace__single_quote = produce_evoke_dual_token__whitespace(
-                                         'whitespace+single-quote',
-                                         Whitespace_Atom,
-                                         conjure_whitespace,
-                                         conjure_single_quote,
-                                     )
 
     #
     #   Constants
@@ -797,37 +753,6 @@ def module():
             'y' : evoke_name_whitespace, 'z' : evoke_name_whitespace,
         }.__getitem__
 
-    find_evoke_whitespace_atom = {
-            '"' : evoke_whitespace__double_quote,
-            "'" : evoke_whitespace__single_quote,
-
-            '.' : evoke_whitespace_number,
-            '0' : evoke_whitespace_number, '1' : evoke_whitespace_number, '2' : evoke_whitespace_number,
-            '3' : evoke_whitespace_number, '4' : evoke_whitespace_number, '5' : evoke_whitespace_number,
-            '6' : evoke_whitespace_number, '7' : evoke_whitespace_number, '8' : evoke_whitespace_number,
-            '9' : evoke_whitespace_number,
-
-            'A' : evoke_whitespace_name, 'B' : evoke_whitespace_name, 'C' : evoke_whitespace_name,
-            'D' : evoke_whitespace_name, 'E' : evoke_whitespace_name, 'F' : evoke_whitespace_name,
-            'G' : evoke_whitespace_name, 'H' : evoke_whitespace_name, 'I' : evoke_whitespace_name,
-            'J' : evoke_whitespace_name, 'K' : evoke_whitespace_name, 'L' : evoke_whitespace_name,
-            'M' : evoke_whitespace_name, 'N' : evoke_whitespace_name, 'O' : evoke_whitespace_name,
-            'P' : evoke_whitespace_name, 'Q' : evoke_whitespace_name, 'R' : evoke_whitespace_name,
-            'S' : evoke_whitespace_name, 'T' : evoke_whitespace_name, 'U' : evoke_whitespace_name,
-            'V' : evoke_whitespace_name, 'W' : evoke_whitespace_name, 'X' : evoke_whitespace_name,
-            'Y' : evoke_whitespace_name, 'Z' : evoke_whitespace_name, '_' : evoke_whitespace_name,
-
-            'a' : evoke_whitespace_name, 'b' : evoke_whitespace_name, 'c' : evoke_whitespace_name,
-            'd' : evoke_whitespace_name, 'e' : evoke_whitespace_name, 'f' : evoke_whitespace_name,
-            'g' : evoke_whitespace_name, 'h' : evoke_whitespace_name, 'i' : evoke_whitespace_name,
-            'j' : evoke_whitespace_name, 'k' : evoke_whitespace_name, 'l' : evoke_whitespace_name,
-            'm' : evoke_whitespace_name, 'n' : evoke_whitespace_name, 'o' : evoke_whitespace_name,
-            'p' : evoke_whitespace_name, 'q' : evoke_whitespace_name, 'r' : evoke_whitespace_name,
-            's' : evoke_whitespace_name, 't' : evoke_whitespace_name, 'u' : evoke_whitespace_name,
-            'v' : evoke_whitespace_name, 'w' : evoke_whitespace_name, 'x' : evoke_whitespace_name,
-            'y' : evoke_whitespace_name, 'z' : evoke_whitespace_name,
-        }.__getitem__
-
 
     share(
         'COLON__LINE_MARKER',                       COLON__LINE_MARKER,
@@ -877,9 +802,7 @@ def module():
         'evoke_name_whitespace',                    evoke_name_whitespace,
         'evoke_not_in',                             evoke_not_in,
         'evoke_parameters_0',                       evoke_parameters_0,
-        'evoke_whitespace_name',                    evoke_whitespace_name,
         'find_evoke_atom_whitespace',               find_evoke_atom_whitespace,
         'find_evoke_comma_something',               find_evoke_comma_something,
-        'find_evoke_whitespace_atom',               find_evoke_whitespace_atom,
         'LSB_COLON',                                LSB_COLON,
     )

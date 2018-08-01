@@ -206,3 +206,7 @@ def module():
     transport('CoreParser.TupleOfExpression',       'conjure_tuple_of_many_expression')
     transport('CoreParser.Whitespace',              'conjure_whitespace')
     transport('CoreParser.Whitespace',              'conjure_whitespace__ends_in_newline')
+    transport('CoreParser.DualToken',               'evoke_whitespace_name')
+    transport('CoreParser.DualToken',               'Whitespace_Atom')
+    transport('CoreParser.Atom',                    'conjure_token_number')
+    transport('CoreParser.Atom',                    'find_evoke_whitespace_atom')
