@@ -122,56 +122,6 @@ def module():
         return mutate
 
 
-    class BaseDualOperator(KeywordAndOperatorBase):
-        __slots__ = ((
-            'a',                        #   Operator+
-            'b',                        #   Operator+
-        ))
-
-
-        def __init__(t, s, a, b):
-            assert (t.ends_in_newline is t.line_marker is false) and (t.newlines is 0)
-            assert '\n' not in s
-            assert s == a.s + b.s
-
-            t.s = s
-            t.a = a
-            t.b = b
-
-
-        __repr__ = portray__ab
-
-
-        if 0:                                                           #   Not currently used
-            def display_full_token(t):
-                display_name = t.display_name
-                a_s          = t.a.s
-                b_s          = t.b.s
-
-                return arrange('<%s <%s> <%s>>',
-                               display_name,
-                               portray_string(a_s)   if '\n' in a_s else   a_s,
-                               portray_string(b_s)   if '\n' in b_s else   b_s)
-
-
-        def display_token(t):
-            display_name = t.display_name
-
-            if display_name == t.s:
-                return arrange('<%s>', display_name)
-
-            a_s = t.a.s
-            b_s = t.b.s
-
-            return arrange('<%s <%s> <%s>>',
-                           display_name,
-                           portray_string(a_s)   if '\n' in a_s else   a_s,
-                           portray_string(b_s)   if '\n' in b_s else   b_s)
-
-
-        order = order__s
-
-
     def create_dual_token__with_newlines(Meta, s, a, b):
         assert s == a.s + b.s
 
@@ -236,121 +186,129 @@ def module():
         return conjure_dual_token
 
 
-    def produce_evoke_dual_token(
-            name, Meta, conjure_first,
+    def produce_evoke_dual_token__ends_in_newline(
+            name, Meta, conjure_first, conjure_second, conjure_second__ends_in_newline,
 
-            conjure_second                  = absent,
-            conjure_second__ends_in_newline = absent,
-            lookup                          = lookup_normal_token,
-            provide                         = provide_normal_token,
-            line_marker                     = false,
+            lookup  = lookup_normal_token,
+            provide = provide_normal_token,
     ):
-        assert type(line_marker) is Boolean
+        @rename('evoke_%s', name)
+        def evoke_dual_token__ends_in_newline(middle, end):
+            if end is none:
+                assert qi() < middle
+            else:
+                assert qi() < middle < end
 
-        if line_marker:
-            assert (conjure_second is conjure_second__ends_in_newline is absent)
-            assert (lookup is lookup_normal_token) and (provide is provide_normal_token)
-        else:
-            assert conjure_second is not absent
+            full = qs()[qi() : end]
 
-        if line_marker:
-            @rename('evoke_%s', name)
-            def evoke_dual_token(a_end):
-                assert qi() < a_end
+            r = lookup(full)
 
-                full_s = qs()[qi() : ]
+            if r is not none:
+                #if not ( (type(r) is Meta) or (type(r) is lookup_adjusted_meta(Meta)) ):
+                #    my_line('r: %r', r)
+                #    my_line('Meta: %r', Meta)
+                #    my_line('adjusted: %r', lookup_adjusted_meta(Meta))
 
-                r = lookup_line_marker(full_s)
+                assert (type(r) is Meta) or (type(r) is lookup_adjusted_meta(Meta))
 
-                if r is not none:
-                    assert (type(r) is Meta) or (type(r) is lookup_adjusted_meta(Meta))
+                return r
 
-                    return r
+            full = intern_string(full)
+            s    = qs()
 
-                s      = qs()
-                full_s = intern_string(full_s)
+            return provide(
+                       full,
+                       create_dual_token__with_newlines(
+                           Meta,
+                           full,
+                           conjure_first(s[qi() : middle]),
+                           (conjure_second__ends_in_newline   if end is none else   conjure_second)(s[middle : end]),
+                       ),
+                   )
 
-                return provide_line_marker(
+
+        return evoke_dual_token__ends_in_newline
+
+    def produce_evoke_dual_token__indentation_or_whitespace(
+            name, Meta, conjure_first, conjure_second, lookup, provide,
+    ):
+        @rename('evoke_%s', name)
+        def evoke_dual_token__indentation_or_whitespace(middle, end):
+            #
+            #   Indentation tokens may have 0 length, hence 'qi() <= middle'
+            #
+            assert qi() <= middle < end
+
+            full = qs()[qi() : end]
+
+            r = lookup(full)
+
+            if r is not none:
+                assert (type(r) is Meta) or (type(r) is lookup_adjusted_meta(Meta))
+
+                return r
+
+            full = intern_string(full)
+            s    = qs()
+
+            return provide(
+                       full,
+                       create_dual_token__with_newlines(
+                           Meta,
+                           full,
+                           conjure_first (s[qi()   : middle]),
+                           conjure_second(s[middle : end   ]),
+                       ),
+                   )
+
+
+        return evoke_dual_token__indentation_or_whitespace
+
+
+    def produce_evoke_dual_token__indentation(name, Meta, conjure_first, conjure_second):
+        return produce_evoke_dual_token__indentation_or_whitespace(
+                name, Meta, conjure_first, conjure_second, lookup_indentation, provide_indentation,
+            )
+
+
+    def produce_evoke_dual_token__line_marker(name, Meta, conjure_first):
+        @rename('evoke_%s', name)
+        def evoke_dual_token__line_marker(a_end):
+            assert qi() < a_end
+
+            full_s = qs()[qi() : ]
+
+            r = lookup_line_marker(full_s)
+
+            if r is not none:
+                assert (type(r) is Meta) or (type(r) is lookup_adjusted_meta(Meta))
+
+                return r
+
+            s      = qs()
+            full_s = intern_string(full_s)
+
+            return provide_line_marker(
+                       full_s,
+                       create_dual_token__line_marker(
+                           Meta,
                            full_s,
-                           create_dual_token__line_marker(
-                               Meta,
-                               full_s,
-                               conjure_first      (s[qi()  : a_end]),
-                               conjure_line_marker(s[a_end :      ]),
-                           ),
-                       )
-        elif conjure_second__ends_in_newline is none:
-            @rename('evoke_%s', name)
-            def evoke_dual_token(middle, end):
-                #
-                #   Indentation tokens may have 0 length, hence 'qi() <= middle'
-                #
-                assert qi() <= middle < end
-
-                full = qs()[qi() : end]
-
-                r = lookup(full)
-
-                if r is not none:
-                    assert (type(r) is Meta) or (type(r) is lookup_adjusted_meta(Meta))
-
-                    return r
-
-                full = intern_string(full)
-                s    = qs()
-
-                return provide(
-                           full,
-                           create_dual_token__with_newlines(
-                               Meta,
-                               full,
-                               conjure_first (s[qi()   : middle]),
-                               conjure_second(s[middle : end   ]),
-                           ),
-                       )
-        else:
-            assert conjure_second__ends_in_newline is not absent
+                           conjure_first      (s[qi()  : a_end]),
+                           conjure_line_marker(s[a_end :      ]),
+                       ),
+                   )
 
 
-            @rename('evoke_%s', name)
-            def evoke_dual_token(middle, end):
-                if end is none:
-                    assert qi() < middle
-                else:
-                    assert qi() < middle < end
-
-                full = qs()[qi() : end]
-
-                r = lookup(full)
-
-                if r is not none:
-                    #if not ( (type(r) is Meta) or (type(r) is lookup_adjusted_meta(Meta)) ):
-                    #    my_line('r: %r', r)
-                    #    my_line('Meta: %r', Meta)
-                    #    my_line('adjusted: %r', lookup_adjusted_meta(Meta))
-
-                    assert (type(r) is Meta) or (type(r) is lookup_adjusted_meta(Meta))
-
-                    return r
-
-                full = intern_string(full)
-                s    = qs()
-
-                return provide(
-                           full,
-                           create_dual_token__with_newlines(
-                               Meta,
-                               full,
-                               conjure_first(s[qi() : middle]),
-                               (conjure_second__ends_in_newline   if end is none else   conjure_second)(s[middle : end]),
-                           ),
-                       )
+        return evoke_dual_token__line_marker
 
 
-        return evoke_dual_token
+    def produce_evoke_dual_token__whitespace(name, Meta, conjure_first, conjure_second):
+        return produce_evoke_dual_token__indentation_or_whitespace(
+                name, Meta, conjure_first, conjure_second, lookup_normal_token, provide_normal_token,
+            )
 
 
-    class Arguments_0(BaseDualOperator):
+    class Arguments_0(DualToken):
         __slots__                             = (())
         class_order                           = CLASS_ORDER__ARGUMENT_0
         display_name                          = 'arguments-(0)'
@@ -361,7 +319,7 @@ def module():
         scout_variables = scout_variables__0
 
 
-    class Atom_Whitespace(BaseDualOperator):
+    class Atom_Whitespace(DualToken):
         __slots__                      = (())
         class_order                    = CLASS_ORDER__NORMAL_TOKEN
         display_name                   = 'atom+whitespace'
@@ -371,7 +329,7 @@ def module():
         scout_variables = scout_variables__0
 
 
-    class Colon_LineMarker_1(BaseDualOperator):
+    class Colon_LineMarker_1(DualToken):
         __slots__                               = (())
         class_order                             = CLASS_ORDER__COLON__LINE_MARKER
         display_name                            = r':\n'
@@ -398,7 +356,7 @@ def module():
         count_newlines = count_newlines__line_marker
 
 
-    class Colon_RightSquareBracket(BaseDualOperator):
+    class Colon_RightSquareBracket(DualToken):
         __slots__                               = (())
         class_order                             = CLASS_ORDER__NORMAL_TOKEN
         #   [
@@ -420,14 +378,14 @@ def module():
         is_end_of_unary_expression              = true
 
 
-    class Comma_RightBrace(BaseDualOperator):
+    class Comma_RightBrace(DualToken):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         #   {
         display_name = ',}'
 
 
-    class Comma_RightParenthesis(BaseDualOperator):
+    class Comma_RightParenthesis(DualToken):
         __slots__                             = (())
         class_order                           = CLASS_ORDER__NORMAL_TOKEN
         #   (
@@ -447,7 +405,7 @@ def module():
         is__optional_comma__right_parenthesis = true
 
 
-    class Comma_RightSquareBracket(BaseDualOperator):
+    class Comma_RightSquareBracket(DualToken):
         __slots__                                = (())
         class_order                              = CLASS_ORDER__NORMAL_TOKEN
         #   [
@@ -466,7 +424,7 @@ def module():
         is__optional_comma__right_square_bracket = true
 
 
-    class Dot_Name(BaseDualOperator):
+    class Dot_Name(DualToken):
         __slots__           = (())
         #   [
         class_order         = CLASS_ORDER__NORMAL_TOKEN
@@ -487,7 +445,7 @@ def module():
             return conjure_dot_name(a__2, b__2)
 
 
-    class DotNamePair(BaseDualOperator):
+    class DotNamePair(DualToken):
         __slots__           = (())
         class_order         = CLASS_ORDER__NORMAL_TOKEN
         #   [
@@ -495,7 +453,7 @@ def module():
         is_postfix_operator = true
 
 
-    class EmptyList(BaseDualOperator):
+    class EmptyList(DualToken):
         __slots__                      = (())
         class_order                    = CLASS_ORDER__NORMAL_TOKEN
         display_name                   = '[,]'
@@ -505,7 +463,7 @@ def module():
         scout_variables = scout_variables__0
 
 
-    class EmptyMap(BaseDualOperator):
+    class EmptyMap(DualToken):
         __slots__                      = (())
         class_order                    = CLASS_ORDER__NORMAL_TOKEN
         display_name                   = '{:}'
@@ -515,7 +473,7 @@ def module():
         scout_variables = scout_variables__0
 
 
-    class EmptyTuple(BaseDualOperator):
+    class EmptyTuple(DualToken):
         __slots__                      = (())
         class_order                    = CLASS_ORDER__NORMAL_TOKEN
         display_name                   = '{,}'
@@ -525,14 +483,14 @@ def module():
         scout_variables = scout_variables__0
 
 
-    class Indented_Token(BaseDualOperator):
+    class Indented_Token(DualToken):
         __slots__    = (())
         class_order  = CLASS_ORDER__INDENTED_TOKEN
         display_name = 'indented-token'
 
 
-        indentation = BaseDualOperator.a
-        token       = BaseDualOperator.b
+        indentation = DualToken.a
+        token       = DualToken.b
 
 
         def display_token(t):
@@ -540,7 +498,7 @@ def module():
 
 
     @share
-    class Is_Not(BaseDualOperator):
+    class Is_Not(DualToken):
         __slots__                               = (())
         class_order                             = CLASS_ORDER__NORMAL_TOKEN
         display_name                            = 'is-not'
@@ -553,7 +511,7 @@ def module():
         is_end_of_unary_expression              = true
 
 
-    class LeftSquareBracket_Colon(BaseDualOperator):
+    class LeftSquareBracket_Colon(DualToken):
         __slots__           = (())
         class_order         = CLASS_ORDER__NORMAL_TOKEN
         display_name        = '[:'                             #   ]
@@ -561,7 +519,7 @@ def module():
         is_tail_index       = true
 
 
-    class Name_Whitespace(BaseDualOperator):
+    class Name_Whitespace(DualToken):
         __slots__                      = (())
         class_order                    = CLASS_ORDER__NORMAL_TOKEN
         display_name                   = 'name+whitespace'
@@ -574,7 +532,7 @@ def module():
 
 
     @share
-    class Not_In(BaseDualOperator):
+    class Not_In(DualToken):
         __slots__                              = (())
         class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = 'not-in'
@@ -587,7 +545,7 @@ def module():
         is_end_of_unary_expression             = true
 
 
-    class Parameters_0(BaseDualOperator):
+    class Parameters_0(DualToken):
         __slots__       = (())
         class_order     = CLASS_ORDER__PARAMETERS_0
         display_name    = 'parameters-(0)'
@@ -599,7 +557,7 @@ def module():
         scout_variables    = scout_variables__0
 
 
-    class Whitespace_Atom(BaseDualOperator):
+    class Whitespace_Atom(DualToken):
         __slots__                      = (())
         class_order                    = CLASS_ORDER__NORMAL_TOKEN
         display_name                   = 'whitespace+atom'
@@ -615,7 +573,7 @@ def module():
         scout_variables = scout_variables__0
 
 
-    class Whitespace_Name(BaseDualOperator):
+    class Whitespace_Name(DualToken):
         __slots__                      = (())
         class_order                    = CLASS_ORDER__NORMAL_TOKEN
         display_name                   = 'whitespace+name'
@@ -715,7 +673,7 @@ def module():
     conjure_whitespace_atom = produce_conjure_dual_token('whitespace_atom', Whitespace_Atom)
     conjure_whitespace_name = produce_conjure_dual_token('whitespace_name', Whitespace_Name)
 
-    evoke_arguments_0 = produce_evoke_dual_token(
+    evoke_arguments_0 = produce_evoke_dual_token__ends_in_newline(
                             'arguments_0',
                             Arguments_0,
                             conjure_left_parenthesis,
@@ -726,15 +684,13 @@ def module():
                             provide = provide_arguments_0_token,
                         )
 
-    evoke_colon__line_marker = produce_evoke_dual_token(
+    evoke_colon__line_marker = produce_evoke_dual_token__line_marker(
                                    'colon__line_marker',
                                    Colon_LineMarker_1,
                                    conjure_colon,
-
-                                   line_marker = true,
                                )
 
-    evoke__colon__right_square_bracket = produce_evoke_dual_token(
+    evoke__colon__right_square_bracket = produce_evoke_dual_token__ends_in_newline(
                                              'colon__right_square_bracket',
                                              Colon_RightSquareBracket,
                                              conjure_colon,
@@ -742,7 +698,7 @@ def module():
                                              conjure_right_square_bracket__ends_in_newline,
                                          )
 
-    evoke__comma__right_brace = produce_evoke_dual_token(
+    evoke__comma__right_brace = produce_evoke_dual_token__ends_in_newline(
                                     'comma__right_brace',
                                     Comma_RightBrace,
                                     conjure_comma,
@@ -750,7 +706,7 @@ def module():
                                     conjure_right_brace__ends_in_newline,
                                 )
 
-    evoke_comma__right_parenthesis = produce_evoke_dual_token(
+    evoke_comma__right_parenthesis = produce_evoke_dual_token__ends_in_newline(
                                          'comma__right_parenthesis',
                                          Comma_RightParenthesis,
                                          conjure_comma,
@@ -758,7 +714,7 @@ def module():
                                          conjure_right_parenthesis__ends_in_newline,
                                      )
 
-    evoke__comma__right_square_bracket = produce_evoke_dual_token(
+    evoke__comma__right_square_bracket = produce_evoke_dual_token__ends_in_newline(
                                              'comma__right_square_bracket',
                                              Comma_RightSquareBracket,
                                              conjure_comma,
@@ -766,7 +722,7 @@ def module():
                                              conjure_right_square_bracket__ends_in_newline,
                                          )
 
-    evoke__double_quote__whitespace = produce_evoke_dual_token(
+    evoke__double_quote__whitespace = produce_evoke_dual_token__ends_in_newline(
                                           'double-quote+whitespace',
                                           Atom_Whitespace,
                                           conjure_double_quote,
@@ -774,7 +730,7 @@ def module():
                                           conjure_whitespace__ends_in_newline,
                                       )
 
-    evoke_empty_list = produce_evoke_dual_token(
+    evoke_empty_list = produce_evoke_dual_token__ends_in_newline(
                            '[]',
                            EmptyList,
                            conjure_left_square_bracket,
@@ -782,7 +738,7 @@ def module():
                            conjure_right_square_bracket__ends_in_newline,
                        )
 
-    evoke_empty_map = produce_evoke_dual_token(
+    evoke_empty_map = produce_evoke_dual_token__ends_in_newline(
                           '{}',
                           EmptyMap,
                           conjure_left_brace,
@@ -790,7 +746,7 @@ def module():
                           conjure_right_brace__ends_in_newline,
                       )
 
-    evoke_empty_tuple = produce_evoke_dual_token(
+    evoke_empty_tuple = produce_evoke_dual_token__ends_in_newline(
                             '()',
                             EmptyTuple,
                             conjure_left_parenthesis,
@@ -798,183 +754,119 @@ def module():
                             conjure_right_parenthesis__ends_in_newline,
                         )
 
-    evoke_indented_assert = produce_evoke_dual_token(
+    evoke_indented_assert = produce_evoke_dual_token__indentation(
                                 'indented-assert',
                                 Indented_Token,
                                 conjure_indentation,
                                 conjure_keyword_assert,
-                                none,
-
-                                lookup  = lookup_indentation,
-                                provide = provide_indentation,
                             )
 
-    evoke_indented__at_sign = produce_evoke_dual_token(
+    evoke_indented__at_sign = produce_evoke_dual_token__indentation(
                                   'indented-at-sign',
                                   Indented_Token,
                                   conjure_indentation,
                                   conjure_at_sign,
-                                  none,
-
-                                  lookup  = lookup_indentation,
-                                  provide = provide_indentation,
                               )
 
-    evoke_indented_class = produce_evoke_dual_token(
+    evoke_indented_class = produce_evoke_dual_token__indentation(
                                'indented-class',
                                Indented_Token,
                                conjure_indentation,
                                conjure_keyword_class,
-                               none,
-
-                               lookup  = lookup_indentation,
-                               provide = provide_indentation,
                            )
 
-    evoke_indented_delete = produce_evoke_dual_token(
+    evoke_indented_delete = produce_evoke_dual_token__indentation(
                                 'indented-delete',
                                 Indented_Token,
                                 conjure_indentation,
                                 conjure_keyword_delete,
-                                none,
-
-                                lookup  = lookup_indentation,
-                                provide = provide_indentation,
                             )
 
-    evoke_indented_else_if = produce_evoke_dual_token(
+    evoke_indented_else_if = produce_evoke_dual_token__indentation(
                                  'indented-else-if',
                                  Indented_Token,
                                  conjure_indentation,
                                  conjure_keyword_else_if,
-                                 none,
-
-                                 lookup  = lookup_indentation,
-                                 provide = provide_indentation,
                              )
 
-    evoke_indented_except = produce_evoke_dual_token(
+    evoke_indented_except = produce_evoke_dual_token__indentation(
                                 'indented-except',
                                 Indented_Token,
                                 conjure_indentation,
                                 conjure_keyword_from,
-                                none,
-
-                                lookup  = lookup_indentation,
-                                provide = provide_indentation,
                             )
 
-    evoke_indented_from = produce_evoke_dual_token(
+    evoke_indented_from = produce_evoke_dual_token__indentation(
                               'indented-from',
                               Indented_Token,
                               conjure_indentation,
                               conjure_keyword_from,
-                              none,
-
-                              lookup  = lookup_indentation,
-                              provide = provide_indentation,
                           )
 
-    evoke_indented_for = produce_evoke_dual_token(
+    evoke_indented_for = produce_evoke_dual_token__indentation(
                              'indented-for',
                              Indented_Token,
                              conjure_indentation,
                              conjure_keyword_for,
-                             none,
-
-                             lookup  = lookup_indentation,
-                             provide = provide_indentation,
                          )
 
-    evoke_indented_function = produce_evoke_dual_token(
+    evoke_indented_function = produce_evoke_dual_token__indentation(
                                   'indented-function',
                                   Indented_Token,
                                   conjure_indentation,
                                   conjure_keyword_function,
-                                  none,
-
-                                  lookup  = lookup_indentation,
-                                  provide = provide_indentation,
                               )
 
-    evoke_indented_if = produce_evoke_dual_token(
+    evoke_indented_if = produce_evoke_dual_token__indentation(
                             'indented-if',
                             Indented_Token,
                             conjure_indentation,
                             conjure_keyword_if,
-                            none,
-
-                            lookup  = lookup_indentation,
-                            provide = provide_indentation,
                         )
 
-    evoke_indented_import = produce_evoke_dual_token(
+    evoke_indented_import = produce_evoke_dual_token__indentation(
                                 'indented-import',
                                 Indented_Token,
                                 conjure_indentation,
                                 conjure_keyword_import,
-                                none,
-
-                                lookup  = lookup_indentation,
-                                provide = provide_indentation,
                             )
 
-    evoke_indented_raise = produce_evoke_dual_token(
+    evoke_indented_raise = produce_evoke_dual_token__indentation(
                                'indented-raise',
                                Indented_Token,
                                conjure_indentation,
                                conjure_keyword_raise,
-                               none,
-
-                               lookup  = lookup_indentation,
-                               provide = provide_indentation,
                            )
 
-    evoke_indented_return = produce_evoke_dual_token(
+    evoke_indented_return = produce_evoke_dual_token__indentation(
                                 'indented-return',
                                 Indented_Token,
                                 conjure_indentation,
                                 conjure_keyword_return,
-                                none,
-
-                                lookup  = lookup_indentation,
-                                provide = provide_indentation,
                             )
 
-    evoke_indented_while = produce_evoke_dual_token(
+    evoke_indented_while = produce_evoke_dual_token__indentation(
                                'indented-while',
                                Indented_Token,
                                conjure_indentation,
                                conjure_keyword_while,
-                               none,
-
-                               lookup  = lookup_indentation,
-                               provide = provide_indentation,
                            )
 
-    evoke_indented_with = produce_evoke_dual_token(
+    evoke_indented_with = produce_evoke_dual_token__indentation(
                               'indented-with',
                               Indented_Token,
                               conjure_indentation,
                               conjure_keyword_with,
-                              none,
-
-                              lookup  = lookup_indentation,
-                              provide = provide_indentation,
                           )
 
-    evoke_indented_yield = produce_evoke_dual_token(
+    evoke_indented_yield = produce_evoke_dual_token__indentation(
                                'indented-yield',
                                Indented_Token,
                                conjure_indentation,
                                conjure_keyword_yield,
-                               none,
-
-                               lookup  = lookup_indentation,
-                               provide = provide_indentation,
                            )
 
-    evoke_name_whitespace = produce_evoke_dual_token(
+    evoke_name_whitespace = produce_evoke_dual_token__ends_in_newline(
                                 'name+whitespace',
                                 Name_Whitespace,
                                 conjure_name,
@@ -982,7 +874,7 @@ def module():
                                 conjure_whitespace__ends_in_newline,
                             )
 
-    evoke_number_whitespace = produce_evoke_dual_token(
+    evoke_number_whitespace = produce_evoke_dual_token__ends_in_newline(
                                   'number+whitespace',
                                   Atom_Whitespace,
                                   conjure_number,
@@ -990,7 +882,7 @@ def module():
                                   conjure_whitespace__ends_in_newline,
                               )
 
-    evoke_is_not = produce_evoke_dual_token(
+    evoke_is_not = produce_evoke_dual_token__ends_in_newline(
                        'is_not',
                        Is_Not,
                        conjure_keyword_is,
@@ -998,7 +890,7 @@ def module():
                        conjure_keyword_not__ends_in_newline,
                    )
 
-    evoke__left_square_bracket__colon = produce_evoke_dual_token(
+    evoke__left_square_bracket__colon = produce_evoke_dual_token__ends_in_newline(
                                             '[:',                           #   ]
                                             LeftSquareBracket_Colon,
                                             conjure_left_square_bracket,
@@ -1006,7 +898,7 @@ def module():
                                             conjure_colon__ends_in_newline,
                                         )
 
-    evoke_not_in = produce_evoke_dual_token(
+    evoke_not_in = produce_evoke_dual_token__ends_in_newline(
                        'not_in',
                        Not_In,
                        conjure_keyword_not,
@@ -1014,7 +906,7 @@ def module():
                        conjure_keyword_in__ends_in_newline,
                    )
 
-    evoke_parameters_0 = produce_evoke_dual_token(
+    evoke_parameters_0 = produce_evoke_dual_token__ends_in_newline(
                              'parameters_0',
                              Parameters_0,
                              conjure_left_parenthesis,
@@ -1025,7 +917,7 @@ def module():
                              provide = provide_parameters_0_token,
                         )
 
-    evoke__single_quote__whitespace = produce_evoke_dual_token(
+    evoke__single_quote__whitespace = produce_evoke_dual_token__ends_in_newline(
                                           'single-quote+whitespace',
                                           Atom_Whitespace,
                                           conjure_single_quote,
@@ -1033,36 +925,32 @@ def module():
                                           conjure_whitespace__ends_in_newline,
                                       )
 
-    evoke_whitespace__double_quote = produce_evoke_dual_token(
+    evoke_whitespace__double_quote = produce_evoke_dual_token__whitespace(
                                          'whitespace+double-quote',
                                          Whitespace_Atom,
                                          conjure_whitespace,
                                          conjure_double_quote,
-                                         none,
                                      )
 
-    evoke_whitespace_name = produce_evoke_dual_token(
+    evoke_whitespace_name = produce_evoke_dual_token__whitespace(
                                 'whitespace+name',
                                 Whitespace_Name,
                                 conjure_whitespace,
                                 conjure_name,
-                                none,
                             )
 
-    evoke_whitespace_number = produce_evoke_dual_token(
+    evoke_whitespace_number = produce_evoke_dual_token__whitespace(
                                   'whitespace+number',
                                   Whitespace_Atom,
                                   conjure_whitespace,
                                   conjure_number,
-                                  none,
                               )
 
-    evoke_whitespace__single_quote = produce_evoke_dual_token(
+    evoke_whitespace__single_quote = produce_evoke_dual_token__whitespace(
                                          'whitespace+single-quote',
                                          Whitespace_Atom,
                                          conjure_whitespace,
                                          conjure_single_quote,
-                                         none,
                                      )
 
     #

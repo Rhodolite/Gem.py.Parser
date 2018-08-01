@@ -111,6 +111,7 @@ def module():
     transport('CoreParser.DualExpressionStatement', 'produce_dual_expression_statement')
     transport('CoreParser.DualFrill',               'conjure_commented_v_frill')
     transport('CoreParser.DualFrill',               'conjure_vw_frill')
+    transport('CoreParser.DualToken',               'DualToken')
     transport('CoreParser.DualTwig',                'DualTwig')
     transport('CoreParser.DualTwig',                'produce_conjure_dual_twig')
     transport('CoreParser.DumpToken',               'create_TokenOutput')
