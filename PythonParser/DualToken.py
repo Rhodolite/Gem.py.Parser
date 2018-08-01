@@ -122,20 +122,6 @@ def module():
         return mutate
 
 
-    def create_dual_token__with_newlines(Meta, s, a, b):
-        assert s == a.s + b.s
-
-        newlines = s.count('\n')
-
-        return (
-                   Meta(s, a, b)
-                       if newlines is 0 else
-                           conjure_ActionWord_WithNewlines(
-                                Meta, construct_dual_token__with_newlines,
-                           )(s, a, b, s[-1] == '\n', newlines)
-               )
-
-
     def create_dual_token__line_marker(Meta, s, a, b):
         assert (s == a.s + b.s) and (s[-1] == '\n')
 
@@ -150,23 +136,21 @@ def module():
                )
 
 
-    def produce_conjure_dual_token(
-            name, Meta,
+    def create_dual_token__with_newlines(Meta, s, a, b):
+        assert s == a.s + b.s
 
-            lookup      = lookup_normal_token,
-            provide     = provide_normal_token,
-            line_marker = false
-    ):
-        if line_marker:
-            assert (lookup is lookup_normal_token) and (provide is provide_normal_token)
+        newlines = s.count('\n')
 
-            create_dual_token = create_dual_token__line_marker
-            lookup            = lookup_line_marker
-            provide           = provide_line_marker
-        else:
-            create_dual_token = create_dual_token__with_newlines
+        return (
+                   Meta(s, a, b)
+                       if newlines is 0 else
+                           conjure_ActionWord_WithNewlines(
+                                Meta, construct_dual_token__with_newlines,
+                           )(s, a, b, s[-1] == '\n', newlines)
+               )
 
 
+    def produce_conjure_dual_token__X__helper(name, Meta, create_dual_token, lookup, provide):
         @rename('conjure_%s', name)
         def conjure_dual_token(a, b):
             s = a.s + b.s
@@ -184,6 +168,21 @@ def module():
 
 
         return conjure_dual_token
+
+
+    def produce_conjure_dual_token__normal(
+            name, Meta,
+
+            lookup      = lookup_normal_token,
+            provide     = provide_normal_token,
+    ):
+        return produce_conjure_dual_token__X__helper(name, Meta, create_dual_token__with_newlines, lookup, provide)
+
+
+    def produce_conjure_dual_token__line_marker(name, Meta):
+        return produce_conjure_dual_token__X__helper(
+                name, Meta, create_dual_token__line_marker, lookup_line_marker, provide_line_marker,
+            )
 
 
     def produce_evoke_dual_token__ends_in_newline(
@@ -607,71 +606,70 @@ def module():
         write_variables = write_variables__b
 
 
-    conjure_atom_whitespace = produce_conjure_dual_token('atom_whitespace', Atom_Whitespace)
+    conjure_atom_whitespace = produce_conjure_dual_token__normal('atom_whitespace', Atom_Whitespace)
 
-    conjure_arguments_0 = produce_conjure_dual_token(
-                              'arguments_0',
-                              Arguments_0,
+    conjure_arguments_0 = produce_conjure_dual_token__normal(
+            'arguments_0',
+            Arguments_0,
 
-                              lookup  = lookup_arguments_0_token,
-                              provide = provide_arguments_0_token,
-                          )
+            lookup  = lookup_arguments_0_token,
+            provide = provide_arguments_0_token,
+        )
 
-    conjure_colon__line_marker = produce_conjure_dual_token(
-                                     'colon__line_marker__1',
-                                     Colon_LineMarker_1,
+    conjure_colon__line_marker = produce_conjure_dual_token__line_marker('colon__line_marker__1', Colon_LineMarker_1)
 
-                                     line_marker = true,
-                                 )
+    conjure_colon__right_square_bracket = produce_conjure_dual_token__normal(
+            'colon__right_square_bracket',
+            Colon_RightSquareBracket,
+        )
 
-    conjure_colon__right_square_bracket = produce_conjure_dual_token(
-                                              'colon__right_square_bracket',
-                                              Colon_RightSquareBracket,
-                                          )
+    conjure__comma__right_brace = produce_conjure_dual_token__normal('comma__right_brace', Comma_RightBrace)
 
-    conjure__comma__right_brace      = produce_conjure_dual_token('comma__right_brace',       Comma_RightBrace)
-    conjure_comma__right_parenthesis = produce_conjure_dual_token('comma__right_parenthesis', Comma_RightParenthesis)
+    conjure_comma__right_parenthesis = produce_conjure_dual_token__normal(
+            'comma__right_parenthesis',
+            Comma_RightParenthesis,
+        )
 
-    conjure_comma__right_square_bracket = produce_conjure_dual_token(
-                                              'comma__right_square_bracket',
-                                              Comma_RightSquareBracket,
-                                          )
+    conjure_comma__right_square_bracket = produce_conjure_dual_token__normal(
+            'comma__right_square_bracket',
+            Comma_RightSquareBracket,
+        )
 
-    conjure_dot_name      = produce_conjure_dual_token('.name',       Dot_Name)
-    conjure_dot_name_pair = produce_conjure_dual_token('.name-pair',  DotNamePair)
-    conjure_empty_list    = produce_conjure_dual_token('[]',          EmptyList)
-    conjure_empty_map     = produce_conjure_dual_token('{}',          EmptyMap)
-    conjure_empty_tuple   = produce_conjure_dual_token('empty-tuple', EmptyTuple)
+    conjure_dot_name      = produce_conjure_dual_token__normal('.name',       Dot_Name)
+    conjure_dot_name_pair = produce_conjure_dual_token__normal('.name-pair',  DotNamePair)
+    conjure_empty_list    = produce_conjure_dual_token__normal('[]',          EmptyList)
+    conjure_empty_map     = produce_conjure_dual_token__normal('{}',          EmptyMap)
+    conjure_empty_tuple   = produce_conjure_dual_token__normal('empty-tuple', EmptyTuple)
 
-    conjure_indented_token = produce_conjure_dual_token(
-                                 'indented-token',
-                                 Indented_Token,
+    conjure_indented_token = produce_conjure_dual_token__normal(
+            'indented-token',
+            Indented_Token,
 
-                                 lookup  = lookup_indentation,
-                                 provide = provide_indentation,
-                             )
+            lookup  = lookup_indentation,
+            provide = provide_indentation,
+        )
 
-    conjure_is_not = produce_conjure_dual_token('is-not', Is_Not)
+    conjure_is_not = produce_conjure_dual_token__normal('is-not', Is_Not)
 
-    conjure_left_square_bracket__colon = produce_conjure_dual_token(
-                                             '[:',                           #   ]
-                                             LeftSquareBracket_Colon,
-                                         )
+    conjure_left_square_bracket__colon = produce_conjure_dual_token__normal(
+            '[:',                           #   ]
+            LeftSquareBracket_Colon,
+        )
 
-    conjure_name_whitespace = produce_conjure_dual_token('name_whitespace', Name_Whitespace)
+    conjure_name_whitespace = produce_conjure_dual_token__normal('name_whitespace', Name_Whitespace)
+    conjure_not_in          = produce_conjure_dual_token__normal('not-in',          Not_In)
 
-    conjure_not_in = produce_conjure_dual_token('not-in', Not_In)
+    conjure_parameters_0 = produce_conjure_dual_token__normal(
+            'parameters_0',
+            Parameters_0,
 
-    conjure_parameters_0 = produce_conjure_dual_token(
-                               'parameters_0',
-                               Parameters_0,
+            lookup  = lookup_parameters_0_token,
+            provide = provide_parameters_0_token,
+        )
 
-                               lookup  = lookup_parameters_0_token,
-                               provide = provide_parameters_0_token,
-                          )
+    conjure_whitespace_atom = produce_conjure_dual_token__normal('whitespace_atom', Whitespace_Atom)
+    conjure_whitespace_name = produce_conjure_dual_token__normal('whitespace_name', Whitespace_Name)
 
-    conjure_whitespace_atom = produce_conjure_dual_token('whitespace_atom', Whitespace_Atom)
-    conjure_whitespace_name = produce_conjure_dual_token('whitespace_name', Whitespace_Name)
 
     evoke_arguments_0 = produce_evoke_dual_token__ends_in_newline(
                             'arguments_0',
