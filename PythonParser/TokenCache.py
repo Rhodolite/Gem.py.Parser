@@ -11,9 +11,9 @@ def module():
     #
     #       arguments_0_token_cache     - '()' that is used as function arguments.
     #
-    #       comment_line_cache          - COmment lines (See PythonParser/Whitespace.py)
+    #       comment_line_cache          - Comment lines (See CoreParser/CrystalComment.py)
     #
-    #       empty_line_cache            - Empty lines (See PythonParser/Whitespace.py)
+    #       empty_line_cache            - Empty lines (See CoreParser/EmptyLine.py)
     #
     #       join_token_cache            - Whitespace that is used to concatanate strings; Example:
     #

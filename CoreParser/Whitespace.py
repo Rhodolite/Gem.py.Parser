@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.Whitespace')
+@module('CoreParser.Whitespace')
 def module():
-    require_module('PythonParser.Method')
+    require_module('CoreParser.Method')
 
 
     class TokenWhitespace(ParserToken):
@@ -25,7 +25,7 @@ def module():
     ] = produce_conjure_action_word('whitespace', TokenWhitespace, produce_ends_in_newline = true)
 
 
-    share(
+    export(
         'conjure_whitespace',                   conjure_whitespace,
         'conjure_whitespace__ends_in_newline',  conjure_whitespace__ends_in_newline,
     )

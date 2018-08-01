@@ -7,7 +7,6 @@ def module():
     require_module('PythonParser.CreateMeta')
     require_module('PythonParser.Elemental')
     require_module('PythonParser.TokenCache')
-    require_module('PythonParser.Whitespace')
 
 
     def construct_dual_token__line_marker_1(t, s, a, b):

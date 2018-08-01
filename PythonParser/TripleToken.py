@@ -6,7 +6,6 @@ def module():
     require_module('PythonParser.CreateMeta')
     require_module('PythonParser.DualStatement')
     require_module('PythonParser.Elemental')
-    require_module('PythonParser.Whitespace')
 
 
     def add_comment__commented_statement(t, comment):
