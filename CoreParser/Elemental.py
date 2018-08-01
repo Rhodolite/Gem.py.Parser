@@ -80,6 +80,7 @@ def module():
 
         if capital_global.tremolite_parser:
             is_end_of_tremolite_arithmetic_expression = false
+            is_end_of_tremolite_range_expression      = false
             is_end_of_tremolite_unary_expression      = false
             is_tremolite_arithmetic_operator          = false
 
@@ -158,6 +159,7 @@ def module():
 
 
             if capital_global.tremolite_parser:
+                is_end_of_tremolite_range_expression = true
                 is_end_of_tremolite_unary_expression = true
                 is_tremolite_arithmetic_operator     = true
 
