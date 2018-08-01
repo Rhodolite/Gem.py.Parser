@@ -8,9 +8,10 @@ def module():
 
     analyze_keyword_atom = produce_analyze_keyword_atom(
             lookup_python_keyword_conjure_function,
-            find_crystal_evoke_whitespace_atom,
             find_python_atom_type,
         )
+
+    analyze_quote = produce_analyze_quote(find_python_atom_type)
 
 
     def produce_tokenize_multiline_quote(name, next_triple_quote_match, conjure_quote__with_newlines):
@@ -239,26 +240,13 @@ def module():
             quote_start = m.start('quote')
 
             if quote_start is not -1:
-                j         = qj()
-                quote_end = m.end('quote')
-
                 if m.start('missing_double_quote') is not -1:
                     return tokenize_multiline_double_quote(m)
 
                 if m.start('missing_single_quote') is not -1:
                     return tokenize_multiline_single_quote(m)
 
-                if qi() != j:
-                    r = find_crystal_evoke_whitespace_atom(qs()[quote_start])(j, quote_end)
-                else:
-                    s = qs()
-
-                    r = find_python_atom_type(s[quote_start])(s[j : quote_end])
-
-                wi(quote_end)
-                wj(m.end())
-
-                return r
+                return analyze_quote(m, quote_start)
 
             raise_unknown_line()
 
