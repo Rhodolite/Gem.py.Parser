@@ -103,7 +103,7 @@ def module():
             atom_s = m.group('atom')
 
             if atom_s is not none:
-                conjure = lookup_keyword_conjure_function(atom_s)
+                conjure = lookup_python_keyword_conjure_function(atom_s)
 
                 if conjure is not none:
                     j = m.end()
@@ -118,9 +118,9 @@ def module():
                 atom_end = m.end('atom')
 
                 if qi() != qj():
-                    r = find_evoke_whitespace_atom(atom_s[0])(qj(), atom_end)
+                    r = find_crystal_evoke_whitespace_atom(atom_s[0])(qj(), atom_end)
                 else:
-                    r = find_atom_type(atom_s[0])(atom_s)
+                    r = find_python_atom_type(atom_s[0])(atom_s)
 
                 wi(atom_end)
                 wj(m.end())
@@ -264,11 +264,11 @@ def module():
                     return tokenize_multiline_single_quote(m)
 
                 if qi() != j:
-                    r = find_evoke_whitespace_atom(qs()[quote_start])(j, quote_end)
+                    r = find_crystal_evoke_whitespace_atom(qs()[quote_start])(j, quote_end)
                 else:
                     s = qs()
 
-                    r = find_atom_type(s[quote_start])(s[j : quote_end])
+                    r = find_python_atom_type(s[quote_start])(s[j : quote_end])
 
                 wi(quote_end)
                 wj(m.end())
@@ -283,7 +283,7 @@ def module():
         atom_s = m.group('atom')
 
         if atom_s is not none:
-            conjure = lookup_keyword_conjure_function(atom_s)
+            conjure = lookup_python_keyword_conjure_function(atom_s)
 
             if conjure is not none:
                 if qd() is 0:
@@ -322,9 +322,9 @@ def module():
             atom_end = m.end('atom')
 
             if qi() == qj():
-                r = find_atom_type(atom_s[0])(atom_s)
+                r = find_python_atom_type(atom_s[0])(atom_s)
             else:
-                r = find_evoke_whitespace_atom(atom_s[0])(qj(), m.end('atom'))
+                r = find_crystal_evoke_whitespace_atom(atom_s[0])(qj(), m.end('atom'))
 
             wn(conjure_line_marker(qs()[atom_end : ]))
 
@@ -519,9 +519,9 @@ def module():
             s         = qs()
 
             if qi() == qj():
-                r = find_atom_type(s[quote_start])(s[j : quote_end])
+                r = find_python_atom_type(s[quote_start])(s[j : quote_end])
             else:
-                r = find_evoke_whitespace_atom(s[quote_start])(j, quote_end)
+                r = find_crystal_evoke_whitespace_atom(s[quote_start])(j, quote_end)
 
             wn(conjure_line_marker(s[m.end('quote') : ]))
 

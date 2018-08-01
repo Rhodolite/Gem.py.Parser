@@ -389,9 +389,9 @@ def module():
 
 
     #
-    #   find_evoke_whitespace_atom
+    #   find_crystal_evoke_whitespace_atom
     #
-    find_evoke_whitespace_atom = {
+    find_crystal_evoke_whitespace_atom = {
             '"' : evoke_whitespace__double_quote,
             "'" : evoke_whitespace__single_quote,
 
@@ -427,6 +427,6 @@ def module():
     #   export
     #
     export(
-        'evoke_whitespace_name',            evoke_whitespace_name,
-        'find_evoke_whitespace_atom',       find_evoke_whitespace_atom,
+        'evoke_whitespace_name',                evoke_whitespace_name,
+        'find_crystal_evoke_whitespace_atom',   find_crystal_evoke_whitespace_atom,
     )

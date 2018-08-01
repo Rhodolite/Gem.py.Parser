@@ -209,4 +209,4 @@ def module():
     transport('CoreParser.DualToken',               'evoke_whitespace_name')
     transport('CoreParser.DualToken',               'Whitespace_Atom')
     transport('CoreParser.Atom',                    'conjure_token_number')
-    transport('CoreParser.Atom',                    'find_evoke_whitespace_atom')
+    transport('CoreParser.DualToken',               'find_crystal_evoke_whitespace_atom')

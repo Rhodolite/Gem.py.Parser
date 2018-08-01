@@ -17,7 +17,8 @@ def module():
             t.s = s
 
 
-        transform = transform__self
+        if capital_global.python_parser:
+            transform = transform__self
 
 
     [

@@ -1165,7 +1165,7 @@ def module():
     OperatorTildeSign.transform = produce_transform__uncommented('operator_tilde_sign', TILDE_SIGN)
 
 
-    find_atom_type = {
+    find_python_atom_type = {
             '"' : conjure_double_quote,
             "'" : conjure_single_quote,
 
@@ -1197,7 +1197,7 @@ def module():
         }.__getitem__
 
 
-    lookup_keyword_conjure_function = {
+    lookup_python_keyword_conjure_function = {
             'not'    : conjure_keyword_not,
             'return' : conjure_keyword_return,
         }.get
@@ -1254,7 +1254,7 @@ def module():
         'conjure_right_square_bracket__ends_in_newline',    conjure_right_square_bracket__ends_in_newline,
         'conjure_star_sign',                                conjure_star_sign,
         'conjure_try_colon',                                conjure_try_colon,
-        'find_atom_type',                                   find_atom_type,
+        'find_python_atom_type',                            find_python_atom_type
         'AT_SIGN',                                          AT_SIGN,
         'BREAK',                                            BREAK,
         'CONTINUE',                                         CONTINUE,
@@ -1269,7 +1269,7 @@ def module():
         'IF__W',                                            IF__W,
         'IN__W',                                            IN__W,
         'LEFT_BRACE',                                       LEFT_BRACE,
-        'lookup_keyword_conjure_function',                  lookup_keyword_conjure_function,
+        'lookup_python_keyword_conjure_function',           lookup_python_keyword_conjure_function,
         'LP',                                               LP,
         'LSB',                                              LSB,
         'NOT__W',                                           NOT__W,
