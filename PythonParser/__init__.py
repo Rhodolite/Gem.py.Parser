@@ -230,3 +230,6 @@ def module():
     transport('CoreParser.TripleToken',             'Whitespace_Name_Whitespace')
     transport('CoreParser.TripleToken',             'find_evoke_crystal_whitespace_atom_whitespace')
     transport('CoreParser.TripleToken',             'evoke_whitespace_name_whitespace')
+    transport('CoreParser.TokenizeAtom',            'produce_analyze_LANGUAGE_newline_keyword_atom')
+    transport('CoreParser.TripleToken',             'create_triple_token__line_marker')
+    transport('CoreParser.TripleToken',             'create_triple_token__with_newlines')

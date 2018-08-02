@@ -6,6 +6,9 @@ def module():
     require_module('PythonParser.Tokenize1Operator')
 
 
+    #
+    #   produce_analyze_LANGUAGE_* (without `newline` in the name)
+    #
     analyze_python_keyword_atom = produce_analyze_LANGUAGE_keyword_atom(
             'python',
             find_python_atom_type,
@@ -13,6 +16,17 @@ def module():
         )
 
     analyze_python_quote = produce_analyze_LANGUAGE_quote('python', find_python_atom_type)
+
+
+    #
+    #   analyze_LANGUAGE_newline_* (without `newline` in the name)
+    #
+    analyze_python_newline_keyword_atom = produce_analyze_LANGUAGE_newline_keyword_atom(
+            'python',
+            find_python_atom_type,
+            lookup_python_keyword_conjure_function,
+            python__skip_tokenize_prefix,
+        )
 
 
     def produce_tokenize_multiline_quote(name, next_triple_quote_match, conjure_quote__with_newlines):
@@ -257,53 +271,7 @@ def module():
         atom_s = m.group('atom')
 
         if atom_s is not none:
-            conjure = lookup_python_keyword_conjure_function(atom_s)
-
-            if conjure is not none:
-                if qd() is 0:
-                    atom_end = m.end('atom')
-
-                    r = conjure(atom_s)(qs()[qi() : atom_end])
-
-                    wn(conjure_line_marker(s[atom_end : ]))
-
-                    return r
-
-                r = conjure(atom_s)(qs()[qi() : ])
-
-                python__skip_tokenize_prefix()
-
-                return r
-
-            #
-            #<similiar-to: {quote_s} below>
-            #
-            #   Differences:
-            #
-            #       Uses "m.end('atom')" instead of "quote_end"
-            #       Uses "qs()" intead of "s"
-            #
-            if qd() is not 0:
-                if qi() == qj():
-                    r = find_evoke_crystal_atom_whitespace(atom_s[0])(m.end('atom'), none)
-                else:
-                    r = find_evoke_crystal_whitespace_atom_whitespace(atom_s[0])(qj(), m.end('atom'), none)
-
-                python__skip_tokenize_prefix()
-
-                return r
-
-            atom_end = m.end('atom')
-
-            if qi() == qj():
-                r = find_python_atom_type(atom_s[0])(atom_s)
-            else:
-                r = find_evoke_crystal_whitespace_atom(atom_s[0])(qj(), m.end('atom'))
-
-            wn(conjure_line_marker(qs()[atom_end : ]))
-
-            return r
-            #</similiar-to>
+            return analyze_python_newline_keyword_atom(m, atom_s)
 
         operator_s = m.group('operator')
 

@@ -14,6 +14,50 @@ def module():
         t.c = c
 
 
+    def construct_triple_token__with_newlines(t, s, a, b, c, ends_in_newline, newlines):
+        assert t.line_marker is false
+        assert s == a.s + b.s + c.s
+        assert ends_in_newline is (c.s[-1] == '\n')
+        assert newlines >= 1
+
+        t.s               = s
+        t.a               = a
+        t.b               = b
+        t.c               = c
+        t.ends_in_newline = ends_in_newline
+        t.newlines        = newlines
+
+
+    @export
+    def create_triple_token__line_marker(Meta, s, a, b, c):
+        assert (s == a.s + b.s + c.s) and (s[-1] == '\n')
+
+        newlines = s.count('\n')
+
+        return (
+                   Meta(s, a, b, c)
+                       if newlines is 1 else
+                           conjure_ActionWord_LineMarker_Many(
+                               Meta, construct_triple_token__line_marker__many,
+                           )(s, a, b, c, newlines)
+               )
+
+
+    @export
+    def create_triple_token__with_newlines(Meta, s, a, b, c):
+        assert s == a.s + b.s + c.s
+
+        newlines = s.count('\n')
+
+        return (
+                   Meta(s, a, b, c)
+                       if newlines is 0 else
+                           conjure_ActionWord_WithNewlines(
+                               Meta, construct_triple_token__with_newlines,
+                           )(s, a, b, c, s[-1] == '\n', newlines)
+               )
+
+
     #
     #<produce_evoke_triple_token>
     #   produce_evoke_triple_token__ends_in_newline
