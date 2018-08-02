@@ -565,17 +565,6 @@ def module():
         keyword       = '{'                                 #   }
 
 
-    class OperatorLeftParenthesis(KeywordAndOperatorBase):
-        __slots__                             = (())
-        class_order                           = CLASS_ORDER__NORMAL_TOKEN
-        display_name                          = '('         #   )
-        is__arguments_0__or__left_parenthesis = true
-        is_atom                               = false
-        is_left_parenthesis                   = true
-        is_postfix_operator                   = true
-        keyword                               = '('         #   )
-
-
     @export
     class OperatorLeftSquareBracket(KeywordAndOperatorBase):
         __slots__              = (())
@@ -930,10 +919,6 @@ def module():
     ] = produce_conjure_action_word('left_brace', OperatorLeftBrace, produce_ends_in_newline = true)
 
     [
-        conjure_left_parenthesis, conjure_left_parenthesis__ends_in_newline,
-    ] = produce_conjure_action_word('left_parenthesis', OperatorLeftParenthesis, produce_ends_in_newline = true)
-
-    [
         conjure_left_square_bracket, conjure_left_square_bracket__ends_in_newline,
     ] = produce_conjure_action_word('left_square_bracket', OperatorLeftSquareBracket, produce_ends_in_newline = true)
 
@@ -1242,8 +1227,6 @@ def module():
         'conjure_keyword_yield',                            conjure_keyword_yield,
         'conjure_left_brace',                               conjure_left_brace,
         'conjure_left_brace__ends_in_newline',              conjure_left_brace__ends_in_newline,
-        'conjure_left_parenthesis',                         conjure_left_parenthesis,
-        'conjure_left_parenthesis__ends_in_newline',        conjure_left_parenthesis__ends_in_newline,
         'conjure_left_square_bracket',                      conjure_left_square_bracket,
         'conjure_left_square_bracket__ends_in_newline',     conjure_left_square_bracket__ends_in_newline,
         'conjure_right_brace',                              conjure_right_brace,
