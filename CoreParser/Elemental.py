@@ -17,6 +17,7 @@ def module():
             is_CRYSTAL__atom__or__special_operator = false
             is_CRYSTAL_atom                        = false
             is_CRYSTAL_special_operator            = false
+            is_CRYSTAL_left_parenthesis            = false
 
 
         if PYTHON_parser:
@@ -57,7 +58,6 @@ def module():
             is_keyword_or                            = false
             is_keyword_return                        = false
             is_left_brace                            = false
-            is_left_parenthesis                      = false
             is_left_square_bracket                   = false
             is_logical_and_operator                  = false
             is_logical_or_operator                   = false
@@ -103,7 +103,6 @@ def module():
             __slots__    = (())
             class_order  = CLASS_ORDER__NORMAL_TOKEN
             display_name = 'import'
-            keyword      = 'import'
 
 
         if JAVA_parser:
@@ -134,7 +133,6 @@ def module():
             __slots__    = (())
             class_order  = CLASS_ORDER__NORMAL_TOKEN
             display_name = 'language'
-            keyword      = 'language'
 
 
         conjure_keyword_language = produce_conjure_action_word('keyword_language', KeywordLanguage)
@@ -160,11 +158,13 @@ def module():
                 is_CRYSTAL__atom__or__special_operator = false
 
 
+            if CRYSTAL_parser:
+                is_CRYSTAL_left_parenthesis = true
+
+
             if PYTHON_parser:
                 is__arguments_0__or__left_parenthesis = true
-                is_left_parenthesis                   = true
                 is_postfix_operator                   = true
-                keyword                               = '('         #   )
 
 
     if (PYTHON_parser) or (TREMOLITE_parser):
@@ -173,7 +173,6 @@ def module():
             __slots__                     = (())
             class_order                   = CLASS_ORDER__NORMAL_TOKEN
             display_name                  = '+'
-            keyword                       = '+'
 
 
             if PYTHON_parser:

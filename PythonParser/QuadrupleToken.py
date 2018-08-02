@@ -323,7 +323,6 @@ def module():
         is_else_header_or_fragment = true
         is_statement               = false
         is_statement_header        = true
-        keyword                    = 'else'
         line_marker                = true
         newlines                   = 1
         split_comment              = 0
@@ -347,7 +346,6 @@ def module():
         is_any_except_or_finally = true
         is_statement             = false
         is_statement_header      = true
-        keyword                  = 'except'
         line_marker              = true
         newlines                 = 1
         split_comment            = 0
@@ -370,7 +368,6 @@ def module():
         is_any_except_or_finally = true
         is_statement             = false
         is_statement_header      = true
-        keyword                  = 'finally'
         line_marker              = true
         newlines                 = 1
         split_comment            = 0
@@ -393,7 +390,6 @@ def module():
         is_any_else         = false
         is_statement        = false
         is_statement_header = true
-        keyword             = 'try'
         line_marker         = true
         newlines            = 1
         split_comment       = 1

@@ -29,7 +29,7 @@ def module():
         if not operator.is__arguments_0__or__left_parenthesis:
             raise_unknown_line()
 
-        if operator.is_left_parenthesis:
+        if operator.is_CRYSTAL_left_parenthesis:
             assert qd() > 0
             assert qn() is none
 
@@ -69,7 +69,7 @@ def module():
         if operator_1.is_parameters_0:
             return conjure_function_header(indented_keyword, name, operator_1, tokenize_parameter_colon_newline())
 
-        if not operator_1.is_left_parenthesis:
+        if not operator_1.is_CRYSTAL_left_parenthesis:
             raise_unknown_line()
 
         #

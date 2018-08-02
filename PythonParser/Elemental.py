@@ -23,7 +23,6 @@ def module():
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_keyword_and                         = true
-        keyword                                = 'and'
 
 
     class KeywordAs(KeywordAndOperatorBase):
@@ -45,42 +44,36 @@ def module():
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
         is_keyword_as                           = true
-        keyword                                 = 'as'
 
 
     class KeywordAssert(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'assert'
-        keyword      = 'assert'
 
 
     class KeywordBreak(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'break'
-        keyword      = 'break'
 
 
     class KeywordClass(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'class'
-        keyword      = 'class'
 
 
     class KeywordContinue(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'continue'
-        keyword      = 'continue'
 
 
     class KeywordDelete(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'delete'
-        keyword      = 'del'
 
 
     class KeywordElse(KeywordAndOperatorBase):
@@ -98,49 +91,42 @@ def module():
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_keyword_else                        = true
-        keyword                                = 'else'
 
 
     class KeywordElseColon(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'else:'
-        keyword      = 'else:'
 
 
     class KeywordElseIf(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'else-if'
-        keyword      = 'elif'
 
 
     class KeywordExcept(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'except'
-        keyword      = 'except'
 
 
     class KeywordExceptColon(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'except:'
-        keyword      = 'except:'
 
 
     class KeywordFinally(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'finally'
-        keyword      = 'finally'
 
 
     class KeywordFinallyColon(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'finally:'
-        keyword      = 'finally:'
 
 
     class KeywordFor(KeywordAndOperatorBase):
@@ -160,21 +146,18 @@ def module():
         is_end_of_ternary_expression           = true
         is_end_of_unary_expression             = true
         is_keyword_for                         = true
-        keyword                                = 'for'
 
 
     class KeywordFrom(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'from'
-        keyword      = 'from'
 
 
     class KeywordFunction(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'function'
-        keyword      = 'def'
 
 
     class KeywordIf(KeywordAndOperatorBase):
@@ -192,7 +175,6 @@ def module():
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_keyword_if                          = true
-        keyword                                = 'if'
 
 
     @share
@@ -209,7 +191,6 @@ def module():
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_keyword_in                          = true
-        keyword                                = 'in'
 
 
     @share
@@ -225,7 +206,6 @@ def module():
         is_end_of_normal_expression            = true
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
-        keyword                                = 'is'
 
 
     class KeywordNot(KeywordAndOperatorBase):
@@ -233,7 +213,6 @@ def module():
         class_order    = CLASS_ORDER__NORMAL_TOKEN
         display_name   = 'not'
         is_keyword_not = true
-        keyword        = 'not'
 
 
         #
@@ -269,28 +248,24 @@ def module():
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_keyword_or                          = true
-        keyword                                = 'or'
 
 
     class KeywordPass(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'pass'
-        keyword      = 'pass'
 
 
     class KeywordRaise(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'raise'
-        keyword      = 'raise'
 
 
     class KeywordReturn(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'return'
-        keyword      = 'return'
 
         is_keyword_return = true
 
@@ -299,21 +274,12 @@ def module():
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'try'
-        keyword      = 'try'
-
-
-    class KeywordTryColon(KeywordAndOperatorBase):
-        __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
-        display_name = 'try:'
-        keyword      = 'try:'
 
 
     class KeywordWhile(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'while'
-        keyword      = 'while'
 
 
     @share
@@ -321,7 +287,6 @@ def module():
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'with'
-        keyword      = 'with'
 
 
     @share
@@ -329,7 +294,6 @@ def module():
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'yield'
-        keyword      = 'yield'
 
 
     class OperatorAddModify(KeywordAndOperatorBase):
@@ -351,14 +315,12 @@ def module():
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
         is_modify_operator                      = true
-        keyword                                 = '+='
 
 
     class OperatorAtSign(KeywordAndOperatorBase):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = '@'
-        keyword      = '@'
 
 
     class OperatorColon(KeywordAndOperatorBase):
@@ -382,7 +344,6 @@ def module():
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
-        keyword                                 = ':'
 
 
     class OperatorComma(KeywordAndOperatorBase):
@@ -403,7 +364,6 @@ def module():
         is_end_of_python_arithmetic_expression = true
         is_end_of_ternary_expression           = true
         is_end_of_unary_expression             = true
-        keyword                                = ','
 
 
     @share
@@ -419,7 +379,6 @@ def module():
         is_end_of_normal_expression            = true
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
-        keyword                                = '=='
 
 
         def display_token(t):
@@ -442,7 +401,6 @@ def module():
         is_end_of_normal_expression            = true
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
-        keyword                                = '!='
 
 
     @share
@@ -452,7 +410,6 @@ def module():
         display_name               = '/'
         is_multiply_operator       = true
         is_end_of_unary_expression = true
-        keyword                    = '/'
 
 
     class OperatorDot(KeywordAndOperatorBase):
@@ -461,7 +418,6 @@ def module():
         display_name        = '.'
         is_dot              = true
         is_postfix_operator = true
-        keyword             = '.'
 
 
     class OperatorEqualSign(KeywordAndOperatorBase):
@@ -483,7 +439,6 @@ def module():
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
         is_equal_sign                           = true
-        keyword                                 = '='
 
 
     @share
@@ -499,7 +454,6 @@ def module():
         is_end_of_normal_expression            = true
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
-        keyword                                = '>'
 
 
         def __repr__(t):
@@ -529,7 +483,6 @@ def module():
         is_end_of_normal_expression            = true
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
-        keyword                                = '>='
 
 
         def __repr__(t):
@@ -553,7 +506,6 @@ def module():
         display_name               = '//'
         is_multiply_operator       = true
         is_end_of_unary_expression = true
-        keyword                    = '//'
 
 
     class OperatorLeftBrace(KeywordAndOperatorBase):
@@ -562,7 +514,6 @@ def module():
         display_name    = '{'                                           #   }
         is_CRYSTAL_atom = false
         is_left_brace   = true
-        keyword         = '{'                                           #   }
 
 
     @export
@@ -572,7 +523,6 @@ def module():
         display_name           = '['                        #   ]
         is_left_square_bracket = true
         is_postfix_operator    = true
-        keyword                = '['                        #   ]
 
 
     @share
@@ -588,7 +538,6 @@ def module():
         is_end_of_normal_expression            = true
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
-        keyword                                = '<'
 
 
         def __repr__(t):
@@ -618,7 +567,6 @@ def module():
         is_end_of_normal_expression            = true
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
-        keyword                                = '<='
 
 
         def __repr__(t):
@@ -644,7 +592,6 @@ def module():
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_logical_and_operator                = true
-        keyword                                = '&'
 
 
     @share
@@ -657,7 +604,6 @@ def module():
         is_end_of_python_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_logical_or_operator                 = true
-        keyword                                = '|'
 
 
     class OperatorLogicalOrModify(KeywordAndOperatorBase):
@@ -679,7 +625,6 @@ def module():
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
         is_modify_operator                      = true
-        keyword                                 = '|='
 
 
     @share
@@ -691,7 +636,6 @@ def module():
         is_end_of_unary_expression    = true
         is_minus_sign                 = true
         is_python_arithmetic_operator = true
-        keyword                       = '-'
 
 
     @share
@@ -701,7 +645,6 @@ def module():
         display_name                  = '%'
         is_multiply_operator          = true
         is_end_of_unary_expression    = true
-        keyword                       = '%'
 
 
     @share
@@ -710,7 +653,6 @@ def module():
         class_order       = CLASS_ORDER__NORMAL_TOKEN
         display_name      = '**'
         is_power_operator = true
-        keyword           = '**'
 
 
     class OperatorRightBrace(KeywordAndOperatorBase):
@@ -735,8 +677,6 @@ def module():
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
         is_right_brace                          = true
-        #  {
-        keyword                                 = '}'
 
 
     class OperatorRightParenthesis(KeywordAndOperatorBase):
@@ -763,8 +703,6 @@ def module():
         is_end_of_unary_expression              = true
         is__optional_comma__right_parenthesis   = true
         is_right_parenthesis                    = true
-        #  (
-        keyword                                 = ')'
 
 
     @export
@@ -791,8 +729,6 @@ def module():
         is_end_of_unary_expression               = true
         is__optional_comma__right_square_bracket = true
         is_right_square_bracket                  = true
-        #   [
-        keyword                                  = ']'
 
 
     @share
@@ -803,7 +739,6 @@ def module():
         is_end_of_unary_expression = true
         is_multiply_operator       = true
         is_star_sign               = true
-        keyword                    = '*'
 
 
     class OperatorSubtractModify(KeywordAndOperatorBase):
@@ -825,7 +760,6 @@ def module():
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
         is_modify_operator                      = true
-        keyword                                 = '-='
 
 
     @share
@@ -834,7 +768,6 @@ def module():
         class_order   = CLASS_ORDER__NORMAL_TOKEN
         display_name  = '~'
         is_tilde_sign = true
-        keyword       = '~'
 
 
     initialize_action_word__Meta(
@@ -951,7 +884,6 @@ def module():
     conjure_else_colon       = produce_conjure_action_word('keyword-else-colon',    KeywordElseColon)
     conjure_except_colon     = produce_conjure_action_word('keyword-except-colon',  KeywordExceptColon)
     conjure_finally_colon    = produce_conjure_action_word('keyword-finally-colon', KeywordFinallyColon)
-    conjure_try_colon        = produce_conjure_action_word('keyword-try-colon',     KeywordTryColon)
     conjure_keyword_assert   = produce_conjure_action_word('keyword-assert',        KeywordAssert)
     conjure_keyword_delete   = produce_conjure_action_word('keyword-delete',        KeywordDelete)
     conjure_keyword_else     = produce_conjure_action_word('keyword-else',          KeywordElse)
@@ -1236,7 +1168,6 @@ def module():
         'conjure_right_square_bracket',                     conjure_right_square_bracket,
         'conjure_right_square_bracket__ends_in_newline',    conjure_right_square_bracket__ends_in_newline,
         'conjure_star_sign',                                conjure_star_sign,
-        'conjure_try_colon',                                conjure_try_colon,
         'find_python_atom_type',                            find_python_atom_type,
         'AT_SIGN',                                          AT_SIGN,
         'BREAK',                                            BREAK,

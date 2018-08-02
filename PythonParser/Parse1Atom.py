@@ -363,7 +363,7 @@ def module():
         if token.is_CRYSTAL__atom__or__special_operator:
             return token
 
-        if token.is_left_parenthesis:
+        if token.is_CRYSTAL_left_parenthesis:
             return parse1__parenthesized_expression__left_parenthesis(token)
 
         if token.is_left_square_bracket:
