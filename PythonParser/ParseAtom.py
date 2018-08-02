@@ -1,7 +1,7 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.Parse1Atom')
+@module('PythonParser.ParseAtom')
 def module():
     @share
     def parse_python__map_element():
@@ -128,7 +128,6 @@ def module():
             return conjure_empty_tuple(left_parenthesis, middle_1)
 
         if middle_1.is_CRYSTAL_special_operator:
-            line('middle_1: %s', middle_1)
             raise_unknown_line()
 
         operator_1 = qk()
