@@ -351,7 +351,7 @@ def module():
         assert qk() is none
         assert qn() is none
 
-        m = atom_match(qs(), qj())
+        m = python_atom_match(qs(), qj())
 
         if m is none:
             #my_line('full: %r; s: %r', portray_string(qs()), portray_string(qs()[qj() :]))
