@@ -392,6 +392,10 @@ def module():
     #   conjure
     #
     conjure_atom_whitespace = produce_conjure_dual_token__normal('atom_whitespace', Atom_Whitespace)
+    conjure_name_whitespace = produce_conjure_dual_token__normal('name_whitespace', Name_Whitespace)
+    conjure_whitespace_atom = produce_conjure_dual_token__normal('whitespace_atom', Whitespace_Atom)
+    conjure_whitespace_name = produce_conjure_dual_token__normal('whitespace_name', Whitespace_Name)
+
 
 
     #
@@ -537,4 +541,7 @@ def module():
         'evoke_name_whitespace',                evoke_name_whitespace,
         'evoke_whitespace_name',                evoke_whitespace_name,
         'conjure_atom_whitespace',              conjure_atom_whitespace,
+        'conjure_name_whitespace',              conjure_name_whitespace,
+        'conjure_whitespace_atom',              conjure_whitespace_atom,
+        'conjure_whitespace_name',              conjure_whitespace_name,
     )

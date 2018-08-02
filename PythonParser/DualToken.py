@@ -311,6 +311,9 @@ def module():
         scout_variables    = scout_variables__0
 
 
+    #
+    #   conjure
+    #
     conjure_arguments_0 = produce_conjure_dual_token__normal(
             'arguments_0',
             Arguments_0,
@@ -359,8 +362,7 @@ def module():
             LeftSquareBracket_Colon,
         )
 
-    conjure_name_whitespace = produce_conjure_dual_token__normal('name_whitespace', Name_Whitespace)
-    conjure_not_in          = produce_conjure_dual_token__normal('not-in',          Not_In)
+    conjure_not_in = produce_conjure_dual_token__normal('not-in', Not_In)
 
     conjure_parameters_0 = produce_conjure_dual_token__normal(
             'parameters_0',
@@ -370,10 +372,10 @@ def module():
             provide = provide_parameters_0_token,
         )
 
-    conjure_whitespace_atom = produce_conjure_dual_token__normal('whitespace_atom', Whitespace_Atom)
-    conjure_whitespace_name = produce_conjure_dual_token__normal('whitespace_name', Whitespace_Name)
 
-
+    #
+    #   evoke
+    #
     evoke_arguments_0 = produce_evoke_dual_token__ends_in_newline(
                             'arguments_0',
                             Arguments_0,
