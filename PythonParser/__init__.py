@@ -224,3 +224,4 @@ def module():
     transport('CoreParser.Whitespace',              'conjure_whitespace')
     transport('CoreParser.Whitespace',              'conjure_whitespace__ends_in_newline')
     transport('CoreParser.TripleToken',             'TripleToken')
+    transport('CoreParser.TripleToken',             'Whitespace_Atom_Whitespace')

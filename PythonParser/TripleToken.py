@@ -175,83 +175,76 @@ def module():
         return conjure_triple_token
 
 
-    def produce_evoke_triple_token(
-            name, Meta, conjure_a, conjure_b,
+    def produce_evoke_triple_token__ends_in_newline(
+            name, Meta, conjure_a, conjure_b, conjure_c, conjure_c__ends_in_newline,
 
-            conjure_c                  = absent,
-            conjure_c__ends_in_newline = absent,
-            lookup                     = lookup_normal_token,
-            provide                    = provide_normal_token,
-            line_marker                = false,
+            lookup  = lookup_normal_token,
+            provide = provide_normal_token,
     ):
-        assert type(line_marker) is Boolean
+        @rename('evoke_%s', name)
+        def evoke_triple_token(a_end, b_end, c_end):
+            #
+            #   For empty indentation: "qi() == a_end"
+            #
+            assert qi() <= a_end < b_end
 
+            full = qs()[qi() : c_end]
 
-        if line_marker:
-            assert (lookup is lookup_normal_token) and (provide is provide_normal_token)
-            assert (conjure_c is conjure_c__ends_in_newline is absent)
+            r = lookup(full)
 
+            if r is not none:
+                assert (type(r) is Meta) or (type(r) is lookup_adjusted_meta(Meta))
 
-            @rename('evoke_%s', name)
-            def evoke_triple_token(a_end, b_end):
-                #
-                #   For an indented token with 0 indentation 'qi() == a_end'
-                #
-                assert qi() <= a_end < b_end
+                return r
 
-                triple_s = qs()[qi() : ]
+            full = intern_string(full)
+            s    = qs()
 
-                r = lookup_line_marker(triple_s)
-
-                if r is not none:
-                    assert (type(r) is Meta) or (type(r) is lookup_adjusted_meta(Meta))
-
-                    return r
-
-                s        = qs()
-                triple_s = intern_string(triple_s)
-
-                return provide_line_marker(
-                           triple_s,
-                           create_triple_token__line_marker(
-                               Meta,
-                               triple_s,
-                               conjure_a          (s[qi()  : a_end]),
-                               conjure_b          (s[a_end : b_end]),
-                               conjure_line_marker(s[b_end :      ]),
-                           ),
-                       )
-        else:
-            @rename('evoke_%s', name)
-            def evoke_triple_token(a_end, b_end, c_end):
-                #
-                #   For empty indentation: "qi() == a_end"
-                #
-                assert qi() <= a_end < b_end
-
-                full = qs()[qi() : c_end]
-
-                r = lookup(full)
-
-                if r is not none:
-                    assert (type(r) is Meta) or (type(r) is lookup_adjusted_meta(Meta))
-
-                    return r
-
-                full = intern_string(full)
-                s    = qs()
-
-                return provide(
+            return provide(
+                       full,
+                       create_triple_token__with_newlines(
+                           Meta,
                            full,
-                           create_triple_token__with_newlines(
-                               Meta,
-                               full,
-                               conjure_a(s[qi()  : a_end]),
-                               conjure_b(s[a_end : b_end]),
-                               (conjure_c__ends_in_newline   if c_end is none else   conjure_c)(s[b_end : c_end]),
-                           ),
-                       )
+                           conjure_a(s[qi()  : a_end]),
+                           conjure_b(s[a_end : b_end]),
+                           (conjure_c__ends_in_newline   if c_end is none else   conjure_c)(s[b_end : c_end]),
+                       ),
+                   )
 
+
+        return evoke_triple_token
+
+
+    def produce_evoke_triple_token__line_marker(name, Meta, conjure_a, conjure_b):
+        @rename('evoke_%s', name)
+        def evoke_triple_token(a_end, b_end):
+            #
+            #   For an indented token with 0 indentation 'qi() == a_end'
+            #
+            assert qi() <= a_end < b_end
+
+            triple_s = qs()[qi() : ]
+
+            r = lookup_line_marker(triple_s)
+
+            if r is not none:
+                assert (type(r) is Meta) or (type(r) is lookup_adjusted_meta(Meta))
+
+                return r
+
+            s        = qs()
+            triple_s = intern_string(triple_s)
+
+            return provide_line_marker(
+                       triple_s,
+                       create_triple_token__line_marker(
+                           Meta,
+                           triple_s,
+                           conjure_a          (s[qi()  : a_end]),
+                           conjure_b          (s[a_end : b_end]),
+                           conjure_line_marker(s[b_end :      ]),
+                       ),
+                   )
 
         return evoke_triple_token
 
@@ -422,17 +415,6 @@ def module():
         scout_variables     = scout_variables__0
 
 
-    class Whitespace_Atom_Whitespace(TripleToken):
-        __slots__                      = (())
-        class_order                    = CLASS_ORDER__NORMAL_TOKEN
-        display_name                   = 'whitespace+atom+whitespace'
-        is__atom__or__special_operator = true
-        is_atom                        = true
-        is_special_operator            = false
-
-        scout_variables = scout_variables__0
-
-
     class Whitespace_Name_Whitespace(TripleToken):
         __slots__                      = (())
         class_order                    = CLASS_ORDER__NORMAL_TOKEN
@@ -509,7 +491,7 @@ def module():
     #
     #   evoke_*
     #
-    evoke_all_index = produce_evoke_triple_token(
+    evoke_all_index = produce_evoke_triple_token__ends_in_newline(
                           'all_index',
                           AllIndex,
                           conjure_left_square_bracket,
@@ -519,25 +501,21 @@ def module():
                       )
 
 
-    evoke_indented__break__line_marker = produce_evoke_triple_token(
+    evoke_indented__break__line_marker = produce_evoke_triple_token__line_marker(
                                              'indented__break__line_marker',
                                              Indented_Break_LineMarker_1,
                                              conjure_indentation,
                                              conjure_keyword_break,
-
-                                             line_marker = true,
                                          )
 
-    evoke_indented__continue__line_marker = produce_evoke_triple_token(
+    evoke_indented__continue__line_marker = produce_evoke_triple_token__line_marker(
                                                 'indented__continue__line_marker',
                                                 Indented_Continue_LineMarker_1,
                                                 conjure_indentation,
                                                 conjure_keyword_continue,
-
-                                                line_marker = true,
                                             )
 
-    evoke_indented_else_colon = produce_evoke_triple_token(
+    evoke_indented_else_colon = produce_evoke_triple_token__ends_in_newline(
                                     'indented_else_colon',
                                     Indented_Else_Colon,
                                     conjure_indentation,
@@ -546,44 +524,36 @@ def module():
                                     conjure_colon__ends_in_newline,
                                 )
 
-    evoke_indented__pass__line_marker = produce_evoke_triple_token(
+    evoke_indented__pass__line_marker = produce_evoke_triple_token__line_marker(
                                             'indented__pass__line_marker',
                                             Indented_Pass_LineMarker_1,
                                             conjure_indentation,
                                             conjure_keyword_pass,
-
-                                            line_marker = true,
                                         )
 
-    evoke_indented__raise__line_marker = produce_evoke_triple_token(
+    evoke_indented__raise__line_marker = produce_evoke_triple_token__line_marker(
                                              'indented__raise__line_marker',
                                              Indented_Raise_LineMarker_1,
                                              conjure_indentation,
                                              conjure_keyword_return,
-
-                                             line_marker = true,
                                          )
 
-    evoke_indented__return__line_marker = produce_evoke_triple_token(
+    evoke_indented__return__line_marker = produce_evoke_triple_token__line_marker(
                                               'indented__return__line_marker',
                                               Indented_Return_LineMarker_1,
                                               conjure_indentation,
                                               conjure_keyword_return,
-
-                                              line_marker = true,
                                           )
 
-    evoke_indented__yield__line_marker = produce_evoke_triple_token(
+    evoke_indented__yield__line_marker = produce_evoke_triple_token__line_marker(
                                              'indented__yield__line_marker',
                                              Indented_Yield_LineMarker_1,
                                              conjure_indentation,
                                              conjure_keyword_yield,
-
-                                             line_marker = true,
                                          )
 
 
-    evoke_whitespace__double_quote__whitespace = produce_evoke_triple_token(
+    evoke_whitespace__double_quote__whitespace = produce_evoke_triple_token__ends_in_newline(
                                                      'whitespace+double-quote+whitespace',
                                                      Whitespace_Atom_Whitespace,
                                                      conjure_whitespace,
@@ -592,7 +562,7 @@ def module():
                                                      conjure_whitespace__ends_in_newline,
                                                  )
 
-    evoke_whitespace_name_whitespace = produce_evoke_triple_token(
+    evoke_whitespace_name_whitespace = produce_evoke_triple_token__ends_in_newline(
                                            'whitespace+name+whitespace',
                                            Whitespace_Name_Whitespace,
                                            conjure_whitespace,
@@ -601,7 +571,7 @@ def module():
                                            conjure_whitespace__ends_in_newline,
                                        )
 
-    evoke_whitespace_number_whitespace = produce_evoke_triple_token(
+    evoke_whitespace_number_whitespace = produce_evoke_triple_token__ends_in_newline(
                                              'whitespace+number+whitespace',
                                              Whitespace_Atom_Whitespace,
                                              conjure_whitespace,
@@ -610,7 +580,7 @@ def module():
                                              conjure_whitespace__ends_in_newline,
                                          )
 
-    evoke_whitespace__single_quote__whitespace = produce_evoke_triple_token(
+    evoke_whitespace__single_quote__whitespace = produce_evoke_triple_token__ends_in_newline(
                                                      'whitespace+single-quote+whitespace',
                                                      Whitespace_Atom_Whitespace,
                                                      conjure_whitespace,

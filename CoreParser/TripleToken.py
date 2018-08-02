@@ -68,3 +68,19 @@ def module():
     TripleToken.k1 = TripleToken.a
     TripleToken.k2 = TripleToken.b
     TripleToken.k3 = TripleToken.c
+
+
+    @export
+    class Whitespace_Atom_Whitespace(TripleToken):
+        __slots__    = (())
+        class_order  = CLASS_ORDER__NORMAL_TOKEN
+        display_name = 'whitespace+atom+whitespace'
+
+
+        if capital_global.python_parser:
+            is__atom__or__special_operator = true
+            is_atom                        = true
+            is_special_operator            = false
+
+        if capital_global.python_parser:
+            scout_variables = scout_variables__0
