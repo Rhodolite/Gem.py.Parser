@@ -233,3 +233,4 @@ def module():
     transport('CoreParser.TokenizeAtom',            'produce_analyze_LANGUAGE_newline_keyword_atom')
     transport('CoreParser.TripleToken',             'create_triple_token__line_marker')
     transport('CoreParser.TripleToken',             'create_triple_token__with_newlines')
+    transport('CoreParser.TokenizeAtom',            'produce_analyze_LANGUAGE_newline_quote')

@@ -28,6 +28,12 @@ def module():
             python__skip_tokenize_prefix,
         )
 
+    analyze_LANGUAGE_newline_quote = produce_analyze_LANGUAGE_newline_quote(
+            'python',
+            find_python_atom_type,
+            python__skip_tokenize_prefix,
+        )
+
 
     def produce_tokenize_multiline_quote(name, next_triple_quote_match, conjure_quote__with_newlines):
         group_name = intern_arrange('missing_%s_quote', name)
@@ -431,43 +437,6 @@ def module():
         if quote_start is not -1:
             assert m.start('missing_double_quote') is m.start('missing_single_quote') is -1
 
-            #
-            #   NOTE:
-            #
-            #       In the code below: Use 'qj()' instead of "m.start('quote')" to be sure to pick up any letters
-            #       prefixing the quote, such as r'prefixed'
-            #
-
-            #
-            #<similiar-to: {atom_s} above>
-            #
-            #   Differences:
-            #
-            #       Uses "quote_end" instead of "m.end('atom')"
-            #       Uses "s" intead of "qs()"
-            #
-            if qd() is not 0:
-                if qi() == qj():
-                    r = find_evoke_crystal_atom_whitespace(qs()[quote_start])(m.end('quote'), none)
-                else:
-                    r = find_evoke_crystal_whitespace_atom_whitespace(qs()[quote_start])(qj(), m.end('quote'), none)
-
-                python__skip_tokenize_prefix()
-
-                return r
-
-            j         = qj()
-            quote_end = m.end('quote')
-            s         = qs()
-
-            if qi() == qj():
-                r = find_python_atom_type(s[quote_start])(s[j : quote_end])
-            else:
-                r = find_evoke_crystal_whitespace_atom(s[quote_start])(j, quote_end)
-
-            wn(conjure_line_marker(s[m.end('quote') : ]))
-
-            return r
-            #</similiar-to>
+            return analyze_LANGUAGE_newline_quote(m, quote_start)
 
         raise_unknown_line()

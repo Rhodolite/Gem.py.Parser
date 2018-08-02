@@ -94,12 +94,11 @@ def module():
                 return r
 
             #
-            #<similiar-to: {quote_s} below>
+            #<similiar-to: `analyze_LANGUAGE_newline_quote` below>
             #
-            #   Differences:
-            #
-            #       Uses "m.end('atom')" instead of "quote_end"
-            #       Uses "qs()" intead of "s"
+            #       1.  Uses `atom_s[0]` instead of `qs()[quote_quote_start]` 
+            #       2.  Uses "m.end('atom')" instead of "m.end('quote')"
+            #       3.  Uses "qs()" intead of "s"
             #
             if qd() is not 0:
                 if qi() == qj():
@@ -125,3 +124,49 @@ def module():
 
 
         return analyze_LANGUAGE_newline_keyword_atom
+
+
+    @export
+    def produce_analyze_LANGUAGE_newline_quote(
+            language,
+            find_LANGUAGE_atom_type,
+            LANGUAGE__skip_tokenize_prefix,
+    ):
+        def analyze_LANGUAGE_newline_quote(m, quote_start):
+            #
+            #   NOTE:
+            #
+            #       In the code below: Use 'qj()' instead of "m.start('quote')" to be sure to pick up any letters
+            #       prefixing the quote, such as r'prefixed'
+            #
+
+            #
+            #<similiar-to: `analyze_LANGUAGE_newline_keyword_atom` above>
+            #
+            #   See list of differences there
+            #
+            if qd() is not 0:
+                if qi() == qj():
+                    r = find_evoke_crystal_atom_whitespace(qs()[quote_start])(m.end('quote'), none)
+                else:
+                    r = find_evoke_crystal_whitespace_atom_whitespace(qs()[quote_start])(qj(), m.end('quote'), none)
+
+                LANGUAGE__skip_tokenize_prefix()
+
+                return r
+
+            atom_end = m.end('quote')
+            s        = qs()
+
+            if qi() == qj():
+                r = find_LANGUAGE_atom_type(s[quote_start])(s[qj() : atom_end])
+            else:
+                r = find_evoke_crystal_whitespace_atom(s[quote_start])(qj(), atom_end)
+
+            wn(conjure_line_marker(s[atom_end : ]))
+
+            return r
+            #</similiar-to>
+
+
+        return analyze_LANGUAGE_newline_quote
