@@ -12,17 +12,6 @@ def module():
         return conjure_commented_statement(comment, t)
 
 
-    def construct_triple_token(t, s, a, b, c):
-        assert (t.ends_in_newline is t.line_marker is false) and (t.newlines is 0)
-        assert s == a.s + b.s + c.s
-        assert '\n' not in s
-
-        t.s = s
-        t.a = a
-        t.b = b
-        t.c = c
-
-
     def construct_triple_token__with_newlines(t, s, a, b, c, ends_in_newline, newlines):
         assert t.line_marker is false
         assert s == a.s + b.s + c.s
@@ -120,60 +109,6 @@ def module():
 
 
         return mutate
-
-
-    class BaseTripleOperator(KeywordAndOperatorBase):
-        __slots__ = ((
-            'a',                        #   Operator+
-            'b',                        #   Operator+
-            'c',                        #   Operator+
-        ))
-
-
-        __init__ = construct_triple_token
-        __repr__ = portray__123
-
-
-        if 0:                                                           #   Not currently used
-            def display_full_token(t):
-                display_name = t.display_name
-                a_s          = t.a.s
-                b_s          = t.b.s
-                c_s          = t.c.s
-
-                return arrange('<%s <%s> <%s> <%s>>',
-                               display_name,
-                               (portray_string(a_s)   if '\n' in a_s else   a_s),
-                               (portray_string(b_s)   if '\n' in b_s else   b_s),
-                               (portray_string(c_s)   if '\n' in c_s else   c_s))
-
-
-        def display_token(t):
-            display_name = t.display_name
-
-            if display_name == t.s:
-                return display_name
-
-            a = t.a
-
-            if a.is_indentation:
-                return arrange('<%s %+d %s %s>',
-                               display_name,
-                               a.total,
-                               t.b.display_short_token(),
-                               t.c.display_short_token())
-
-
-            return arrange('<%s %s %s %s>',
-                           display_name,
-                           a  .display_short_token(),
-                           t.b.display_short_token(),
-                           t.c.display_short_token())
-
-
-    BaseTripleOperator.k1 = BaseTripleOperator.a
-    BaseTripleOperator.k2 = BaseTripleOperator.b
-    BaseTripleOperator.k3 = BaseTripleOperator.c
 
 
     def create_triple_token__with_newlines(Meta, s, a, b, c):
@@ -321,7 +256,7 @@ def module():
         return evoke_triple_token
 
 
-    class AllIndex(BaseTripleOperator):
+    class AllIndex(TripleToken):
         __slots__           = (())
         class_order         = CLASS_ORDER__NORMAL_TOKEN
         display_name        = '[:]'
@@ -331,7 +266,7 @@ def module():
         scout_variables = scout_variables__0
 
 
-    class DotNameTriplet(BaseTripleOperator):
+    class DotNameTriplet(TripleToken):
         __slots__           = (())
         class_order         = CLASS_ORDER__NORMAL_TOKEN
         #   [
@@ -339,9 +274,9 @@ def module():
         is_postfix_operator = true
 
 
-    class Indented_Break_LineMarker_1(BaseTripleOperator):
+    class Indented_Break_LineMarker_1(TripleToken):
         __slots__   = (())
-        indentation = BaseTripleOperator.a
+        indentation = TripleToken.a
 
         class_order                = CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER
         display_name               = r'indented-break\n'
@@ -362,14 +297,14 @@ def module():
         scout_variables     = scout_variables__0
 
 
-    class Indented_Continue_LineMarker_1(BaseTripleOperator):
+    class Indented_Continue_LineMarker_1(TripleToken):
         __slots__   = (())
-        indentation = BaseTripleOperator.a
+        indentation = TripleToken.a
 
         class_order                = CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER
         display_name               = r'indented-continue\n'
         ends_in_newline            = true
-        indentation                = BaseTripleOperator.a
+        indentation                = TripleToken.a
         is_any_else                = false
         is_any_except_or_finally   = false
         is_else_header_or_fragment = false
@@ -386,18 +321,18 @@ def module():
         scout_variables     = scout_variables__0
 
 
-    class Indented_Else_Colon(BaseTripleOperator):
+    class Indented_Else_Colon(TripleToken):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = r'indented-else:'
-        indentation  = BaseTripleOperator.a
+        indentation  = TripleToken.a
 
         scout_variables = scout_variables__0
 
 
-    class Indented_Pass_LineMarker_1(BaseTripleOperator):
+    class Indented_Pass_LineMarker_1(TripleToken):
         __slots__   = (())
-        indentation = BaseTripleOperator.a
+        indentation = TripleToken.a
 
         class_order                = CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER
         display_name               = r'indented-pass\n'
@@ -418,9 +353,9 @@ def module():
         scout_variables     = scout_variables__0
 
 
-    class Indented_Raise_LineMarker_1(BaseTripleOperator):
+    class Indented_Raise_LineMarker_1(TripleToken):
         __slots__   = (())
-        indentation = BaseTripleOperator.a
+        indentation = TripleToken.a
 
         class_order                = CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER
         display_name               = r'indented-raise\n'
@@ -441,9 +376,9 @@ def module():
         scout_variables     = scout_variables__0
 
 
-    class Indented_Return_LineMarker_1(BaseTripleOperator):
+    class Indented_Return_LineMarker_1(TripleToken):
         __slots__   = (())
-        indentation = BaseTripleOperator.a
+        indentation = TripleToken.a
 
         class_order                = CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER
         display_name               = r'indented-return\n'
@@ -464,9 +399,9 @@ def module():
         scout_variables     = scout_variables__0
 
 
-    class Indented_Yield_LineMarker_1(BaseTripleOperator):
+    class Indented_Yield_LineMarker_1(TripleToken):
         __slots__   = (())
-        indentation = BaseTripleOperator.a
+        indentation = TripleToken.a
 
         class_order                = CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER
         display_name               = r'indented-yield\n'
@@ -487,7 +422,7 @@ def module():
         scout_variables     = scout_variables__0
 
 
-    class Whitespace_Atom_Whitespace(BaseTripleOperator):
+    class Whitespace_Atom_Whitespace(TripleToken):
         __slots__                      = (())
         class_order                    = CLASS_ORDER__NORMAL_TOKEN
         display_name                   = 'whitespace+atom+whitespace'
@@ -498,7 +433,7 @@ def module():
         scout_variables = scout_variables__0
 
 
-    class Whitespace_Name_Whitespace(BaseTripleOperator):
+    class Whitespace_Name_Whitespace(TripleToken):
         __slots__                      = (())
         class_order                    = CLASS_ORDER__NORMAL_TOKEN
         display_name                   = 'whitespace+name+whitespace'
