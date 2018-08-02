@@ -1,7 +1,7 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.Parse1Simple')
+@module('PythonParser.ParseSimple')
 def module():
     require_module('PythonParser.BookcaseKeywordStatement')
     require_module('PythonParser.BookcaseStatement')

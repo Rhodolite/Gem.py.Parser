@@ -1,7 +1,7 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.Parse1Import')
+@module('PythonParser.ParseImport')
 def module():
     require_module('PythonParser.Elemental')
     require_module('PythonParser.Match')

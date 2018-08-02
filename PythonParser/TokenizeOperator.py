@@ -1,7 +1,7 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.Tokenize1Operator')
+@module('PythonParser.TokenizeOperator')
 def module():
     python__skip_tokenize_prefix = produce__LANGUAGE__skip_tokenize_prefix('python', next_crystal_nested_line_match)
 

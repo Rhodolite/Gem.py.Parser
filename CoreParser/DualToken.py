@@ -191,7 +191,7 @@ def module():
 
         return evoke_dual_token__ends_in_newline
 
-    
+
     @export
     def produce_evoke_dual_token__indentation(name, Meta, conjure_first, conjure_second):
         return produce_evoke_dual_token__X__indentation_or_whitespace(
