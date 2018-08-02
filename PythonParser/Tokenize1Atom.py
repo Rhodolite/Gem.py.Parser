@@ -19,7 +19,7 @@ def module():
 
 
     #
-    #   analyze_LANGUAGE_newline_* (without `newline` in the name)
+    #   analyze_LANGUAGE_newline_* (with `newline` in the name)
     #
     analyze_python_newline_keyword_atom = produce_analyze_LANGUAGE_newline_keyword_atom(
             'python',
@@ -35,6 +35,9 @@ def module():
         )
 
 
+    #
+    #   produce_tokenize_multiline_quote
+    #
     def produce_tokenize_multiline_quote(name, next_triple_quote_match, conjure_quote__with_newlines):
         group_name = intern_arrange('missing_%s_quote', name)
 
@@ -113,15 +116,7 @@ def module():
 
     #
     #   Note:
-    #       Below a few tests of `i == j` (or the equivalent `qi() = qj()`).
-    #
-    #       None of these tests can be optimized to `i is j` since [the original] `i` & `j` could have been created
-    #       with two different calls, such as:
-    #
-    #           1.  m.end('atom'); .vs.
-    #           2.  m.end()
-    #
-    #       with `ow` is empty -- and thus have the same value (but different internal addresses).
+    #       See note in "CoreParser.TokenizeAtom" on the need to use `==` instead of `is` when comparing `i` & `j`
     #
     #   Note #2:
     #       The previous note also applies to tests like `qi() != j` ... cannot replace this with `qi() is not j`.

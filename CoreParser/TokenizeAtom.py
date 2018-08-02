@@ -4,6 +4,22 @@
 @module('CoreParser.TokenizeAtom')
 def module():
     #
+    #   Note:
+    #       Below a few tests of `i == j` (or the equivalent `qi() = qj()`).
+    #
+    #       None of these tests can be optimized to `i is j` since [the original] `i` & `j` could have been created
+    #       with two different calls, such as:
+    #
+    #           1.  m.end('atom'); .vs.
+    #           2.  m.end()
+    #
+    #       with `ow` is empty -- and thus have the same value (but different internal addresses).
+    #
+    #   Note #2:
+    #       The previous note also applies to tests like `qi() != j` ... cannot replace this with `qi() is not j`.
+    #
+
+    #
     #   produce_analyze_LANGUAGE_* (without `newline` in the name)
     #
     @export
