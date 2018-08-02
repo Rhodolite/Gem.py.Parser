@@ -40,7 +40,7 @@ def module():
     def parse_python(path, vary = 0, show = 0, test = 0):
         #line("parse_python(path<%s>, vary<%d>, show<%d>, test<%d>)", path, vary, show, test);
 
-        [data, data_lines, data_many] = parse1_python_from_path(path)
+        [data, data_lines, data_many] = parse_python_from_path(path)
 
         if show is 5:
             show_indentation(data_many)

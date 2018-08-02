@@ -35,4 +35,4 @@ def module():
 
         require_module('SqlParser.Parse1')                              #   Must be after `create_sql_parser_match`
 
-        parse1_mysql_from_path('test.sql')
+        parse_mysql_from_path('test.sql')

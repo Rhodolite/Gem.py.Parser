@@ -68,11 +68,10 @@ def module():
                     keyword_s = m.group('keyword')
 
                     if keyword_s is not none:
-                        parse1_line = lookup_parse_java_line(keyword_s)
+                        parse_line = lookup_parse_java_line(keyword_s)
 
-                        if parse1_line is not none:
-                            append(parse1_line(m))
-
+                        if parse_line is not none:
+                            append(parse_line(m))
                             continue
 
                         raise_unknown_line()

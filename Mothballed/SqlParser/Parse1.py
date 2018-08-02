@@ -12,7 +12,7 @@ def module():
 
 
     @share
-    def parse1_mysql_from_path(path):
+    def parse_mysql_from_path(path):
         data = read_text_from_path(path)
 
         parse_context = z_initialize(path, data)

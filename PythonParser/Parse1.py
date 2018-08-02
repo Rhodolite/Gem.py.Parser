@@ -53,7 +53,7 @@ def module():
 
 
     @share
-    def parse1_python_from_path(path):
+    def parse_python_from_path(path):
         data = read_text_from_path(path)
 
         parse_context = z_initialize(path, data)
@@ -75,10 +75,10 @@ def module():
                     atom_s = m.group('atom')
 
                     if atom_s is not none:
-                        parse1_line = lookup_parse1_line(atom_s)
+                        parse_line = lookup_parse1_line(atom_s)
 
-                        if parse1_line is not none:
-                            append(parse1_line(m))
+                        if parse_line is not none:
+                            append(parse_line(m))
 
                             assert qd() is 0
                             continue
