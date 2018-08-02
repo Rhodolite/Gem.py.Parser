@@ -22,33 +22,33 @@ def module():
 
 
     find_parse1_colon_line = {
-                                 'else'    : parse1_statement_else_colon,
-                                 'except'  : parse1_statement_except_colon,
-                                 'finally' : parse1_statement_finally_colon,
-                                 'try'     : parse1_statement_try_colon,
+                                 'else'    : parse_python__statement_else_colon,
+                                 'except'  : parse_python__statement_except_colon,
+                                 'finally' : parse_python__statement_finally_colon,
+                                 'try'     : parse_python__statement_try_colon,
                              }.__getitem__
 
 
     lookup_parse1_line = {
-                             '@'        : parse1_statement_decorator_header,
-                             'assert'   : parse1_statement_assert,
-                             'break'    : parse1_statement_break,
-                             'class'    : parse1_statement_class_header,
-                             'continue' : parse1_statement_continue,
-                             'def'      : parse1_statement_function_header,
-                             'del'      : parse1_statement_delete,
-                             'elif'     : parse1_statement_else_if,
-                             'except'   : parse1_statement_except,
-                             'for'      : parse1_statement_for,
-                             'from'     : parse1_statement_from,
-                             'if'       : parse1_statement_if,
-                             'import'   : parse1_statement_import,
-                             'pass'     : parse1_statement_pass,
-                             'raise'    : parse1_statement_raise,
-                             'return'   : parse1_statement_return,
-                             'yield'    : parse1_statement_yield,
-                             'while'    : parse1_statement_while,
-                             'with'     : parse1_statement_with,
+                             '@'        : parse_python__statement_decorator_header,
+                             'assert'   : parse_python__statement_assert,
+                             'break'    : parse_python__statement_break,
+                             'class'    : parse_python__statement_class_header,
+                             'continue' : parse_python__statement_continue,
+                             'def'      : parse_python__statement_function_header,
+                             'del'      : parse_python__statement_delete,
+                             'elif'     : parse_python__statement_else_if,
+                             'except'   : parse_python__statement_except,
+                             'for'      : parse_python__statement_for,
+                             'from'     : parse_python__statement_from,
+                             'if'       : parse_python__statement_if,
+                             'import'   : parse_python__statement_import,
+                             'pass'     : parse_python__statement_pass,
+                             'raise'    : parse_python__statement_raise,
+                             'return'   : parse_python__statement_return,
+                             'yield'    : parse_python__statement_yield,
+                             'while'    : parse_python__statement_while,
+                             'with'     : parse_python__statement_with,
                          }.get
 
 
@@ -99,7 +99,7 @@ def module():
                         wj(m.end())
 
                         append(
-                            parse1_statement_expression__atom(
+                            parse_python__statement_expression__atom(
                                 m.group('indented'),
                                 conjure_name(atom_s),
                             ),
@@ -123,7 +123,7 @@ def module():
                         wj(j)
 
                         append(
-                            parse1_statement_expression__atom(
+                            parse_python__statement_expression__atom(
                                 m.group('indented'),
                                 analyze_python_atom(m)
                             ),

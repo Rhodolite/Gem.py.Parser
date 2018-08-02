@@ -9,7 +9,7 @@ def module():
 
 
     @share
-    def parse1_statement_break(m):
+    def parse_python__statement_break(m):
         if m.end('newline') is -1:
             raise_unknown_line()
 
@@ -17,7 +17,7 @@ def module():
 
 
     @share
-    def parse1_statement_continue(m):
+    def parse_python__statement_continue(m):
         if m.end('newline') is -1:
             raise_unknown_line()
 
@@ -25,7 +25,7 @@ def module():
 
 
     @share
-    def parse1_statement_decorator_header(m):
+    def parse_python__statement_decorator_header(m):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -55,7 +55,7 @@ def module():
         if not operator.is_CRYSTAL_left_parenthesis:
             raise_unknown_line()
 
-        call = parse1_call_expression__left__operator(name, operator)
+        call = parse_python__call_expression__left__operator(name, operator)
 
         newline = qn()
 
@@ -66,7 +66,7 @@ def module():
 
 
     @share
-    def parse1_statement_assert(m):
+    def parse_python__statement_assert(m):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -77,7 +77,7 @@ def module():
         wi(j)
         wj(j)
 
-        left = parse1_ternary_expression()
+        left = parse_python__ternary_expression()
 
         operator = qk()
 
@@ -94,7 +94,7 @@ def module():
         if not operator.is_comma:
             raise_unknown_line()
 
-        right = parse1_ternary_expression()
+        right = parse_python__ternary_expression()
 
         operator_2 = qk()
 
@@ -110,7 +110,7 @@ def module():
 
 
     @share
-    def parse1_statement_delete(m):
+    def parse_python__statement_delete(m):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -121,7 +121,7 @@ def module():
         wi(j)
         wj(j)
 
-        left = parse1_normal_expression()
+        left = parse_python__normal_expression()
 
         operator = qk()
 
@@ -142,7 +142,7 @@ def module():
         many_frill = [operator]
 
         while 7 is 7:
-            many.append(parse1_normal_expression())
+            many.append(parse_python__normal_expression())
 
             operator = qk()
 
@@ -163,7 +163,7 @@ def module():
 
 
     @share
-    def parse1_statement_pass(m):
+    def parse_python__statement_pass(m):
         if m.end('newline') is -1:
             raise_unknown_line()
 
@@ -171,7 +171,7 @@ def module():
 
 
     @share
-    def parse1_statement_raise(m):
+    def parse_python__statement_raise(m):
         if m.end('newline') is not -1:
             return evoke_indented__raise__line_marker(m.end('indented'), m.end('atom'))
 
@@ -182,7 +182,7 @@ def module():
         wi(j)
         wj(j)
 
-        left = parse1_ternary_expression()
+        left = parse_python__ternary_expression()
 
         operator = qk()
 
@@ -199,7 +199,7 @@ def module():
         if not operator.is_comma:
             raise_unknown_line()
 
-        middle = parse1_ternary_expression()
+        middle = parse_python__ternary_expression()
 
         operator_2 = qk()
 
@@ -216,7 +216,7 @@ def module():
         if not operator_2.is_comma:
             raise_unknown_line()
 
-        right = parse1_ternary_expression()
+        right = parse_python__ternary_expression()
 
         if qk() is none:
             newline = qn()
@@ -230,7 +230,7 @@ def module():
 
 
     @share
-    def parse1_statement_return(m):
+    def parse_python__statement_return(m):
         if m.end('newline') is not -1:
             return evoke_indented__return__line_marker(m.end('indented'), m.end('atom'))
 
@@ -241,7 +241,7 @@ def module():
         wi(j)
         wj(j)
 
-        right = parse1_ternary_expression_list()
+        right = parse_python__ternary_expression_list()
 
         if qk() is not none:
             #my_line('qk: %r; full: %s', qk(), portray_string(qs()))
@@ -256,7 +256,7 @@ def module():
 
 
     @share
-    def parse1_statement_yield(m):
+    def parse_python__statement_yield(m):
         if m.end('newline') is not -1:
             return evoke_indented__yield__line_marker(m.end('indented'), m.end('atom'))
 
@@ -267,7 +267,7 @@ def module():
         wi(j)
         wj(j)
 
-        left = parse1_ternary_expression_list()
+        left = parse_python__ternary_expression_list()
 
         if qk() is not none:
             raise_unknown_line()
