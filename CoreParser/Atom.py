@@ -20,24 +20,24 @@ def module():
         display_name = '"'
 
 
-        if capital_global.crystal_parser:
-            is__atom__or__special_operator = true
+        if CRYSTAL_parser:
+            is_CRYSTAL__atom__or__special_operator = true
+            is_CRYSTAL_atom                        = true
+            is_CRYSTAL_special_operator            = false
 
 
-        if capital_global.python_parser:
-            is_atom                 = true
+        if PYTHON_parser:
             is_colon                = false
             is_right_brace          = false
             is_right_parenthesis    = false
             is_right_square_bracket = false
-            is_special_operator     = false
 
 
         def display_token(t):
             return arrange('<%s>', t.s)
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             mutate          = mutate__self
             scout_variables = scout_variables__0
 
@@ -49,25 +49,25 @@ def module():
         display_name = "'"
 
 
-        if capital_global.crystal_parser:
-            is__atom__or__special_operator = true
+        if CRYSTAL_parser:
+            is_CRYSTAL__atom__or__special_operator = true
+            is_CRYSTAL_atom                        = true
+            is_CRYSTAL_special_operator            = false
 
 
-        if capital_global.python_parser:
-            is_atom                 = true
+        if PYTHON_parser:
             is_colon                = false
             is_right_brace          = false
             is_right_parenthesis    = false
             is_right_square_bracket = false
             is_single_quote         = true
-            is_special_operator     = false
 
 
         def display_token(t):
             return arrange('<%s>', t.s)
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             find_atom       = return_self
             mutate          = mutate__self
             scout_variables = scout_variables__0
@@ -80,19 +80,19 @@ def module():
         display_name = 'token-name'
 
 
-        if capital_global.crystal_parser:
-            is__atom__or__special_operator = true
+        if CRYSTAL_parser:
+            is_CRYSTAL__atom__or__special_operator = true
+            is_CRYSTAL_atom                        = true
+            is_CRYSTAL_identifier                  = true
+            is_CRYSTAL_special_operator            = false
 
 
-        if capital_global.python_parser:
-            is_atom             = true
-            is_colon            = false
-            is_identifier       = true
-            is_right_brace      = false
-            is_special_operator = false
+        if PYTHON_parser:
+            is_colon       = false
+            is_right_brace = false
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             def add_parameters(t, art):
                art.add_parameter(t)
 
@@ -101,29 +101,29 @@ def module():
             return t.s
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             find_identifier = return_self
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             def is_name(t, s):
                 return t.s == s
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             mutate = mutate__self
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             scout_default_values = scout_default_values__0
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             def scout_variables(t, art):
                 art.fetch_variable(t)
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             transform = transform__self
 
 
@@ -141,21 +141,24 @@ def module():
         display_name = 'number'
 
 
-        if capital_global.python_parser:
-            is__atom__or__special_operator = true
-            is_atom                        = true
-            is_colon                       = false
-            is_right_brace                 = false
-            is_right_parenthesis           = false
-            is_right_square_bracket        = false
-            is_special_operator            = false
+        if CRYSTAL_parser:
+            is_CRYSTAL__atom__or__special_operator = true
+            is_CRYSTAL_atom                        = true
+            is_CRYSTAL_special_operator            = false
+
+
+        if PYTHON_parser:
+            is_colon                = false
+            is_right_brace          = false
+            is_right_parenthesis    = false
+            is_right_square_bracket = false
 
 
         def display_token(t):
             return t.s
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             mutate          = mutate__self
             scout_variables = scout_variables__0
 
@@ -197,7 +200,7 @@ def module():
     )
 
 
-    if capital_global.sql_parser:
+    if SQL_parser:
         export(
             'lookup_name',  lookup_atom,                                #   lookup_name = lookup_atom [on purpose]
         )

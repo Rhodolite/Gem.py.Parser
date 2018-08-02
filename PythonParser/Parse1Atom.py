@@ -14,7 +14,7 @@ def module():
         if token.is_right_brace:
             return token
 
-        if token.is_special_operator:
+        if token.is_CRYSTAL_special_operator:
             raise_unknown_line()
 
         operator = qk()
@@ -127,7 +127,8 @@ def module():
         if middle_1.is_right_parenthesis:
             return conjure_empty_tuple(left_parenthesis, middle_1)
 
-        if middle_1.is_special_operator:
+        if middle_1.is_CRYSTAL_special_operator:
+            line('middle_1: %s', middle_1)
             raise_unknown_line()
 
         operator_1 = qk()
@@ -166,7 +167,7 @@ def module():
                        conjure_comma__right_parenthesis(operator_1, middle_2),
                    )
 
-        if middle_2.is_special_operator:
+        if middle_2.is_CRYSTAL_special_operator:
             raise_unknown_line()
 
         operator_2 = tokenize_python_operator()
@@ -197,7 +198,7 @@ def module():
                        conjure_comma__right_parenthesis(operator_2, middle_3),
                    )
 
-        if middle_3.is_special_operator:
+        if middle_3.is_CRYSTAL_special_operator:
             raise_unknown_line()
 
         many       = [middle_1, middle_2]
@@ -230,7 +231,7 @@ def module():
                            conjure_comma__right_parenthesis(operator_7, middle_3),
                        )
 
-            if middle_3.is_special_operator:
+            if middle_3.is_CRYSTAL_special_operator:
                 raise_unknown_line()
 
             many_frill.append(operator_7)
@@ -246,7 +247,7 @@ def module():
         if middle_1.is_right_square_bracket:
             return conjure_empty_list(left_square_bracket, middle_1)
 
-        if middle_1.is_special_operator:
+        if middle_1.is_CRYSTAL_special_operator:
             raise_unknown_line()
 
         operator_1 = tokenize_python_operator()
@@ -276,7 +277,7 @@ def module():
                        conjure_comma__right_square_bracket(operator_1, middle_2),
                    )
 
-        if middle_2.is_special_operator:
+        if middle_2.is_CRYSTAL_special_operator:
             raise_unknown_line()
 
         operator_2 = tokenize_python_operator()
@@ -307,7 +308,7 @@ def module():
                        conjure_comma__right_square_bracket(operator_2, middle_3),
                    )
 
-        if middle_3.is_special_operator:
+        if middle_3.is_CRYSTAL_special_operator:
             raise_unknown_line()
 
         many       = [middle_1, middle_2]
@@ -340,7 +341,7 @@ def module():
                            conjure_comma__right_square_bracket(operator_7, middle_3),
                        )
 
-            if middle_3.is_special_operator:
+            if middle_3.is_CRYSTAL_special_operator:
                 raise_unknown_line()
 
             many_frill.append(operator_7)
@@ -359,7 +360,7 @@ def module():
 
         token = analyze_python_atom(m)
 
-        if token.is__atom__or__special_operator:
+        if token.is_CRYSTAL__atom__or__special_operator:
             return token
 
         if token.is_left_parenthesis:

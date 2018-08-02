@@ -21,13 +21,13 @@ def module():
         display_name = 'line-marker'
 
 
-        if capital_global.crystal_parser:
+        if CRYSTAL_parser:
             ends_in_newline = true
             line_marker     = true
             newlines        = 1
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             is_end_of_boolean_and_expression        = true
             is_end_of_boolean_or_expression         = true
             is_end_of_compare_expression            = true
@@ -44,7 +44,7 @@ def module():
             is_end_of_unary_expression              = true
 
 
-        if capital_global.tremolite_parser:
+        if TREMOLITE_parser:
             is_end_of_tremolite_arithmetic_expression = true
             is_end_of_tremolite_range_expression      = true
             is_end_of_tremolite_unary_expression      = true
@@ -96,7 +96,7 @@ def module():
         return provide_line_marker(s, LineMarker(s))
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def produce_conjure_action_word__line_marker(name, Meta):
             @rename('conjure_%s__line_marker', name)
@@ -130,7 +130,7 @@ def module():
     LINE_MARKER = conjure_line_marker('\n')
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         LineMarker.mutate    = produce_mutate__uncommented   ('line_marker', LINE_MARKER)
         LineMarker.transform = produce_transform__uncommented('line_marker', LINE_MARKER)
 

@@ -11,7 +11,7 @@ def module():
     store_triple_frill  = triple_frill_cache.__setitem__
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         class Commented_VW_Frill(TripleTwig):
             __slots__ = (())
             comment   = TripleTwig.a
@@ -25,7 +25,7 @@ def module():
             order = order__abc
 
 
-            if capital_global.python_parser:
+            if PYTHON_parser:
                 def transform(t, vary):
                     comment = t.comment
                     v       = t.v
@@ -56,7 +56,7 @@ def module():
         frill_estimate = 3
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             def morph(t, vary, v_priority, w_priority, x_priority):
                 assert v_priority is x_priority is 0
 
@@ -77,7 +77,7 @@ def module():
         order = order__abc
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         conjure_commented_vw_frill = produce_conjure_triple(
                                          '#vw-frill',
                                          Commented_VW_Frill,
@@ -96,14 +96,14 @@ def module():
                         )
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         VWX_Frill.transform = produce_transform__abc('vwx-frill', conjure_vwx_frill)
 
 
     append_cache('triple-frill', triple_frill_cache)
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         export(
             'conjure_commented_vw_frill',   conjure_commented_vw_frill,
         )

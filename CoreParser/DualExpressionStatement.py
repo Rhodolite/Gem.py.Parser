@@ -45,7 +45,7 @@ def module():
         __slots__ = (())
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             is_any_else                = false
             is_any_except_or_finally   = false
             is_else_header_or_fragment = false
@@ -133,13 +133,13 @@ def module():
             return false
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             @property
             def indentation(t):
                 return t.frill.v
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             def scout_variables(t, art):
                 t.a.write_variables(art)
                 t.b.scout_variables(art)

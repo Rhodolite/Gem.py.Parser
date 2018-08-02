@@ -70,7 +70,7 @@ def module():
     def parse1_statement_expression__atom(indented, left):
         indentation = conjure_indentation(indented)
 
-        if left.is_atom:
+        if left.is_CRYSTAL_atom:
             pass
         elif left.is_keyword_not:
             left = parse1_not_expression__operator(left)

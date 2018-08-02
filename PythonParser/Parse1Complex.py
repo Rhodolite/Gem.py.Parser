@@ -71,7 +71,7 @@ def module():
                        ),
                    )
 
-        if token.is_atom:
+        if token.is_CRYSTAL_atom:
             pass
         elif token.is_left_parenthesis:
             token = parse1__parenthesized_expression__left_parenthesis(token)
@@ -111,7 +111,7 @@ def module():
 
         left = parse1_atom()
 
-        if left.is_special_operator:
+        if left.is_CRYSTAL_special_operator:
             raise_unknown_line()
 
         return conjure_else_fragment(keyword, parse1_statement_expression__atom('', left))

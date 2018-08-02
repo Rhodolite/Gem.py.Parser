@@ -11,7 +11,7 @@ def module():
     store_dual_frill  = dual_frill_cache.__setitem__
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         class Commented_V_Frill(DualTwig):
             __slots__ = (())
             comment   = DualTwig.a
@@ -21,7 +21,7 @@ def module():
             display_name = '#v-frill'
 
 
-            if capital_global.python_parser:
+            if PYTHON_parser:
                 def transform(t, vary):
                     comment = t.comment
                     v       = t.v
@@ -58,7 +58,7 @@ def module():
         dump_token     = dump_token__12
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             #
             #   NOTE:
             #       This is deliberatly called .morph, as its not appropriate to do .mutate on a general
@@ -86,7 +86,7 @@ def module():
 
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         conjure_commented_v_frill = produce_conjure_dual(
                                         '#v-frill',
                                         Commented_V_Frill,
@@ -107,14 +107,14 @@ def module():
     #
     #   .transform
     #
-    if capital_global.python_parser:
+    if PYTHON_parser:
         VW_Frill.transform = produce_transform__ab('vw_frill', conjure_vw_frill)
 
 
     append_cache('dual-frill', dual_frill_cache)
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         export(
             'conjure_commented_v_frill',    conjure_commented_v_frill,
         )

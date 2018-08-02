@@ -22,7 +22,7 @@ def module():
             wk(none)
 
         if operator.is_equal_sign:
-            if not left.is_identifier:
+            if not left.is_CRYSTAL_identifier:
                 raise_unknown_line()
 
             return conjure_keyword_argument(left, operator, parse1_ternary_expression())
@@ -42,7 +42,7 @@ def module():
         if argument_1.is_right_parenthesis:
             return conjure_arguments_0(left_parenthesis, argument_1)
 
-        if argument_1.is_special_operator:
+        if argument_1.is_CRYSTAL_special_operator:
             raise_unknown_line()
 
         operator_1 = qk()
@@ -53,7 +53,7 @@ def module():
             wk(none)
 
         if operator_1.is_equal_sign:
-            if not argument_1.is_identifier:
+            if not argument_1.is_CRYSTAL_identifier:
                 raise_unknown_line()
 
             argument_1 = conjure_keyword_argument(argument_1, operator_1, parse1_ternary_expression())
@@ -91,7 +91,7 @@ def module():
                        conjure_comma__right_parenthesis(operator_1, argument_2),
                    )
 
-        if argument_2.is_special_operator:
+        if argument_2.is_CRYSTAL_special_operator:
             raise_unknown_line()
 
         argument_2 = parse1_argument7__left(argument_2)
@@ -116,7 +116,7 @@ def module():
                        conjure_comma__right_parenthesis(operator_2, argument_3),
                    )
 
-        if argument_3.is_special_operator:
+        if argument_3.is_CRYSTAL_special_operator:
             raise_unknown_line()
 
         frill_many = [operator_1, operator_2]
@@ -145,7 +145,7 @@ def module():
                            conjure_comma__right_parenthesis(operator_7, argument_3),
                        )
 
-            if argument_3.is_special_operator:
+            if argument_3.is_CRYSTAL_special_operator:
                 raise_unknown_line()
 
             frill_many.append(operator_7)

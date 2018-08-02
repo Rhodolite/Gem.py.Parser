@@ -220,31 +220,31 @@ def module():
 
 
     class EmptyList(DualToken):
-        __slots__                      = (())
-        class_order                    = CLASS_ORDER__NORMAL_TOKEN
-        display_name                   = '[,]'
-        is__atom__or__special_operator = true
-        is_atom                        = true
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = '[,]'
+        is_CRYSTAL__atom__or__special_operator = true
+        is_CRYSTAL_atom                        = true
 
         scout_variables = scout_variables__0
 
 
     class EmptyMap(DualToken):
-        __slots__                      = (())
-        class_order                    = CLASS_ORDER__NORMAL_TOKEN
-        display_name                   = '{:}'
-        is__atom__or__special_operator = true
-        is_atom                        = true
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = '{:}'
+        is_CRYSTAL__atom__or__special_operator = true
+        is_CRYSTAL_atom                        = true
 
         scout_variables = scout_variables__0
 
 
     class EmptyTuple(DualToken):
-        __slots__                      = (())
-        class_order                    = CLASS_ORDER__NORMAL_TOKEN
-        display_name                   = '{,}'
-        is__atom__or__special_operator = true
-        is_atom                        = true
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__NORMAL_TOKEN
+        display_name                           = '{,}'
+        is_CRYSTAL__atom__or__special_operator = true
+        is_CRYSTAL_atom                        = true
 
         scout_variables = scout_variables__0
 

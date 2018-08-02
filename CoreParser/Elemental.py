@@ -13,15 +13,16 @@ def module():
         __slots__ = (())
 
 
-        if capital_global.crystal_parser:
-            is__atom__or__special_operator = false
+        if CRYSTAL_parser:
+            is_CRYSTAL__atom__or__special_operator = false
+            is_CRYSTAL_atom                        = false
+            is_CRYSTAL_special_operator            = false
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             is_all_index                             = false
             is_arguments_0                           = false
             is__arguments_0__or__left_parenthesis    = false
-            is_atom                                  = false
             is_colon                                 = false
             is_colon__line_marker                    = false
             is_colon__right_square_bracket           = false
@@ -72,13 +73,12 @@ def module():
             is_right_brace                           = false
             is_right_parenthesis                     = false
             is_right_square_bracket                  = false
-            is_special_operator                      = false
             is_star_sign                             = false
             is_tail_index                            = false
             is_tilde_sign                            = false
 
 
-        if capital_global.tremolite_parser:
+        if TREMOLITE_parser:
             is_end_of_tremolite_arithmetic_expression = false
             is_end_of_tremolite_range_expression      = false
             is_end_of_tremolite_unary_expression      = false
@@ -97,7 +97,7 @@ def module():
         display_token = display_short_token
 
 
-    if (capital_global.java_parser) or (capital_global.python_parser):
+    if JAVA_parser or PYTHON_parser:
         @export
         class KeywordImport(KeywordAndOperatorBase):
             __slots__    = (())
@@ -106,7 +106,7 @@ def module():
             keyword      = 'import'
 
 
-        if capital_global.java_parser:
+        if JAVA_parser:
             [
                     conjure_keyword_import, conjure_keyword_import__ends_in_newline,
             ] = produce_conjure_action_word('keyword_import', KeywordImport, produce_ends_in_newline = true)
@@ -119,13 +119,13 @@ def module():
         )
 
 
-        if capital_global.java_parser:
+        if JAVA_parser:
             export(
                 'conjure_keyword_import__ends_in_newline',  conjure_keyword_import__ends_in_newline,
             )
 
 
-    if capital_global.tremolite_parser:
+    if TREMOLITE_parser:
         #
         #   Tremolite Parser
         #
@@ -144,7 +144,7 @@ def module():
         )
 
 
-    if (capital_global.python_parser) or (capital_global.tremolite_parser):
+    if (PYTHON_parser) or (TREMOLITE_parser):
         @export
         class OperatorLeftParenthesis(KeywordAndOperatorBase):
             __slots__    = (())
@@ -152,15 +152,22 @@ def module():
             display_name = '('         #   )
 
 
-            if capital_global.python_parser:
+            if CRYSTAL_parser:
+                #
+                #   Not strictly needed here; for optimization, so does not have to look in base classes
+                #
+                is_CRYSTAL_atom                        = false
+                is_CRYSTAL__atom__or__special_operator = false
+
+
+            if PYTHON_parser:
                 is__arguments_0__or__left_parenthesis = true
-                is_atom                               = false
                 is_left_parenthesis                   = true
                 is_postfix_operator                   = true
                 keyword                               = '('         #   )
 
 
-    if (capital_global.python_parser) or (capital_global.tremolite_parser):
+    if (PYTHON_parser) or (TREMOLITE_parser):
         @export
         class OperatorPlusSign(KeywordAndOperatorBase):
             __slots__                     = (())
@@ -169,13 +176,13 @@ def module():
             keyword                       = '+'
 
 
-            if capital_global.python_parser:
+            if PYTHON_parser:
                 is_end_of_multiply_expression = true
                 is_end_of_unary_expression    = true
                 is_python_arithmetic_operator = true
 
 
-            if capital_global.tremolite_parser:
+            if TREMOLITE_parser:
                 is_end_of_tremolite_range_expression = true
                 is_end_of_tremolite_unary_expression = true
                 is_tremolite_arithmetic_operator     = true
@@ -191,7 +198,7 @@ def module():
     #
     #   conjure
     #
-    if (capital_global.python_parser) or (capital_global.tremolite_parser):
+    if (PYTHON_parser) or (TREMOLITE_parser):
         [
             conjure_left_parenthesis, conjure_left_parenthesis__ends_in_newline,
         ] = produce_conjure_action_word('left_parenthesis', OperatorLeftParenthesis, produce_ends_in_newline = true)
@@ -205,7 +212,7 @@ def module():
     #
     #   is_close_operator
     #
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         #   {[((
         is_close_operator = { ')' : 7, ']' : 7, '}' : 7 }.get
 

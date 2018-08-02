@@ -205,7 +205,7 @@ def module():
 
                 if middle.is_colon:
                     operator = conjure__left_square_bracket__colon(operator, middle)
-                elif middle.is_special_operator:
+                elif middle.is_CRYSTAL_special_operator:
                     #my_line('middle: %r', middle)
                     raise_unknown_line()
                 else:
@@ -246,7 +246,7 @@ def module():
                                            conjure__colon__right_square_bracket(operator_2, middle_2),
                                        ),
                                    )
-                        elif middle_2.is_special_operator:
+                        elif middle_2.is_CRYSTAL_special_operator:
                             raise_unknown_line()
                         else:
                             operator_3 = qk()
@@ -308,7 +308,7 @@ def module():
 
                 if middle_2.is_right_square_bracket:
                     operator = conjure_all_index(operator.a, operator.b, middle_2)
-                elif middle_2.is_special_operator:
+                elif middle_2.is_CRYSTAL_special_operator:
                     raise_unknown_line()
                 else:
                     operator_2 = qk()

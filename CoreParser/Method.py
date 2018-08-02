@@ -6,7 +6,7 @@ def module():
     #
     #   add_parameters
     #
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @share
         def add_parameters__b(t, art):
             t.b.add_parameters(art)
@@ -15,14 +15,14 @@ def module():
     #
     #   construct
     #
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         @share
         def construct__ab(t, a, b):
             t.a = a
             t.b = b
 
 
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         @export
         def construct__123(t, k1, k2, k3):
             t.k1 = k1
@@ -33,13 +33,13 @@ def module():
     #
     #   count_newlines
     #
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         @share
         def count_newlines__ab(t):
             return t.a.count_newlines() + t.b.count_newlines()
 
 
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         @export
         def count_newlines__123(t):
             return t.k1.count_newlines() + t.k2.count_newlines() + t.k3.count_newlines()
@@ -48,13 +48,13 @@ def module():
     #
     #   display_token
     #
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         @share
         def display_token__ab(t):
             return arrange('<%s %s %s>', t.display_name, t.a.display_token(), t.b.display_token())
 
 
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         @export
         def display_token__123(t):
             return arrange('<%s %s %s %s>',
@@ -64,7 +64,7 @@ def module():
                            t.k3.display_token())
 
 
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         @export
         def display_token__with_braces(t):
             return arrange('{%s %s %s}', t.display_name, t.a.display_token(), t.b.display_token())
@@ -73,7 +73,7 @@ def module():
     #
     #   dump_token
     #
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         @share
         def dump_token__12(t, f, newline = true):
             f.partial('<%s ', t.display_name)
@@ -84,7 +84,7 @@ def module():
             return f.token_result(r, newline)
 
 
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         @share
         def dump_token__123(t, f, newline = true):
             f.partial('<%s ', t.display_name)
@@ -99,7 +99,7 @@ def module():
     #
     #   find_require_module
     #
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def find_require_module__0(t, e):
             pass
@@ -108,7 +108,7 @@ def module():
     #
     #   is_name
     #
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def is_name__0(t, name):
             return false
@@ -117,13 +117,13 @@ def module():
     #
     #   mutate
     #
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def mutate__self(t, vary, priority):
             return t
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def produce_mutate__uncommented(name, uncommented):
             @rename('mutate_%s', name)
@@ -249,19 +249,19 @@ def module():
     #
     #   portray
     #
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         @export
         def portray__ab(t):
             return arrange('<%s %r %r>', t.__class__.__name__, t.a, t.b)
 
 
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         @export
         def portray__123(t):
             return arrange('<%s %s %r %r>', t.__class__.__name__, t.k1, t.k2, t.k3)
 
 
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         @export
         def portray_with_braces(t):
             return arrange('{%s %r %r}', t.__class__.__name__, t.a, t.b)
@@ -270,13 +270,13 @@ def module():
     #
     #   scout_default_values
     #
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def scout_default_values__0(t, art):
             pass
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @share
         def scout_default_values__b(t, art):
             t.b.scout_default_values(art)
@@ -286,32 +286,32 @@ def module():
     #
     #   scout_variables
     #
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def scout_variables__0(t, art):
             pass
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def scout_variables__a(t, art):
             t.a.scout_variables(art)
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def scout_variables__ab(t, art):
             t.a.scout_variables(art)
             t.b.scout_variables(art)
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def scout_variables__b(t, art):
             t.b.scout_variables(art)
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def scout_variables__many(t, art):
             for v in t.many:
@@ -321,7 +321,7 @@ def module():
     #
     #   transform
     #
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def produce_transform__ab(name, conjure):
             @rename('transform_%s', name)
@@ -341,7 +341,7 @@ def module():
             return transform
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def produce_transform__abc(name, conjure):
             @rename('transform_%s', name)
@@ -363,7 +363,7 @@ def module():
             return transform
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def produce_transform__abcd(name, conjure):
             @rename('transform_%s', name)
@@ -387,7 +387,7 @@ def module():
             return transform
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def produce_transform_many(name, conjure):
             @rename('transform_%s', name)
@@ -425,7 +425,7 @@ def module():
             return transform
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def produce_transform__uncommented(name, uncommented):
             @rename('transform_%s', name)
@@ -439,7 +439,7 @@ def module():
             return transform
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def transform__remove_comments_0(t, vary):
             if vary.remove_comments:
@@ -448,7 +448,7 @@ def module():
             return t
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def transform__self(t, vary):
             return t
@@ -457,7 +457,7 @@ def module():
     #
     #   write
     #
-    if capital_global.crystal_parser:
+    if CRYSTAL_parser:
         @share
         def write__123(t, w):
             t.k1.write(w)
@@ -468,13 +468,13 @@ def module():
     #
     #   write_variables
     #
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @share
         def write_variables__b(t, art):
             t.b.write_variables(art)
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def write_variables__a(t, art):
             t.a.write_variables(art)

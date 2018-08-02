@@ -204,12 +204,12 @@ def module():
         display_name = 'whitespace+atom+whitespace'
 
 
-        if capital_global.python_parser:
-            is__atom__or__special_operator = true
-            is_atom                        = true
-            is_special_operator            = false
+        if capital_global.CRYSTAL_parser:
+            is_CRYSTAL__atom__or__special_operator = true
+            is_CRYSTAL_atom                        = true
 
-        if capital_global.python_parser:
+
+        if PYTHON_parser:
             scout_variables = scout_variables__0
 
 
@@ -219,13 +219,14 @@ def module():
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'whitespace+name+whitespace'
 
-        if capital_global.python_parser:
-            is__atom__or__special_operator = true
-            is_atom                        = true
-            is_identifier                  = true
-            is_special_operator            = false
 
-        if capital_global.python_parser:
+        if capital_global.CRYSTAL_parser:
+            is_CRYSTAL__atom__or__special_operator = true
+            is_CRYSTAL_atom                        = true
+            is_CRYSTAL_identifier                  = true
+
+
+        if PYTHON_parser:
             scout_variables = scout_variables__b
 
 
