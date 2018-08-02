@@ -285,7 +285,7 @@ def module():
             #
             if qd() is not 0:
                 if qi() == qj():
-                    r = find_evoke_atom_whitespace(atom_s[0])(m.end('atom'), none)
+                    r = find_crystal_evoke_atom_whitespace(atom_s[0])(m.end('atom'), none)
                 else:
                     r = find_evoke_whitespace_atom_whitespace(atom_s[0])(qj(), m.end('atom'), none)
 
@@ -480,7 +480,7 @@ def module():
             #
             if qd() is not 0:
                 if qi() == qj():
-                    r = find_evoke_atom_whitespace(qs()[quote_start])(m.end('quote'), none)
+                    r = find_crystal_evoke_atom_whitespace(qs()[quote_start])(m.end('quote'), none)
                 else:
                     r = find_evoke_whitespace_atom_whitespace(qs()[quote_start])(qj(), m.end('quote'), none)
 

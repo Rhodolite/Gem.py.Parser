@@ -318,11 +318,6 @@ def module():
     #   scout_variables
     #
     @share
-    def scout_variables__a(t, art):
-        t.a.scout_variables(art)
-
-
-    @share
     def scout_variables__a__b_with_write(t, art):
         t.a.scout_variables(art)
         t.b.write_variables(art)
@@ -593,11 +588,6 @@ def module():
     #
     #   write_variables
     #
-    @share
-    def write_variables__a(t, art):
-        t.a.write_variables(art)
-
-
     @share
     def write_variables__ab(t, art):
         t.a.write_variables(art)

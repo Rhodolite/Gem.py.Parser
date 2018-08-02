@@ -294,6 +294,12 @@ def module():
 
     if capital_global.python_parser:
         @export
+        def scout_variables__a(t, art):
+            t.a.scout_variables(art)
+
+
+    if capital_global.python_parser:
+        @export
         def scout_variables__ab(t, art):
             t.a.scout_variables(art)
             t.b.scout_variables(art)
@@ -466,3 +472,9 @@ def module():
         @share
         def write_variables__b(t, art):
             t.b.write_variables(art)
+
+
+    if capital_global.python_parser:
+        @export
+        def write_variables__a(t, art):
+            t.a.write_variables(art)

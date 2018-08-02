@@ -260,6 +260,7 @@ def module():
         __repr__ = portray__ab
 
 
+
         if 0:                                                           #   Not currently used
             def display_full_token(t):
                 display_name = t.display_name
@@ -288,6 +289,38 @@ def module():
 
 
         order = order__s
+
+
+    @export
+    class Atom_Whitespace(DualToken):
+        __slots__    = (())
+        class_order  = CLASS_ORDER__NORMAL_TOKEN
+        display_name = 'atom+whitespace'
+
+
+        if capital_global.python_parser:
+            is__atom__or__special_operator = true
+            is_atom                        = true
+
+        if capital_global.python_parser:
+            scout_variables = scout_variables__0
+
+
+    @export
+    class Name_Whitespace(DualToken):
+        __slots__    = (())
+        class_order  = CLASS_ORDER__NORMAL_TOKEN
+        display_name = 'name+whitespace'
+
+
+        if capital_global.python_parser:
+            is__atom__or__special_operator = true
+            is_atom                        = true
+            is_identifier                  = true
+
+        if capital_global.python_parser:
+            scout_variables = scout_variables__a
+            write_variables = write_variables__a
 
 
     @export
@@ -356,36 +389,108 @@ def module():
 
 
     #
+    #   conjure
+    #
+    conjure_atom_whitespace = produce_conjure_dual_token__normal('atom_whitespace', Atom_Whitespace)
+
+
+    #
     #   evoke
     #
+    evoke__double_quote__whitespace = produce_evoke_dual_token__ends_in_newline(
+            'double-quote+whitespace',
+            Atom_Whitespace,
+            conjure_double_quote,
+            conjure_whitespace,
+            conjure_whitespace__ends_in_newline,
+        )
+
+    evoke_name_whitespace = produce_evoke_dual_token__ends_in_newline(
+            'name+whitespace',
+            Name_Whitespace,
+            conjure_name,
+            conjure_whitespace,
+            conjure_whitespace__ends_in_newline,
+        )
+
+    evoke_number_whitespace = produce_evoke_dual_token__ends_in_newline(
+            'number+whitespace',
+            Atom_Whitespace,
+            conjure_token_number,
+            conjure_whitespace,
+            conjure_whitespace__ends_in_newline,
+        )
+
+    evoke__single_quote__whitespace = produce_evoke_dual_token__ends_in_newline(
+            'single-quote+whitespace',
+            Atom_Whitespace,
+            conjure_single_quote,
+            conjure_whitespace,
+            conjure_whitespace__ends_in_newline,
+        )
+
     evoke_whitespace__double_quote = produce_evoke_dual_token__whitespace(
-                                         'whitespace+double-quote',
-                                         Whitespace_Atom,
-                                         conjure_whitespace,
-                                         conjure_double_quote,
-                                     )
+            'whitespace+double-quote',
+            Whitespace_Atom,
+            conjure_whitespace,
+            conjure_double_quote,
+        )
 
     evoke_whitespace_name = produce_evoke_dual_token__whitespace(
-                                'whitespace+name',
-                                Whitespace_Name,
-                                conjure_whitespace,
-                                conjure_name,
-                            )
-
+            'whitespace+name',
+            Whitespace_Name,
+            conjure_whitespace,
+            conjure_name,
+        )
 
     evoke_whitespace_number = produce_evoke_dual_token__whitespace(
-                                  'whitespace+number',
-                                  Whitespace_Atom,
-                                  conjure_whitespace,
-                                  conjure_token_number,
-                              )
+            'whitespace+number',
+            Whitespace_Atom,
+            conjure_whitespace,
+            conjure_token_number,
+        )
 
     evoke_whitespace__single_quote = produce_evoke_dual_token__whitespace(
-                                         'whitespace+single-quote',
-                                         Whitespace_Atom,
-                                         conjure_whitespace,
-                                         conjure_single_quote,
-                                     )
+            'whitespace+single-quote',
+            Whitespace_Atom,
+            conjure_whitespace,
+            conjure_single_quote,
+        )
+
+
+    #
+    #   find_crystal_evoke_atom_whitespace
+    #
+    find_crystal_evoke_atom_whitespace = {
+            '"' : evoke__double_quote__whitespace,
+            "'" : evoke__single_quote__whitespace,
+
+            '.' : evoke_number_whitespace,
+            '0' : evoke_number_whitespace, '1' : evoke_number_whitespace, '2' : evoke_number_whitespace,
+            '3' : evoke_number_whitespace, '4' : evoke_number_whitespace, '5' : evoke_number_whitespace,
+            '6' : evoke_number_whitespace, '7' : evoke_number_whitespace, '8' : evoke_number_whitespace,
+            '9' : evoke_number_whitespace,
+
+            'A' : evoke_name_whitespace, 'B' : evoke_name_whitespace, 'C' : evoke_name_whitespace,
+            'D' : evoke_name_whitespace, 'E' : evoke_name_whitespace, 'F' : evoke_name_whitespace,
+            'G' : evoke_name_whitespace, 'H' : evoke_name_whitespace, 'I' : evoke_name_whitespace,
+            'J' : evoke_name_whitespace, 'K' : evoke_name_whitespace, 'L' : evoke_name_whitespace,
+            'M' : evoke_name_whitespace, 'N' : evoke_name_whitespace, 'O' : evoke_name_whitespace,
+            'P' : evoke_name_whitespace, 'Q' : evoke_name_whitespace, 'R' : evoke_name_whitespace,
+            'S' : evoke_name_whitespace, 'T' : evoke_name_whitespace, 'U' : evoke_name_whitespace,
+            'V' : evoke_name_whitespace, 'W' : evoke_name_whitespace, 'X' : evoke_name_whitespace,
+            'Y' : evoke_name_whitespace, 'Z' : evoke_name_whitespace, '_' : evoke_name_whitespace,
+
+            'a' : evoke_name_whitespace, 'b' : evoke_name_whitespace, 'c' : evoke_name_whitespace,
+            'd' : evoke_name_whitespace, 'e' : evoke_name_whitespace, 'f' : evoke_name_whitespace,
+            'g' : evoke_name_whitespace, 'h' : evoke_name_whitespace, 'i' : evoke_name_whitespace,
+            'j' : evoke_name_whitespace, 'k' : evoke_name_whitespace, 'l' : evoke_name_whitespace,
+            'm' : evoke_name_whitespace, 'n' : evoke_name_whitespace, 'o' : evoke_name_whitespace,
+            'p' : evoke_name_whitespace, 'q' : evoke_name_whitespace, 'r' : evoke_name_whitespace,
+            's' : evoke_name_whitespace, 't' : evoke_name_whitespace, 'u' : evoke_name_whitespace,
+            'v' : evoke_name_whitespace, 'w' : evoke_name_whitespace, 'x' : evoke_name_whitespace,
+            'y' : evoke_name_whitespace, 'z' : evoke_name_whitespace,
+        }.__getitem__
 
 
     #
@@ -427,6 +532,9 @@ def module():
     #   export
     #
     export(
-        'evoke_whitespace_name',                evoke_whitespace_name,
         'find_crystal_evoke_whitespace_atom',   find_crystal_evoke_whitespace_atom,
+        'find_crystal_evoke_atom_whitespace',   find_crystal_evoke_atom_whitespace,
+        'evoke_name_whitespace',                evoke_name_whitespace,
+        'evoke_whitespace_name',                evoke_whitespace_name,
+        'conjure_atom_whitespace',              conjure_atom_whitespace,
     )
