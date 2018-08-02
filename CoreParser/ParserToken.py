@@ -13,7 +13,7 @@ def module():
     provide_atom = provide_normal_token
 
 
-    if capital_global.crystal_parser:
+    if capital_global.CRYSTAL_parser:
         def count_newlines__zero(t):
             assert (t.ends_in_newline is t.line_marker is false) and (t.newlines is 0)
             assert (t.s is intern_string(t.s))
@@ -32,8 +32,9 @@ def module():
         herd_estimate = 0
 
 
-        if capital_global.crystal_parser:
+        if capital_global.CRYSTAL_parser:
             ends_in_newline                  = false
+            is_CRYSTAL_identifier            = false
             is_empty_line                    = false
             is_end_of_data                   = false
             is_end_of_data__or__unknown_line = false
@@ -41,11 +42,10 @@ def module():
             newlines                         = 0
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             is_comma                   = false
             is_comment_line            = false
             is_comment__or__empty_line = false
-            is_identifier              = false
             is_indentation             = false
             is_keyword                 = false
             is_keyword_return          = false
@@ -62,7 +62,7 @@ def module():
             return arrange('<%s %r>', t.__class__.__name__, t.s)
 
 
-        if capital_global.crystal_parser:
+        if capital_global.CRYSTAL_parser:
             count_newlines = count_newlines__zero
 
 
@@ -112,7 +112,7 @@ def module():
         display_token = __repr__
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             is_name = is_name__0
 
 

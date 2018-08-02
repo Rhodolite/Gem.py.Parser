@@ -1,13 +1,13 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.Parse1ExpressionStatement')
+@module('PythonParser.ParseExpressionStatement')
 def module():
     require_module('PythonParser.BookcaseManyStatement')
 
 
-    def parse1_statement_assign__left__equal_sign(indented, left, equal_sign):
-        right = parse1_ternary_expression_list()
+    def parse_python__statement_assign__left__equal_sign(indented, left, equal_sign):
+        right = parse_python__ternary_expression_list()
 
         operator = qk()
 
@@ -31,7 +31,7 @@ def module():
         many_frill = [equal_sign, operator]
 
         while 7 is 7:
-            many.append(parse1_ternary_expression_list())
+            many.append(parse_python__ternary_expression_list())
 
             operator = qk()
 
@@ -52,8 +52,8 @@ def module():
             many_frill.append(operator)
 
 
-    def parse1_statement_modify__left__operator(indented, left, modify_operator):
-        right = parse1_ternary_expression_list()
+    def parse_python__statement_modify__left__operator(indented, left, modify_operator):
+        right = parse_python__ternary_expression_list()
 
         newline = qn()
 
@@ -67,19 +67,19 @@ def module():
 
 
     @share
-    def parse1_statement_expression__atom(indented, left):
+    def parse_python__statement_expression__atom(indented, left):
         indentation = conjure_indentation(indented)
 
-        if left.is_atom:
+        if left.is_CRYSTAL_atom:
             pass
         elif left.is_keyword_not:
-            left = parse1_not_expression__operator(left)
+            left = parse_python__not_expression__operator(left)
         elif left.is_minus_sign:
-            left = parse1_negative_expression__operator(left)
-        elif left.is_left_parenthesis:
-            left = parse1__parenthesized_expression__left_parenthesis(left)
+            left = parse_python__negative_expression__operator(left)
+        elif left.is_CRYSTAL_left_parenthesis:
+            left = parse_python__parenthesized_expression__left_parenthesis(left)
         elif left.is_left_square_bracket:
-            left = parse1__list_expression__left_square_bracket(left)
+            left = parse_python__list_expression__left_square_bracket(left)
         else:
             raise_unknown_line()
 
@@ -96,7 +96,7 @@ def module():
             operator = tokenize_python_operator()
 
         if operator.is_postfix_operator:
-            left = parse1_postfix_expression__left_operator(left, operator, indentation)
+            left = parse_python__postfix_expression__left_operator(left, operator, indentation)
 
             if left.is_statement:
                 return left
@@ -114,7 +114,7 @@ def module():
             wk(none)
 
         if not operator.is_end_of_ternary_expression_list:
-            left = parse1_ternary_expression_list__X_any_expression(left, operator)
+            left = parse_python__ternary_expression_list__X_any_expression(left, operator)
 
             operator = qk()
 
@@ -129,10 +129,10 @@ def module():
             wk(none)
 
         if operator.is_equal_sign:
-            return parse1_statement_assign__left__equal_sign(indented, left, operator)
+            return parse_python__statement_assign__left__equal_sign(indented, left, operator)
 
         if operator.is_modify_operator:
-            return parse1_statement_modify__left__operator(indented, left, operator)
+            return parse_python__statement_modify__left__operator(indented, left, operator)
 
         #my_line('line: %d; operator: %s', ql(), operator)
         raise_unknown_line()

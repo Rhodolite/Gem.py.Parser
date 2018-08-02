@@ -13,7 +13,7 @@ def module():
     store_quadruple_frill  = quadruple_frill_cache.__setitem__
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         class Commented_VWX_Frill(QuadrupleTwig):
             __slots__ = (())
             comment   = QuadrupleTwig.a
@@ -27,7 +27,7 @@ def module():
             order = order__abcd
 
 
-            if capital_global.python_parser:
+            if PYTHON_parser:
                 def transform(t, vary):
                     comment = t.comment
                     v       = t.v
@@ -62,7 +62,7 @@ def module():
         order = order__abcd
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         conjure_commented_vwx_frill = produce_conjure_quadruple__4123(
                 '#vwx-frill',
                 Commented_VWX_Frill,
@@ -80,14 +80,14 @@ def module():
         )
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         VWXY_Frill.transform = produce_transform__abcd('vwxy_frill', conjure_vwxy_frill)
 
 
     append_cache('quadruple-frill', quadruple_frill_cache)
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         export(
             'conjure_commented_vwx_frill',  conjure_commented_vwx_frill,
         )

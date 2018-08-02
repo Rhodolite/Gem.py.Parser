@@ -7,7 +7,12 @@ def module():
     transport('Capital.Global',                     'capital_global')
 
 
-    capital_global.java_parser = true
+    capital_global.JAVA_parser = true
+
+
+    share(
+        'JAVA_parser',  capital_global.JAVA_parser,
+    )
 
 
     transport('Capital.Core',                       'false')

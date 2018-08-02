@@ -13,13 +13,13 @@ def module():
         is_herd       = false
 
 
-        if capital_global.crystal_parser:
+        if capital_global.CRYSTAL_parser:
             is_empty_line                    = false
             is_end_of_data                   = false
             is_end_of_data__or__unknown_line = false
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             is_class_decorator_or_function_header = false
             is_comment_line                       = false
             is_comment__or__empty_line            = false

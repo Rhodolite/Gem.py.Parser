@@ -10,9 +10,9 @@ def module():
         ))
 
 
-        class_order         = CLASS_ORDER__UNARY_EXPRESSION
-        is_colon            = false
-        is_special_operator = false
+        class_order                 = CLASS_ORDER__UNARY_EXPRESSION
+        is_colon                    = false
+        is_CRYSTAL_special_operator = false
 
 
         def __init__(t, a):
@@ -150,10 +150,10 @@ def module():
 
 
     class StarParameter(UnaryExpression):
-        __slots__    = (())
-        display_name = '*-parameter'
-        frill        = conjure_star_sign('*')
-        is_atom      = true
+        __slots__       = (())
+        display_name    = '*-parameter'
+        frill           = conjure_star_sign('*')
+        is_CRYSTAL_atom = true
 
         add_parameters       = add_parameters__a
         scout_default_values = scout_default_values__a

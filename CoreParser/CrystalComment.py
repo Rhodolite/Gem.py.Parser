@@ -36,7 +36,7 @@ def module():
         newlines                         = 1
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             is_any_else                      = false
             is_any_except_or_finally         = false
             is_comment_line                  = true
@@ -67,14 +67,14 @@ def module():
         dump_token = dump_token__comment
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             find_require_module = find_require_module__0
 
 
         order = order__string
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             scout_variables  = scout_variables__0
             transform        = transform__remove_comments_0
 
@@ -100,7 +100,7 @@ def module():
         newlines                         = 1
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             is_any_else                = false
             is_any_except_or_finally   = false
             is_comment_line            = true
@@ -134,14 +134,14 @@ def module():
         dump_token = dump_token__comment
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             find_require_module = find_require_module__0
 
 
         order = order__s
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             scout_variables     = scout_variables__0
             transform           = transform__remove_comments_0
 
@@ -162,7 +162,7 @@ def module():
         newlines                         = 1
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             is_any_else                = false
             is_any_except_or_finally   = false
             is_comment_line            = true
@@ -199,14 +199,14 @@ def module():
         dump_token = dump_token__comment
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             find_require_module = find_require_module__0
 
 
         order = order__s
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             scout_variables     = scout_variables__0
             transform           = transform__remove_comments_0
 
@@ -226,7 +226,7 @@ def module():
         newlines        = 1
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             is_any_else                = false
             is_any_except_or_finally   = false
             is_comment_line            = true
@@ -264,7 +264,7 @@ def module():
         order      = order__s
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             scout_variables = scout_variables__0
             transform       = transform__remove_comments_0
 

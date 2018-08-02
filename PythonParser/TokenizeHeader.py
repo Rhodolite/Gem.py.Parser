@@ -1,7 +1,7 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.Tokenize1Header')
+@module('PythonParser.TokenizeHeader')
 def module():
     @share
     def tokenize_header_parenthesis_atom():

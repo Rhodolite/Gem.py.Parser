@@ -1,9 +1,9 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.Tokenize1Atom')
+@module('PythonParser.TokenizeAtom')
 def module():
-    require_module('PythonParser.Tokenize1Operator')
+    require_module('PythonParser.TokenizeOperator')
 
 
     #

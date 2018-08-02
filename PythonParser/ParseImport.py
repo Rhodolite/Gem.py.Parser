@@ -1,13 +1,13 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.Parse1Import')
+@module('PythonParser.ParseImport')
 def module():
     require_module('PythonParser.Elemental')
     require_module('PythonParser.Match')
 
 
-    def parse1_statement_import_module():
+    def parse_python__statement_import_module():
         s = qs()
 
         #
@@ -113,7 +113,7 @@ def module():
 
 
     @share
-    def parse1_statement_import(m):
+    def parse_python__statement_import(m):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -127,7 +127,7 @@ def module():
         #
         #<module ... 'import'>
         #
-        module   = parse1_statement_import_module()
+        module   = parse_python__statement_import_module()
         operator = qk()
 
         wk(none)
@@ -143,7 +143,7 @@ def module():
         many_frill = [operator]
 
         while 7 is 7:
-            many.append(parse1_statement_import_module())
+            many.append(parse_python__statement_import_module())
 
             operator = qk()
 

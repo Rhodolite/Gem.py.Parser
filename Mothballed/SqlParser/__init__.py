@@ -7,10 +7,13 @@ def module():
     transport('Capital.Global',                     'capital_global')
 
 
-    from Capital import capital_global
+    capital_global.SQL_parser = true
 
 
-    capital_global.sql_parser = true
+    share(
+        'SQL_parser',   capital_global.SQL_parser,
+        'TESTING',      capital_global.TESTING,
+    )
 
 
     transport('Capital.Cache',                      'produce_conjure_by_name')

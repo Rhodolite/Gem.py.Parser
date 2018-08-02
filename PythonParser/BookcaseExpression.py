@@ -178,27 +178,26 @@ def module():
 
 
     class ListExpression_1(BookcaseExpression):
-        __slots__                      = (())
-        class_order                    = CLASS_ORDER__BOOKCASE_EXPRESSION
-        display_name                   = '[1]'
-        frill                          = LSB_RSB
-        is__atom__or__special_operator = true
-        is_atom                        = true
-        is_special_operator            = false
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__BOOKCASE_EXPRESSION
+        display_name                           = '[1]'
+        frill                                  = LSB_RSB
+        is_CRYSTAL__atom__or__special_operator = true
+        is_CRYSTAL_atom                        = true
+        is_CRYSTAL_special_operator            = false
 
         scout_variables = scout_variables__a
         write_variables = write_variables__a
 
 
     class MapExpression_1(BookcaseExpression):
-        __slots__                      = (())
-        class_order                    = CLASS_ORDER__BOOKCASE_EXPRESSION
-        display_name                   = '{:1:}'
-        frill                          = conjure_vw_frill(conjure_left_brace ('{'), conjure_right_brace('}'))
-        is__atom__or__special_operator = true
-        is_atom                        = true
-        is_special_operator            = false
-        is_special_operator            = false
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__BOOKCASE_EXPRESSION
+        display_name                           = '{:1:}'
+        frill                                  = conjure_vw_frill(conjure_left_brace ('{'), conjure_right_brace('}'))
+        is_CRYSTAL__atom__or__special_operator = true
+        is_CRYSTAL_atom                        = true
+        is_CRYSTAL_special_operator            = false
 
         scout_variables = scout_variables__a
 
@@ -233,25 +232,25 @@ def module():
 
 
     class ParenthesizedExpression(BookcaseExpression):
-        __slots__                      = (())
-        class_order                    = CLASS_ORDER__BOOKCASE_EXPRESSION
-        display_name                   = '()'
-        frill                          = LP_RP
-        is__atom__or__special_operator = true
-        is_atom                        = true
-        is_special_operator            = false
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__BOOKCASE_EXPRESSION
+        display_name                           = '()'
+        frill                                  = LP_RP
+        is_CRYSTAL__atom__or__special_operator = true
+        is_CRYSTAL_atom                        = true
+        is_CRYSTAL_special_operator            = false
 
         scout_variables = scout_variables__a
 
 
     class ParenthesizedTupleExpression_1(BookcaseExpression):
-        __slots__                      = (())
-        class_order                    = CLASS_ORDER__BOOKCASE_EXPRESSION
-        display_name                   = '{,}'
-        frill                          = conjure_vw_frill(LP, COMMA_RP)
-        is__atom__or__special_operator = true
-        is_atom                        = true
-        is_special_operator            = false
+        __slots__                              = (())
+        class_order                            = CLASS_ORDER__BOOKCASE_EXPRESSION
+        display_name                           = '{,}'
+        frill                                  = conjure_vw_frill(LP, COMMA_RP)
+        is_CRYSTAL__atom__or__special_operator = true
+        is_CRYSTAL_atom                        = true
+        is_CRYSTAL_special_operator            = false
 
 
         def mutate(t, vary, priority):

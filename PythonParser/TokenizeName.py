@@ -1,7 +1,7 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.Tokenize1Name')
+@module('PythonParser.TokenizeName')
 def module():
     def tokenize_name__X__newline(m):
         if qd() is not 0:
