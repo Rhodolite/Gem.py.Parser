@@ -50,7 +50,7 @@ def module():
 
 
         def count_newlines(t):
-            return t.frill.count_newlines() + t.a.count_newlines() + t.a.count_newlines()
+            return t.frill.count_newlines() + t.a.count_newlines() + t.b.count_newlines()
 
 
         def dump_token(t, f, newline = true):

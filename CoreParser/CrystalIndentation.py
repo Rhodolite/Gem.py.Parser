@@ -47,7 +47,7 @@ def module():
             return arrange('{+%d %s}', t.total, portray_string(t.s))
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             def mutate(t, vary, priority):
                 if vary.remove_indentation:
                     return vary.indentation
@@ -58,7 +58,7 @@ def module():
         order = order__s
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             def transform(t, vary):
                 if vary.remove_indentation:
                     return vary.indentation
@@ -81,7 +81,7 @@ def module():
     empty_indentation = conjure_indentation('')
 
 
-    if capital_global.python_parser:
+    if PYTHON_parser:
         @export
         def next_indentation(indentation):
             return (

@@ -177,7 +177,8 @@ def module():
         __slots__    = (())
         display_name = 'arithmetic-many'
 
-        if capital_global.python_parser:
+
+        if PYTHON_parser:
             scout_variables = scout_variables__many
 
 
@@ -186,6 +187,7 @@ def module():
         cache  = {}
         lookup = cache.get
         store  = cache.__setitem__
+
 
         conjure_dual = produce_conjure_dual(
                 (arrange('conjure_%s__with_frill', name)   if python_debug_mode else   name),

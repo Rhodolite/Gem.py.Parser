@@ -17,7 +17,7 @@ def module():
         class_order = CLASS_ORDER__EMPTY_LINE
 
 
-        if capital_global.crystal_parser:
+        if CRYSTAL_parser:
             ends_in_newline                  = true
             indentation                      = none
             impression                       = 0
@@ -28,7 +28,7 @@ def module():
             newlines                         = 1
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             is_any_else                = false
             is_any_except_or_finally   = false
             is_comment_line            = false
@@ -42,7 +42,7 @@ def module():
             return arrange('<EmptyLine %s>', portray_string(t))
 
 
-        if capital_global.crystal_parser:
+        if CRYSTAL_parser:
             def count_newlines(t):
                 assert (t.ends_in_newline is true) and (t.newlines is 1) and (t.line_marker is false)
                 assert (t.count('\n') is 1) and (t[-1] == '\n')
@@ -63,14 +63,14 @@ def module():
             f.line('<%s>', portray_string(t)[1:-1])
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             find_require_module = find_require_module__0
 
 
         order = order__string
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             scout_variables     = scout_variables__0
             transform           = transform__remove_comments_0
 

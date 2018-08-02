@@ -7,8 +7,14 @@ def module():
     transport('Capital.Global',                     'capital_global')
 
 
-    capital_global.crystal_parser = true
-    capital_global.python_parser  = true
+    capital_global.CRYSTAL_parser = true
+    capital_global.PYTHON_parser  = true
+
+
+    share(
+        'CRYSTAL_parser',       capital_global.CRYSTAL_parser,
+        'PYTHON_parser',        capital_global.PYTHON_parser,
+    )
 
 
     require_module('CoreParser')                                        #   Get around bug in combine mode
@@ -234,3 +240,6 @@ def module():
     transport('CoreParser.TupleOfExpression',       'conjure_tuple_of_many_expression')
     transport('CoreParser.Whitespace',              'conjure_whitespace')
     transport('CoreParser.Whitespace',              'conjure_whitespace__ends_in_newline')
+    transport('CoreParser.Elemental',               'OperatorLeftParenthesis')
+    transport('CoreParser.Elemental',               'conjure_left_parenthesis__ends_in_newline')
+    transport('CoreParser.Elemental',               'conjure_left_parenthesis')

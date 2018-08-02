@@ -53,11 +53,11 @@ def module():
 
     [
         conjure_comma_expression_many, conjure_comma_expression_many__with_frill,
-    ] = produce_conjure_many_expression('comma-*', CommaExpression_Many) 
+    ] = produce_conjure_many_expression('comma-*', CommaExpression_Many)
 
     [
         conjure_compare_expression_many, conjure_compare_expression_many__with_frill,
-    ] = produce_conjure_many_expression('compare-*', CompareExpression_Many) 
+    ] = produce_conjure_many_expression('compare-*', CompareExpression_Many)
 
     [
         conjure_logical_or_expression_many, conjure_logical_or_expression_many__with_frill,

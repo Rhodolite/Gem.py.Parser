@@ -1,12 +1,12 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.Parse1Complex')
+@module('PythonParser.ParseComplex')
 def module():
     require_module('PythonParser.PrefixedDualStatement')
 
 
-    def parse1_condition_statement__X__m(m, conjure_indented_keyword, evoke_header, conjure_body_statement):
+    def parse_python__condition_statement__X__m(m, conjure_indented_keyword, evoke_header, conjure_body_statement):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -17,7 +17,7 @@ def module():
         wi(j)
         wj(j)
 
-        condition = parse1_ternary_expression()
+        condition = parse_python__ternary_expression()
 
         operator = qk()
 
@@ -52,7 +52,7 @@ def module():
             if qn() is not none:
                 raise_unknown_line()
 
-            right = parse1_ternary_expression_list()
+            right = parse_python__ternary_expression_list()
 
             if qk() is not none:
                 raise_unknown_line()
@@ -71,34 +71,34 @@ def module():
                        ),
                    )
 
-        if token.is_atom:
+        if token.is_CRYSTAL_atom:
             pass
-        elif token.is_left_parenthesis:
-            token = parse1__parenthesized_expression__left_parenthesis(token)
+        elif token.is_CRYSTAL_left_parenthesis:
+            token = parse_python__parenthesized_expression__left_parenthesis(token)
         elif token.is_left_square_bracket:
-            token = parse1__list_expression__left_square_bracket(token)
+            token = parse_python__list_expression__left_square_bracket(token)
         elif token.is_left_brace:
-            token = parse1_map__left_brace(token)
+            token = parse_python__map__left_brace(token)
         elif token.is_keyword_not:
-            token = parse1_not_expression__operator(token)
+            token = parse_python__not_expression__operator(token)
         elif token.is_minus_sign:
-            token = parse1_negative_expression__operator(token)
+            token = parse_python__negative_expression__operator(token)
         elif token.is_tilde_sign:
-            token =  parse1_twos_complement_expression__operator(token)
+            token =  parse_python__twos_complement_expression__operator(token)
         elif token.is_star_sign:
-            token = conjure_star_argument(token, parse1_ternary_expression())
+            token = conjure_star_argument(token, parse_python__ternary_expression())
         else:
             #my_line('token: %r', token)
             raise_unknown_line()
 
         return conjure_body_statement(
                    header,
-                   parse1_statement_expression__atom('', token),
+                   parse_python__statement_expression__atom('', token),
                )
 
 
     @share
-    def parse1_statement_else_colon(m):
+    def parse_python__statement_else_colon(m):
         if m.end('newline') is not -1:
             return evoke_indented__else__colon__line_marker(m.end('indented'), m.start('colon'), m.end('colon'))
 
@@ -109,17 +109,17 @@ def module():
         wi(j)
         wj(j)
 
-        left = parse1_atom()
+        left = parse_python__atom()
 
-        if left.is_special_operator:
+        if left.is_CRYSTAL_special_operator:
             raise_unknown_line()
 
-        return conjure_else_fragment(keyword, parse1_statement_expression__atom('', left))
+        return conjure_else_fragment(keyword, parse_python__statement_expression__atom('', left))
 
 
     @share
-    def parse1_statement_else_if(m):
-        return parse1_condition_statement__X__m(
+    def parse_python__statement_else_if(m):
+        return parse_python__condition_statement__X__m(
                    m,
                    conjure_keyword_else_if,
                    conjure_else_if_header,
@@ -128,7 +128,7 @@ def module():
 
 
     @share
-    def parse1_statement_except(m):
+    def parse_python__statement_except(m):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -139,7 +139,7 @@ def module():
         wi(j)
         wj(j)
 
-        left = parse1_ternary_expression()
+        left = parse_python__ternary_expression()
 
         operator = qk()
 
@@ -154,7 +154,7 @@ def module():
         if not operator.is_keyword_as:
             raise_unknown_line()
 
-        right = parse1_ternary_expression()
+        right = parse_python__ternary_expression()
 
         operator_2 = qk()
 
@@ -170,7 +170,7 @@ def module():
 
 
     @share
-    def parse1_statement_except_colon(m):
+    def parse_python__statement_except_colon(m):
         if m.end('newline') is not -1:
             return evoke_indented__except__colon__line_marker(m.end('indented'), m.start('colon'), m.end('colon'))
 
@@ -178,7 +178,7 @@ def module():
 
 
     @share
-    def parse1_statement_finally_colon(m):
+    def parse_python__statement_finally_colon(m):
         if m.end('newline') is not -1:
             return evoke_indented__finally__colon__line_marker(m.end('indented'), m.start('colon'), m.end('colon'))
 
@@ -186,7 +186,7 @@ def module():
 
 
     @share
-    def parse1_statement_for(m):
+    def parse_python__statement_for(m):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -197,7 +197,7 @@ def module():
         wi(j)
         wj(j)
 
-        left = parse1_normal_expression_list()
+        left = parse_python__normal_expression_list()
 
         operator = qk()
 
@@ -215,7 +215,7 @@ def module():
         if not operator.is_keyword_in:
             raise_unknown_line()
 
-        right = parse1_ternary_expression_list()
+        right = parse_python__ternary_expression_list()
 
         operator_2 = qk()
 
@@ -237,12 +237,12 @@ def module():
 
 
     @share
-    def parse1_statement_if(m):
-        return parse1_condition_statement__X__m(m, evoke_indented_if, conjure_if_header, conjure_if_statement)
+    def parse_python__statement_if(m):
+        return parse_python__condition_statement__X__m(m, evoke_indented_if, conjure_if_header, conjure_if_statement)
 
 
     @share
-    def parse1_statement_try_colon(m):
+    def parse_python__statement_try_colon(m):
         if m.end('newline') is not -1:
             return evoke_indented__try__colon__line_marker(m.end('indented'), m.start('colon'), m.end('colon'))
 
@@ -250,12 +250,12 @@ def module():
 
 
     @share
-    def parse1_statement_while(m):
-        return parse1_condition_statement__X__m(m, evoke_indented_while, conjure_while_header, conjure_while_statement)
+    def parse_python__statement_while(m):
+        return parse_python__condition_statement__X__m(m, evoke_indented_while, conjure_while_header, conjure_while_statement)
 
 
     @share
-    def parse1_statement_with(m):
+    def parse_python__statement_with(m):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -266,7 +266,7 @@ def module():
         wi(j)
         wj(j)
 
-        left = parse1_ternary_expression()
+        left = parse_python__ternary_expression()
 
         operator = qk()
 
@@ -281,7 +281,7 @@ def module():
         if not operator.is_keyword_as:
             raise_unknown_line()
 
-        right = parse1_normal_expression()
+        right = parse_python__normal_expression()
 
         operator_2 = qk()
 

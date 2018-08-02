@@ -112,7 +112,7 @@ def module():
         return third
 
 
-    if capital_global.testing:
+    if TESTING:
         export(
             'tree_comment_cache',   tree_comment_cache,
         )

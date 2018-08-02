@@ -55,7 +55,7 @@ def module():
 
         return analyze_LANGUAGE_keyword_atom
 
-                
+
     @export
     def produce_analyze_LANGUAGE_quote(language, find_LANGUAGE_atom_type):
         @rename('analyze_%s_quote', language)
@@ -112,7 +112,7 @@ def module():
             #
             #<similiar-to: `analyze_LANGUAGE_newline_quote` below>
             #
-            #       1.  Uses `atom_s[0]` instead of `qs()[quote_quote_start]` 
+            #       1.  Uses `atom_s[0]` instead of `qs()[quote_quote_start]`
             #       2.  Uses "m.end('atom')" instead of "m.end('quote')"
             #       3.  Uses "qs()" intead of "s"
             #

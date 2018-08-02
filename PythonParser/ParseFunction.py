@@ -1,14 +1,14 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.Parse1Function')
+@module('PythonParser.ParseFunction')
 def module():
     require_module('PythonParser.DefinitionHeader')
     require_module('PythonParser.DualExpressionStatement')
 
 
     @share
-    def parse1_statement_class_header(m):
+    def parse_python__statement_class_header(m):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -29,11 +29,11 @@ def module():
         if not operator.is__arguments_0__or__left_parenthesis:
             raise_unknown_line()
 
-        if operator.is_left_parenthesis:
+        if operator.is_CRYSTAL_left_parenthesis:
             assert qd() > 0
             assert qn() is none
 
-            operator = parse1_arguments__left_parenthesis(operator)
+            operator = parse_python__arguments__left_parenthesis(operator)
 
         return conjure_class_header(
                    indented_keyword,
@@ -44,7 +44,7 @@ def module():
 
 
     @share
-    def parse1_statement_function_header(m):
+    def parse_python__statement_function_header(m):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -69,7 +69,7 @@ def module():
         if operator_1.is_parameters_0:
             return conjure_function_header(indented_keyword, name, operator_1, tokenize_parameter_colon_newline())
 
-        if not operator_1.is_left_parenthesis:
+        if not operator_1.is_CRYSTAL_left_parenthesis:
             raise_unknown_line()
 
         #
@@ -89,13 +89,13 @@ def module():
                        tokenize_parameter_colon_newline(),
                    )
 
-        if token_1.is_special_operator:
+        if token_1.is_CRYSTAL_special_operator:
             raise_unknown_line()
 
         operator_2 = tokenize_parameter_operator()
 
         if operator_2.is_equal_sign:
-            value = parse1_ternary_expression()
+            value = parse_python__ternary_expression()
 
             token_1 = conjure_keyword_parameter(token_1, operator_2, value)
 
@@ -134,7 +134,7 @@ def module():
                        tokenize_parameter_colon_newline(),
                    )
 
-        if token_7.is_special_operator:
+        if token_7.is_CRYSTAL_special_operator:
             raise_unknown_line()
 
         many       = [token_1]
@@ -144,7 +144,7 @@ def module():
             operator_7 = tokenize_parameter_operator()
 
             if operator_7.is_equal_sign:
-                value = parse1_ternary_expression()
+                value = parse_python__ternary_expression()
 
                 token_7 = conjure_keyword_parameter(token_7, operator_7, value)
 
@@ -186,7 +186,7 @@ def module():
                            tokenize_parameter_colon_newline(),
                        )
 
-            if token_7.is_special_operator:
+            if token_7.is_CRYSTAL_special_operator:
                 raise_unknown_line()
 
             many_frill.append(operator_7)

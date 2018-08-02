@@ -61,7 +61,7 @@ def module():
     #
     #   .transform
     #
-    if capital_global.python_parser:
+    if PYTHON_parser:
         ManyFrill.transform = produce_transform_many('many-frill', conjure_many_frill)
 
 

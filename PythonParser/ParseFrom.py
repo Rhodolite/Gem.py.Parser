@@ -1,12 +1,12 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.Parse1From')
+@module('PythonParser.ParseFrom')
 def module():
     require_module('PythonParser.BookcaseKeywordDualStatement')
 
 
-    def parse1_statement_from_module(index):
+    def parse_python__statement_from_module(index):
         s = qs()
 
         #
@@ -54,7 +54,7 @@ def module():
         #</module>
 
 
-    def parse1_statement_from_as():
+    def parse_python__statement_from_as():
         s = qs()
 
         #
@@ -124,7 +124,7 @@ def module():
 
 
     @share
-    def parse1_statement_from(m):
+    def parse_python__statement_from(m):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -135,7 +135,7 @@ def module():
         #
         #<module ... 'import'>
         #
-        module = parse1_statement_from_module(j)
+        module = parse_python__statement_from_module(j)
 
         keyword_import = qk()
 
@@ -145,7 +145,7 @@ def module():
         #
         #<imported ... (, | newline)>
         #
-        imported = parse1_statement_from_as()
+        imported = parse_python__statement_from_as()
 
         operator = qk()
 
@@ -161,7 +161,7 @@ def module():
         #
         #<imported ... (, | newline)>
         #
-        imported_2 = parse1_statement_from_as()
+        imported_2 = parse_python__statement_from_as()
 
         operator_2 = qk()
 
@@ -184,7 +184,7 @@ def module():
         many_frill = [operator, operator_2]
 
         while 7 is 7:
-            many.append(parse1_statement_from_as())
+            many.append(parse_python__statement_from_as())
 
             operator_7 = qk()
 

@@ -59,7 +59,7 @@ def module():
         order = order__frill_ab
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             scout_variables = scout_variables__ab
 
 

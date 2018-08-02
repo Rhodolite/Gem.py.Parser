@@ -3,7 +3,7 @@
 #
 @module('CoreParser.TestTree')
 def module():
-    if capital_global.crystal_parser:
+    if capital_global.CRYSTAL_parser:
         @export
         def test_count_newlines(data_lines, tree_many):
             total = 0
@@ -18,7 +18,7 @@ def module():
             line('Passed#2: Total counted lines %d matches input', total)
 
 
-    if capital_global.crystal_parser:
+    if capital_global.CRYSTAL_parser:
         @export
         def test_identical_output(path, data, data_many, tree_many):
             with create_StringOutput() as f:

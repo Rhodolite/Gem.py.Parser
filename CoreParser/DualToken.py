@@ -191,7 +191,7 @@ def module():
 
         return evoke_dual_token__ends_in_newline
 
-    
+
     @export
     def produce_evoke_dual_token__indentation(name, Meta, conjure_first, conjure_second):
         return produce_evoke_dual_token__X__indentation_or_whitespace(
@@ -298,11 +298,12 @@ def module():
         display_name = 'atom+whitespace'
 
 
-        if capital_global.python_parser:
-            is__atom__or__special_operator = true
-            is_atom                        = true
+        if PYTHON_parser:
+            is_CRYSTAL__atom__or__special_operator = true
+            is_CRYSTAL_atom                        = true
 
-        if capital_global.python_parser:
+
+        if PYTHON_parser:
             scout_variables = scout_variables__0
 
 
@@ -313,12 +314,13 @@ def module():
         display_name = 'name+whitespace'
 
 
-        if capital_global.python_parser:
-            is__atom__or__special_operator = true
-            is_atom                        = true
-            is_identifier                  = true
+        if CRYSTAL_parser:
+            is_CRYSTAL__atom__or__special_operator = true
+            is_CRYSTAL_atom                        = true
+            is_CRYSTAL_identifier                  = true
 
-        if capital_global.python_parser:
+
+        if PYTHON_parser:
             scout_variables = scout_variables__a
             write_variables = write_variables__a
 
@@ -330,18 +332,18 @@ def module():
         display_name = 'whitespace+atom'
 
 
-        if capital_global.python_parser:
-            is__atom__or__special_operator = true
-            is_atom                        = true
-            is_special_operator            = false
+        if CRYSTAL_parser:
+            is_CRYSTAL__atom__or__special_operator = true
+            is_CRYSTAL_atom                        = true
+            is_CRYSTAL_special_operator            = false
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             def find_atom(t):
                 return t.b
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             scout_variables = scout_variables__0
 
 
@@ -352,18 +354,18 @@ def module():
         display_name = 'whitespace+name'
 
 
-        if capital_global.python_parser:
-            is__atom__or__special_operator = true
-            is_atom                        = true
-            is_identifier                  = true
-            is_special_operator            = false
+        if CRYSTAL_parser:
+            is_CRYSTAL__atom__or__special_operator = true
+            is_CRYSTAL_atom                        = true
+            is_CRYSTAL_identifier                  = true
+            is_CRYSTAL_special_operator            = false
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             add_parameters = add_parameters__b
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             def mutate(t, vary, priority):
                 if vary.remove_comments:
                     return t.b
@@ -371,12 +373,12 @@ def module():
                 return t
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             scout_default_values = scout_default_values__b
             scout_variables      = scout_variables__b
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             def transform(t, vary):
                 if vary.remove_comments:
                     return t.b
@@ -384,7 +386,7 @@ def module():
                 return t
 
 
-        if capital_global.python_parser:
+        if PYTHON_parser:
             write_variables = write_variables__b
 
 

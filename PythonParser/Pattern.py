@@ -216,7 +216,7 @@ def module():
         )
 
         MATCH(
-            'atom_match',
+            'python_atom_match',
             (
                   OPTIONAL('r') + G('quote', double_quote | single_quote) + ow  #   Must preceed 'name'
                 | G('atom', number | name) + ow
@@ -235,7 +235,7 @@ def module():
 
         MATCH(
             #
-            #   Same as 'atom_match', but without ')', ']', or '}'.
+            #   Same as 'python_atom_match', but without ')', ']', or '}'.
             #
             #   NOTE:
             #       'name' is also analyzed to see if it a keyword such as 'return'.

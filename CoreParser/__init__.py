@@ -3,6 +3,18 @@
 #
 @module('CoreParser')
 def module():
+    transport('Capital.Global',                     'capital_global')
+
+
+    share(
+        'CRYSTAL_parser',       capital_global.CRYSTAL_parser,
+        'JAVA_parser',          capital_global.JAVA_parser,
+        'PYTHON_parser',        capital_global.PYTHON_parser,
+        'SQL_parser',           capital_global.SQL_parser,
+        'TREMOLITE_parser',     capital_global.TREMOLITE_parser,
+    )
+
+
     transport('Capital.Cache2',                     'create_cache')
     transport('Capital.Cache2',                     'produce_conjure_unique_dual')
     transport('Capital.Cache2',                     'produce_conjure_unique_triple')
@@ -53,7 +65,6 @@ def module():
     transport('Capital.Exception',                  'exit_clause')
     transport('Capital.Exception',                  'raise_runtime_error')
     transport('Capital.GeneratedConjureQuadruple',  'produce_conjure_quadruple__4123')
-    transport('Capital.Global',                     'capital_global')
     transport('Capital.Map',                        'iterate_items_sorted_by_key')
     transport('Capital.Map',                        'iterate_values_sorted_by_key')
     transport('Capital.Method',                     'return_self')
