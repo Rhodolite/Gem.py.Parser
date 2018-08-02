@@ -16,11 +16,6 @@ def module():
         t.a.add_parameters(art)
 
 
-    @share
-    def add_parameters__b(t, art):
-        t.b.add_parameters(art)
-
-
     #
     #   adorn
     #
@@ -137,6 +132,34 @@ def module():
         return mutate
 
 
+    #
+    #   NOTE:
+    #       Very similiar to `produce_mutate__frill__ab_with_priority`, but uses a `conjure` instead of `conjure_with_frill`
+    #       for the last parameter
+    #
+    #       See also notes in `produce_transform__binary_expression` for a further explanation.
+    #
+    @share
+    def produce_mutate__binary_expression(name, a_priority, b_priority, conjure):
+        @rename('mutate_%s', name)
+        def mutate(t, vary, priority):
+            frill = t.frill
+            a     = t.a
+            b     = t.b
+
+            frill__2 = frill.transform(vary)
+            a__2     = a    .mutate   (vary, a_priority)
+            b__2     = b    .mutate   (vary, b_priority)
+
+            if (frill is frill__2) and (a is a__2) and (b is b__2):
+                return t
+
+            return conjure(a__2, frill__2, b__2)
+
+
+        return mutate
+
+
     @share
     def produce_mutate__frill__a__priority(name, priority):
         @rename('mutate_%s', name)
@@ -175,8 +198,12 @@ def module():
         return mutate
 
 
+    #
+    #   NOTE:
+    #       Very similiar to `produce_mutate__binary_expression`, but calls `frill.mutate` (instead of `.transform`)
+    #
     @share
-    def produce_mutate__frill__ab__priority(name, frill_priority, a_priority, b_priority, conjure_with_frill = 0):
+    def produce_mutate__map_element(name, frill_priority, a_priority, b_priority, conjure):
         @rename('mutate_%s', name)
         def mutate(t, vary, priority):
             frill = t.frill
@@ -190,7 +217,7 @@ def module():
             if (frill is frill__2) and (a is a__2) and (b is b__2):
                 return t
 
-            return ((conjure_with_frill) or (t.conjure_with_frill))(frill__2, a__2, b__2)
+            return conjure(a__2, frill__2, b__2)
 
 
         return mutate
@@ -287,19 +314,9 @@ def module():
         t.a.scout_default_values(art)
 
 
-    @share
-    def scout_default_values__b(t, art):
-        t.b.scout_default_values(art)
-
-
     #
     #   scout_variables
     #
-    @share
-    def scout_variables__a(t, art):
-        t.a.scout_variables(art)
-
-
     @share
     def scout_variables__a__b_with_write(t, art):
         t.a.scout_variables(art)
@@ -325,11 +342,6 @@ def module():
         t.b.scout_variables(art)
         t.c.scout_variables(art)
         t.d.scout_variables(art)
-
-
-    @share
-    def scout_variables__b(t, art):
-        t.b.scout_variables(art)
 
 
     @share
@@ -361,6 +373,45 @@ def module():
                 return t
 
             return conjure(a__2, b__2)
+
+
+        return transform
+
+
+    #
+    #   produce_transform__binary_expression
+    #
+    #       NOTE:
+    #           This is very similiar to `produce_transform__frill__ab_with_priority`, but with
+    #           a slight optimization:
+    #
+    #               1.  The fourth parameter is `conjure` instead of `conjure_with_frill`
+    #
+    #               2.  The final call (since it is a binary expression) is with `frill__2` as
+    #                   the middle parameter (instead of the first parameter).
+    #
+    #           Thus this version *only* works for `frill` that does not need to be a first
+    #           parameter (i.e.: a binary expression -- which only has one middle frill).
+    #
+    #       (Also `produce_transform__binary_expression` does not take a `frill_morph_priority`
+    #       optional parameter).
+    #
+    @share
+    def produce_transform__binary_expression(name, a_priority, b_priority, conjure):
+        @rename('transform_%s', name)
+        def transform(t, vary):
+            frill = t.frill
+            a     = t.a
+            b     = t.b
+
+            frill__2 = frill.transform(vary)
+            a__2     = a    .mutate   (vary, a_priority)
+            b__2     = b    .mutate   (vary, b_priority)
+
+            if (frill is frill__2) and (a is a__2) and (b is b__2):
+                return t
+
+            return conjure(a__2, frill__2, b__2)
 
 
         return transform
@@ -460,8 +511,8 @@ def module():
                 b     = t.b
 
                 frill__2 = frill.transform(vary)
-                a__2     = a    .mutate(vary, a_priority)
-                b__2     = b    .mutate(vary, b_priority)
+                a__2     = a    .mutate   (vary, a_priority)
+                b__2     = b    .mutate   (vary, b_priority)
 
                 if (frill is frill__2) and (a is a__2) and (b is b__2):
                     return t
@@ -538,18 +589,8 @@ def module():
     #   write_variables
     #
     @share
-    def write_variables__a(t, art):
-        t.a.write_variables(art)
-
-
-    @share
     def write_variables__ab(t, art):
         t.a.write_variables(art)
-        t.b.write_variables(art)
-
-
-    @share
-    def write_variables__b(t, art):
         t.b.write_variables(art)
 
 

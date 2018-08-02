@@ -141,6 +141,7 @@ def module():
         meta_frill = Meta.frill
 
 
+        @rename('conjure_%s', name)
         def conjure_binary_expression(a, frill, b):
             if frill is meta_frill:
                 return conjure_dual(a, b)
@@ -148,28 +149,10 @@ def module():
             return conjure_triple(a, b, frill)
 
 
-        def conjure_binary_expression__with_frill(frill, a, b):
-            if frill is meta_frill:
-                return conjure_dual(a, b)
-
-            return conjure_triple(a, b, frill)
+        return conjure_binary_expression
 
 
-        if python_debug_mode:
-            return ((
-                       rename_function(intern_arrange('conjure_%s',             name), conjure_binary_expression),
-                       rename_function(intern_arrange('conjure_%s__with_frill', name), conjure_binary_expression__with_frill),
-                   ))
-
-        return ((
-                   conjure_binary_expression,
-                   conjure_binary_expression__with_frill,
-               ))
-
-
-    [
-        conjure_add_expression, conjure_add_expression__with_frill,
-    ] = produce_conjure_binary_expression('add', AddExpression)
+    conjure_add_expression = produce_conjure_binary_expression('add', AddExpression)
 
 
     #
@@ -182,6 +165,5 @@ def module():
     #   export
     #
     export(
-        'conjure_add_expression',               conjure_add_expression,
-        'conjure_add_expression__with_frill',   conjure_add_expression__with_frill,
+        'conjure_add_expression',   conjure_add_expression,
     )

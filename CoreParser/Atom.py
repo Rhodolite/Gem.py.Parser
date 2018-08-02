@@ -43,6 +43,37 @@ def module():
 
 
     @export
+    class SingleQuote(ParserToken):
+        __slots__    = (())
+        class_order  = CLASS_ORDER__NORMAL_TOKEN
+        display_name = "'"
+
+
+        if capital_global.crystal_parser:
+            is__atom__or__special_operator = true
+
+
+        if capital_global.python_parser:
+            is_atom                 = true
+            is_colon                = false
+            is_right_brace          = false
+            is_right_parenthesis    = false
+            is_right_square_bracket = false
+            is_single_quote         = true
+            is_special_operator     = false
+
+
+        def display_token(t):
+            return arrange('<%s>', t.s)
+
+
+        if capital_global.python_parser:
+            find_atom       = return_self
+            mutate          = mutate__self
+            scout_variables = scout_variables__0
+
+
+    @export
     class TokenName(ParserToken):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
@@ -104,32 +135,27 @@ def module():
 
 
     @export
-    class SingleQuote(ParserToken):
+    class TokenNumber(ParserToken):
         __slots__    = (())
         class_order  = CLASS_ORDER__NORMAL_TOKEN
-        display_name = "'"
-
-
-        if capital_global.crystal_parser:
-            is__atom__or__special_operator = true
+        display_name = 'number'
 
 
         if capital_global.python_parser:
-            is_atom                 = true
-            is_colon                = false
-            is_right_brace          = false
-            is_right_parenthesis    = false
-            is_right_square_bracket = false
-            is_single_quote         = true
-            is_special_operator     = false
+            is__atom__or__special_operator = true
+            is_atom                        = true
+            is_colon                       = false
+            is_right_brace                 = false
+            is_right_parenthesis           = false
+            is_right_square_bracket        = false
+            is_special_operator            = false
 
 
         def display_token(t):
-            return arrange('<%s>', t.s)
+            return t.s
 
 
         if capital_global.python_parser:
-            find_atom       = return_self
             mutate          = mutate__self
             scout_variables = scout_variables__0
 
@@ -158,14 +184,16 @@ def module():
 
 
     conjure_double_quote = produce_conjure_atom('double-quote', DoubleQuote)
-    conjure_name         = produce_conjure_atom('name', TokenName)
+    conjure_name         = produce_conjure_atom('token-name', TokenName)
     conjure_single_quote = produce_conjure_atom('single-quote', SingleQuote)
+    conjure_token_number = produce_conjure_atom('token-number', TokenNumber)
 
 
     export(
         'conjure_double_quote',     conjure_double_quote,
         'conjure_name',             conjure_name,
         'conjure_single_quote',     conjure_single_quote,
+        'conjure_token_number',     conjure_token_number,
     )
 
 

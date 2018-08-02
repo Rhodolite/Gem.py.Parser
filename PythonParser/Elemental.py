@@ -1165,17 +1165,18 @@ def module():
     OperatorTildeSign.transform = produce_transform__uncommented('operator_tilde_sign', TILDE_SIGN)
 
 
-    find_atom_type = {
+    find_python_atom_type = {
             '"' : conjure_double_quote,
             "'" : conjure_single_quote,
 
             #   (
             ')' : conjure_right_parenthesis,
-            '.' : conjure_number,
+            '.' : conjure_token_number,
 
-            '0' : conjure_number, '1' : conjure_number, '2' : conjure_number, '3' : conjure_number,
-            '4' : conjure_number, '5' : conjure_number, '6' : conjure_number, '7' : conjure_number,
-            '8' : conjure_number, '9' : conjure_number,
+            '0' : conjure_token_number, '1' : conjure_token_number, '2' : conjure_token_number,
+            '3' : conjure_token_number, '4' : conjure_token_number, '5' : conjure_token_number,
+            '6' : conjure_token_number, '7' : conjure_token_number, '8' : conjure_token_number,
+            '9' : conjure_token_number,
 
             'A' : conjure_name, 'B' : conjure_name, 'C' : conjure_name, 'D' : conjure_name, 'E' : conjure_name,
             'F' : conjure_name, 'G' : conjure_name, 'H' : conjure_name, 'I' : conjure_name, 'J' : conjure_name,
@@ -1196,7 +1197,7 @@ def module():
         }.__getitem__
 
 
-    lookup_keyword_conjure_function = {
+    lookup_python_keyword_conjure_function = {
             'not'    : conjure_keyword_not,
             'return' : conjure_keyword_return,
         }.get
@@ -1253,7 +1254,7 @@ def module():
         'conjure_right_square_bracket__ends_in_newline',    conjure_right_square_bracket__ends_in_newline,
         'conjure_star_sign',                                conjure_star_sign,
         'conjure_try_colon',                                conjure_try_colon,
-        'find_atom_type',                                   find_atom_type,
+        'find_python_atom_type',                            find_python_atom_type,
         'AT_SIGN',                                          AT_SIGN,
         'BREAK',                                            BREAK,
         'CONTINUE',                                         CONTINUE,
@@ -1268,7 +1269,7 @@ def module():
         'IF__W',                                            IF__W,
         'IN__W',                                            IN__W,
         'LEFT_BRACE',                                       LEFT_BRACE,
-        'lookup_keyword_conjure_function',                  lookup_keyword_conjure_function,
+        'lookup_python_keyword_conjure_function',           lookup_python_keyword_conjure_function,
         'LP',                                               LP,
         'LSB',                                              LSB,
         'NOT__W',                                           NOT__W,
