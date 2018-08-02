@@ -285,9 +285,9 @@ def module():
             #
             if qd() is not 0:
                 if qi() == qj():
-                    r = find_crystal_evoke_atom_whitespace(atom_s[0])(m.end('atom'), none)
+                    r = find_evoke_crystal_atom_whitespace(atom_s[0])(m.end('atom'), none)
                 else:
-                    r = find_evoke_whitespace_atom_whitespace(atom_s[0])(qj(), m.end('atom'), none)
+                    r = find_evoke_crystal_whitespace_atom_whitespace(atom_s[0])(qj(), m.end('atom'), none)
 
                 python__skip_tokenize_prefix()
 
@@ -298,7 +298,7 @@ def module():
             if qi() == qj():
                 r = find_python_atom_type(atom_s[0])(atom_s)
             else:
-                r = find_crystal_evoke_whitespace_atom(atom_s[0])(qj(), m.end('atom'))
+                r = find_evoke_crystal_whitespace_atom(atom_s[0])(qj(), m.end('atom'))
 
             wn(conjure_line_marker(qs()[atom_end : ]))
 
@@ -480,9 +480,9 @@ def module():
             #
             if qd() is not 0:
                 if qi() == qj():
-                    r = find_crystal_evoke_atom_whitespace(qs()[quote_start])(m.end('quote'), none)
+                    r = find_evoke_crystal_atom_whitespace(qs()[quote_start])(m.end('quote'), none)
                 else:
-                    r = find_evoke_whitespace_atom_whitespace(qs()[quote_start])(qj(), m.end('quote'), none)
+                    r = find_evoke_crystal_whitespace_atom_whitespace(qs()[quote_start])(qj(), m.end('quote'), none)
 
                 python__skip_tokenize_prefix()
 
@@ -495,7 +495,7 @@ def module():
             if qi() == qj():
                 r = find_python_atom_type(s[quote_start])(s[j : quote_end])
             else:
-                r = find_crystal_evoke_whitespace_atom(s[quote_start])(j, quote_end)
+                r = find_evoke_crystal_whitespace_atom(s[quote_start])(j, quote_end)
 
             wn(conjure_line_marker(s[m.end('quote') : ]))
 

@@ -24,7 +24,7 @@ def module():
             atom_end = m.end('atom')
 
             if qi() != qj():
-                r = find_crystal_evoke_whitespace_atom(atom_s[0])(qj(), atom_end)
+                r = find_evoke_crystal_whitespace_atom(atom_s[0])(qj(), atom_end)
             else:
                 r = find_LANGUAGE_atom_type(atom_s[0])(atom_s)
 
@@ -45,7 +45,7 @@ def module():
             quote_end = m.end('quote')
 
             if qi() != j:
-                r = find_crystal_evoke_whitespace_atom(qs()[quote_start])(j, quote_end)
+                r = find_evoke_crystal_whitespace_atom(qs()[quote_start])(j, quote_end)
             else:
                 s = qs()
 

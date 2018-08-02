@@ -463,9 +463,9 @@ def module():
 
 
     #
-    #   find_crystal_evoke_atom_whitespace
+    #   find_evoke_crystal_atom_whitespace
     #
-    find_crystal_evoke_atom_whitespace = {
+    find_evoke_crystal_atom_whitespace = {
             '"' : evoke__double_quote__whitespace,
             "'" : evoke__single_quote__whitespace,
 
@@ -498,9 +498,9 @@ def module():
 
 
     #
-    #   find_crystal_evoke_whitespace_atom
+    #   find_evoke_crystal_whitespace_atom
     #
-    find_crystal_evoke_whitespace_atom = {
+    find_evoke_crystal_whitespace_atom = {
             '"' : evoke_whitespace__double_quote,
             "'" : evoke_whitespace__single_quote,
 
@@ -536,8 +536,8 @@ def module():
     #   export
     #
     export(
-        'find_crystal_evoke_whitespace_atom',   find_crystal_evoke_whitespace_atom,
-        'find_crystal_evoke_atom_whitespace',   find_crystal_evoke_atom_whitespace,
+        'find_evoke_crystal_whitespace_atom',   find_evoke_crystal_whitespace_atom,
+        'find_evoke_crystal_atom_whitespace',   find_evoke_crystal_atom_whitespace,
         'evoke_name_whitespace',                evoke_name_whitespace,
         'evoke_whitespace_name',                evoke_whitespace_name,
         'conjure_atom_whitespace',              conjure_atom_whitespace,
