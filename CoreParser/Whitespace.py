@@ -23,7 +23,7 @@ def module():
 
     [
             conjure_whitespace, conjure_whitespace__ends_in_newline,
-    ] = produce_conjure_action_word('whitespace', TokenWhitespace, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('whitespace', TokenWhitespace)
 
 
     export(

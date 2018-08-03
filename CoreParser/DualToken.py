@@ -294,13 +294,15 @@ def module():
     @export
     class Atom_Whitespace(DualToken):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'atom+whitespace'
 
 
-        if PYTHON_parser:
-            is_CRYSTAL__atom__or__special_operator = true
-            is_CRYSTAL_atom                        = true
+        if CRYSTAL_parser:
+            is_CRYSTAL_atom                                  = true
+            is_CRYSTAL_simple_atom__or__colon                = true
+            is_CRYSTAL_simple_atom__or__right_brace          = true
+            is_CRYSTAL_simple_atom__or__right_parenthesis    = true
+            is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
 
         if PYTHON_parser:
@@ -310,15 +312,21 @@ def module():
     @export
     class Name_Whitespace(DualToken):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'name+whitespace'
 
 
         if CRYSTAL_parser:
-            is_CRYSTAL__atom__or__special_operator = true
-            is_CRYSTAL_atom                        = true
-            is_CRYSTAL_identifier                  = true
+            is_CRYSTAL_atom                                  = true
+            is_CRYSTAL_simple_atom__or__colon                = true
+            is_CRYSTAL_simple_atom__or__right_brace          = true
+            is_CRYSTAL_simple_atom__or__right_parenthesis    = true
+            is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
+        if CRYSTAL_parser:
+            is_CRYSTAL_identifier = true
+
+        if PYTHON_parser:
+            is_PYTHON__identifier__or__star_parameter = true
 
         if PYTHON_parser:
             scout_variables = scout_variables__a
@@ -328,14 +336,15 @@ def module():
     @export
     class Whitespace_Atom(DualToken):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'whitespace+atom'
 
 
         if CRYSTAL_parser:
-            is_CRYSTAL__atom__or__special_operator = true
-            is_CRYSTAL_atom                        = true
-            is_CRYSTAL_special_operator            = false
+            is_CRYSTAL_atom                                  = true
+            is_CRYSTAL_simple_atom__or__colon                = true
+            is_CRYSTAL_simple_atom__or__right_brace          = true
+            is_CRYSTAL_simple_atom__or__right_parenthesis    = true
+            is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
 
         if PYTHON_parser:
@@ -350,15 +359,21 @@ def module():
     @export
     class Whitespace_Name(DualToken):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'whitespace+name'
 
 
         if CRYSTAL_parser:
-            is_CRYSTAL__atom__or__special_operator = true
-            is_CRYSTAL_atom                        = true
-            is_CRYSTAL_identifier                  = true
-            is_CRYSTAL_special_operator            = false
+            is_CRYSTAL_atom                                  = true
+            is_CRYSTAL_simple_atom__or__colon                = true
+            is_CRYSTAL_simple_atom__or__right_brace          = true
+            is_CRYSTAL_simple_atom__or__right_parenthesis    = true
+            is_CRYSTAL_simple_atom__or__right_square_bracket = true
+
+        if CRYSTAL_parser:
+            is_CRYSTAL_identifier = true
+
+        if PYTHON_parser:
+            is_PYTHON__identifier__or__star_parameter = true
 
 
         if PYTHON_parser:

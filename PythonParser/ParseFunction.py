@@ -81,7 +81,7 @@ def module():
             raise_unknown_line()
         #</parameter_1>
 
-        if token_1.is_right_parenthesis:
+        if token_1.is_CRYSTAL_right_parenthesis:
             return conjure_function_header(
                        indented_keyword,
                        name,
@@ -89,8 +89,7 @@ def module():
                        tokenize_parameter_colon_newline(),
                    )
 
-        if token_1.is_CRYSTAL_special_operator:
-            raise_unknown_line()
+        assert token_1.is_PYTHON__identifier__or__star_parameter
 
         operator_2 = tokenize_parameter_operator()
 
@@ -122,7 +121,7 @@ def module():
         if qn() is not none:
             raise_unknown_line()
 
-        if token_7.is_right_parenthesis:
+        if token_7.is_CRYSTAL_right_parenthesis:
             return conjure_function_header(
                        indented_keyword,
                        name,
@@ -134,8 +133,7 @@ def module():
                        tokenize_parameter_colon_newline(),
                    )
 
-        if token_7.is_CRYSTAL_special_operator:
-            raise_unknown_line()
+        assert token_7.is_PYTHON__identifier__or__star_parameter
 
         many       = [token_1]
         many_frill = [operator_2]
@@ -173,7 +171,7 @@ def module():
             if qn() is not none:
                 raise_unknown_line()
 
-            if token_7.is_right_parenthesis:
+            if token_7.is_CRYSTAL_right_parenthesis:
                 return conjure_function_header(
                            indented_keyword,
                            name,
@@ -186,7 +184,6 @@ def module():
                            tokenize_parameter_colon_newline(),
                        )
 
-            if token_7.is_CRYSTAL_special_operator:
-                raise_unknown_line()
+            assert token_7.is_PYTHON__identifier__or__star_parameter
 
             many_frill.append(operator_7)

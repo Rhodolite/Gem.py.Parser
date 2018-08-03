@@ -37,13 +37,10 @@ def module():
 
     @share
     def parse_python__arguments__left_parenthesis(left_parenthesis):
-        argument_1 = parse_python__atom()
+        argument_1 = parse_python__atom__or__right_parenthesis()
 
-        if argument_1.is_right_parenthesis:
+        if argument_1.is_CRYSTAL_right_parenthesis:
             return conjure_arguments_0(left_parenthesis, argument_1)
-
-        if argument_1.is_CRYSTAL_special_operator:
-            raise_unknown_line()
 
         operator_1 = qk()
 
@@ -82,17 +79,14 @@ def module():
             #my_line('operator_1: %r', operator_1)
             raise_unknown_line()
 
-        argument_2 = parse_python__atom()
+        argument_2 = parse_python__atom__or__right_parenthesis()
 
-        if argument_2.is_right_parenthesis:
+        if argument_2.is_CRYSTAL_right_parenthesis:
             return conjure_arguments_1(
                        left_parenthesis,
                        argument_1,
                        conjure_comma__right_parenthesis(operator_1, argument_2),
                    )
-
-        if argument_2.is_CRYSTAL_special_operator:
-            raise_unknown_line()
 
         argument_2 = parse_python__argument7__left(argument_2)
         operator_2 = qk()
@@ -105,9 +99,9 @@ def module():
         if not operator_2.is_comma:
             raise_unknown_line()
 
-        argument_3 = parse_python__atom()
+        argument_3 = parse_python__atom__or__right_parenthesis()
 
-        if argument_3.is_right_parenthesis:
+        if argument_3.is_CRYSTAL_right_parenthesis:
             return conjure_arguments_2(
                        left_parenthesis,
                        argument_1,
@@ -115,9 +109,6 @@ def module():
                        argument_2,
                        conjure_comma__right_parenthesis(operator_2, argument_3),
                    )
-
-        if argument_3.is_CRYSTAL_special_operator:
-            raise_unknown_line()
 
         frill_many = [operator_1, operator_2]
         many       = [argument_1, argument_2]
@@ -135,17 +126,14 @@ def module():
             if not operator_7.is_comma:
                 raise_unknown_line()
 
-            argument_3 = parse_python__atom()
+            argument_3 = parse_python__atom__or__right_parenthesis()
 
-            if argument_3.is_right_parenthesis:
+            if argument_3.is_CRYSTAL_right_parenthesis:
                 return conjure_arguments_many(
                            left_parenthesis,
                            many,
                            frill_many,
                            conjure_comma__right_parenthesis(operator_7, argument_3),
                        )
-
-            if argument_3.is_CRYSTAL_special_operator:
-                raise_unknown_line()
 
             frill_many.append(operator_7)
