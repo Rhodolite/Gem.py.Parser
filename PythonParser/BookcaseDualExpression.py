@@ -9,7 +9,7 @@ def module():
     class Arguments_2(BookcaseDualTwig):
         __slots__    = (())
         display_name = '(2)'
-        frill        = conjure_vwx_frill(LP, COMMA__W, RP)
+        frill        = conjure_vwx_frill(LEFT_PARENTHESIS, COMMA__W, RIGHT_PARENTHESIS)
 
 
         def first_argument(t):
@@ -20,12 +20,12 @@ def module():
 
 
     class ListExpression_2(BookcaseDualTwig):
-        __slots__                              = (())
-        display_name                           = '[2]'
-        frill                                  = conjure_vwx_frill(LSB, COMMA__W, RSB)
-        is_CRYSTAL__atom__or__special_operator = true
-        is_CRYSTAL_atom                        = true
-        is_CRYSTAL_special_operator            = false
+        __slots__    = (())
+        display_name = '[2]'
+        frill        = conjure_vwx_frill(LSB, COMMA__W, RSB)
+
+        is_CRYSTAL_atom = true
+
 
         scout_variables = scout_variables__ab
         write_variables = write_variables__ab
@@ -40,12 +40,11 @@ def module():
 
 
     class TupleExpression_2(BookcaseDualTwig):
-        __slots__                              = (())
-        display_name                           = '{,2}'
-        frill                                  = conjure_vwx_frill(LP, COMMA__W, RP)
-        is_CRYSTAL__atom__or__special_operator = true
-        is_CRYSTAL_atom                        = true
-        is_CRYSTAL_special_operator            = false
+        __slots__    = (())
+        display_name = '{,2}'
+        frill        = conjure_vwx_frill(LEFT_PARENTHESIS, COMMA__W, RIGHT_PARENTHESIS)
+
+        is_CRYSTAL_atom = true
 
 
         def mutate(t, vary, priority):

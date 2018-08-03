@@ -26,7 +26,7 @@ def module():
     #   conjure_action_word:
     #
     #       This version is not typically used, the more commonly used version is produced by
-    #       `produce_conjure_action_word`, which is more efficient as that version is bound
+    #       `produce_conjure_action_word__{ends_in_newline,normal}`, which is more efficient as that version is bound
     #       to the proper `Meta`.
     #
     #       This version, uses `find_action_word__Meta(full)` to find the proper `Meta`
@@ -90,10 +90,43 @@ def module():
 
 
     @export
-    def produce_conjure_action_word(name, Meta, produce_ends_in_newline = false):
-        assert type(name)                    is String
-        assert type(Meta)                    is Type
-        assert type(produce_ends_in_newline) is Boolean
+    def produce_conjure_action_word__ends_in_newline(name, Meta):
+        assert type(name) is String
+        assert type(Meta) is Type
+
+
+        conjure_action_word = produce_conjure_action_word__normal(name, Meta)
+
+
+        @rename('conjure_%s__ends_in_newline', name)
+        def conjure_action_word__ends_in_newline(s):
+            assert s[-1] == '\n'
+
+            r = lookup_action_word(s)
+
+            if r is not none:
+                return r
+
+            s = intern_string(s)
+
+            return provide_action_word(
+                       s,
+                       conjure_ActionWord_WithNewlines(
+                           Meta, construct_token__with_newlines,
+                       )(s, true, s.count('\n'))
+                   )
+
+
+        return ((
+                   conjure_action_word,
+                   conjure_action_word__ends_in_newline,
+               ))
+
+
+    @export
+    def produce_conjure_action_word__normal(name, Meta):
+        assert type(name) is String
+        assert type(Meta) is Type
 
 
         @rename('conjure_%s', name)
@@ -121,27 +154,4 @@ def module():
                    )
 
 
-        if produce_ends_in_newline is false:
-            return conjure_action_word
-
-
-        @rename('conjure_%s__ends_in_newline', name)
-        def conjure_action_word__ends_in_newline(s):
-            assert s[-1] == '\n'
-
-            r = lookup_action_word(s)
-
-            if r is not none:
-                return r
-
-            s = intern_string(s)
-
-            return provide_action_word(
-                       s,
-                       conjure_ActionWord_WithNewlines(
-                           Meta, construct_token__with_newlines,
-                       )(s, true, s.count('\n'))
-                   )
-
-
-        return ((conjure_action_word, conjure_action_word__ends_in_newline))
+        return conjure_action_word

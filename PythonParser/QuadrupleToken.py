@@ -306,8 +306,6 @@ def module():
 
     class DotNameQuadruplet(BaseQuadrupleOperator):
         __slots__           = (())
-        class_order         = CLASS_ORDER__NORMAL_TOKEN
-        #   [
         display_name        = '.name-quadruplet'
         is_postfix_operator = true
 

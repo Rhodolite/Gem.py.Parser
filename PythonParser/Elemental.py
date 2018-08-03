@@ -12,7 +12,6 @@ def module():
 
     class KeywordAnd(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = 'and'
         is_end_of_compare_expression           = true
         is_end_of_logical_and_expression       = true
@@ -27,7 +26,6 @@ def module():
 
     class KeywordAs(KeywordAndOperatorBase):
         __slots__                               = (())
-        class_order                             = CLASS_ORDER__NORMAL_TOKEN
         display_name                            = 'as'
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
@@ -48,37 +46,31 @@ def module():
 
     class KeywordAssert(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'assert'
 
 
     class KeywordBreak(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'break'
 
 
     class KeywordClass(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'class'
 
 
     class KeywordContinue(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'continue'
 
 
     class KeywordDelete(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'delete'
 
 
     class KeywordElse(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = 'else'
         is_end_of_boolean_and_expression       = true
         is_end_of_boolean_or_expression        = true
@@ -95,43 +87,36 @@ def module():
 
     class KeywordElseColon(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'else:'
 
 
     class KeywordElseIf(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'else-if'
 
 
     class KeywordExcept(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'except'
 
 
     class KeywordExceptColon(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'except:'
 
 
     class KeywordFinally(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'finally'
 
 
     class KeywordFinallyColon(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'finally:'
 
 
     class KeywordFor(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = 'for'
         is_end_of_boolean_and_expression       = true
         is_end_of_boolean_or_expression        = true
@@ -150,19 +135,16 @@ def module():
 
     class KeywordFrom(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'from'
 
 
     class KeywordFunction(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'function'
 
 
     class KeywordIf(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = 'if'
         is_end_of_boolean_and_expression       = true
         is_end_of_boolean_or_expression        = true
@@ -180,7 +162,6 @@ def module():
     @share
     class KeywordIn(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = 'in'
         is_compare_operator                    = true
         is_end_of_logical_and_expression       = true
@@ -196,7 +177,6 @@ def module():
     @share
     class KeywordIs(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = 'is'
         is_compare_operator                    = true
         is_end_of_logical_and_expression       = true
@@ -210,7 +190,6 @@ def module():
 
     class KeywordNot(KeywordAndOperatorBase):
         __slots__      = (())
-        class_order    = CLASS_ORDER__NORMAL_TOKEN
         display_name   = 'not'
         is_keyword_not = true
 
@@ -236,7 +215,6 @@ def module():
 
     class KeywordOr(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = 'or'
         is_end_of_boolean_and_expression       = true
         is_end_of_compare_expression           = true
@@ -252,19 +230,16 @@ def module():
 
     class KeywordPass(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'pass'
 
 
     class KeywordRaise(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'raise'
 
 
     class KeywordReturn(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'return'
 
         is_keyword_return = true
@@ -272,33 +247,28 @@ def module():
 
     class KeywordTry(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'try'
 
 
     class KeywordWhile(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'while'
 
 
     @share
     class KeywordWith(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'with'
 
 
     @share
     class KeywordYield(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'yield'
 
 
     class OperatorAddModify(KeywordAndOperatorBase):
         __slots__                               = (())
-        class_order                             = CLASS_ORDER__NORMAL_TOKEN
         display_name                            = '+='
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
@@ -319,17 +289,16 @@ def module():
 
     class OperatorAtSign(KeywordAndOperatorBase):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = '@'
 
 
     class OperatorColon(KeywordAndOperatorBase):
-        __slots__                               = (())
-        class_order                             = CLASS_ORDER__NORMAL_TOKEN
-        display_name                            = ':'
-        is_colon                                = true
-        is_CRYSTAL__atom__or__special_operator  = true
-        is_CRYSTAL_special_operator             = true
+        __slots__    = (())
+        display_name = ':'
+        is_colon     = true
+
+        is_CRYSTAL_simple_atom__or__colon = true
+
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -348,7 +317,6 @@ def module():
 
     class OperatorComma(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = ','
         frill_estimate                         = 1
         is__comma__or__right_parenthesis       = true
@@ -369,7 +337,6 @@ def module():
     @share
     class OperatorCompareEqual(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = '=='
         is_compare_operator                    = true
         is_end_of_logical_and_expression       = true
@@ -391,7 +358,6 @@ def module():
     @share
     class OperatorCompareNotEqual(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = '!='
         is_compare_operator                    = true
         is_end_of_logical_and_expression       = true
@@ -406,7 +372,6 @@ def module():
     @share
     class OperatorDivide(KeywordAndOperatorBase):
         __slots__                  = (())
-        class_order                = CLASS_ORDER__NORMAL_TOKEN
         display_name               = '/'
         is_multiply_operator       = true
         is_end_of_unary_expression = true
@@ -414,7 +379,6 @@ def module():
 
     class OperatorDot(KeywordAndOperatorBase):
         __slots__           = (())
-        class_order         = CLASS_ORDER__NORMAL_TOKEN
         display_name        = '.'
         is_dot              = true
         is_postfix_operator = true
@@ -422,7 +386,6 @@ def module():
 
     class OperatorEqualSign(KeywordAndOperatorBase):
         __slots__                               = (())
-        class_order                             = CLASS_ORDER__NORMAL_TOKEN
         display_name                            = '='
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
@@ -444,7 +407,6 @@ def module():
     @share
     class OperatorGreaterThan(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = '>'
         is_compare_operator                    = true
         is_end_of_logical_and_expression       = true
@@ -473,7 +435,6 @@ def module():
     @share
     class OperatorGreaterThanOrEqual(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = '>='
         is_compare_operator                    = true
         is_end_of_logical_and_expression       = true
@@ -502,25 +463,24 @@ def module():
     @share
     class OperatorIntegerDivide(KeywordAndOperatorBase):
         __slots__                  = (())
-        class_order                = CLASS_ORDER__NORMAL_TOKEN
         display_name               = '//'
         is_multiply_operator       = true
         is_end_of_unary_expression = true
 
 
     class OperatorLeftBrace(KeywordAndOperatorBase):
-        __slots__       = (())
-        class_order     = CLASS_ORDER__NORMAL_TOKEN
-        display_name    = '{'                                           #   }
+        __slots__    = (())
+        display_name = '{'                                              #   }
+
         is_CRYSTAL_atom = false
-        is_left_brace   = true
+
+        is_left_brace = true
 
 
     @export
     class OperatorLeftSquareBracket(KeywordAndOperatorBase):
         __slots__              = (())
-        class_order            = CLASS_ORDER__NORMAL_TOKEN
-        display_name           = '['                        #   ]
+        display_name           = '['                                    #   ]
         is_left_square_bracket = true
         is_postfix_operator    = true
 
@@ -528,7 +488,6 @@ def module():
     @share
     class OperatorLessThan(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = '<'
         is_compare_operator                    = true
         is_end_of_logical_and_expression       = true
@@ -557,7 +516,6 @@ def module():
     @share
     class OperatorLessThanOrEqual(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = '<='
         is_compare_operator                    = true
         is_end_of_logical_and_expression       = true
@@ -586,7 +544,6 @@ def module():
     @share
     class OperatorLogicalAndSign(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = '&'
         is_end_of_multiply_expression          = true
         is_end_of_python_arithmetic_expression = true
@@ -597,7 +554,6 @@ def module():
     @share
     class OperatorLogicalOrSign(KeywordAndOperatorBase):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = '|'
         is_end_of_logical_and_expression       = true
         is_end_of_multiply_expression          = true
@@ -608,7 +564,6 @@ def module():
 
     class OperatorLogicalOrModify(KeywordAndOperatorBase):
         __slots__                               = (())
-        class_order                             = CLASS_ORDER__NORMAL_TOKEN
         display_name                            = '|='
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
@@ -630,7 +585,6 @@ def module():
     @share
     class OperatorMinusSign(KeywordAndOperatorBase):
         __slots__                     = (())
-        class_order                   = CLASS_ORDER__NORMAL_TOKEN
         display_name                  = '-'
         is_end_of_multiply_expression = true
         is_end_of_unary_expression    = true
@@ -640,28 +594,27 @@ def module():
 
     @share
     class OperatorPercentSign(KeywordAndOperatorBase):
-        __slots__                     = (())
-        class_order                   = CLASS_ORDER__NORMAL_TOKEN
-        display_name                  = '%'
-        is_multiply_operator          = true
-        is_end_of_unary_expression    = true
+        __slots__                  = (())
+        display_name               = '%'
+        is_multiply_operator       = true
+        is_end_of_unary_expression = true
 
 
     @share
     class OperatorPower(KeywordAndOperatorBase):
         __slots__         = (())
-        class_order       = CLASS_ORDER__NORMAL_TOKEN
         display_name      = '**'
         is_power_operator = true
 
 
     class OperatorRightBrace(KeywordAndOperatorBase):
-        __slots__                               = (())
-        class_order                             = CLASS_ORDER__NORMAL_TOKEN
+        __slots__ = (())
+
         #  {
-        display_name                            = '}'
-        is_CRYSTAL__atom__or__special_operator  = true
-        is_CRYSTAL_special_operator             = true
+        display_name = '}'
+
+        is_CRYSTAL_simple_atom__or__right_brace = true
+
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -679,40 +632,15 @@ def module():
         is_right_brace                          = true
 
 
-    class OperatorRightParenthesis(KeywordAndOperatorBase):
-        __slots__                               = (())
-        class_order                             = CLASS_ORDER__NORMAL_TOKEN
-        #  (
-        display_name                            = ')'
-        is__comma__or__right_parenthesis        = true
-        is_CRYSTAL__atom__or__special_operator  = true
-        is_CRYSTAL_special_operator             = true
-        is_end_of_boolean_and_expression        = true
-        is_end_of_boolean_or_expression         = true
-        is_end_of_compare_expression            = true
-        is_end_of_comprehension_expression_list = true
-        is_end_of_comprehension_expression      = true
-        is_end_of_logical_and_expression        = true
-        is_end_of_logical_or_expression         = true
-        is_end_of_multiply_expression           = true
-        is_end_of_normal_expression_list        = true
-        is_end_of_normal_expression             = true
-        is_end_of_python_arithmetic_expression  = true
-        is_end_of_ternary_expression_list       = true
-        is_end_of_ternary_expression            = true
-        is_end_of_unary_expression              = true
-        is__optional_comma__right_parenthesis   = true
-        is_right_parenthesis                    = true
-
-
     @export
     class OperatorRightSquareBracket(KeywordAndOperatorBase):
-        __slots__                                = (())
-        class_order                              = CLASS_ORDER__NORMAL_TOKEN
+        __slots__ = (())
+
         #   [
-        display_name                             = ']'
-        is_CRYSTAL__atom__or__special_operator   = true
-        is_CRYSTAL_special_operator              = true
+        display_name = ']'
+
+        is_CRYSTAL_simple_atom__or__right_square_bracket = true
+
         is_end_of_boolean_and_expression         = true
         is_end_of_boolean_or_expression          = true
         is_end_of_compare_expression             = true
@@ -734,7 +662,6 @@ def module():
     @share
     class OperatorStarSign(KeywordAndOperatorBase):
         __slots__                  = (())
-        class_order                = CLASS_ORDER__NORMAL_TOKEN
         display_name               = '*'
         is_end_of_unary_expression = true
         is_multiply_operator       = true
@@ -743,7 +670,6 @@ def module():
 
     class OperatorSubtractModify(KeywordAndOperatorBase):
         __slots__                               = (())
-        class_order                             = CLASS_ORDER__NORMAL_TOKEN
         display_name                            = '-='
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
@@ -765,7 +691,6 @@ def module():
     @share
     class OperatorTildeSign(KeywordAndOperatorBase):
         __slots__     = (())
-        class_order   = CLASS_ORDER__NORMAL_TOKEN
         display_name  = '~'
         is_tilde_sign = true
 
@@ -775,11 +700,8 @@ def module():
              ((     '!=',       OperatorCompareNotEqual     )),
              ((     '&',        OperatorLogicalAndSign      )),
              ((     '%',        OperatorPercentSign         )),
-             ((     '(',        OperatorLeftParenthesis     )),
-             ((     ')',        OperatorRightParenthesis    )),
              ((     '*',        OperatorStarSign            )),
              ((     '**',       OperatorPower               )),
-             ((     '+',        OperatorPlusSign            )),
              ((     '+=',       OperatorAddModify           )),
              ((     ',',        OperatorComma               )),
              ((     '-',        OperatorMinusSign           )),
@@ -817,86 +739,72 @@ def module():
     del Shared.initialize_action_word__Meta
 
 
-    conjure_at_sign          = produce_conjure_action_word('at_sign',          OperatorAtSign)
-    conjure_dot              = produce_conjure_action_word('dot',              OperatorDot)
-    conjure_equal_sign       = produce_conjure_action_word('equal_sign',       OperatorEqualSign)
-    conjure_keyword_as       = produce_conjure_action_word('keyword_as',       KeywordAs)
-    conjure_keyword_break    = produce_conjure_action_word('keyword_break',    KeywordBreak)
-    conjure_keyword_class    = produce_conjure_action_word('keyword_class',    KeywordClass)
-    conjure_keyword_continue = produce_conjure_action_word('keyword_continue', KeywordContinue)
-    conjure_keyword_finally  = produce_conjure_action_word('keyword_finally',  KeywordFinally)
-    conjure_keyword_for      = produce_conjure_action_word('keyword_for',      KeywordFor)
-    conjure_keyword_from     = produce_conjure_action_word('keyword_from',     KeywordFrom)
-    conjure_keyword_if       = produce_conjure_action_word('keyword_if',       KeywordIf)
-    conjure_keyword_is       = produce_conjure_action_word('keyword_is',       KeywordIs)
-    conjure_star_sign        = produce_conjure_action_word('star_sign',        OperatorStarSign)
+    conjure_at_sign          = produce_conjure_action_word__normal('at_sign',          OperatorAtSign)
+    conjure_dot              = produce_conjure_action_word__normal('dot',              OperatorDot)
+    conjure_equal_sign       = produce_conjure_action_word__normal('equal_sign',       OperatorEqualSign)
+    conjure_keyword_as       = produce_conjure_action_word__normal('keyword_as',       KeywordAs)
+    conjure_keyword_break    = produce_conjure_action_word__normal('keyword_break',    KeywordBreak)
+    conjure_keyword_class    = produce_conjure_action_word__normal('keyword_class',    KeywordClass)
+    conjure_keyword_continue = produce_conjure_action_word__normal('keyword_continue', KeywordContinue)
+    conjure_keyword_finally  = produce_conjure_action_word__normal('keyword_finally',  KeywordFinally)
+    conjure_keyword_for      = produce_conjure_action_word__normal('keyword_for',      KeywordFor)
+    conjure_keyword_from     = produce_conjure_action_word__normal('keyword_from',     KeywordFrom)
+    conjure_keyword_if       = produce_conjure_action_word__normal('keyword_if',       KeywordIf)
+    conjure_keyword_is       = produce_conjure_action_word__normal('keyword_is',       KeywordIs)
+    conjure_star_sign        = produce_conjure_action_word__normal('star_sign',        OperatorStarSign)
 
     [
             conjure_colon, conjure_colon__ends_in_newline,
-    ] = produce_conjure_action_word('colon', OperatorColon, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('colon', OperatorColon)
 
     [
             conjure_comma, conjure_comma__ends_in_newline,
-    ] = produce_conjure_action_word('comma', OperatorComma, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('comma', OperatorComma)
 
     [
             conjure_keyword_in, conjure_keyword_in__ends_in_newline,
-    ] = produce_conjure_action_word('keyword_in', KeywordIn, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('keyword_in', KeywordIn)
 
     [
             conjure_keyword_not, conjure_keyword_not__ends_in_newline,
-    ] = produce_conjure_action_word('keyword_not', KeywordNot, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('keyword_not', KeywordNot)
 
     [
         conjure_left_brace, conjure_left_brace__ends_in_newline,
-    ] = produce_conjure_action_word('left_brace', OperatorLeftBrace, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('left_brace', OperatorLeftBrace)
 
     [
         conjure_left_square_bracket, conjure_left_square_bracket__ends_in_newline,
-    ] = produce_conjure_action_word('left_square_bracket', OperatorLeftSquareBracket, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('left_square_bracket', OperatorLeftSquareBracket)
 
     [
         conjure_right_brace, conjure_right_brace__ends_in_newline,
-    ] = produce_conjure_action_word('right_brace', OperatorRightBrace, produce_ends_in_newline = true)
-
-    [
-        conjure_right_parenthesis, conjure_right_parenthesis__ends_in_newline,
-    ] = produce_conjure_action_word(
-            'right_parenthesis',
-            OperatorRightParenthesis,
-
-            produce_ends_in_newline = true,
-        )
+    ] = produce_conjure_action_word__ends_in_newline('right_brace', OperatorRightBrace)
 
     [
         conjure_right_square_bracket, conjure_right_square_bracket__ends_in_newline,
-    ] = produce_conjure_action_word(
-            'right_square_bracket',
-            OperatorRightSquareBracket,
-
-            produce_ends_in_newline = true,
-        )
+    ] = produce_conjure_action_word__ends_in_newline('right_square_bracket', OperatorRightSquareBracket)
 
 
     #
     #   Fix these to have 'WithPythonNewline' version
     #
-    conjure_else_colon       = produce_conjure_action_word('keyword-else-colon',    KeywordElseColon)
-    conjure_except_colon     = produce_conjure_action_word('keyword-except-colon',  KeywordExceptColon)
-    conjure_finally_colon    = produce_conjure_action_word('keyword-finally-colon', KeywordFinallyColon)
-    conjure_keyword_assert   = produce_conjure_action_word('keyword-assert',        KeywordAssert)
-    conjure_keyword_delete   = produce_conjure_action_word('keyword-delete',        KeywordDelete)
-    conjure_keyword_else     = produce_conjure_action_word('keyword-else',          KeywordElse)
-    conjure_keyword_else_if  = produce_conjure_action_word('keyword-else-if',       KeywordElseIf)
-    conjure_keyword_except   = produce_conjure_action_word('keyword-except',        KeywordExcept)
-    conjure_keyword_function = produce_conjure_action_word('keyword-function',      KeywordFunction)
-    conjure_keyword_pass     = produce_conjure_action_word('keyword-pass',          KeywordPass)
-    conjure_keyword_raise    = produce_conjure_action_word('keyword-raise',         KeywordRaise)
-    conjure_keyword_return   = produce_conjure_action_word('keyword-return',        KeywordReturn)
-    conjure_keyword_try      = produce_conjure_action_word('keyword-try',           KeywordTry)
-    conjure_keyword_while    = produce_conjure_action_word('keyword-while',         KeywordWhile)
-    conjure_keyword_with     = produce_conjure_action_word('keyword-with',          KeywordWith)
-    conjure_keyword_yield    = produce_conjure_action_word('keyword-yield',         KeywordYield)
+    conjure_else_colon       = produce_conjure_action_word__normal('keyword-else-colon',    KeywordElseColon)
+    conjure_except_colon     = produce_conjure_action_word__normal('keyword-except-colon',  KeywordExceptColon)
+    conjure_finally_colon    = produce_conjure_action_word__normal('keyword-finally-colon', KeywordFinallyColon)
+    conjure_keyword_assert   = produce_conjure_action_word__normal('keyword-assert',        KeywordAssert)
+    conjure_keyword_delete   = produce_conjure_action_word__normal('keyword-delete',        KeywordDelete)
+    conjure_keyword_else     = produce_conjure_action_word__normal('keyword-else',          KeywordElse)
+    conjure_keyword_else_if  = produce_conjure_action_word__normal('keyword-else-if',       KeywordElseIf)
+    conjure_keyword_except   = produce_conjure_action_word__normal('keyword-except',        KeywordExcept)
+    conjure_keyword_function = produce_conjure_action_word__normal('keyword-function',      KeywordFunction)
+    conjure_keyword_pass     = produce_conjure_action_word__normal('keyword-pass',          KeywordPass)
+    conjure_keyword_raise    = produce_conjure_action_word__normal('keyword-raise',         KeywordRaise)
+    conjure_keyword_return   = produce_conjure_action_word__normal('keyword-return',        KeywordReturn)
+    conjure_keyword_try      = produce_conjure_action_word__normal('keyword-try',           KeywordTry)
+    conjure_keyword_while    = produce_conjure_action_word__normal('keyword-while',         KeywordWhile)
+    conjure_keyword_with     = produce_conjure_action_word__normal('keyword-with',          KeywordWith)
+    conjure_keyword_yield    = produce_conjure_action_word__normal('keyword-yield',         KeywordYield)
 
 
     ASSERT__W                   = conjure_keyword_assert      ('assert ')
@@ -921,7 +829,6 @@ def module():
     IMPORT__W                   = conjure_keyword_import      ('import ')
     IN__W                       = conjure_keyword_in          ('in ')
     LEFT_BRACE                  = conjure_left_brace          ('{')
-    LP                          = conjure_left_parenthesis    ('(')
     LSB                         = conjure_left_square_bracket ('[')
     MINUS_SIGN                  = conjure_action_word         ('-', '-')
     NOT__W                      = conjure_keyword_not         ('not ')
@@ -932,7 +839,6 @@ def module():
     RETURN                      = conjure_keyword_return      ('return')
     RETURN__W                   = conjure_keyword_return      ('return ')
     RIGHT_BRACE                 = conjure_right_brace         ('}')
-    RP                          = conjure_right_parenthesis   (')')
     RSB                         = conjure_right_square_bracket(']')
     STAR_SIGN                   = conjure_star_sign           ('*')
     TILDE_SIGN                  = conjure_action_word         ('~', '~')
@@ -1005,7 +911,7 @@ def module():
     KeywordImport.mutate = produce_mutate__uncommented('keyword_import', W__IMPORT__W)
     KeywordNot   .mutate = produce_mutate__uncommented('keyword_not',    NOT__W)
     OperatorColon.mutate = produce_mutate__uncommented('operator_colon', W__COLON__W)
-#   OperatorLeftParenthesis.mutate = produce_mutate__uncommented('left_parenthesis', RP)
+#   OperatorLeftParenthesis.mutate = produce_mutate__uncommented('left_parenthesis', LEFT_PARENTHESIS)
 
 
     #
@@ -1056,7 +962,7 @@ def module():
                                            )
 
     OperatorLeftBrace        .transform = produce_transform__uncommented('left_brace',          LEFT_BRACE)
-    OperatorLeftParenthesis  .transform = produce_transform__uncommented('left_parenthesis',    LP)
+    OperatorLeftParenthesis  .transform = produce_transform__uncommented('left_parenthesis',    LEFT_PARENTHESIS)
     OperatorLeftSquareBracket.transform = produce_transform__uncommented('left_square_bracket', LSB)
     OperatorLessThan         .transform = produce_transform__uncommented('less_than',           W__LESS_THAN__W)
 
@@ -1070,7 +976,7 @@ def module():
     OperatorPlusSign          .transform = produce_transform__uncommented('operator_plus_sign',    PLUS_SIGN)
     OperatorPower             .transform = produce_transform__uncommented('operator_power',        W__POWER__W)
     OperatorRightBrace        .transform = produce_transform__uncommented('right_brace',           RIGHT_BRACE)
-    OperatorRightParenthesis  .transform = produce_transform__uncommented('right_parenthesis',     RP)
+    OperatorRightParenthesis  .transform = produce_transform__uncommented('right_parenthesis',     RIGHT_PARENTHESIS)
     OperatorRightSquareBracket.transform = produce_transform__uncommented('right_square_bracket',  RSB)
     OperatorStarSign          .transform = produce_transform__uncommented('operator_star_sign',    STAR_SIGN)
 
@@ -1184,7 +1090,6 @@ def module():
         'IN__W',                                            IN__W,
         'LEFT_BRACE',                                       LEFT_BRACE,
         'lookup_python_keyword_conjure_function',           lookup_python_keyword_conjure_function,
-        'LP',                                               LP,
         'LSB',                                              LSB,
         'NOT__W',                                           NOT__W,
         'PASS',                                             PASS,
@@ -1193,7 +1098,6 @@ def module():
         'RETURN',                                           RETURN,
         'RETURN__W',                                        RETURN__W,
         'RIGHT_BRACE',                                      RIGHT_BRACE,
-        'RP',                                               RP,
         'RSB',                                              RSB,
         'TRY',                                              TRY,
         'W__ASSIGN__W',                                     W__ASSIGN__W,

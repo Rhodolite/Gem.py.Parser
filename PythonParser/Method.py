@@ -267,22 +267,6 @@ def module():
     #   order
     #
     @share
-    def order__frill_a(a, b):
-        a_order = a.class_order
-        b_order = b.class_order
-
-        if a_order is b_order:
-            return (a.frill.order(b.frill)) or (a.a.order(b.a))
-
-        if a_order < b_order:
-            return -1
-
-        assert a_order > b_order
-
-        return 1
-
-
-    @share
     def order__frill_abc(a, b):
         a_order = a.class_order
         b_order = b.class_order

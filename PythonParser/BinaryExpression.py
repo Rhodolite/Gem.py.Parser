@@ -8,9 +8,6 @@ def module():
     require_module('PythonParser.Priority')
 
 
-    #class BinaryExpression(DualTwig):
-
-
     class AndExpression_1(BinaryExpression):
         __slots__    = (())
         display_name = 'and-1'

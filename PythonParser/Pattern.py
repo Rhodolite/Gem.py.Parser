@@ -255,7 +255,7 @@ def module():
         )
 
         MATCH(
-           'operator_match',
+           'python_operator_match',
             (
                   G(
                       'operator',
