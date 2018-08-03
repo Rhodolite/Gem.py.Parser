@@ -15,7 +15,7 @@ def module():
 
         #my_line('d: %d; full: %r; s: %r', qd(), s, portray_string(s[qj() : ]))
 
-        m = operator_match(s, qj())
+        m = python_operator_match(s, qj())
 
         if m is none:
             #my_line(portray_string(s[qj() : ]))

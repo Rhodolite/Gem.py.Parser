@@ -200,7 +200,6 @@ def module():
     @export
     class Whitespace_Atom_Whitespace(TripleToken):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'whitespace+atom+whitespace'
 
 
@@ -211,12 +210,6 @@ def module():
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
-            if PYTHON_parser:
-                is_PYTHON__atom__or__special_operator = true
-
-            if TREMOLITE_parser:
-                is_TREMOLITE__atom__or__special_operator = true
-
 
         if PYTHON_parser:
             scout_variables = scout_variables__0
@@ -225,7 +218,6 @@ def module():
     @export
     class Whitespace_Name_Whitespace(TripleToken):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'whitespace+name+whitespace'
 
 
@@ -236,14 +228,11 @@ def module():
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
-            if PYTHON_parser:
-                is_PYTHON__atom__or__special_operator = true
-
-            if TREMOLITE_parser:
-                is_TREMOLITE__atom__or__special_operator = true
-
         if CRYSTAL_parser:
             is_CRYSTAL_identifier = true
+
+        if PYTHON_parser:
+            is_PYTHON__identifier__or__star_parameter = true
 
 
         if PYTHON_parser:

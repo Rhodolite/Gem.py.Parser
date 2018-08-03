@@ -13,8 +13,6 @@ def module():
         class_order = CLASS_ORDER__UNARY_EXPRESSION
         is_colon    = false
 
-        is_PYTHON_special_operator = false
-
 
         def __init__(t, a):
             t.a = a
@@ -159,6 +157,8 @@ def module():
         frill        = conjure_star_sign('*')
         
         is_CRYSTAL_atom = true
+
+        is_PYTHON__identifier__or__star_parameter = true
 
 
         add_parameters       = add_parameters__a

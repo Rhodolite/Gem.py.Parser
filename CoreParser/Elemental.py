@@ -12,6 +12,8 @@ def module():
     class KeywordAndOperatorBase(ParserToken):
         __slots__ = (())
 
+        class_order = CLASS_ORDER__NORMAL_TOKEN
+
 
         if CRYSTAL_parser:
             is_CRYSTAL_atom                                  = false
@@ -19,14 +21,6 @@ def module():
             is_CRYSTAL_simple_atom__or__right_brace          = false
             is_CRYSTAL_simple_atom__or__right_parenthesis    = false
             is_CRYSTAL_simple_atom__or__right_square_bracket = false
-
-            if PYTHON_parser:
-                is_PYTHON__atom__or__special_operator = false
-                is_PYTHON_special_operator            = false
-
-            if TREMOLITE_parser:
-                is_TREMOLITE__atom__or__special_operator = false
-                is_TREMOLITE_special_operator            = false
 
 
         if CRYSTAL_parser:
@@ -114,7 +108,6 @@ def module():
         @export
         class KeywordImport(KeywordAndOperatorBase):
             __slots__    = (())
-            class_order  = CLASS_ORDER__NORMAL_TOKEN
             display_name = 'import'
 
 
@@ -144,7 +137,6 @@ def module():
         @export
         class KeywordLanguage(KeywordAndOperatorBase):
             __slots__    = (())
-            class_order  = CLASS_ORDER__NORMAL_TOKEN
             display_name = 'language'
 
 
@@ -159,7 +151,6 @@ def module():
         @export
         class OperatorLeftParenthesis(KeywordAndOperatorBase):
             __slots__    = (())
-            class_order  = CLASS_ORDER__NORMAL_TOKEN
             display_name = '('         #   )
 
 
@@ -169,16 +160,8 @@ def module():
                 #
                 is_CRYSTAL_atom = false
 
-                if PYTHON_parser:
-                    is_PYTHON__atom__or__special_operator = false
-
-                if TREMOLITE_parser:
-                    is_TREMOLITE__atom__or__special_operator = false
-
-
             if CRYSTAL_parser:
                 is_CRYSTAL_left_parenthesis = true
-
 
             if PYTHON_parser:
                 is__arguments_0__or__left_parenthesis = true
@@ -188,9 +171,8 @@ def module():
     if PYTHON_parser or TREMOLITE_parser:
         @export
         class OperatorPlusSign(KeywordAndOperatorBase):
-            __slots__                     = (())
-            class_order                   = CLASS_ORDER__NORMAL_TOKEN
-            display_name                  = '+'
+            __slots__    = (())
+            display_name = '+'
 
 
             if PYTHON_parser:

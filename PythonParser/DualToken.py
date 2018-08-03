@@ -123,10 +123,11 @@ def module():
 
 
     class Colon_RightSquareBracket(DualToken):
-        __slots__                               = (())
-        class_order                             = CLASS_ORDER__NORMAL_TOKEN
+        __slots__ = (())
+
         #   [
-        display_name                            = ':]'
+        display_name = ':]'
+
         is_colon__right_square_bracket          = true
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
@@ -145,17 +146,18 @@ def module():
 
 
     class Comma_RightBrace(DualToken):
-        __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
+        __slots__ = (())
+
         #   {
         display_name = ',}'
 
 
     class Comma_RightParenthesis(DualToken):
-        __slots__                             = (())
-        class_order                           = CLASS_ORDER__NORMAL_TOKEN
+        __slots__  = (())
+
         #   (
-        display_name                          = ',)'
+        display_name = ',)'
+
         is_comma__right_parenthesis           = true
         is_end_of_boolean_and_expression      = true
         is_end_of_boolean_or_expression       = true
@@ -172,10 +174,11 @@ def module():
 
 
     class Comma_RightSquareBracket(DualToken):
-        __slots__                                = (())
-        class_order                              = CLASS_ORDER__NORMAL_TOKEN
+        __slots__ = (())
+
         #   [
-        display_name                             = ',]'
+        display_name = ',]'
+
         is_end_of_boolean_and_expression         = true
         is_end_of_boolean_or_expression          = true
         is_end_of_compare_expression             = true
@@ -192,8 +195,6 @@ def module():
 
     class Dot_Name(DualToken):
         __slots__           = (())
-        #   [
-        class_order         = CLASS_ORDER__NORMAL_TOKEN
         display_name        = '.name'
         is_postfix_operator = true
 
@@ -213,15 +214,12 @@ def module():
 
     class DotNamePair(DualToken):
         __slots__           = (())
-        class_order         = CLASS_ORDER__NORMAL_TOKEN
-        #   [
         display_name        = '.name-pair'
         is_postfix_operator = true
 
 
     class EmptyList(DualToken):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = '[,]'
 
         is_CRYSTAL_atom                                  = true
@@ -229,7 +227,6 @@ def module():
         is_CRYSTAL_simple_atom__or__right_brace          = true
         is_CRYSTAL_simple_atom__or__right_parenthesis    = true
         is_CRYSTAL_simple_atom__or__right_square_bracket = true
-        is_PYTHON__atom__or__special_operator            = true
 
 
         scout_variables = scout_variables__0
@@ -237,7 +234,6 @@ def module():
 
     class EmptyMap(DualToken):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = '{:}'
 
         is_CRYSTAL_atom                                  = true
@@ -245,7 +241,6 @@ def module():
         is_CRYSTAL_simple_atom__or__right_brace          = true
         is_CRYSTAL_simple_atom__or__right_parenthesis    = true
         is_CRYSTAL_simple_atom__or__right_square_bracket = true
-        is_PYTHON__atom__or__special_operator            = true
 
 
         scout_variables = scout_variables__0
@@ -253,7 +248,6 @@ def module():
 
     class EmptyTuple(DualToken):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = '{,}'
 
         is_CRYSTAL_atom                                  = true
@@ -261,7 +255,6 @@ def module():
         is_CRYSTAL_simple_atom__or__right_brace          = true
         is_CRYSTAL_simple_atom__or__right_parenthesis    = true
         is_CRYSTAL_simple_atom__or__right_square_bracket = true
-        is_PYTHON__atom__or__special_operator            = true
 
 
         scout_variables = scout_variables__0
@@ -284,7 +277,6 @@ def module():
     @share
     class Is_Not(DualToken):
         __slots__                               = (())
-        class_order                             = CLASS_ORDER__NORMAL_TOKEN
         display_name                            = 'is-not'
         is_compare_operator                     = true
         is_end_of_logical_and_expression        = true
@@ -297,7 +289,6 @@ def module():
 
     class LeftSquareBracket_Colon(DualToken):
         __slots__           = (())
-        class_order         = CLASS_ORDER__NORMAL_TOKEN
         display_name        = '[:'                             #   ]
         is_postfix_operator = true
         is_tail_index       = true
@@ -306,7 +297,6 @@ def module():
     @share
     class Not_In(DualToken):
         __slots__                              = (())
-        class_order                            = CLASS_ORDER__NORMAL_TOKEN
         display_name                           = 'not-in'
         is_compare_operator                    = true
         is_end_of_logical_and_expression       = true

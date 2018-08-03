@@ -135,7 +135,6 @@ def module():
 
     class AllIndex(TripleToken):
         __slots__           = (())
-        class_order         = CLASS_ORDER__NORMAL_TOKEN
         display_name        = '[:]'
         is_all_index        = true
         is_postfix_operator = true
@@ -145,8 +144,6 @@ def module():
 
     class DotNameTriplet(TripleToken):
         __slots__           = (())
-        class_order         = CLASS_ORDER__NORMAL_TOKEN
-        #   [
         display_name        = '.name-triplet'
         is_postfix_operator = true
 
@@ -200,7 +197,6 @@ def module():
 
     class Indented_Else_Colon(TripleToken):
         __slots__    = (())
-        class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = r'indented-else:'
         indentation  = TripleToken.a
 

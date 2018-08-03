@@ -3,7 +3,6 @@
 #
 @module('PythonParser.BookcaseExpression')
 def module():
-    require_module('PythonParser.DualToken')
     require_module('PythonParser.Elemental')
     require_module('PythonParser.Priority')
     require_module('PythonParser.TripleToken')
@@ -183,9 +182,7 @@ def module():
         display_name = '[1]'
         frill        = LSB_RSB
         
-        is_CRYSTAL_atom                       = true
-        is_PYTHON__atom__or__special_operator = true
-        is_PYTHON_special_operator            = false
+        is_CRYSTAL_atom = true
 
 
         scout_variables = scout_variables__a
@@ -198,9 +195,7 @@ def module():
         display_name = '{:1:}'
         frill        = conjure_vw_frill(conjure_left_brace ('{'), conjure_right_brace('}'))
 
-        is_CRYSTAL_atom                       = true
-        is_PYTHON__atom__or__special_operator = true
-        is_PYTHON_special_operator            = false
+        is_CRYSTAL_atom = true
 
 
         scout_variables = scout_variables__a
@@ -241,9 +236,7 @@ def module():
         display_name = '()'
         frill        = LP_RP
 
-        is_CRYSTAL_atom                       = true
-        is_PYTHON__atom__or__special_operator = true
-        is_PYTHON_special_operator            = false
+        is_CRYSTAL_atom = true
 
         
         scout_variables = scout_variables__a
@@ -255,9 +248,7 @@ def module():
         display_name = '{,}'
         frill        = conjure_vw_frill(LP, COMMA_RP)
 
-        is_CRYSTAL_atom                       = true
-        is_PYTHON__atom__or__special_operator = true
-        is_PYTHON_special_operator            = false
+        is_CRYSTAL_atom = true
 
 
         def mutate(t, vary, priority):
