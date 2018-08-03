@@ -9,7 +9,7 @@ def module():
     class Arguments_2(BookcaseDualTwig):
         __slots__    = (())
         display_name = '(2)'
-        frill        = conjure_vwx_frill(LP, COMMA__W, RP)
+        frill        = conjure_vwx_frill(LEFT_PARENTHESIS, COMMA__W, RIGHT_PARENTHESIS)
 
 
         def first_argument(t):
@@ -42,7 +42,7 @@ def module():
     class TupleExpression_2(BookcaseDualTwig):
         __slots__    = (())
         display_name = '{,2}'
-        frill        = conjure_vwx_frill(LP, COMMA__W, RP)
+        frill        = conjure_vwx_frill(LEFT_PARENTHESIS, COMMA__W, RIGHT_PARENTHESIS)
 
         is_CRYSTAL_atom = true
 

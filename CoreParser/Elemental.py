@@ -152,7 +152,7 @@ def module():
         @export
         class OperatorLeftParenthesis(KeywordAndOperatorBase):
             __slots__    = (())
-            display_name = '('         #   )
+            display_name = '('                                          #   )
 
 
             if CRYSTAL_parser:
@@ -167,6 +167,20 @@ def module():
             if PYTHON_parser:
                 is__arguments_0__or__left_parenthesis = true
                 is_postfix_operator                   = true
+
+
+        [
+            conjure_left_parenthesis, conjure_left_parenthesis__ends_in_newline,
+        ] = produce_conjure_action_word('left_parenthesis', OperatorLeftParenthesis, produce_ends_in_newline = true)
+
+
+        LEFT_PARENTHESIS = conjure_left_parenthesis('(')
+
+        export(
+            'conjure_left_parenthesis',                     conjure_left_parenthesis,
+            'conjure_left_parenthesis__ends_in_newline',    conjure_left_parenthesis__ends_in_newline,
+            'LEFT_PARENTHESIS',                             LEFT_PARENTHESIS,
+        )
 
 
     if PYTHON_parser or TREMOLITE_parser:
@@ -237,9 +251,13 @@ def module():
             )
 
 
+        RIGHT_PARENTHESIS = conjure_right_parenthesis(')')
+
+
         export(
             'conjure_right_parenthesis',                    conjure_right_parenthesis,
             'conjure_right_parenthesis__ends_in_newline',   conjure_right_parenthesis__ends_in_newline,
+            'RIGHT_PARENTHESIS',                            RIGHT_PARENTHESIS,
         )
 
 
@@ -250,20 +268,6 @@ def module():
                  ((     ')',        OperatorRightParenthesis    )),
                  ((     '+',        OperatorPlusSign            )),
             )),
-        )
-
-
-    #
-    #   conjure
-    #
-    if PYTHON_parser or TREMOLITE_parser:
-        [
-            conjure_left_parenthesis, conjure_left_parenthesis__ends_in_newline,
-        ] = produce_conjure_action_word('left_parenthesis', OperatorLeftParenthesis, produce_ends_in_newline = true)
-
-        export(
-            'conjure_left_parenthesis',                     conjure_left_parenthesis,
-            'conjure_left_parenthesis__ends_in_newline',    conjure_left_parenthesis__ends_in_newline,
         )
 
 

@@ -608,18 +608,18 @@ def module():
     #
     #   Constants
     #
-    ARGUMENTS_0         = conjure_arguments_0                (LP,         RP)
-    COLON__LINE_MARKER  = conjure_colon__line_marker         (COLON,      LINE_MARKER)
-    COLON_RSB           = conjure_colon__right_square_bracket(COLON,      RSB)
-    COMMA_RSB           = conjure_comma__right_square_bracket(COMMA,      RSB)
-    COMMA_RP            = conjure_comma__right_parenthesis   (COMMA,      RP)
-    EMPTY_LIST          = conjure_empty_list                 (LSB,        RSB)
-    EMPTY_MAP           = conjure_empty_map                  (LEFT_BRACE, RIGHT_BRACE)
-    EMPTY_TUPLE         = conjure_empty_tuple                (LP,         RP)
-    LSB_COLON           = conjure_left_square_bracket__colon (LSB,        COLON)
-    PARAMETERS_0        = conjure_parameters_0               (LP,         RP)
-    W__IS_NOT__W        = conjure_is_not                     (W__IS__W,   NOT__W)
-    W__NOT_IN__W        = conjure_not_in                     (W__NOT__W,  IN__W)
+    ARGUMENTS_0         = conjure_arguments_0                (LEFT_PARENTHESIS, RIGHT_PARENTHESIS)
+    COLON__LINE_MARKER  = conjure_colon__line_marker         (COLON,            LINE_MARKER)
+    COLON_RSB           = conjure_colon__right_square_bracket(COLON,            RSB)
+    COMMA_RSB           = conjure_comma__right_square_bracket(COMMA,            RSB)
+    COMMA_RP            = conjure_comma__right_parenthesis   (COMMA,            RIGHT_PARENTHESIS)
+    EMPTY_LIST          = conjure_empty_list                 (LSB,              RSB)
+    EMPTY_MAP           = conjure_empty_map                  (LEFT_BRACE,       RIGHT_BRACE)
+    EMPTY_TUPLE         = conjure_empty_tuple                (LEFT_PARENTHESIS, RIGHT_PARENTHESIS)
+    LSB_COLON           = conjure_left_square_bracket__colon (LSB,              COLON)
+    PARAMETERS_0        = conjure_parameters_0               (LEFT_PARENTHESIS, RIGHT_PARENTHESIS)
+    W__IS_NOT__W        = conjure_is_not                     (W__IS__W,         NOT__W)
+    W__NOT_IN__W        = conjure_not_in                     (W__NOT__W,        IN__W)
 
 
     #
@@ -651,7 +651,7 @@ def module():
 
     Comma_RightParenthesis.transform = produce_transform__uncommented(
                                            'comma__right_parenthesis',
-                                           RP,                          #   See comment above on why not 'COMMA_RP'
+                                           RIGHT_PARENTHESIS,           #   See comment above on why not 'COMMA_RP'
                                        )
 
     Comma_RightSquareBracket.transform = produce_transform__uncommented('comma__right_square_bracket', COMMA_RSB)

@@ -834,7 +834,6 @@ def module():
     IMPORT__W                   = conjure_keyword_import      ('import ')
     IN__W                       = conjure_keyword_in          ('in ')
     LEFT_BRACE                  = conjure_left_brace          ('{')
-    LP                          = conjure_left_parenthesis    ('(')
     LSB                         = conjure_left_square_bracket ('[')
     MINUS_SIGN                  = conjure_action_word         ('-', '-')
     NOT__W                      = conjure_keyword_not         ('not ')
@@ -845,7 +844,6 @@ def module():
     RETURN                      = conjure_keyword_return      ('return')
     RETURN__W                   = conjure_keyword_return      ('return ')
     RIGHT_BRACE                 = conjure_right_brace         ('}')
-    RP                          = conjure_right_parenthesis   (')')
     RSB                         = conjure_right_square_bracket(']')
     STAR_SIGN                   = conjure_star_sign           ('*')
     TILDE_SIGN                  = conjure_action_word         ('~', '~')
@@ -918,7 +916,7 @@ def module():
     KeywordImport.mutate = produce_mutate__uncommented('keyword_import', W__IMPORT__W)
     KeywordNot   .mutate = produce_mutate__uncommented('keyword_not',    NOT__W)
     OperatorColon.mutate = produce_mutate__uncommented('operator_colon', W__COLON__W)
-#   OperatorLeftParenthesis.mutate = produce_mutate__uncommented('left_parenthesis', RP)
+#   OperatorLeftParenthesis.mutate = produce_mutate__uncommented('left_parenthesis', LEFT_PARENTHESIS)
 
 
     #
@@ -969,7 +967,7 @@ def module():
                                            )
 
     OperatorLeftBrace        .transform = produce_transform__uncommented('left_brace',          LEFT_BRACE)
-    OperatorLeftParenthesis  .transform = produce_transform__uncommented('left_parenthesis',    LP)
+    OperatorLeftParenthesis  .transform = produce_transform__uncommented('left_parenthesis',    LEFT_PARENTHESIS)
     OperatorLeftSquareBracket.transform = produce_transform__uncommented('left_square_bracket', LSB)
     OperatorLessThan         .transform = produce_transform__uncommented('less_than',           W__LESS_THAN__W)
 
@@ -983,7 +981,7 @@ def module():
     OperatorPlusSign          .transform = produce_transform__uncommented('operator_plus_sign',    PLUS_SIGN)
     OperatorPower             .transform = produce_transform__uncommented('operator_power',        W__POWER__W)
     OperatorRightBrace        .transform = produce_transform__uncommented('right_brace',           RIGHT_BRACE)
-    OperatorRightParenthesis  .transform = produce_transform__uncommented('right_parenthesis',     RP)
+    OperatorRightParenthesis  .transform = produce_transform__uncommented('right_parenthesis',     RIGHT_PARENTHESIS)
     OperatorRightSquareBracket.transform = produce_transform__uncommented('right_square_bracket',  RSB)
     OperatorStarSign          .transform = produce_transform__uncommented('operator_star_sign',    STAR_SIGN)
 
@@ -1097,7 +1095,6 @@ def module():
         'IN__W',                                            IN__W,
         'LEFT_BRACE',                                       LEFT_BRACE,
         'lookup_python_keyword_conjure_function',           lookup_python_keyword_conjure_function,
-        'LP',                                               LP,
         'LSB',                                              LSB,
         'NOT__W',                                           NOT__W,
         'PASS',                                             PASS,
@@ -1106,7 +1103,6 @@ def module():
         'RETURN',                                           RETURN,
         'RETURN__W',                                        RETURN__W,
         'RIGHT_BRACE',                                      RIGHT_BRACE,
-        'RP',                                               RP,
         'RSB',                                              RSB,
         'TRY',                                              TRY,
         'W__ASSIGN__W',                                     W__ASSIGN__W,

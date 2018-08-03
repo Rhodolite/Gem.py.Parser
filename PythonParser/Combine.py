@@ -30,7 +30,7 @@ def module():
     module_function__function_header = conjure_function_header(
             empty_indentation__function,
             conjure_name('module'),
-            conjure_parameters_0(LP, RP),
+            conjure_parameters_0(LEFT_PARENTHESIS, RIGHT_PARENTHESIS),
             COLON__LINE_MARKER,
         )
 
@@ -267,7 +267,11 @@ def module():
                    empty_indentation__at_sign,
                    conjure_call_expression(
                        conjure_name('module'),
-                       conjure_arguments_1(LP, conjure_single_quote(portray(module)), RP),
+                       conjure_arguments_1(
+                           LEFT_PARENTHESIS,
+                           conjure_single_quote(portray(module)),
+                           RIGHT_PARENTHESIS,
+                       ),
                    ),
                    LINE_MARKER,
                )
@@ -280,7 +284,11 @@ def module():
                                           empty_indentation__at_sign,
                                           conjure_call_expression(
                                               conjure_name('boot'),
-                                              conjure_arguments_1(LP, conjure_single_quote("'Boot'"), RP),
+                                              conjure_arguments_1(
+                                                  LEFT_PARENTHESIS,
+                                                  conjure_single_quote("'Boot'"),
+                                                  RIGHT_PARENTHESIS,
+                                              ),
                                           ),
                                           LINE_MARKER,
                                       )
@@ -304,7 +312,11 @@ def module():
         boot_decorator__function_header = conjure_function_header(
                                               empty_indentation__function,
                                               conjure_name(function_name),
-                                              conjure_parameters_1(LP, conjure_name('module_name'), RP),
+                                              conjure_parameters_1(
+                                                  LEFT_PARENTHESIS,
+                                                  conjure_name('module_name'),
+                                                  RIGHT_PARENTHESIS,
+                                              ),
                                               COLON__LINE_MARKER,
                                           )
 
