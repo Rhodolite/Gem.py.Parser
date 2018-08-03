@@ -324,12 +324,14 @@ def module():
 
 
     class OperatorColon(KeywordAndOperatorBase):
-        __slots__                               = (())
-        class_order                             = CLASS_ORDER__NORMAL_TOKEN
-        display_name                            = ':'
-        is_colon                                = true
-        is_CRYSTAL__atom__or__special_operator  = true
-        is_CRYSTAL_special_operator             = true
+        __slots__    = (())
+        class_order  = CLASS_ORDER__NORMAL_TOKEN
+        display_name = ':'
+        is_colon     = true
+
+        is_PYTHON_special_operator            = true
+        is_PYTHON__atom__or__special_operator = true
+
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -509,18 +511,20 @@ def module():
 
 
     class OperatorLeftBrace(KeywordAndOperatorBase):
-        __slots__       = (())
-        class_order     = CLASS_ORDER__NORMAL_TOKEN
-        display_name    = '{'                                           #   }
+        __slots__    = (())
+        class_order  = CLASS_ORDER__NORMAL_TOKEN
+        display_name = '{'                                              #   }
+
         is_CRYSTAL_atom = false
-        is_left_brace   = true
+
+        is_left_brace = true
 
 
     @export
     class OperatorLeftSquareBracket(KeywordAndOperatorBase):
         __slots__              = (())
         class_order            = CLASS_ORDER__NORMAL_TOKEN
-        display_name           = '['                        #   ]
+        display_name           = '['                                    #   ]
         is_left_square_bracket = true
         is_postfix_operator    = true
 
@@ -656,12 +660,15 @@ def module():
 
 
     class OperatorRightBrace(KeywordAndOperatorBase):
-        __slots__                               = (())
-        class_order                             = CLASS_ORDER__NORMAL_TOKEN
+        __slots__   = (())
+        class_order = CLASS_ORDER__NORMAL_TOKEN
+
         #  {
-        display_name                            = '}'
-        is_CRYSTAL__atom__or__special_operator  = true
-        is_CRYSTAL_special_operator             = true
+        display_name = '}'
+
+        is_PYTHON_special_operator            = true
+        is_PYTHON__atom__or__special_operator = true
+
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -680,13 +687,16 @@ def module():
 
 
     class OperatorRightParenthesis(KeywordAndOperatorBase):
-        __slots__                               = (())
-        class_order                             = CLASS_ORDER__NORMAL_TOKEN
+        __slots__   = (())
+        class_order = CLASS_ORDER__NORMAL_TOKEN
+
         #  (
-        display_name                            = ')'
-        is__comma__or__right_parenthesis        = true
-        is_CRYSTAL__atom__or__special_operator  = true
-        is_CRYSTAL_special_operator             = true
+        display_name                     = ')'
+        is__comma__or__right_parenthesis = true
+
+        is_PYTHON_special_operator            = true
+        is_PYTHON__atom__or__special_operator = true
+
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
         is_end_of_compare_expression            = true
@@ -707,12 +717,14 @@ def module():
 
     @export
     class OperatorRightSquareBracket(KeywordAndOperatorBase):
-        __slots__                                = (())
-        class_order                              = CLASS_ORDER__NORMAL_TOKEN
+        __slots__   = (())
+        class_order = CLASS_ORDER__NORMAL_TOKEN
         #   [
-        display_name                             = ']'
-        is_CRYSTAL__atom__or__special_operator   = true
-        is_CRYSTAL_special_operator              = true
+        display_name = ']'
+
+        is_PYTHON_special_operator            = true
+        is_PYTHON__atom__or__special_operator = true
+
         is_end_of_boolean_and_expression         = true
         is_end_of_boolean_or_expression          = true
         is_end_of_compare_expression             = true

@@ -204,9 +204,14 @@ def module():
         display_name = 'whitespace+atom+whitespace'
 
 
-        if capital_global.CRYSTAL_parser:
-            is_CRYSTAL__atom__or__special_operator = true
-            is_CRYSTAL_atom                        = true
+        if CRYSTAL_parser:
+            is_CRYSTAL_atom = true
+
+            if PYTHON_parser:
+                is_PYTHON__atom__or__special_operator = true
+
+            if TREMOLITE_parser:
+                is_TREMOLITE__atom__or__special_operator = true
 
 
         if PYTHON_parser:
@@ -220,10 +225,17 @@ def module():
         display_name = 'whitespace+name+whitespace'
 
 
-        if capital_global.CRYSTAL_parser:
-            is_CRYSTAL__atom__or__special_operator = true
-            is_CRYSTAL_atom                        = true
-            is_CRYSTAL_identifier                  = true
+        if CRYSTAL_parser:
+            is_CRYSTAL_atom = true
+
+            if PYTHON_parser:
+                is_PYTHON__atom__or__special_operator = true
+
+            if TREMOLITE_parser:
+                is_TREMOLITE__atom__or__special_operator = true
+
+        if CRYSTAL_parser:
+            is_CRYSTAL_identifier = true
 
 
         if PYTHON_parser:

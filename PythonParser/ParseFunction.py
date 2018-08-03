@@ -89,7 +89,7 @@ def module():
                        tokenize_parameter_colon_newline(),
                    )
 
-        if token_1.is_CRYSTAL_special_operator:
+        if token_1.is_PYTHON_special_operator:
             raise_unknown_line()
 
         operator_2 = tokenize_parameter_operator()
@@ -134,7 +134,7 @@ def module():
                        tokenize_parameter_colon_newline(),
                    )
 
-        if token_7.is_CRYSTAL_special_operator:
+        if token_7.is_PYTHON_special_operator:
             raise_unknown_line()
 
         many       = [token_1]
@@ -186,7 +186,7 @@ def module():
                            tokenize_parameter_colon_newline(),
                        )
 
-            if token_7.is_CRYSTAL_special_operator:
+            if token_7.is_PYTHON_special_operator:
                 raise_unknown_line()
 
             many_frill.append(operator_7)

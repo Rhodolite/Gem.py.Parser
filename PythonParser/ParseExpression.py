@@ -201,11 +201,11 @@ def module():
                 if qn() is not none:
                     raise_unknown_line()
 
-                middle = parse_python__atom()
+                middle = parse_python_atom()
 
                 if middle.is_colon:
                     operator = conjure__left_square_bracket__colon(operator, middle)
-                elif middle.is_CRYSTAL_special_operator:
+                elif middle.is_PYTHON_special_operator:
                     #my_line('middle: %r', middle)
                     raise_unknown_line()
                 else:
@@ -235,7 +235,7 @@ def module():
                         if qn() is not none:
                             raise_unknown_line()
 
-                        middle_2 = parse_python__atom()
+                        middle_2 = parse_python_atom()
 
                         if middle_2.is_right_square_bracket:
                             left = conjure_index_expression(
@@ -246,7 +246,7 @@ def module():
                                            conjure__colon__right_square_bracket(operator_2, middle_2),
                                        ),
                                    )
-                        elif middle_2.is_CRYSTAL_special_operator:
+                        elif middle_2.is_PYTHON_special_operator:
                             raise_unknown_line()
                         else:
                             operator_3 = qk()
@@ -304,11 +304,11 @@ def module():
                             return left
 
             if operator.is_tail_index:
-                middle_2 = parse_python__atom()
+                middle_2 = parse_python_atom()
 
                 if middle_2.is_right_square_bracket:
                     operator = conjure_all_index(operator.a, operator.b, middle_2)
-                elif middle_2.is_CRYSTAL_special_operator:
+                elif middle_2.is_PYTHON_special_operator:
                     raise_unknown_line()
                 else:
                     operator_2 = qk()
@@ -409,7 +409,7 @@ def module():
 
 
     def parse_python__unary_expression():
-        left = parse_python__atom()
+        left = parse_python_atom()
 
         operator = qk()
 
@@ -553,7 +553,7 @@ def module():
 
 
     def parse_python__multiply_expression():
-        left = parse_python__atom()
+        left = parse_python_atom()
 
         operator = qk()
 
@@ -673,7 +673,7 @@ def module():
 
 
     def parse_python__arithmetic_expression():
-        left = parse_python__atom()
+        left = parse_python_atom()
 
         operator = qk()
 
@@ -812,7 +812,7 @@ def module():
 
     @share
     def parse_python__logical_and_expression():
-        left = parse_python__atom()
+        left = parse_python_atom()
 
         operator = qk()
 
@@ -969,7 +969,7 @@ def module():
 
     @share
     def parse_python__normal_expression():
-        left = parse_python__atom()
+        left = parse_python_atom()
 
         operator = qk()
 
@@ -1145,7 +1145,7 @@ def module():
     def parse_python__compare_expression():
         assert qk() is none
 
-        left = parse_python__atom()
+        left = parse_python_atom()
 
         operator = qk()
 
@@ -1343,7 +1343,7 @@ def module():
 
 
     def parse_python__boolean_and_expression():
-        left = parse_python__atom()
+        left = parse_python_atom()
 
         operator = qk()
 
@@ -1541,7 +1541,7 @@ def module():
 
 
     def parse_python__boolean_or_expression():
-        left = parse_python__atom()
+        left = parse_python_atom()
 
         operator = qk()
 
@@ -1886,7 +1886,7 @@ def module():
 
     @share
     def parse_python__ternary_expression():
-        left = parse_python__atom()
+        left = parse_python_atom()
 
         operator = qk()
 
@@ -2080,7 +2080,7 @@ def module():
 
     @share
     def parse_python__ternary_expression_list():
-        left = parse_python__atom()
+        left = parse_python_atom()
 
         operator = qk()
 

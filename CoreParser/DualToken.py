@@ -298,9 +298,16 @@ def module():
         display_name = 'atom+whitespace'
 
 
-        if PYTHON_parser:
-            is_CRYSTAL__atom__or__special_operator = true
-            is_CRYSTAL_atom                        = true
+        if CRYSTAL_parser:
+            is_CRYSTAL_atom = true
+
+            if PYTHON_parser:
+                is_PYTHON__atom__or__special_operator = true
+                is_PYTHON_special_operator            = false
+
+            if TREMOLITE_parser:
+                is_TREMOLITE__atom__or__special_operator = true
+                is_TREMOLITE_special_operator            = false
 
 
         if PYTHON_parser:
@@ -315,9 +322,18 @@ def module():
 
 
         if CRYSTAL_parser:
-            is_CRYSTAL__atom__or__special_operator = true
-            is_CRYSTAL_atom                        = true
-            is_CRYSTAL_identifier                  = true
+            is_CRYSTAL_atom = true
+
+            if PYTHON_parser:
+                is_PYTHON__atom__or__special_operator = true
+                is_PYTHON_special_operator            = false
+
+            if TREMOLITE_parser:
+                is_TREMOLITE__atom__or__special_operator = true
+                is_TREMOLITE_special_operator            = false
+
+        if CRYSTAL_parser:
+            is_CRYSTAL_identifier = true
 
 
         if PYTHON_parser:
@@ -333,9 +349,15 @@ def module():
 
 
         if CRYSTAL_parser:
-            is_CRYSTAL__atom__or__special_operator = true
-            is_CRYSTAL_atom                        = true
-            is_CRYSTAL_special_operator            = false
+            is_CRYSTAL_atom = true
+
+            if PYTHON_parser:
+                is_PYTHON__atom__or__special_operator = true
+                is_PYTHON_special_operator            = false
+
+            if TREMOLITE_parser:
+                is_TREMOLITE__atom__or__special_operator = true
+                is_TREMOLITE_special_operator            = false
 
 
         if PYTHON_parser:
@@ -355,10 +377,18 @@ def module():
 
 
         if CRYSTAL_parser:
-            is_CRYSTAL__atom__or__special_operator = true
-            is_CRYSTAL_atom                        = true
-            is_CRYSTAL_identifier                  = true
-            is_CRYSTAL_special_operator            = false
+            is_CRYSTAL_atom = true
+
+            if PYTHON_parser:
+                is_PYTHON__atom__or__special_operator = true
+                is_PYTHON_special_operator            = false
+
+            if TREMOLITE_parser:
+                is_TREMOLITE__atom__or__special_operator = true
+                is_TREMOLITE_special_operator            = false
+
+        if CRYSTAL_parser:
+            is_CRYSTAL_identifier = true
 
 
         if PYTHON_parser:

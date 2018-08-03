@@ -10,9 +10,10 @@ def module():
         ))
 
 
-        class_order                 = CLASS_ORDER__UNARY_EXPRESSION
-        is_colon                    = false
-        is_CRYSTAL_special_operator = false
+        class_order = CLASS_ORDER__UNARY_EXPRESSION
+        is_colon    = false
+
+        is_PYTHON_special_operator = false
 
 
         def __init__(t, a):
@@ -128,6 +129,7 @@ def module():
         display_name = '-'
         frill        = conjure_action_word('-', '-')
 
+
         scout_variables = scout_variables__a
 
 
@@ -135,6 +137,7 @@ def module():
         __slots__    = (())
         display_name = 'not'
         frill        = NOT__W
+
 
         mutate          = produce_mutate__frill__a__priority('not-expression', PRIORITY_UNARY)
         scout_variables = scout_variables__a
@@ -145,15 +148,18 @@ def module():
         display_name = '*-argument'
         frill        = conjure_star_sign('*')
 
+
         scout_variables = scout_variables__a
 
 
 
     class StarParameter(UnaryExpression):
-        __slots__       = (())
-        display_name    = '*-parameter'
-        frill           = conjure_star_sign('*')
+        __slots__    = (())
+        display_name = '*-parameter'
+        frill        = conjure_star_sign('*')
+        
         is_CRYSTAL_atom = true
+
 
         add_parameters       = add_parameters__a
         scout_default_values = scout_default_values__a
@@ -163,6 +169,7 @@ def module():
         __slots__    = (())
         display_name = '~'
         frill        = conjure_action_word('~', '~')
+
 
         scout_variables = scout_variables__a
 

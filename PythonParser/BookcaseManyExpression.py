@@ -247,12 +247,13 @@ def module():
 
 
     class ListExpression_Many(BookcaseManyExpression):
-        __slots__                              = (())
-        class_order                            = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
-        display_name                           = '[*]'
-        is_CRYSTAL__atom__or__special_operator = true
-        is_CRYSTAL_atom                        = true
-        is_CRYSTAL_special_operator            = false
+        __slots__    = (())
+        class_order  = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
+        display_name = '[*]'
+        
+        is_CRYSTAL_atom                       = true
+        is_PYTHON__atom__or__special_operator = true
+        is_PYTHON_special_operator            = false
 
 
         scout_variables = scout_variables__many
@@ -260,12 +261,13 @@ def module():
 
 
     class MapExpression_Many(BookcaseManyExpression):
-        __slots__                              = (())
-        class_order                            = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
-        display_name                           = '{:*:}'
-        is_CRYSTAL__atom__or__special_operator = true
-        is_CRYSTAL_atom                        = true
-        is_CRYSTAL_special_operator            = false
+        __slots__    = (())
+        class_order  = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
+        display_name = '{:*:}'
+       
+        is_CRYSTAL_atom                       = true
+        is_PYTHON__atom__or__special_operator = true
+        is_PYTHON_special_operator            = false
 
 
         scout_variables = scout_variables__many
@@ -292,12 +294,13 @@ def module():
 
 
     class TupleExpression_Many(BookcaseManyExpression):
-        __slots__                              = (())
-        class_order                            = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
-        display_name                           = '{,*,}'
-        is_CRYSTAL__atom__or__special_operator = true
-        is_CRYSTAL_atom                        = true
-        is_CRYSTAL_special_operator            = false
+        __slots__    = (())
+        class_order  = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
+        display_name = '{,*,}'
+
+        is_CRYSTAL_atom                       = true
+        is_PYTHON__atom__or__special_operator = true
+        is_PYTHON_special_operator            = false
 
 
         scout_variables = scout_variables__many

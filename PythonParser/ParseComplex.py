@@ -109,9 +109,9 @@ def module():
         wi(j)
         wj(j)
 
-        left = parse_python__atom()
+        left = parse_python_atom()
 
-        if left.is_CRYSTAL_special_operator:
+        if left.is_PYTHON_special_operator:
             raise_unknown_line()
 
         return conjure_else_fragment(keyword, parse_python__statement_expression__atom('', left))

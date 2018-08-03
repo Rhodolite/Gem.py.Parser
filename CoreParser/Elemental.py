@@ -14,10 +14,16 @@ def module():
 
 
         if CRYSTAL_parser:
-            is_CRYSTAL__atom__or__special_operator = false
-            is_CRYSTAL_atom                        = false
-            is_CRYSTAL_special_operator            = false
-            is_CRYSTAL_left_parenthesis            = false
+            is_CRYSTAL_atom             = false
+            is_CRYSTAL_left_parenthesis = false
+
+            if PYTHON_parser:
+                is_PYTHON__atom__or__special_operator = false
+                is_PYTHON_special_operator            = false
+
+            if TREMOLITE_parser:
+                is_TREMOLITE__atom__or__special_operator = false
+                is_TREMOLITE_special_operator            = false
 
 
         if PYTHON_parser:
@@ -142,7 +148,7 @@ def module():
         )
 
 
-    if (PYTHON_parser) or (TREMOLITE_parser):
+    if PYTHON_parser or TREMOLITE_parser:
         @export
         class OperatorLeftParenthesis(KeywordAndOperatorBase):
             __slots__    = (())
@@ -154,8 +160,13 @@ def module():
                 #
                 #   Not strictly needed here; for optimization, so does not have to look in base classes
                 #
-                is_CRYSTAL_atom                        = false
-                is_CRYSTAL__atom__or__special_operator = false
+                is_CRYSTAL_atom = false
+
+                if PYTHON_parser:
+                    is_PYTHON__atom__or__special_operator = false
+
+                if TREMOLITE_parser:
+                    is_TREMOLITE__atom__or__special_operator = false
 
 
             if CRYSTAL_parser:
@@ -167,7 +178,7 @@ def module():
                 is_postfix_operator                   = true
 
 
-    if (PYTHON_parser) or (TREMOLITE_parser):
+    if PYTHON_parser or TREMOLITE_parser:
         @export
         class OperatorPlusSign(KeywordAndOperatorBase):
             __slots__                     = (())
@@ -197,7 +208,7 @@ def module():
     #
     #   conjure
     #
-    if (PYTHON_parser) or (TREMOLITE_parser):
+    if PYTHON_parser or TREMOLITE_parser:
         [
             conjure_left_parenthesis, conjure_left_parenthesis__ends_in_newline,
         ] = produce_conjure_action_word('left_parenthesis', OperatorLeftParenthesis, produce_ends_in_newline = true)
