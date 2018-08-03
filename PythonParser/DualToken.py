@@ -224,8 +224,12 @@ def module():
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = '[,]'
 
-        is_CRYSTAL_atom                       = true
-        is_PYTHON__atom__or__special_operator = true
+        is_CRYSTAL_atom                                  = true
+        is_CRYSTAL_simple_atom__or__colon                = true
+        is_CRYSTAL_simple_atom__or__right_brace          = true
+        is_CRYSTAL_simple_atom__or__right_parenthesis    = true
+        is_CRYSTAL_simple_atom__or__right_square_bracket = true
+        is_PYTHON__atom__or__special_operator            = true
 
 
         scout_variables = scout_variables__0
@@ -236,8 +240,12 @@ def module():
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = '{:}'
 
-        is_CRYSTAL_atom                       = true
-        is_PYTHON__atom__or__special_operator = true
+        is_CRYSTAL_atom                                  = true
+        is_CRYSTAL_simple_atom__or__colon                = true
+        is_CRYSTAL_simple_atom__or__right_brace          = true
+        is_CRYSTAL_simple_atom__or__right_parenthesis    = true
+        is_CRYSTAL_simple_atom__or__right_square_bracket = true
+        is_PYTHON__atom__or__special_operator            = true
 
 
         scout_variables = scout_variables__0
@@ -248,8 +256,12 @@ def module():
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = '{,}'
 
-        is_CRYSTAL_atom                       = true
-        is_PYTHON__atom__or__special_operator = true
+        is_CRYSTAL_atom                                  = true
+        is_CRYSTAL_simple_atom__or__colon                = true
+        is_CRYSTAL_simple_atom__or__right_brace          = true
+        is_CRYSTAL_simple_atom__or__right_parenthesis    = true
+        is_CRYSTAL_simple_atom__or__right_square_bracket = true
+        is_PYTHON__atom__or__special_operator            = true
 
 
         scout_variables = scout_variables__0

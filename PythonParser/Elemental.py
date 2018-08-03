@@ -329,8 +329,9 @@ def module():
         display_name = ':'
         is_colon     = true
 
-        is_PYTHON_special_operator            = true
+        is_CRYSTAL_simple_atom__or__colon     = true
         is_PYTHON__atom__or__special_operator = true
+        is_PYTHON_special_operator            = true
 
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
@@ -666,8 +667,9 @@ def module():
         #  {
         display_name = '}'
 
-        is_PYTHON_special_operator            = true
-        is_PYTHON__atom__or__special_operator = true
+        is_CRYSTAL_simple_atom__or__right_brace = true
+        is_PYTHON__atom__or__special_operator   = true
+        is_PYTHON_special_operator              = true
 
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
@@ -694,8 +696,9 @@ def module():
         display_name                     = ')'
         is__comma__or__right_parenthesis = true
 
-        is_PYTHON_special_operator            = true
-        is_PYTHON__atom__or__special_operator = true
+        is_CRYSTAL_simple_atom__or__right_parenthesis = true
+        is_PYTHON__atom__or__special_operator         = true
+        is_PYTHON_special_operator                    = true
 
         is_end_of_boolean_and_expression        = true
         is_end_of_boolean_or_expression         = true
@@ -722,8 +725,9 @@ def module():
         #   [
         display_name = ']'
 
-        is_PYTHON_special_operator            = true
-        is_PYTHON__atom__or__special_operator = true
+        is_CRYSTAL_simple_atom__or__right_square_bracket = true
+        is_PYTHON__atom__or__special_operator            = true
+        is_PYTHON_special_operator                       = true
 
         is_end_of_boolean_and_expression         = true
         is_end_of_boolean_or_expression          = true

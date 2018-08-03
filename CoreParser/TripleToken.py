@@ -205,7 +205,11 @@ def module():
 
 
         if CRYSTAL_parser:
-            is_CRYSTAL_atom = true
+            is_CRYSTAL_atom                                  = true
+            is_CRYSTAL_simple_atom__or__colon                = true
+            is_CRYSTAL_simple_atom__or__right_brace          = true
+            is_CRYSTAL_simple_atom__or__right_parenthesis    = true
+            is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
             if PYTHON_parser:
                 is_PYTHON__atom__or__special_operator = true
@@ -226,7 +230,11 @@ def module():
 
 
         if CRYSTAL_parser:
-            is_CRYSTAL_atom = true
+            is_CRYSTAL_atom                                  = true
+            is_CRYSTAL_simple_atom__or__colon                = true
+            is_CRYSTAL_simple_atom__or__right_brace          = true
+            is_CRYSTAL_simple_atom__or__right_parenthesis    = true
+            is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
             if PYTHON_parser:
                 is_PYTHON__atom__or__special_operator = true
