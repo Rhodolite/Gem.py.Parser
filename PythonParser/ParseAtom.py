@@ -121,7 +121,7 @@ def module():
         #
         middle_1 = parse_python__atom__or__right_parenthesis()
 
-        if middle_1.is_right_parenthesis:
+        if middle_1.is_CRYSTAL_right_parenthesis:
             return conjure_empty_tuple(left_parenthesis, middle_1)
 
         operator_1 = qk()
@@ -139,7 +139,7 @@ def module():
             operator_1 = qk()
             wk(none)
 
-        if operator_1.is_right_parenthesis:
+        if operator_1.is_CRYSTAL_right_parenthesis:
             return conjure_parenthesized_expression(left_parenthesis, middle_1, operator_1)
 
         if operator_1.is_comma__right_parenthesis:
@@ -153,7 +153,7 @@ def module():
         #
         middle_2 = parse_python__atom__or__right_parenthesis()
 
-        if middle_2.is_right_parenthesis:
+        if middle_2.is_CRYSTAL_right_parenthesis:
             return conjure_parenthesized_tuple_expression_1(
                        left_parenthesis,
                        middle_1,
@@ -179,7 +179,7 @@ def module():
         #
         middle_3 = parse_python__atom__or__right_parenthesis()
 
-        if middle_3.is_right_parenthesis:
+        if middle_3.is_CRYSTAL_right_parenthesis:
             return conjure_tuple_expression_2(
                        left_parenthesis,
                        middle_1,
@@ -210,7 +210,7 @@ def module():
 
             middle_3 = parse_python__atom__or__right_parenthesis()
 
-            if middle_3.is_right_parenthesis:
+            if middle_3.is_CRYSTAL_right_parenthesis:
                 return conjure_tuple_expression_many(
                            left_parenthesis,
                            many,

@@ -243,3 +243,6 @@ def module():
     transport('CoreParser.Elemental',               'OperatorLeftParenthesis')
     transport('CoreParser.Elemental',               'conjure_left_parenthesis__ends_in_newline')
     transport('CoreParser.Elemental',               'conjure_left_parenthesis')
+    transport('CoreParser.Elemental',               'conjure_right_parenthesis__ends_in_newline')
+    transport('CoreParser.Elemental',               'conjure_right_parenthesis')
+    transport('CoreParser.Elemental',               'OperatorRightParenthesis')

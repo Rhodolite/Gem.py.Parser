@@ -45,9 +45,10 @@ def module():
 
 
         if TREMOLITE_parser:
-            is_end_of_tremolite_arithmetic_expression = true
-            is_end_of_tremolite_range_expression      = true
-            is_end_of_tremolite_unary_expression      = true
+            is_end_of_TREMOLITE_arithmetic_expression = true
+            is_end_of_TREMOLITE_or_expression         = true
+            is_end_of_TREMOLITE_range_expression      = true
+            is_end_of_TREMOLITE_unary_expression      = true
 
 
         def __init__(t, s):

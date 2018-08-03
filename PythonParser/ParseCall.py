@@ -39,7 +39,7 @@ def module():
     def parse_python__arguments__left_parenthesis(left_parenthesis):
         argument_1 = parse_python__atom__or__right_parenthesis()
 
-        if argument_1.is_right_parenthesis:
+        if argument_1.is_CRYSTAL_right_parenthesis:
             return conjure_arguments_0(left_parenthesis, argument_1)
 
         operator_1 = qk()
@@ -81,7 +81,7 @@ def module():
 
         argument_2 = parse_python__atom__or__right_parenthesis()
 
-        if argument_2.is_right_parenthesis:
+        if argument_2.is_CRYSTAL_right_parenthesis:
             return conjure_arguments_1(
                        left_parenthesis,
                        argument_1,
@@ -101,7 +101,7 @@ def module():
 
         argument_3 = parse_python__atom__or__right_parenthesis()
 
-        if argument_3.is_right_parenthesis:
+        if argument_3.is_CRYSTAL_right_parenthesis:
             return conjure_arguments_2(
                        left_parenthesis,
                        argument_1,
@@ -128,7 +128,7 @@ def module():
 
             argument_3 = parse_python__atom__or__right_parenthesis()
 
-            if argument_3.is_right_parenthesis:
+            if argument_3.is_CRYSTAL_right_parenthesis:
                 return conjure_arguments_many(
                            left_parenthesis,
                            many,

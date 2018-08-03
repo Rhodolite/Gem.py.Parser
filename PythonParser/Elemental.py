@@ -632,33 +632,6 @@ def module():
         is_right_brace                          = true
 
 
-    class OperatorRightParenthesis(KeywordAndOperatorBase):
-        __slots__ = (())
-
-        #  (
-        display_name                     = ')'
-        is__comma__or__right_parenthesis = true
-
-        is_CRYSTAL_simple_atom__or__right_parenthesis = true
-
-        is_end_of_boolean_and_expression        = true
-        is_end_of_boolean_or_expression         = true
-        is_end_of_compare_expression            = true
-        is_end_of_comprehension_expression_list = true
-        is_end_of_comprehension_expression      = true
-        is_end_of_logical_and_expression        = true
-        is_end_of_logical_or_expression         = true
-        is_end_of_multiply_expression           = true
-        is_end_of_normal_expression_list        = true
-        is_end_of_normal_expression             = true
-        is_end_of_python_arithmetic_expression  = true
-        is_end_of_ternary_expression_list       = true
-        is_end_of_ternary_expression            = true
-        is_end_of_unary_expression              = true
-        is__optional_comma__right_parenthesis   = true
-        is_right_parenthesis                    = true
-
-
     @export
     class OperatorRightSquareBracket(KeywordAndOperatorBase):
         __slots__ = (())
@@ -727,11 +700,8 @@ def module():
              ((     '!=',       OperatorCompareNotEqual     )),
              ((     '&',        OperatorLogicalAndSign      )),
              ((     '%',        OperatorPercentSign         )),
-             ((     '(',        OperatorLeftParenthesis     )),
-             ((     ')',        OperatorRightParenthesis    )),
              ((     '*',        OperatorStarSign            )),
              ((     '**',       OperatorPower               )),
-             ((     '+',        OperatorPlusSign            )),
              ((     '+=',       OperatorAddModify           )),
              ((     ',',        OperatorComma               )),
              ((     '-',        OperatorMinusSign           )),
@@ -810,15 +780,6 @@ def module():
     [
         conjure_right_brace, conjure_right_brace__ends_in_newline,
     ] = produce_conjure_action_word('right_brace', OperatorRightBrace, produce_ends_in_newline = true)
-
-    [
-        conjure_right_parenthesis, conjure_right_parenthesis__ends_in_newline,
-    ] = produce_conjure_action_word(
-            'right_parenthesis',
-            OperatorRightParenthesis,
-
-            produce_ends_in_newline = true,
-        )
 
     [
         conjure_right_square_bracket, conjure_right_square_bracket__ends_in_newline,

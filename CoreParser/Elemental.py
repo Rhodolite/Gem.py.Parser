@@ -24,7 +24,8 @@ def module():
 
 
         if CRYSTAL_parser:
-            is_CRYSTAL_left_parenthesis = false
+            is_CRYSTAL_left_parenthesis  = false
+            is_CRYSTAL_right_parenthesis = false
 
 
         if PYTHON_parser:
@@ -78,7 +79,6 @@ def module():
             is_power_operator                        = false
             is_python_arithmetic_operator            = false
             is_right_brace                           = false
-            is_right_parenthesis                     = false
             is_right_square_bracket                  = false
             is_star_sign                             = false
             is_tail_index                            = false
@@ -86,11 +86,12 @@ def module():
 
 
         if TREMOLITE_parser:
-            is_end_of_tremolite_arithmetic_expression = false
-            is_end_of_tremolite_range_expression      = false
-            is_end_of_tremolite_unary_expression      = false
-            is_tremolite_arithmetic_operator          = false
-            is_tremolite_range_operator               = false
+            is_end_of_TREMOLITE_arithmetic_expression = false
+            is_end_of_TREMOLITE_or_expression         = false
+            is_end_of_TREMOLITE_range_expression      = false
+            is_end_of_TREMOLITE_unary_expression      = false
+            is_TREMOLITE_arithmetic_operator          = false
+            is_TREMOLITE_range_operator               = false
 
 
         def __repr__(t):
@@ -182,13 +183,71 @@ def module():
 
 
             if TREMOLITE_parser:
-                is_end_of_tremolite_range_expression = true
-                is_end_of_tremolite_unary_expression = true
-                is_tremolite_arithmetic_operator     = true
+                is_end_of_TREMOLITE_range_expression = true
+                is_end_of_TREMOLITE_unary_expression = true
+                is_TREMOLITE_arithmetic_operator     = true
 
 
+    if PYTHON_parser or TREMOLITE_parser:
+        @export
+        class OperatorRightParenthesis(KeywordAndOperatorBase):
+            __slots__ = (())
+
+            #  (
+            display_name                     = ')'
+
+            if CRYSTAL_parser:
+                is_CRYSTAL_simple_atom__or__right_parenthesis = true
+
+            if CRYSTAL_parser:
+                is_CRYSTAL_right_parenthesis = true
+
+            if PYTHON_parser:
+                is__comma__or__right_parenthesis        = true
+                is_end_of_boolean_and_expression        = true
+                is_end_of_boolean_or_expression         = true
+                is_end_of_compare_expression            = true
+                is_end_of_comprehension_expression_list = true
+                is_end_of_comprehension_expression      = true
+                is_end_of_logical_and_expression        = true
+                is_end_of_logical_or_expression         = true
+                is_end_of_multiply_expression           = true
+                is_end_of_normal_expression_list        = true
+                is_end_of_normal_expression             = true
+                is_end_of_python_arithmetic_expression  = true
+                is_end_of_ternary_expression_list       = true
+                is_end_of_ternary_expression            = true
+                is_end_of_unary_expression              = true
+                is__optional_comma__right_parenthesis   = true
+
+            if TREMOLITE_parser:
+                is_end_of_TREMOLITE_arithmetic_expression = true
+                is_end_of_TREMOLITE_or_expression         = true
+                is_end_of_TREMOLITE_range_expression      = true
+                is_end_of_TREMOLITE_unary_expression      = true
+
+
+        [
+            conjure_right_parenthesis, conjure_right_parenthesis__ends_in_newline,
+        ] = produce_conjure_action_word(
+                'right_parenthesis',
+                OperatorRightParenthesis,
+
+                produce_ends_in_newline = true,
+            )
+
+
+        export(
+            'conjure_right_parenthesis',                    conjure_right_parenthesis,
+            'conjure_right_parenthesis__ends_in_newline',   conjure_right_parenthesis__ends_in_newline,
+        )
+
+
+    if PYTHON_parser or TREMOLITE_parser:
         initialize_action_word__Meta(
             ((
+                 ((     '(',        OperatorLeftParenthesis     )),
+                 ((     ')',        OperatorRightParenthesis    )),
                  ((     '+',        OperatorPlusSign            )),
             )),
         )

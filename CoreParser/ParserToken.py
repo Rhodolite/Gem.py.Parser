@@ -35,12 +35,12 @@ def module():
         if CRYSTAL_parser:
             ends_in_newline                  = false
             is_CRYSTAL_identifier            = false
+            is_CRYSTAL_right_parenthesis     = false
             is_empty_line                    = false
             is_end_of_data                   = false
             is_end_of_data__or__unknown_line = false
             line_marker                      = false
             newlines                         = 0
-
 
         if PYTHON_parser:
             is_comma                   = false
@@ -49,7 +49,6 @@ def module():
             is_indentation             = false
             is_keyword                 = false
             is_keyword_return          = false
-            is_right_parenthesis       = false
             is_right_square_bracket    = false
             is_vw_frill                = false
 

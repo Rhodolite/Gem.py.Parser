@@ -81,7 +81,7 @@ def module():
             raise_unknown_line()
         #</parameter_1>
 
-        if token_1.is_right_parenthesis:
+        if token_1.is_CRYSTAL_right_parenthesis:
             return conjure_function_header(
                        indented_keyword,
                        name,
@@ -121,7 +121,7 @@ def module():
         if qn() is not none:
             raise_unknown_line()
 
-        if token_7.is_right_parenthesis:
+        if token_7.is_CRYSTAL_right_parenthesis:
             return conjure_function_header(
                        indented_keyword,
                        name,
@@ -171,7 +171,7 @@ def module():
             if qn() is not none:
                 raise_unknown_line()
 
-            if token_7.is_right_parenthesis:
+            if token_7.is_CRYSTAL_right_parenthesis:
                 return conjure_function_header(
                            indented_keyword,
                            name,
