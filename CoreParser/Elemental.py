@@ -115,9 +115,9 @@ def module():
         if JAVA_parser:
             [
                     conjure_keyword_import, conjure_keyword_import__ends_in_newline,
-            ] = produce_conjure_action_word('keyword_import', KeywordImport, produce_ends_in_newline = true)
+            ] = produce_conjure_action_word__ends_in_newline('keyword_import', KeywordImport)
         else:
-            conjure_keyword_import = produce_conjure_action_word('keyword_import', KeywordImport)
+            conjure_keyword_import = produce_conjure_action_word__normal('keyword_import', KeywordImport)
 
 
         export(
@@ -141,7 +141,7 @@ def module():
             display_name = 'language'
 
 
-        conjure_keyword_language = produce_conjure_action_word('keyword_language', KeywordLanguage)
+        conjure_keyword_language = produce_conjure_action_word__normal('keyword_language', KeywordLanguage)
 
         export(
             'conjure_keyword_language',     conjure_keyword_language,
@@ -171,7 +171,7 @@ def module():
 
         [
             conjure_left_parenthesis, conjure_left_parenthesis__ends_in_newline,
-        ] = produce_conjure_action_word('left_parenthesis', OperatorLeftParenthesis, produce_ends_in_newline = true)
+        ] = produce_conjure_action_word__ends_in_newline('left_parenthesis', OperatorLeftParenthesis)
 
 
         LEFT_PARENTHESIS = conjure_left_parenthesis('(')
@@ -243,12 +243,7 @@ def module():
 
         [
             conjure_right_parenthesis, conjure_right_parenthesis__ends_in_newline,
-        ] = produce_conjure_action_word(
-                'right_parenthesis',
-                OperatorRightParenthesis,
-
-                produce_ends_in_newline = true,
-            )
+        ] = produce_conjure_action_word__ends_in_newline('right_parenthesis', OperatorRightParenthesis)
 
 
         RIGHT_PARENTHESIS = conjure_right_parenthesis(')')

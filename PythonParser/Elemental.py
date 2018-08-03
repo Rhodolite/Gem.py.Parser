@@ -739,77 +739,72 @@ def module():
     del Shared.initialize_action_word__Meta
 
 
-    conjure_at_sign          = produce_conjure_action_word('at_sign',          OperatorAtSign)
-    conjure_dot              = produce_conjure_action_word('dot',              OperatorDot)
-    conjure_equal_sign       = produce_conjure_action_word('equal_sign',       OperatorEqualSign)
-    conjure_keyword_as       = produce_conjure_action_word('keyword_as',       KeywordAs)
-    conjure_keyword_break    = produce_conjure_action_word('keyword_break',    KeywordBreak)
-    conjure_keyword_class    = produce_conjure_action_word('keyword_class',    KeywordClass)
-    conjure_keyword_continue = produce_conjure_action_word('keyword_continue', KeywordContinue)
-    conjure_keyword_finally  = produce_conjure_action_word('keyword_finally',  KeywordFinally)
-    conjure_keyword_for      = produce_conjure_action_word('keyword_for',      KeywordFor)
-    conjure_keyword_from     = produce_conjure_action_word('keyword_from',     KeywordFrom)
-    conjure_keyword_if       = produce_conjure_action_word('keyword_if',       KeywordIf)
-    conjure_keyword_is       = produce_conjure_action_word('keyword_is',       KeywordIs)
-    conjure_star_sign        = produce_conjure_action_word('star_sign',        OperatorStarSign)
+    conjure_at_sign          = produce_conjure_action_word__normal('at_sign',          OperatorAtSign)
+    conjure_dot              = produce_conjure_action_word__normal('dot',              OperatorDot)
+    conjure_equal_sign       = produce_conjure_action_word__normal('equal_sign',       OperatorEqualSign)
+    conjure_keyword_as       = produce_conjure_action_word__normal('keyword_as',       KeywordAs)
+    conjure_keyword_break    = produce_conjure_action_word__normal('keyword_break',    KeywordBreak)
+    conjure_keyword_class    = produce_conjure_action_word__normal('keyword_class',    KeywordClass)
+    conjure_keyword_continue = produce_conjure_action_word__normal('keyword_continue', KeywordContinue)
+    conjure_keyword_finally  = produce_conjure_action_word__normal('keyword_finally',  KeywordFinally)
+    conjure_keyword_for      = produce_conjure_action_word__normal('keyword_for',      KeywordFor)
+    conjure_keyword_from     = produce_conjure_action_word__normal('keyword_from',     KeywordFrom)
+    conjure_keyword_if       = produce_conjure_action_word__normal('keyword_if',       KeywordIf)
+    conjure_keyword_is       = produce_conjure_action_word__normal('keyword_is',       KeywordIs)
+    conjure_star_sign        = produce_conjure_action_word__normal('star_sign',        OperatorStarSign)
 
     [
             conjure_colon, conjure_colon__ends_in_newline,
-    ] = produce_conjure_action_word('colon', OperatorColon, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('colon', OperatorColon)
 
     [
             conjure_comma, conjure_comma__ends_in_newline,
-    ] = produce_conjure_action_word('comma', OperatorComma, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('comma', OperatorComma)
 
     [
             conjure_keyword_in, conjure_keyword_in__ends_in_newline,
-    ] = produce_conjure_action_word('keyword_in', KeywordIn, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('keyword_in', KeywordIn)
 
     [
             conjure_keyword_not, conjure_keyword_not__ends_in_newline,
-    ] = produce_conjure_action_word('keyword_not', KeywordNot, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('keyword_not', KeywordNot)
 
     [
         conjure_left_brace, conjure_left_brace__ends_in_newline,
-    ] = produce_conjure_action_word('left_brace', OperatorLeftBrace, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('left_brace', OperatorLeftBrace)
 
     [
         conjure_left_square_bracket, conjure_left_square_bracket__ends_in_newline,
-    ] = produce_conjure_action_word('left_square_bracket', OperatorLeftSquareBracket, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('left_square_bracket', OperatorLeftSquareBracket)
 
     [
         conjure_right_brace, conjure_right_brace__ends_in_newline,
-    ] = produce_conjure_action_word('right_brace', OperatorRightBrace, produce_ends_in_newline = true)
+    ] = produce_conjure_action_word__ends_in_newline('right_brace', OperatorRightBrace)
 
     [
         conjure_right_square_bracket, conjure_right_square_bracket__ends_in_newline,
-    ] = produce_conjure_action_word(
-            'right_square_bracket',
-            OperatorRightSquareBracket,
-
-            produce_ends_in_newline = true,
-        )
+    ] = produce_conjure_action_word__ends_in_newline('right_square_bracket', OperatorRightSquareBracket)
 
 
     #
     #   Fix these to have 'WithPythonNewline' version
     #
-    conjure_else_colon       = produce_conjure_action_word('keyword-else-colon',    KeywordElseColon)
-    conjure_except_colon     = produce_conjure_action_word('keyword-except-colon',  KeywordExceptColon)
-    conjure_finally_colon    = produce_conjure_action_word('keyword-finally-colon', KeywordFinallyColon)
-    conjure_keyword_assert   = produce_conjure_action_word('keyword-assert',        KeywordAssert)
-    conjure_keyword_delete   = produce_conjure_action_word('keyword-delete',        KeywordDelete)
-    conjure_keyword_else     = produce_conjure_action_word('keyword-else',          KeywordElse)
-    conjure_keyword_else_if  = produce_conjure_action_word('keyword-else-if',       KeywordElseIf)
-    conjure_keyword_except   = produce_conjure_action_word('keyword-except',        KeywordExcept)
-    conjure_keyword_function = produce_conjure_action_word('keyword-function',      KeywordFunction)
-    conjure_keyword_pass     = produce_conjure_action_word('keyword-pass',          KeywordPass)
-    conjure_keyword_raise    = produce_conjure_action_word('keyword-raise',         KeywordRaise)
-    conjure_keyword_return   = produce_conjure_action_word('keyword-return',        KeywordReturn)
-    conjure_keyword_try      = produce_conjure_action_word('keyword-try',           KeywordTry)
-    conjure_keyword_while    = produce_conjure_action_word('keyword-while',         KeywordWhile)
-    conjure_keyword_with     = produce_conjure_action_word('keyword-with',          KeywordWith)
-    conjure_keyword_yield    = produce_conjure_action_word('keyword-yield',         KeywordYield)
+    conjure_else_colon       = produce_conjure_action_word__normal('keyword-else-colon',    KeywordElseColon)
+    conjure_except_colon     = produce_conjure_action_word__normal('keyword-except-colon',  KeywordExceptColon)
+    conjure_finally_colon    = produce_conjure_action_word__normal('keyword-finally-colon', KeywordFinallyColon)
+    conjure_keyword_assert   = produce_conjure_action_word__normal('keyword-assert',        KeywordAssert)
+    conjure_keyword_delete   = produce_conjure_action_word__normal('keyword-delete',        KeywordDelete)
+    conjure_keyword_else     = produce_conjure_action_word__normal('keyword-else',          KeywordElse)
+    conjure_keyword_else_if  = produce_conjure_action_word__normal('keyword-else-if',       KeywordElseIf)
+    conjure_keyword_except   = produce_conjure_action_word__normal('keyword-except',        KeywordExcept)
+    conjure_keyword_function = produce_conjure_action_word__normal('keyword-function',      KeywordFunction)
+    conjure_keyword_pass     = produce_conjure_action_word__normal('keyword-pass',          KeywordPass)
+    conjure_keyword_raise    = produce_conjure_action_word__normal('keyword-raise',         KeywordRaise)
+    conjure_keyword_return   = produce_conjure_action_word__normal('keyword-return',        KeywordReturn)
+    conjure_keyword_try      = produce_conjure_action_word__normal('keyword-try',           KeywordTry)
+    conjure_keyword_while    = produce_conjure_action_word__normal('keyword-while',         KeywordWhile)
+    conjure_keyword_with     = produce_conjure_action_word__normal('keyword-with',          KeywordWith)
+    conjure_keyword_yield    = produce_conjure_action_word__normal('keyword-yield',         KeywordYield)
 
 
     ASSERT__W                   = conjure_keyword_assert      ('assert ')
