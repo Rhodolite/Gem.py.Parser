@@ -51,7 +51,7 @@ def module():
             is_end_of_multiply_expression            = false
             is_end_of_normal_expression              = false
             is_end_of_normal_expression_list         = false
-            is_end_of_python_arithmetic_expression   = false
+            is_end_of_PYTHON_arithmetic_expression   = false
             is_end_of_ternary_expression             = false
             is_end_of_ternary_expression_list        = false
             is_end_of_unary_expression               = false
@@ -77,7 +77,7 @@ def module():
             is_parameters_0                          = false
             is_postfix_operator                      = false
             is_power_operator                        = false
-            is_python_arithmetic_operator            = false
+            is_PYTHON_arithmetic_operator            = false
             is_right_brace                           = false
             is_right_square_bracket                  = false
             is_star_sign                             = false
@@ -193,7 +193,7 @@ def module():
             if PYTHON_parser:
                 is_end_of_multiply_expression = true
                 is_end_of_unary_expression    = true
-                is_python_arithmetic_operator = true
+                is_PYTHON_arithmetic_operator = true
 
 
             if TREMOLITE_parser:
@@ -228,7 +228,7 @@ def module():
                 is_end_of_multiply_expression           = true
                 is_end_of_normal_expression_list        = true
                 is_end_of_normal_expression             = true
-                is_end_of_python_arithmetic_expression  = true
+                is_end_of_PYTHON_arithmetic_expression  = true
                 is_end_of_ternary_expression_list       = true
                 is_end_of_ternary_expression            = true
                 is_end_of_unary_expression              = true
@@ -267,13 +267,26 @@ def module():
 
 
     #
-    #   is_close_operator
+    #   is_CRYSTAL_close_or_open_operator
     #
     if CRYSTAL_parser:
-        #   {[((
-        is_close_operator = { ')' : 7, ']' : 7, '}' : 7 }.get
+        if PYTHON_parser:
+            is_CRYSTAL_close_or_open_operator = {
+                    #   {[(
+                    ')' : 7,
+                    ']' : 7,
+                    '}' : 7,
+                }.get
+        
+        if TREMOLITE_parser:
+            is_CRYSTAL_close_or_open_operator = {
+                    '(' : 3,
+                    ')' : 7,
+                    '{|' : 3,
+                    '|}' : 7,
+                }.get
 
 
         export(
-            'is_close_operator',    is_close_operator,
+            'is_CRYSTAL_close_or_open_operator',    is_CRYSTAL_close_or_open_operator,
         )

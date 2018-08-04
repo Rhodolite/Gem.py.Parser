@@ -4,12 +4,12 @@
 @module('PythonParser.ParseAtom')
 def module():
     @share
-    def parse_python__map_element():
+    def parse_PYTHON__map_element():
         if qk() is not none:
             #my_line('qk: %r', qk())
             raise_unknown_line()
 
-        token = parse_python__atom__or__right_brace()
+        token = parse_PYTHON__atom__or__right_brace()
 
         if token.is_right_brace:
             return token
@@ -20,12 +20,12 @@ def module():
             if qn() is not none:
                 raise_unknown_line()
 
-            operator = tokenize_python_operator()
+            operator = tokenize_PYTHON_operator()
         else:
             wk(none)
 
         if not operator.is_colon:
-            token = parse_python__ternary_expression__X__any_expression(token, operator)
+            token = parse_PYTHON__ternary_expression__X__any_expression(token, operator)
 
             operator = qk()
 
@@ -37,15 +37,15 @@ def module():
         if not operator.is_colon:
             raise_unknown_line()
 
-        return conjure_map_element(token, operator, parse_python__ternary_expression())
+        return conjure_map_element(token, operator, parse_PYTHON__ternary_expression())
 
 
     @share
-    def parse_python__map__left_brace(left_brace):
+    def parse_PYTHON__map__left_brace(left_brace):
         #
         #   1
         #
-        left = parse_python__map_element()
+        left = parse_PYTHON__map_element()
 
         if left.is_right_brace:
             return conjure_empty_map(left_brace, left)
@@ -53,17 +53,17 @@ def module():
         operator = qk()
 
         if operator is none:
-            operator = tokenize_python_operator()
+            operator = tokenize_PYTHON_operator()
         else:
             wk(none)
 
         if operator.is_keyword_for:
-            left = parse_python__comprehension_expression__X__any_expression(left, operator)
+            left = parse_PYTHON__comprehension_expression__X__any_expression(left, operator)
 
             operator = qk()
 
             if operator is none:
-                operator = tokenize_python_operator()
+                operator = tokenize_PYTHON_operator()
             else:
                 wk(none)
 
@@ -73,7 +73,7 @@ def module():
         if not operator.is_comma:
             raise_unknown_line()
 
-        token = parse_python__map_element()
+        token = parse_PYTHON__map_element()
 
         if token.is_right_brace:
             return conjure_map_expression_1(left_brace, left, conjure__comma__right_brace(operator, token))
@@ -95,7 +95,7 @@ def module():
             if not operator.is_comma:
                 raise_unknown_line()
 
-            token = parse_python__map_element()
+            token = parse_PYTHON__map_element()
 
             if token.is_right_brace:
                 return conjure_map_expression_many(
@@ -110,16 +110,16 @@ def module():
 
 
     @share
-    def parse_python__parenthesized_expression__left_parenthesis(left_parenthesis):
+    def parse_PYTHON__parenthesized_expression__left_parenthesis(left_parenthesis):
         #
         #   1
         #
 
         #
         #   TODO:
-        #       Replace this with 'parse_python__parenthesis__first_atom' & handle a right-parenthesis as an empty tuple
+        #       Replace this with 'parse_PYTHON__parenthesis__first_atom' & handle a right-parenthesis as an empty tuple
         #
-        middle_1 = parse_python__atom__or__right_parenthesis()
+        middle_1 = parse_PYTHON__atom__or__right_parenthesis()
 
         if middle_1.is_CRYSTAL_right_parenthesis:
             return conjure_empty_tuple(left_parenthesis, middle_1)
@@ -127,14 +127,14 @@ def module():
         operator_1 = qk()
 
         if operator_1 is none:
-            operator_1 = tokenize_python_operator()
+            operator_1 = tokenize_PYTHON_operator()
         else:
             wk(none)
 
         #my_line('operator_1: %r', operator_1)
 
         if not operator_1.is_end_of_ternary_expression:
-            middle_1 = parse_python__ternary_expression__X__any_expression(middle_1, operator_1)
+            middle_1 = parse_PYTHON__ternary_expression__X__any_expression(middle_1, operator_1)
 
             operator_1 = qk()
             wk(none)
@@ -151,7 +151,7 @@ def module():
         #
         #   2
         #
-        middle_2 = parse_python__atom__or__right_parenthesis()
+        middle_2 = parse_PYTHON__atom__or__right_parenthesis()
 
         if middle_2.is_CRYSTAL_right_parenthesis:
             return conjure_parenthesized_tuple_expression_1(
@@ -160,10 +160,10 @@ def module():
                        conjure_comma__right_parenthesis(operator_1, middle_2),
                    )
 
-        operator_2 = tokenize_python_operator()
+        operator_2 = tokenize_PYTHON_operator()
 
         if not operator_2.is_end_of_ternary_expression:
-            middle_2 = parse_python__ternary_expression__X__any_expression(middle_2, operator_2)
+            middle_2 = parse_PYTHON__ternary_expression__X__any_expression(middle_2, operator_2)
 
             operator_2 = qk()
             wk(none)
@@ -177,7 +177,7 @@ def module():
         #
         #   3
         #
-        middle_3 = parse_python__atom__or__right_parenthesis()
+        middle_3 = parse_PYTHON__atom__or__right_parenthesis()
 
         if middle_3.is_CRYSTAL_right_parenthesis:
             return conjure_tuple_expression_2(
@@ -192,10 +192,10 @@ def module():
         many_frill = [operator_1, operator_2]
 
         while 7 is 7:
-            operator_7 = tokenize_python_operator()
+            operator_7 = tokenize_PYTHON_operator()
 
             if not operator_7.is_end_of_ternary_expression:
-                middle_3 = parse_python__ternary_expression__X__any_expression(middle_3, operator_7)
+                middle_3 = parse_PYTHON__ternary_expression__X__any_expression(middle_3, operator_7)
 
                 operator_7 = qk()
                 wk(none)
@@ -208,7 +208,7 @@ def module():
             if not operator_7.is_comma:
                 raise_unknown_line()
 
-            middle_3 = parse_python__atom__or__right_parenthesis()
+            middle_3 = parse_PYTHON__atom__or__right_parenthesis()
 
             if middle_3.is_CRYSTAL_right_parenthesis:
                 return conjure_tuple_expression_many(
@@ -222,19 +222,19 @@ def module():
 
 
     @share
-    def parse_python__list_expression__left_square_bracket(left_square_bracket):
+    def parse_PYTHON__list_expression__left_square_bracket(left_square_bracket):
         #
         #   1
         #
-        middle_1 = parse_python__atom__or__right_square_bracket()
+        middle_1 = parse_PYTHON__atom__or__right_square_bracket()
 
         if middle_1.is_right_square_bracket:
             return conjure_empty_list(left_square_bracket, middle_1)
 
-        operator_1 = tokenize_python_operator()
+        operator_1 = tokenize_PYTHON_operator()
 
         if not operator_1.is_end_of_comprehension_expression:
-            middle_1 = parse_python__comprehension_expression__X__any_expression(middle_1, operator_1)
+            middle_1 = parse_PYTHON__comprehension_expression__X__any_expression(middle_1, operator_1)
 
             operator_1 = qk()
             wk(none)
@@ -249,7 +249,7 @@ def module():
         #
         #   2
         #
-        middle_2 = parse_python__atom__or__right_square_bracket()
+        middle_2 = parse_PYTHON__atom__or__right_square_bracket()
 
         if middle_2.is_right_square_bracket:
             return conjure_list_expression_1(
@@ -258,10 +258,10 @@ def module():
                        conjure_comma__right_square_bracket(operator_1, middle_2),
                    )
 
-        operator_2 = tokenize_python_operator()
+        operator_2 = tokenize_PYTHON_operator()
 
         if not operator_2.is_end_of_ternary_expression:
-            middle_2 = parse_python__ternary_expression__X__any_expression(middle_2, operator_2)
+            middle_2 = parse_PYTHON__ternary_expression__X__any_expression(middle_2, operator_2)
 
             operator_2 = qk()
             wk(none)
@@ -275,7 +275,7 @@ def module():
         #
         #   3
         #
-        middle_3 = parse_python__atom__or__right_square_bracket()
+        middle_3 = parse_PYTHON__atom__or__right_square_bracket()
 
         if middle_3.is_right_square_bracket:
             return conjure_list_expression_2(
@@ -290,10 +290,10 @@ def module():
         many_frill = [operator_1, operator_2]
 
         while 7 is 7:
-            operator_7 = tokenize_python_operator()
+            operator_7 = tokenize_PYTHON_operator()
 
             if not operator_7.is_end_of_ternary_expression:
-                middle_3 = parse_python__ternary_expression__X__any_expression(middle_3, operator_7)
+                middle_3 = parse_PYTHON__ternary_expression__X__any_expression(middle_3, operator_7)
 
                 operator_7 = qk()
                 wk(none)
@@ -306,7 +306,7 @@ def module():
             if not operator_7.is_comma:
                 raise_unknown_line()
 
-            middle_3 = parse_python__atom__or__right_square_bracket()
+            middle_3 = parse_PYTHON__atom__or__right_square_bracket()
 
             if middle_3.is_right_square_bracket:
                 return conjure_list_expression_many(
@@ -319,117 +319,117 @@ def module():
             many_frill.append(operator_7)
 
 
-    def parse_python_atom__X__token(token):
+    def parse_PYTHON_atom__X__token(token):
         if token.is_CRYSTAL_left_parenthesis:
-            return parse_python__parenthesized_expression__left_parenthesis(token)
+            return parse_PYTHON__parenthesized_expression__left_parenthesis(token)
 
         if token.is_left_square_bracket:
-            return parse_python__list_expression__left_square_bracket(token)
+            return parse_PYTHON__list_expression__left_square_bracket(token)
 
         if token.is_left_brace:
-            return parse_python__map__left_brace(token)
+            return parse_PYTHON__map__left_brace(token)
 
         if token.is_keyword_not:
-            return parse_python__not_expression__operator(token)
+            return parse_PYTHON__not_expression__operator(token)
 
         if token.is_minus_sign:
-            return parse_python__negative_expression__operator(token)
+            return parse_PYTHON__negative_expression__operator(token)
 
         if token.is_tilde_sign:
-            return parse_python__twos_complement_expression__operator(token)
+            return parse_PYTHON__twos_complement_expression__operator(token)
 
         if token.is_star_sign:
-            return conjure_star_argument(token, parse_python__ternary_expression())
+            return conjure_star_argument(token, parse_PYTHON__ternary_expression())
 
         #my_line('token: %r', token)
         raise_unknown_line()
 
 
     @share
-    def parse_python_atom__normal():
+    def parse_PYTHON_atom__normal():
         assert qk() is none
         assert qn() is none
 
-        m = python_atom_match(qs(), qj())
+        m = PYTHON_atom_match(qs(), qj())
 
         if m is none:
             #my_line('full: %r; s: %r', portray_string(qs()), portray_string(qs()[qj() :]))
             raise_unknown_line()
 
-        token = analyze_python_atom(m)
+        token = analyze_PYTHON_atom(m)
 
         if token.is_CRYSTAL_atom:
             return token
 
-        return parse_python_atom__X__token(token)
+        return parse_PYTHON_atom__X__token(token)
 
 
     @share
-    def parse_python__atom__or__colon():
+    def parse_PYTHON__atom__or__colon():
         assert qk() is none
         assert qn() is none
 
-        m = python_atom_match(qs(), qj())
+        m = PYTHON_atom_match(qs(), qj())
 
         if m is none:
             raise_unknown_line()
 
-        token = analyze_python_atom(m)
+        token = analyze_PYTHON_atom(m)
 
         if token.is_CRYSTAL_simple_atom__or__colon:
             return token
 
-        return parse_python_atom__X__token(token)
+        return parse_PYTHON_atom__X__token(token)
 
 
-    def parse_python__atom__or__right_brace():
+    def parse_PYTHON__atom__or__right_brace():
         assert qk() is none
         assert qn() is none
 
-        m = python_atom_match(qs(), qj())
+        m = PYTHON_atom_match(qs(), qj())
 
         if m is none:
             raise_unknown_line()
 
-        token = analyze_python_atom(m)
+        token = analyze_PYTHON_atom(m)
 
         if token.is_CRYSTAL_simple_atom__or__right_brace:
             return token
 
-        return parse_python_atom__X__token(token)
+        return parse_PYTHON_atom__X__token(token)
 
 
     @share
-    def parse_python__atom__or__right_parenthesis():
+    def parse_PYTHON__atom__or__right_parenthesis():
         assert qk() is none
         assert qn() is none
 
-        m = python_atom_match(qs(), qj())
+        m = PYTHON_atom_match(qs(), qj())
 
         if m is none:
             raise_unknown_line()
 
-        token = analyze_python_atom(m)
+        token = analyze_PYTHON_atom(m)
 
         if token.is_CRYSTAL_simple_atom__or__right_parenthesis:
             return token
 
-        return parse_python_atom__X__token(token)
+        return parse_PYTHON_atom__X__token(token)
 
 
     @share
-    def parse_python__atom__or__right_square_bracket():
+    def parse_PYTHON__atom__or__right_square_bracket():
         assert qk() is none
         assert qn() is none
 
-        m = python_atom_match(qs(), qj())
+        m = PYTHON_atom_match(qs(), qj())
 
         if m is none:
             raise_unknown_line()
 
-        token = analyze_python_atom(m)
+        token = analyze_PYTHON_atom(m)
 
         if token.is_CRYSTAL_simple_atom__or__right_square_bracket:
             return token
 
-        return parse_python_atom__X__token(token)
+        return parse_PYTHON_atom__X__token(token)

@@ -111,7 +111,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
-        is_end_of_python_arithmetic_expression  = true
+        is_end_of_PYTHON_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -139,7 +139,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
-        is_end_of_python_arithmetic_expression  = true
+        is_end_of_PYTHON_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -167,7 +167,7 @@ def module():
         is_end_of_logical_or_expression       = true
         is_end_of_multiply_expression         = true
         is_end_of_normal_expression           = true
-        is_end_of_python_arithmetic_expression= true
+        is_end_of_PYTHON_arithmetic_expression= true
         is_end_of_ternary_expression          = true
         is_end_of_unary_expression            = true
         is__optional_comma__right_parenthesis = true
@@ -187,7 +187,7 @@ def module():
         is_end_of_logical_or_expression          = true
         is_end_of_multiply_expression            = true
         is_end_of_normal_expression              = true
-        is_end_of_python_arithmetic_expression   = true
+        is_end_of_PYTHON_arithmetic_expression   = true
         is_end_of_ternary_expression             = true
         is_end_of_unary_expression               = true
         is__optional_comma__right_square_bracket = true
@@ -283,7 +283,7 @@ def module():
         is_end_of_logical_or_expression         = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
-        is_end_of_python_arithmetic_expression  = true
+        is_end_of_PYTHON_arithmetic_expression  = true
         is_end_of_unary_expression              = true
 
 
@@ -303,7 +303,7 @@ def module():
         is_end_of_logical_or_expression        = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
 
 

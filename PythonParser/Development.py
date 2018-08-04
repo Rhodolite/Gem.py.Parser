@@ -18,11 +18,11 @@ def module():
 
         require_module('PythonParser.Pattern')
 
-        create_python_parser_match()
+        create_PYTHON_parser_match()
 
-        require_module('PythonParser.Parse')                            #   Must be after `create_python_parser_match`
+        require_module('PythonParser.Parse')                            #   Must be after `create_PYTHON_parser_match`
 
-        tree = parse_python(path, test = 7, show = 0)
+        tree = parse_PYTHON(path, test = 7, show = 0)
 
         if show is 7:
             for v in tree:

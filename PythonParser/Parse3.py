@@ -14,7 +14,7 @@ def module():
 
 
     @share
-    def parse3_python(path, data, data_lines, data_many):
+    def parse3_PYTHON(path, data, data_lines, data_many):
         data_many.append(end_of_data)
 
         data_iterator = iterate(data_many)
