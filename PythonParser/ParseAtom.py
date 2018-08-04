@@ -140,7 +140,7 @@ def module():
             wk(none)
 
         if operator_1.is_CRYSTAL_right_parenthesis:
-            return conjure_parenthesized_expression(left_parenthesis, middle_1, operator_1)
+            return conjure_CRYSTAL_parenthesized_expression(left_parenthesis, middle_1, operator_1)
 
         if operator_1.is_comma__right_parenthesis:
             return conjure_parenthesized_tuple_expression_1(left_parenthesis, middle_1, operator_1)

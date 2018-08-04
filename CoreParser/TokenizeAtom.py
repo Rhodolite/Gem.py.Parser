@@ -104,6 +104,8 @@ def module():
 
                 j = m.end()
 
+                #line('analyze_%s_operator: %r', language, qs()[qi() : j])
+
                 r = conjure_action_word(operator_s, qs()[qi() : j])
 
                 if operator_type is 3:

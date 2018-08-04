@@ -177,11 +177,13 @@ def module():
 
 
         [
-            conjure_parenthesized_expression, conjure_parenthesized_expression__with_frill,
+            conjure_CRYSTAL_parenthesized_expression, conjure_CRYSTAL_parenthesized_expression__with_frill,
         ] = produce_conjure_bookcase_expression('parenthesized-expression', ParenthesizedExpression)
 
 
         export(
-            'conjure_parenthesized_expression',                 conjure_parenthesized_expression,
-            'conjure_parenthesized_expression__with_frill',     conjure_parenthesized_expression__with_frill,
+            'conjure_CRYSTAL_parenthesized_expression',     conjure_CRYSTAL_parenthesized_expression,
+
+            'conjure_CRYSTAL_parenthesized_expression__with_frill',
+                conjure_CRYSTAL_parenthesized_expression__with_frill,
         )

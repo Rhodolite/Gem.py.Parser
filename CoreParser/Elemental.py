@@ -91,7 +91,9 @@ def module():
             is_end_of_TREMOLITE_range_expression      = false
             is_end_of_TREMOLITE_unary_expression      = false
             is_TREMOLITE_arithmetic_operator          = false
+            is_TREMOLITE_left_brace_set               = false
             is_TREMOLITE_range_operator               = false
+            is_TREMOLITE_right_brace_set              = false
 
 
         def __repr__(t):
