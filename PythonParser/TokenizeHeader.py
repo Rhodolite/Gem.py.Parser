@@ -6,8 +6,8 @@ def module():
     @share
     def tokenize_header_parenthesis_atom():
         assert qd() is 0
-        assert qk() is none
-        assert qn() is none
+        assert qk() is 0
+        assert qn() is 0
 
         s = qs()
 
@@ -73,8 +73,8 @@ def module():
     @share
     def tokenize_parameter_atom():
         assert qd() is 1
-        assert qk() is none
-        assert qn() is none
+        assert qk() is 0
+        assert qn() is 0
 
         j = qj()
         s = qs()
@@ -126,8 +126,8 @@ def module():
     @share
     def tokenize_parameter_colon_newline():
         assert qd() is 0
-        assert qk() is none
-        assert qn() is none
+        assert qk() is 0
+        assert qn() is 0
 
         s = qs()
 
@@ -151,8 +151,8 @@ def module():
     @share
     def tokenize_parameter_operator():
         assert qd() is 1
-        assert qk() is none
-        assert qn() is none
+        assert qk() is 0
+        assert qn() is 0
 
         s = qs()
 
@@ -200,7 +200,7 @@ def module():
 
 
             if m.end('comment_newline') is not -1:
-                r = conjure_comma__ends_in_newline(s[qi() :])
+                r = conjure_CRYSTAL_comma__ends_in_newline(s[qi() :])
 
                 PYTHON__skip_tokenize_prefix()
 
@@ -208,7 +208,7 @@ def module():
 
             j = m.end()
 
-            r = conjure_comma(s[qi() : j])
+            r = conjure_CRYSTAL_comma(s[qi() : j])
 
             wi(j)
             wj(j)

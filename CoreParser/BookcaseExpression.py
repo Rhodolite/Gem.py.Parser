@@ -169,19 +169,22 @@ def module():
             display_name = '()'
             frill        = LEFT_PARENTHESIS__RIGHT_PARENTHESIS
 
-            is_CRYSTAL_atom = true
+            is_CRYSTAL_atom              = true
+            is_CRYSTAL_right_parenthesis = false
 
-            
+
             if PYTHON_parser:
                 scout_variables = scout_variables__a
 
 
         [
-            conjure_parenthesized_expression, conjure_parenthesized_expression__with_frill,
+            conjure_CRYSTAL_parenthesized_expression, conjure_CRYSTAL_parenthesized_expression__with_frill,
         ] = produce_conjure_bookcase_expression('parenthesized-expression', ParenthesizedExpression)
 
 
         export(
-            'conjure_parenthesized_expression',                 conjure_parenthesized_expression,
-            'conjure_parenthesized_expression__with_frill',     conjure_parenthesized_expression__with_frill,
+            'conjure_CRYSTAL_parenthesized_expression',     conjure_CRYSTAL_parenthesized_expression,
+
+            'conjure_CRYSTAL_parenthesized_expression__with_frill',
+                conjure_CRYSTAL_parenthesized_expression__with_frill,
         )

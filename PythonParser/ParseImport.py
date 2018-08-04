@@ -68,7 +68,7 @@ def module():
             return module
 
         if operator is ',':
-            wk(conjure_comma(m.group()))
+            wk(conjure_CRYSTAL_comma(m.group()))
 
             return module
 
@@ -106,7 +106,7 @@ def module():
             return module
 
         wj(m.end())
-        wk(conjure_comma(m.group()))
+        wk(conjure_CRYSTAL_comma(m.group()))
 
         return module
 
@@ -128,14 +128,13 @@ def module():
         #
         module   = parse_PYTHON__statement_import_module()
         operator = qk()
-
-        wk(none)
+        wk0()
         #</module>
 
         if operator.line_marker:
             return conjure_import_statement(indented_keyword, module, operator)
 
-        if not operator.is_comma:
+        if not operator.is_CRYSTAL_comma:
             raise_unknown_line()
 
         many       = [module]
@@ -153,7 +152,7 @@ def module():
                            operator,
                        )
 
-            if not operator.is_comma:
+            if not operator.is_CRYSTAL_comma:
                 raise_unknown_line()
 
             many_frill.append(operator)

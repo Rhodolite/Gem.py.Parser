@@ -3,6 +3,7 @@
 #
 @module('PythonParser.ParseExpression')
 def module():
+    require_module('PythonParser.ManyExpression')
     require_module('PythonParser.TernaryExpression')
     require_module('PythonParser.UnaryExpression')
 
@@ -48,23 +49,23 @@ def module():
         assert operator.is_postfix_operator
 
         while 7 is 7:
-            assert qk() is none
+            assert qk() is 0
 
             if operator.is_dot:
                 name = tokenize_name()
 
-                if qn() is not none:
+                if qn() is not 0:
                     return conjure_member_expression(left, conjure_dot_name(operator, name))
 
                 operator_2 = tokenize_PYTHON_operator()
 
                 if operator_2.is_dot:
-                    if qn() is not none:
+                    if qn() is not 0:
                         raise_unknown_line()
 
                     name_2 = tokenize_name()
 
-                    if qn() is not none:
+                    if qn() is not 0:
                         return conjure_member_expression(
                                    left,
                                    conjure_dot_name_pair(
@@ -76,12 +77,12 @@ def module():
                     operator_3 = tokenize_PYTHON_operator()
 
                     if operator_3.is_dot:
-                        if qn() is not none:
+                        if qn() is not 0:
                             raise_unknown_line()
 
                         name_3 = tokenize_name()
 
-                        if qn() is not none:
+                        if qn() is not 0:
                             return conjure_member_expression(
                                        left,
                                        conjure_dot_name_triplet(
@@ -94,7 +95,7 @@ def module():
                         operator_4 = tokenize_PYTHON_operator()
 
                         if operator_4.is_dot:
-                            if qn() is not none:
+                            if qn() is not 0:
                                 raise_unknown_line()
 
                             name_4 = tokenize_name()
@@ -109,7 +110,7 @@ def module():
                                        ),
                                    )
 
-                            if qn() is not none:
+                            if qn() is not 0:
                                 return left
 
                             operator_5 = tokenize_PYTHON_operator()
@@ -166,14 +167,14 @@ def module():
             if operator.is__arguments_0__or__left_parenthesis:
                 if operator.is_CRYSTAL_left_parenthesis:
                     assert qd() > 0
-                    assert qn() is none
+                    assert qn() is 0
 
                     operator = parse_PYTHON__arguments__left_parenthesis(operator)
 
                 newline = qn()
 
-                if (indentation is not 0) and (newline is not none) and (qk() is none):
-                    wn(none)
+                if (indentation is not 0) and (newline is not 0) and (qk() is 0):
+                    wn0()
 
                     return left.call_statement(conjure_vw_frill(indentation, newline), left, operator)
 
@@ -181,13 +182,13 @@ def module():
 
                 operator = qk()
 
-                if operator is not none:
+                if operator is not 0:
                     if not operator.is_postfix_operator:
                         return left
 
-                    wk(none)
+                    wk0()
                 else:
-                    if newline is not none:
+                    if newline is not 0:
                         return left
 
                     operator = tokenize_PYTHON_operator()
@@ -198,7 +199,7 @@ def module():
                         return left
 
             if operator.is_left_square_bracket:
-                if qn() is not none:
+                if qn() is not 0:
                     raise_unknown_line()
 
                 middle = parse_PYTHON__atom__or__colon()
@@ -208,28 +209,28 @@ def module():
                 else:
                     operator_2 = qk()
 
-                    if operator_2 is none:
-                        if qn() is not none:
+                    if operator_2 is 0:
+                        if qn() is not 0:
                             raise_unknown_line()
 
                         operator_2 = tokenize_PYTHON_operator()
                     else:
-                        wk(none)
+                        wk0()
 
                     if not operator_2.is_end_of_ternary_expression:
                         middle = parse_PYTHON__ternary_expression__X__any_expression(middle, operator_2)
 
                         operator_2 = qk()
 
-                        if operator_2 is none:
+                        if operator_2 is 0:
                             raise_unknown_line()
 
-                        wk(none)
+                        wk0()
 
                     if operator_2.is_right_square_bracket:
                         left = conjure_index_expression(left, conjure_normal_index(operator, middle, operator_2))
                     elif operator_2.is_colon:
-                        if qn() is not none:
+                        if qn() is not 0:
                             raise_unknown_line()
 
                         middle_2 = parse_PYTHON__atom__or__right_square_bracket()
@@ -246,23 +247,23 @@ def module():
                         else:
                             operator_3 = qk()
 
-                            if operator_3 is none:
-                                if qn() is not none:
+                            if operator_3 is 0:
+                                if qn() is not 0:
                                     raise_unknown_line()
 
                                 operator_3 = tokenize_PYTHON_operator()
                             else:
-                                wk(none)
+                                wk0()
 
                             if not operator_3.is_end_of_ternary_expression:
                                 middle_2 = parse_PYTHON__ternary_expression__X__any_expression(middle_2, operator_3)
 
                                 operator_3 = qk()
 
-                                if operator_3 is none:
+                                if operator_3 is 0:
                                     raise_unknown_line()
 
-                                wk(none)
+                                wk0()
 
                             if not operator_3.is_right_square_bracket:
                                 raise_unknown_line()
@@ -277,18 +278,18 @@ def module():
                         my_line('operator_2: %r', operator_2)
                         raise_unknown_line()
 
-                    if qn() is not none:
+                    if qn() is not 0:
                         return left
 
                     operator = qk()
 
-                    if operator is not none:
+                    if operator is not 0:
                         if not operator.is_postfix_operator:
                             return left
 
-                        wk(none)
+                        wk0()
                     else:
-                        if qn() is not none:
+                        if qn() is not 0:
                             return left
 
                         operator = tokenize_PYTHON_operator()
@@ -306,13 +307,13 @@ def module():
                 else:
                     operator_2 = qk()
 
-                    if operator_2 is none:
-                        if qn() is not none:
+                    if operator_2 is 0:
+                        if qn() is not 0:
                             raise_unknown_line()
 
                         operator_2 = tokenize_PYTHON_operator()
                     else:
-                        wk(none)
+                        wk0()
 
                     if not operator_2.is_right_square_bracket:
                         middle_2 = parse_PYTHON__ternary_expression__X__any_expression(middle_2, operator_2)
@@ -322,22 +323,22 @@ def module():
                         if not operator_2.is_right_square_bracket:
                             raise_unknown_line()
 
-                        wk(none)
+                        wk0()
 
                     left = conjure_index_expression(left, conjure_tail_index(operator, middle_2, operator_2))
 
-                    if qn() is not none:
+                    if qn() is not 0:
                         return left
 
                     operator = qk()
 
-                    if operator is not none:
+                    if operator is not 0:
                         if not operator.is_postfix_operator:
                             return left
 
-                        wk(none)
+                        wk0()
                     else:
-                        if qn() is not none:
+                        if qn() is not 0:
                             return left
 
                         operator = tokenize_PYTHON_operator()
@@ -350,18 +351,18 @@ def module():
             if operator.is_all_index:
                 left = conjure_index_expression(left, operator)
 
-                if qn() is not none:
+                if qn() is not 0:
                     return left
 
                 operator = qk()
 
-                if operator is not none:
+                if operator is not 0:
                     if not operator.is_postfix_operator:
                         return left
 
-                    wk(none)
+                    wk0()
                 else:
-                    if qn() is not none:
+                    if qn() is not 0:
                         return left
 
                     operator = tokenize_PYTHON_operator()
@@ -406,15 +407,13 @@ def module():
 
         operator = qk()
 
-        if operator is none:
-            newline = qn()
-
-            if qn() is not none:
+        if operator is 0:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
 
-            if qk() is not none:
+            if qk() is not 0:
                 raise_unknown_line()
 
             if operator.is_end_of_unary_expression:
@@ -424,15 +423,15 @@ def module():
             if operator.is_end_of_unary_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_postfix_operator:
             left = parse_PYTHON__postfix_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -440,15 +439,15 @@ def module():
             if operator.is_end_of_unary_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_power_operator:
             left = parse_PYTHON__power_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -456,15 +455,15 @@ def module():
             if operator.is_end_of_unary_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_power_operator:
             left = parse_PYTHON__power_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -472,7 +471,7 @@ def module():
             if operator.is_end_of_unary_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         raise_unknown_line()
 
@@ -495,8 +494,8 @@ def module():
 
         operator = qk()
 
-        if operator is none:
-            if qn() is not none:
+        if operator is 0:
+            if qn() is not 0:
                 return multiply_operator.expression_meta(left, multiply_operator, right)
 
             operator = tokenize_PYTHON_operator()
@@ -509,7 +508,7 @@ def module():
             if operator.is_end_of_multiply_expression:
                 return multiply_operator.expression_meta(left, multiply_operator, right)
 
-            wk(none)
+            wk0()
 
         if not operator.is_multiply_operator:
             raise_unknown_line()
@@ -522,8 +521,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is not none:
+            if operator is 0:
+                if qn() is not 0:
                     break
 
                 operator = tokenize_PYTHON_operator()
@@ -535,7 +534,7 @@ def module():
                 if operator.is_end_of_multiply_expression:
                     break
 
-                wk(none)
+                wk0()
 
             if not operator.is_multiply_operator:
                 raise_unknown_line()
@@ -550,13 +549,13 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
+        if operator is not 0:
             if operator.is_end_of_multiply_expression:
                 return left
 
-            wk(none)
+            wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -571,8 +570,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -580,15 +579,15 @@ def module():
             if operator.is_end_of_multiply_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_power_operator:
             left = parse_PYTHON__power_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -596,7 +595,7 @@ def module():
             if operator.is_end_of_multiply_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_multiply_operator:
             return parse_PYTHON__multiply_expression__left_operator(left, operator)
@@ -615,8 +614,8 @@ def module():
 
         operator = qk()
 
-        if operator is none:
-            if qn() is not none:
+        if operator is 0:
+            if qn() is not 0:
                 return add_operator.expression_meta(left, add_operator, right)
 
             operator = tokenize_PYTHON_operator()
@@ -629,7 +628,7 @@ def module():
             if operator.is_end_of_PYTHON_arithmetic_expression:
                 return add_operator.expression_meta(left, add_operator, right)
 
-            wk(none)
+            wk0()
 
         if not operator.is_PYTHON_arithmetic_operator:
             raise_unknown_line()
@@ -642,8 +641,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is not none:
+            if operator is 0:
+                if qn() is not 0:
                     break
 
                 operator = tokenize_PYTHON_operator()
@@ -655,7 +654,7 @@ def module():
                 if operator.is_end_of_PYTHON_arithmetic_expression:
                     break
 
-                wk(none)
+                wk0()
 
             if not operator.is_PYTHON_arithmetic_operator:
                 raise_unknown_line()
@@ -670,13 +669,13 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
+        if operator is not 0:
             if operator.is_end_of_PYTHON_arithmetic_expression:
                 return left
 
-            wk(none)
+            wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -691,8 +690,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -700,15 +699,15 @@ def module():
             if operator.is_end_of_PYTHON_arithmetic_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_power_operator:
             left = parse_PYTHON__power_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -716,15 +715,15 @@ def module():
             if operator.is_end_of_PYTHON_arithmetic_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_multiply_operator:
             left = parse_PYTHON__multiply_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -732,7 +731,7 @@ def module():
             if operator.is_end_of_PYTHON_arithmetic_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_PYTHON_arithmetic_operator:
             return parse_PYTHON__arithmetic_expression__left_operator(left, operator)
@@ -755,8 +754,8 @@ def module():
 
         operator = qk()
 
-        if operator is none:
-            if qn() is not none:
+        if operator is 0:
+            if qn() is not 0:
                 return conjure_logical_and_expression(left, logical_and_operator, right)
 
             operator = tokenize_PYTHON_operator()
@@ -769,7 +768,7 @@ def module():
             if operator.is_end_of_logical_and_expression:
                 return conjure_logical_and_expression(left, logical_and_operator, right)
 
-            wk(none)
+            wk0()
 
         if not operator.is_logical_and_operator:
             raise_unknown_line()
@@ -781,8 +780,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is not none:
+            if operator is 0:
+                if qn() is not 0:
                     return LogicalAndExpression_Many(Tuple(many))
 
                 operator = tokenize_PYTHON_operator()
@@ -795,7 +794,7 @@ def module():
                 if operator.is_end_of_logical_and_expression:
                     return LogicalAndExpression_Many(Tuple(many))
 
-                wk(none)
+                wk0()
 
             if not operator.is_logical_and_operator:
                 raise_unknown_line()
@@ -809,13 +808,13 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
+        if operator is not 0:
             if operator.is_end_of_logical_and_expression:
                 return left
 
-            wk(none)
+            wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -830,8 +829,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -839,15 +838,15 @@ def module():
             if operator.is_end_of_logical_and_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_power_operator:
             left = parse_PYTHON__power_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -855,15 +854,15 @@ def module():
             if operator.is_end_of_logical_and_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_multiply_operator:
             left = parse_PYTHON__multiply_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -871,15 +870,15 @@ def module():
             if operator.is_end_of_logical_and_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_PYTHON_arithmetic_operator:
             left = parse_PYTHON__arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -887,7 +886,7 @@ def module():
             if operator.is_end_of_logical_and_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_and_operator:
             return parse_PYTHON__logical_and_expression__left_operator(left, operator)
@@ -910,8 +909,8 @@ def module():
 
         operator = qk()
 
-        if operator is none:
-            if qn() is not none:
+        if operator is 0:
+            if qn() is not 0:
                 return conjure_logical_or_expression(left, logical_or_operator, right)
 
             operator = tokenize_PYTHON_operator()
@@ -924,7 +923,7 @@ def module():
             if operator.is_end_of_logical_or_expression:
                 return conjure_logical_or_expression(left, logical_or_operator, right)
 
-            wk(none)
+            wk0()
 
         if not operator.is_logical_or_operator:
             raise_unknown_line()
@@ -937,8 +936,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is not none:
+            if operator is 0:
+                if qn() is not 0:
                     break
 
                 operator = tokenize_PYTHON_operator()
@@ -950,7 +949,7 @@ def module():
                 if operator.is_end_of_logical_or_expression:
                     break
 
-                wk(none)
+                wk0()
 
             if not operator.is_logical_or_operator:
                 raise_unknown_line()
@@ -966,13 +965,13 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
+        if operator is not 0:
             if operator.is_end_of_logical_or_expression:
                 return left
 
-            wk(none)
+            wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -987,8 +986,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -996,15 +995,15 @@ def module():
             if operator.is_end_of_logical_or_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_power_operator:
             left = parse_PYTHON__power_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1012,15 +1011,15 @@ def module():
             if operator.is_end_of_logical_or_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_multiply_operator:
             left = parse_PYTHON__multiply_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1028,15 +1027,15 @@ def module():
             if operator.is_end_of_logical_or_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_PYTHON_arithmetic_operator:
             left = parse_PYTHON__arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1044,15 +1043,15 @@ def module():
             if operator.is_end_of_logical_or_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_and_operator:
             left = parse_PYTHON__logical_and_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1060,7 +1059,7 @@ def module():
             if operator.is_end_of_logical_or_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_or_operator:
             return parse_PYTHON__normal_expression__left_operator(left, operator)
@@ -1091,8 +1090,8 @@ def module():
 
         operator = qk()
 
-        if operator is none:
-            if qn() is not none:
+        if operator is 0:
+            if qn() is not 0:
                 return compare_operator.expression_meta(left, compare_operator, right)
 
             operator = tokenize_PYTHON_operator()
@@ -1105,7 +1104,7 @@ def module():
             if operator.is_end_of_compare_expression:
                 return compare_operator.expression_meta(left, compare_operator, right)
 
-            wk(none)
+            wk0()
 
         many       = [left, right]
         many_frill = [compare_operator, operator]
@@ -1115,8 +1114,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is not none:
+            if operator is 0:
+                if qn() is not 0:
                     break
 
                 operator = tokenize_PYTHON_operator()
@@ -1128,7 +1127,7 @@ def module():
                 if operator.is_end_of_compare_expression:
                     break
 
-                wk(none)
+                wk0()
 
             many_frill.append(operator)
 
@@ -1136,19 +1135,19 @@ def module():
 
 
     def parse_PYTHON__compare_expression():
-        assert qk() is none
+        assert qk() is 0
 
         left = parse_PYTHON_atom__normal()
 
         operator = qk()
 
-        if operator is not none:
+        if operator is not 0:
             if operator.is_end_of_compare_expression:
                 return left
 
-            wk(none)
+            wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -1163,8 +1162,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1172,15 +1171,15 @@ def module():
             if operator.is_end_of_compare_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_power_operator:
             left = parse_PYTHON__power_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1188,15 +1187,15 @@ def module():
             if operator.is_end_of_compare_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_multiply_operator:
             left = parse_PYTHON__multiply_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1204,15 +1203,15 @@ def module():
             if operator.is_end_of_compare_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_PYTHON_arithmetic_operator:
             left = parse_PYTHON__arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1220,15 +1219,15 @@ def module():
             if operator.is_end_of_compare_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_and_operator:
             left = parse_PYTHON__logical_and_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1236,15 +1235,15 @@ def module():
             if operator.is_end_of_compare_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_or_operator:
             left = parse_PYTHON__normal_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1252,7 +1251,7 @@ def module():
             if operator.is_end_of_compare_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_compare_operator:
             return parse_PYTHON__compare_expression__left_operator(left, operator)
@@ -1289,8 +1288,8 @@ def module():
 
         operator_2 = qk()
 
-        if operator_2 is none:
-            if qn() is not none:
+        if operator_2 is 0:
+            if qn() is not 0:
                 return conjure_and_expression_1(left, operator, right)
 
             operator_2 = tokenize_PYTHON_operator()
@@ -1303,7 +1302,7 @@ def module():
             if operator_2.is_end_of_boolean_and_expression:
                 return conjure_and_expression_1(left, operator, right)
 
-            wk(none)
+            wk0()
 
         many       = [left, right]
         many_frill = [operator, operator_2]
@@ -1313,8 +1312,8 @@ def module():
 
             operator_7 = qk()
 
-            if operator_7 is none:
-                if qn() is not none:
+            if operator_7 is 0:
+                if qn() is not 0:
                     return conjure_and_expression_many(many, many_frill)
 
                 operator_7 = tokenize_PYTHON_operator()
@@ -1327,7 +1326,7 @@ def module():
                 if operator_7.is_end_of_boolean_and_expression:
                     return conjure_and_expression_many(many, many_frill)
 
-                wk(none)
+                wk0()
 
             if not operator_7.is_keyword_and:
                 raise_unknown_line()
@@ -1340,13 +1339,13 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
+        if operator is not 0:
             if operator.is_end_of_boolean_and_expression:
                 return left
 
-            wk(none)
+            wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -1361,8 +1360,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1370,15 +1369,15 @@ def module():
             if operator.is_end_of_boolean_and_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_power_operator:
             left = parse_PYTHON__power_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1386,15 +1385,15 @@ def module():
             if operator.is_end_of_boolean_and_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_multiply_operator:
             left = parse_PYTHON__multiply_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1402,15 +1401,15 @@ def module():
             if operator.is_end_of_boolean_and_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_PYTHON_arithmetic_operator:
             left = parse_PYTHON__arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1418,15 +1417,15 @@ def module():
             if operator.is_end_of_boolean_and_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_and_operator:
             left = parse_PYTHON__logical_and_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1434,15 +1433,15 @@ def module():
             if operator.is_end_of_boolean_and_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_or_operator:
             left = parse_PYTHON__normal_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1450,15 +1449,15 @@ def module():
             if operator.is_end_of_boolean_and_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_compare_operator:
             left = parse_PYTHON__compare_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1466,7 +1465,7 @@ def module():
             if operator.is_end_of_boolean_and_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_keyword_and:
             return parse_PYTHON__boolean_and_expression__left_operator(left, operator)
@@ -1486,8 +1485,8 @@ def module():
 
         operator_2 = qk()
 
-        if operator_2 is none:
-            if qn() is not none:
+        if operator_2 is 0:
+            if qn() is not 0:
                 return conjure_or_expression_1(left, operator, right)
 
             operator_2 = tokenize_PYTHON_operator()
@@ -1500,7 +1499,7 @@ def module():
             if operator_2.is_end_of_boolean_or_expression:
                 return conjure_or_expression_1(left, operator, right)
 
-            wk(none)
+            wk0()
 
         many       = [left, right]
         many_frill = [operator, operator_2]
@@ -1510,8 +1509,8 @@ def module():
 
             operator_7 = qk()
 
-            if operator_7 is none:
-                if qn() is not none:
+            if operator_7 is 0:
+                if qn() is not 0:
                     break
 
                 operator_7 = tokenize_PYTHON_operator()
@@ -1523,7 +1522,7 @@ def module():
                 if operator_7.is_end_of_boolean_or_expression:
                     break
 
-                wk(none)
+                wk0()
 
             if not operator_7.is_keyword_or:
                 raise_unknown_line()
@@ -1538,13 +1537,13 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
+        if operator is not 0:
             if operator.is_end_of_boolean_or_expression:
                 return left
 
-            wk(none)
+            wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -1559,8 +1558,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1568,15 +1567,15 @@ def module():
             if operator.is_end_of_boolean_or_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_power_operator:
             left = parse_PYTHON__power_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1584,15 +1583,15 @@ def module():
             if operator.is_end_of_boolean_or_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_multiply_operator:
             left = parse_PYTHON__multiply_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1600,15 +1599,15 @@ def module():
             if operator.is_end_of_boolean_or_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_PYTHON_arithmetic_operator:
             left = parse_PYTHON__arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1616,15 +1615,15 @@ def module():
             if operator.is_end_of_boolean_or_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_compare_operator:
             left = parse_PYTHON__compare_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1632,15 +1631,15 @@ def module():
             if operator.is_end_of_boolean_or_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_and_operator:
             left = parse_PYTHON__logical_and_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1648,15 +1647,15 @@ def module():
             if operator.is_end_of_boolean_and_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_or_operator:
             left = parse_PYTHON__normal_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1664,15 +1663,15 @@ def module():
             if operator.is_end_of_boolean_or_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_keyword_and:
             left = parse_PYTHON__boolean_and_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1680,7 +1679,7 @@ def module():
             if operator.is_end_of_boolean_or_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_keyword_or:
             return parse_PYTHON__boolean_or_expression__left_operator(left, operator)
@@ -1712,7 +1711,7 @@ def module():
 
         operator_2 = qk()
 
-        wk(none)
+        wk0()
 
         if not operator_2.is_keyword_else:
             #my_line('left: %r; operator: %r; middle: %r; operator_2: %r; s: %s',
@@ -1730,8 +1729,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1739,15 +1738,15 @@ def module():
             if operator.is_end_of_ternary_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_power_operator:
             left = parse_PYTHON__power_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1755,15 +1754,15 @@ def module():
             if operator.is_end_of_ternary_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_multiply_operator:
             left = parse_PYTHON__multiply_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1771,15 +1770,15 @@ def module():
             if operator.is_end_of_ternary_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_PYTHON_arithmetic_operator:
             left = parse_PYTHON__arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1787,15 +1786,15 @@ def module():
             if operator.is_end_of_ternary_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_compare_operator:
             left = parse_PYTHON__compare_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1803,15 +1802,15 @@ def module():
             if operator.is_end_of_ternary_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_and_operator:
             left = parse_PYTHON__logical_and_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1819,15 +1818,15 @@ def module():
             if operator.is_end_of_ternary_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_or_operator:
             left = parse_PYTHON__normal_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1835,15 +1834,15 @@ def module():
             if operator.is_end_of_ternary_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_keyword_and:
             left = parse_PYTHON__boolean_and_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1851,7 +1850,7 @@ def module():
             if operator.is_end_of_ternary_expression:
                 return left
 
-            wk(none)
+            wk0()
 
 
         if operator.is_keyword_or:
@@ -1859,8 +1858,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1868,7 +1867,7 @@ def module():
             if operator.is_end_of_ternary_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_keyword_if:
             return parse_PYTHON__ternary_expression__left_operator(left, operator)
@@ -1883,13 +1882,13 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
+        if operator is not 0:
             if operator.is_end_of_ternary_expression:
                 return left
 
-            wk(none)
+            wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -1912,8 +1911,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1921,15 +1920,15 @@ def module():
             if operator.is_end_of_ternary_expression_list:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_power_operator:
             left = parse_PYTHON__power_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1937,15 +1936,15 @@ def module():
             if operator.is_end_of_ternary_expression_list:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_multiply_operator:
             left = parse_PYTHON__multiply_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1953,15 +1952,15 @@ def module():
             if operator.is_end_of_ternary_expression_list:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_PYTHON_arithmetic_operator:
             left = parse_PYTHON__arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1969,15 +1968,15 @@ def module():
             if operator.is_end_of_ternary_expression_list:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_and_operator:
             left = parse_PYTHON__logical_and_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1985,15 +1984,15 @@ def module():
             if operator.is_end_of_ternary_expression_list:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_or_operator:
             left = parse_PYTHON__normal_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2001,15 +2000,15 @@ def module():
             if operator.is_end_of_ternary_expression_list:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_compare_operator:
             left = parse_PYTHON__compare_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2017,15 +2016,15 @@ def module():
             if operator.is_end_of_ternary_expression_list:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_keyword_and:
             left = parse_PYTHON__boolean_and_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2033,15 +2032,15 @@ def module():
             if operator.is_end_of_ternary_expression_list:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_keyword_or:
             left = parse_PYTHON__boolean_or_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2049,15 +2048,15 @@ def module():
             if operator.is_end_of_ternary_expression_list:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_keyword_if:
             left = parse_PYTHON__ternary_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2065,7 +2064,7 @@ def module():
             if operator.is_end_of_ternary_expression_list:
                 return left
 
-            wk(none)
+            wk0()
 
         #my_line('line: %d; left: %r; operator: %r', ql(), left, operator)
         raise_unknown_line()
@@ -2077,13 +2076,13 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
+        if operator is not 0:
             if operator.is_end_of_ternary_expression_list:
                 return left
 
-            wk(none)
+            wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -2116,6 +2115,7 @@ def module():
     #
     #   25. Comprehension-Expression-List (Python 2.7.14rc1 grammer calls this 'testlist_comp')
     #
+    @export
     def parse_PYTHON__comprehension_expression__left_operator(left, operator):
         assert operator.is_keyword_for
 
@@ -2125,7 +2125,7 @@ def module():
 
                 in_operator = qk()
 
-                wk(none)
+                wk0()
 
                 if not in_operator.is_keyword_in:
                     #my_line('left: %r; operator: %r; middle: %r; in_operator: %r; s: %s',
@@ -2137,20 +2137,26 @@ def module():
 
                 operator = qk()
 
-                if (operator is none) or (operator.is_end_of_comprehension_expression_list):
+                #
+                #   TODO: Operator is 0 seems to be a mistake!
+                #
+                if (operator is 0) or (operator.is_end_of_comprehension_expression_list):
                     return left
 
-                wk(none)
+                wk0()
 
             if operator.is_keyword_if:
                 left = conjure_comprehension_if(left, operator, parse_PYTHON__boolean_or_expression())
 
                 operator = qk()
 
-                if (operator is none) or (operator.is_end_of_comprehension_expression_list):
+                #
+                #   TODO: Operator is 0 seems to be a mistake!
+                #
+                if (operator is 0) or (operator.is_end_of_comprehension_expression_list):
                     return left
 
-                wk(none)
+                wk0()
 
             assert (operator.is_keyword_for) or (operator.is_keyword_if)
 
@@ -2162,8 +2168,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2171,15 +2177,15 @@ def module():
             if operator.is_end_of_comprehension_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_power_operator:
             left = parse_PYTHON__power_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2187,15 +2193,15 @@ def module():
             if operator.is_end_of_comprehension_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_multiply_operator:
             left = parse_PYTHON__multiply_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2203,15 +2209,15 @@ def module():
             if operator.is_end_of_comprehension_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_PYTHON_arithmetic_operator:
             left = parse_PYTHON__arithmetic_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2219,15 +2225,15 @@ def module():
             if operator.is_end_of_comprehension_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_compare_operator:
             left = parse_PYTHON__compare_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2235,15 +2241,15 @@ def module():
             if operator.is_end_of_comprehension_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_and_operator:
             left = parse_PYTHON__logical_and_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2251,15 +2257,15 @@ def module():
             if operator.is_end_of_comprehension_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_logical_or_operator:
             left = parse_PYTHON__normal_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2267,15 +2273,15 @@ def module():
             if operator.is_end_of_comprehension_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_keyword_and:
             left = parse_PYTHON__boolean_and_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2283,7 +2289,7 @@ def module():
             if operator.is_end_of_comprehension_expression:
                 return left
 
-            wk(none)
+            wk0()
 
 
         if operator.is_keyword_or:
@@ -2291,8 +2297,8 @@ def module():
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2300,15 +2306,15 @@ def module():
             if operator.is_end_of_comprehension_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_keyword_if:
             left = parse_PYTHON__ternary_expression__left_operator(left, operator)
 
             operator = qk()
 
-            if operator is none:
-                if qn() is none:
+            if operator is 0:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2316,7 +2322,7 @@ def module():
             if operator.is_end_of_comprehension_expression:
                 return left
 
-            wk(none)
+            wk0()
 
         if operator.is_keyword_for:
             return parse_PYTHON__comprehension_expression__left_operator(left, operator)

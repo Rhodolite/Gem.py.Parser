@@ -22,11 +22,13 @@ def module():
             is_CRYSTAL_simple_atom__or__right_parenthesis    = false
             is_CRYSTAL_simple_atom__or__right_square_bracket = false
 
+        if TREMOLITE_parser:
+            is_TREMOLITE__simple_atom__or__right_brace_set = true
 
         if CRYSTAL_parser:
+            is_CRYSTAL_comma             = false
             is_CRYSTAL_left_parenthesis  = false
             is_CRYSTAL_right_parenthesis = false
-
 
         if PYTHON_parser:
             is_all_index                             = false
@@ -35,7 +37,6 @@ def module():
             is_colon                                 = false
             is_colon__line_marker                    = false
             is_colon__right_square_bracket           = false
-            is_comma                                 = false
             is__comma__or__right_parenthesis         = false
             is_comma__right_parenthesis              = false
             is_comma__right_square_bracket           = false
@@ -72,6 +73,7 @@ def module():
             is_minus_sign                            = false
             is_modify_operator                       = false
             is_multiply_operator                     = false
+            is__optional_comma__right_brace          = false
             is__optional_comma__right_parenthesis    = false
             is__optional_comma__right_square_bracket = false
             is_parameters_0                          = false
@@ -86,23 +88,23 @@ def module():
 
 
         if TREMOLITE_parser:
-            is_end_of_TREMOLITE_arithmetic_expression = false
-            is_end_of_TREMOLITE_or_expression         = false
-            is_end_of_TREMOLITE_range_expression      = false
-            is_end_of_TREMOLITE_unary_expression      = false
-            is_TREMOLITE_arithmetic_operator          = false
-            is_TREMOLITE_range_operator               = false
+            is_end_of_TREMOLITE_arithmetic_expression     = false
+            is_end_of_TREMOLITE_or_expression             = false
+            is_end_of_TREMOLITE_range_expression          = false
+            is_end_of_TREMOLITE_unary_expression          = false
+            is_TREMOLITE_arithmetic_operator              = false
+            is_TREMOLITE_left_brace_set                   = false
+            is_TREMOLITE__optional_comma__right_brace_set = false
+            is_TREMOLITE_range_operator                   = false
+            is_TREMOLITE_right_brace_set                  = false
 
 
         def __repr__(t):
             return arrange('<%s %s>', t.__class__.__name__, portray_string(t.s))
 
 
-        def display_short_token(t):
-            return arrange('{%s}', portray_string(t.s)[1:-1])
-
-
-        display_token = display_short_token
+        def display_token(t):
+            return arrange('{%s}', t.s)
 
 
     if JAVA_parser or PYTHON_parser:
@@ -145,6 +147,51 @@ def module():
 
         export(
             'conjure_keyword_language',     conjure_keyword_language,
+        )
+
+
+    if PYTHON_parser or TREMOLITE_parser:
+        @export
+        class OperatorComma(KeywordAndOperatorBase):
+            __slots__      = (())
+            display_name   = ','
+            frill_estimate = 1
+
+            if CRYSTAL_parser:
+                is_CRYSTAL_comma = true
+
+            if PYTHON_parser:
+                is__comma__or__right_parenthesis       = true
+                is_end_of_boolean_and_expression       = true
+                is_end_of_boolean_or_expression        = true
+                is_end_of_compare_expression           = true
+                is_end_of_comprehension_expression     = true
+                is_end_of_logical_and_expression       = true
+                is_end_of_logical_or_expression        = true
+                is_end_of_multiply_expression          = true
+                is_end_of_normal_expression            = true
+                is_end_of_PYTHON_arithmetic_expression = true
+                is_end_of_ternary_expression           = true
+                is_end_of_unary_expression             = true
+
+            if TREMOLITE_parser:
+                is_end_of_TREMOLITE_arithmetic_expression = true
+                is_end_of_TREMOLITE_or_expression         = true
+                is_end_of_TREMOLITE_range_expression      = true
+                is_end_of_TREMOLITE_unary_expression      = true
+
+        [
+                conjure_CRYSTAL_comma, conjure_CRYSTAL_comma__ends_in_newline,
+        ] = produce_conjure_action_word__ends_in_newline('comma', OperatorComma)
+
+
+        COMMA__W = conjure_CRYSTAL_comma(', ')
+
+
+        export(
+            'COMMA__W',                                 COMMA__W,
+            'conjure_CRYSTAL_comma',                    conjure_CRYSTAL_comma,
+            'conjure_CRYSTAL_comma__ends_in_newline',   conjure_CRYSTAL_comma__ends_in_newline,
         )
 
 
@@ -277,7 +324,7 @@ def module():
                     ']' : 7,
                     '}' : 7,
                 }.get
-        
+
         if TREMOLITE_parser:
             is_CRYSTAL_close_or_open_operator = {
                     '(' : 3,

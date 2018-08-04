@@ -10,8 +10,10 @@ def module():
         ))
 
 
-        class_order = CLASS_ORDER__UNARY_EXPRESSION
-        is_colon    = false
+        class_order                  = CLASS_ORDER__UNARY_EXPRESSION
+        is_colon                     = false
+        is_CRYSTAL_left_parenthesis  = false
+        is_CRYSTAL_right_parenthesis = false
 
 
         def __init__(t, a):
@@ -146,17 +148,22 @@ def module():
         display_name = '*-argument'
         frill        = conjure_star_sign('*')
 
+        is_CRYSTAL_atom              = true
+        is_CRYSTAL_left_parenthesis  = false
+        is_CRYSTAL_right_parenthesis = false
+
 
         scout_variables = scout_variables__a
-
 
 
     class StarParameter(UnaryExpression):
         __slots__    = (())
         display_name = '*-parameter'
         frill        = conjure_star_sign('*')
-        
-        is_CRYSTAL_atom = true
+
+        is_CRYSTAL_atom              = true
+        is_CRYSTAL_left_parenthesis  = false
+        is_CRYSTAL_right_parenthesis = false
 
         is_PYTHON__identifier__or__star_parameter = true
 

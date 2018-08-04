@@ -52,6 +52,8 @@ def module():
     wd1 = Method(wd, 1)                     #   `d` = 1
     wi0 = Method(wi, 0)                     #   `i` = 0
     wj0 = Method(wj, 0)                     #   `j` = 0
+    wk0 = Method(wk, 0)                     #   `k` = 0
+    wn0 = Method(wn, 0)                     #   `n` = 0
 
 
     construct_Exception = Exception.__init__
@@ -202,8 +204,8 @@ def module():
                 wi0()
                 wj0()
                 wl(line_number)
-                wk(none)
-                wn(none)
+                wk0()
+                wn0()
 
                 yield s
 
@@ -213,8 +215,8 @@ def module():
             wi0()
             wj0()
             wl(none)
-            wk(none)
-            wn(none)
+            wk0()
+            wn0()
             wp(none)
 
 
@@ -228,13 +230,16 @@ def module():
     def raise_unknown_line():
         caller_frame = caller_frame_1()
         caller_name  = caller_frame.f_code.co_name
-        basename     = path_basename(caller_frame.f_code.co_filename)
 
-        line('??? %s#%s: %s; %s:%s', basename, caller_frame.f_lineno, caller_name, qp(), ql())
+        [head, tail] = path_split(caller_frame.f_code.co_filename)
+
+        basename_2 = path_join(path_basename(head), tail)
+
+        line('??? %s#%s: %s; %s:%s', basename_2, caller_frame.f_lineno, caller_name, qp(), ql())
 
         unknown_line_error = UnknownLineException(
                                  arrange('parse incomplete: %s#%s: %s; %s:%s',
-                                         basename, caller_frame.f_lineno, caller_name, qp(), ql()),
+                                         basename_2, caller_frame.f_lineno, caller_name, qp(), ql()),
                                  UnknownLine(qs()),
                              )
 
@@ -260,6 +265,8 @@ def module():
         'wi',               wi,
         'wj',               wj,
         'wk',               wk,
+        'wk0',              wk0,
         'wn',               wn,
+        'wn0',              wn0,
         'ws',               ws,
     )

@@ -58,7 +58,7 @@ def module():
         frill        = conjure_action_word('==', ' == ')
 
         __repr__      = portray_with_braces
-        display_token = display_token__with_braces
+        display_token = display_token__ab__with_braces
 
 
     class CompareDifferentExpression(BinaryExpression):
@@ -85,7 +85,7 @@ def module():
         frill        = conjure_action_word('>', ' > ')
 
         __repr__      = portray_with_braces
-        display_token = display_token__with_braces
+        display_token = display_token__ab__with_braces
 
 
     class CompareGreaterThanOrEqualExpression(BinaryExpression):
@@ -94,7 +94,7 @@ def module():
         frill        = conjure_action_word('>=', ' >= ')
 
         __repr__      = portray_with_braces
-        display_token = display_token__with_braces
+        display_token = display_token__ab__with_braces
 
 
     class CompareIdentityExpression(BinaryExpression):
@@ -109,7 +109,7 @@ def module():
         frill        = conjure_action_word('<', ' < ')
 
         __repr__      = portray_with_braces
-        display_token = display_token__with_braces
+        display_token = display_token__ab__with_braces
 
 
     class CompareLessThanOrEqualExpression(BinaryExpression):
@@ -118,7 +118,7 @@ def module():
         frill        = conjure_action_word('<=', ' <= ')
 
         __repr__      = portray_with_braces
-        display_token = display_token__with_braces
+        display_token = display_token__ab__with_braces
 
 
     class CompareNotEqualExpression(BinaryExpression):
@@ -127,7 +127,7 @@ def module():
         frill        = conjure_action_word('!=', ' != ')
 
         __repr__      = portray_with_braces
-        display_token = display_token__with_braces
+        display_token = display_token__ab__with_braces
 
 
     class DivideExpression(BinaryExpression):
@@ -137,7 +137,7 @@ def module():
 
         __repr__ = portray_with_braces
 
-        display_token = display_token__with_braces
+        display_token = display_token__ab__with_braces
 
 
     class IntegerDivideExpression(BinaryExpression):
@@ -147,7 +147,7 @@ def module():
 
         __repr__ = portray_with_braces
 
-        display_token = display_token__with_braces
+        display_token = display_token__ab__with_braces
 
 
     class KeywordArgument(BinaryExpression):

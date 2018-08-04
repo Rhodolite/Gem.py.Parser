@@ -39,7 +39,7 @@ def module():
         name    = tokenize_name()
         newline = qn()
 
-        if newline is not none:
+        if newline is not 0:
             return conjure_decorator_header(indentation__at_sign, name, newline)
 
         operator = tokenize_PYTHON_operator()
@@ -47,7 +47,7 @@ def module():
         if operator.is_arguments_0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_decorator_header(indentation__at_sign, conjure_call_expression(name, operator), newline)
@@ -59,7 +59,7 @@ def module():
 
         newline = qn()
 
-        if newline is none:
+        if newline is 0:
             raise_unknown_line()
 
         return conjure_decorator_header(indentation__at_sign, call, newline)
@@ -81,27 +81,27 @@ def module():
 
         operator = qk()
 
-        if operator is none:
+        if operator is 0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_assert_statement_1(indented_keyword, left, newline)
 
-        wk(none)
+        wk0()
 
-        if not operator.is_comma:
+        if not operator.is_CRYSTAL_comma:
             raise_unknown_line()
 
         right = parse_PYTHON__ternary_expression()
 
         operator_2 = qk()
 
-        if operator_2 is none:
+        if operator_2 is 0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_assert_statement_2(indented_keyword, left, operator, right, newline)
@@ -125,17 +125,17 @@ def module():
 
         operator = qk()
 
-        if operator is none:
+        if operator is 0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_delete_header(indented_keyword, left, newline)
 
-        wk(none)
+        wk0()
 
-        if not operator.is_comma:
+        if not operator.is_CRYSTAL_comma:
             raise_unknown_line()
 
         many       = [left]
@@ -146,17 +146,17 @@ def module():
 
             operator = qk()
 
-            if operator is none:
+            if operator is 0:
                 newline = qn()
 
-                if newline is none:
+                if newline is 0:
                     raise_unknown_line()
 
                 return conjure_delete_many(indented_keyword, many, many_frill, newline)
 
-            wk(none)
+            wk0()
 
-            if not operator.is_comma:
+            if not operator.is_CRYSTAL_comma:
                 raise_unknown_line()
 
             many_frill.append(operator)
@@ -186,42 +186,42 @@ def module():
 
         operator = qk()
 
-        if operator is none:
+        if operator is 0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_raise_statement_1(indented_keyword, left, newline)
 
-        wk(none)
+        wk0()
 
-        if not operator.is_comma:
+        if not operator.is_CRYSTAL_comma:
             raise_unknown_line()
 
         middle = parse_PYTHON__ternary_expression()
 
         operator_2 = qk()
 
-        if operator_2 is none:
+        if operator_2 is 0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_raise_statement_2(indented_keyword, left, operator, middle, newline)
 
-        wk(none)
+        wk0()
 
-        if not operator_2.is_comma:
+        if not operator_2.is_CRYSTAL_comma:
             raise_unknown_line()
 
         right = parse_PYTHON__ternary_expression()
 
-        if qk() is none:
+        if qk() is 0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_raise_statement_3(indented_keyword, left, operator, middle, operator_2, right, newline)
@@ -243,13 +243,13 @@ def module():
 
         right = parse_PYTHON__ternary_expression_list()
 
-        if qk() is not none:
+        if qk() is not 0:
             #my_line('qk: %r; full: %s', qk(), portray_string(qs()))
             raise_unknown_line()
 
         newline = qn()
 
-        if newline is none:
+        if newline is 0:
             raise_unknown_line()
 
         return conjure_return_statement(indented_keyword, right, newline)
@@ -269,12 +269,12 @@ def module():
 
         left = parse_PYTHON__ternary_expression_list()
 
-        if qk() is not none:
+        if qk() is not 0:
             raise_unknown_line()
 
         newline = qn()
 
-        if newline is none:
+        if newline is 0:
             raise_unknown_line()
 
         return conjure_yield_statement_1(indented_keyword, left, newline)

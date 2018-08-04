@@ -86,7 +86,7 @@ def module():
 
         if operator is ',':
             wj(m2.end())
-            wk(conjure_comma(m2.group()))
+            wk(conjure_CRYSTAL_comma(m2.group()))
 
             return imported
 
@@ -118,7 +118,7 @@ def module():
             return imported
 
         wj(m4.end())
-        wk(conjure_comma(m4.group()))
+        wk(conjure_CRYSTAL_comma(m4.group()))
 
         return imported
 
@@ -138,8 +138,7 @@ def module():
         module = parse_PYTHON__statement_from_module(j)
 
         keyword_import = qk()
-
-        wk(none)
+        wk0()
         #</module>
 
         #
@@ -148,14 +147,13 @@ def module():
         imported = parse_PYTHON__statement_from_as()
 
         operator = qk()
-
-        wk(none)
+        wk0()
         #<imported/>
 
         if operator.line_marker:
             return conjure_from_statement(indented_keyword, module, keyword_import, imported, operator)
 
-        if not operator.is_comma:
+        if not operator.is_CRYSTAL_comma:
             raise_unknown_line()
 
         #
@@ -164,8 +162,7 @@ def module():
         imported_2 = parse_PYTHON__statement_from_as()
 
         operator_2 = qk()
-
-        wk(none)
+        wk0()
         #<imported/>
 
         if operator_2.line_marker:
@@ -177,7 +174,7 @@ def module():
                        operator_2,
                    )
 
-        if not operator_2.is_comma:
+        if not operator_2.is_CRYSTAL_comma:
             raise_unknown_line()
 
         many       = [imported, imported_2]
@@ -187,8 +184,7 @@ def module():
             many.append(parse_PYTHON__statement_from_as())
 
             operator_7 = qk()
-
-            wk(none)
+            wk0()
 
             if operator_7.line_marker:
                 return conjure_from_statement(
@@ -199,7 +195,7 @@ def module():
                            operator_7,
                        )
 
-            if not operator_7.is_comma:
+            if not operator_7.is_CRYSTAL_comma:
                 raise_unknown_line()
 
             many_frill.append(operator_7)

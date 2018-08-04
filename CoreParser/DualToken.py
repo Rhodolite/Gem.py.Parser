@@ -155,7 +155,7 @@ def module():
             provide = provide_normal_token,
     ):
         @rename('evoke_%s', name)
-        def evoke_dual_token__ends_in_newline(middle, end):
+        def evoke_dual_token__ends_in_newline(middle, end, second = 0):
             if end is none:
                 assert qi() < middle
             else:
@@ -178,13 +178,17 @@ def module():
             full = intern_string(full)
             s    = qs()
 
+            if second is not 0:
+                assert second == s[middle : end]
+
             return provide(
                        full,
                        create_dual_token__with_newlines(
                            Meta,
                            full,
                            conjure_first(s[qi() : middle]),
-                           (conjure_second__ends_in_newline   if end is none else   conjure_second)(s[middle : end]),
+                           (conjure_second__ends_in_newline   if end is none else   conjure_second)
+                               ( (s[middle : end]   if second is 0 else   second) ),
                        ),
                    )
 
@@ -260,32 +264,13 @@ def module():
         __repr__ = portray__ab
 
 
-
-        if 0:                                                           #   Not currently used
-            def display_full_token(t):
-                display_name = t.display_name
-                a_s          = t.a.s
-                b_s          = t.b.s
-
-                return arrange('<%s <%s> <%s>>',
-                               display_name,
-                               portray_string(a_s)   if '\n' in a_s else   a_s,
-                               portray_string(b_s)   if '\n' in b_s else   b_s)
-
-
         def display_token(t):
             display_name = t.display_name
 
             if display_name == t.s:
                 return arrange('<%s>', display_name)
 
-            a_s = t.a.s
-            b_s = t.b.s
-
-            return arrange('<%s <%s> <%s>>',
-                           display_name,
-                           portray_string(a_s)   if '\n' in a_s else   a_s,
-                           portray_string(b_s)   if '\n' in b_s else   b_s)
+            return arrange('<%s %s %s>', display_name, t.a.display_token(), t.b.display_token())
 
 
         order = order__s
@@ -304,6 +289,14 @@ def module():
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
+        if TREMOLITE_parser:
+            is_TREMOLITE__simple_atom__or__right_brace_set = true
+
+        if CRYSTAL_parser:
+            is_CRYSTAL_right_parenthesis = false
+
+        if TREMOLITE_parser:
+            is_TREMOLITE_right_brace_set = false
 
         if PYTHON_parser:
             scout_variables = scout_variables__0
@@ -314,19 +307,26 @@ def module():
         __slots__    = (())
         display_name = 'name+whitespace'
 
-
         if CRYSTAL_parser:
             is_CRYSTAL_atom                                  = true
+            is_CRYSTAL_identifier                            = true
             is_CRYSTAL_simple_atom__or__colon                = true
             is_CRYSTAL_simple_atom__or__right_brace          = true
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
+        if TREMOLITE_parser:
+            is_TREMOLITE__simple_atom__or__right_brace_set = true
+
         if CRYSTAL_parser:
-            is_CRYSTAL_identifier = true
+            is_CRYSTAL_right_parenthesis = false
 
         if PYTHON_parser:
             is_PYTHON__identifier__or__star_parameter = true
+
+        if TREMOLITE_parser:
+            is_TREMOLITE_right_brace_set = false
+
 
         if PYTHON_parser:
             scout_variables = scout_variables__a
@@ -341,10 +341,20 @@ def module():
 
         if CRYSTAL_parser:
             is_CRYSTAL_atom                                  = true
+            is_CRYSTAL_left_parenthesis                      = false
             is_CRYSTAL_simple_atom__or__colon                = true
             is_CRYSTAL_simple_atom__or__right_brace          = true
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
+
+        if TREMOLITE_parser:
+            is_TREMOLITE__simple_atom__or__right_brace_set = true
+
+        if CRYSTAL_parser:
+            is_CRYSTAL_right_parenthesis = false
+
+        if TREMOLITE_parser:
+            is_TREMOLITE_right_brace_set = false
 
 
         if PYTHON_parser:
@@ -364,16 +374,23 @@ def module():
 
         if CRYSTAL_parser:
             is_CRYSTAL_atom                                  = true
+            is_CRYSTAL_identifier                            = true
             is_CRYSTAL_simple_atom__or__colon                = true
             is_CRYSTAL_simple_atom__or__right_brace          = true
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
+        if TREMOLITE_parser:
+            is_TREMOLITE__simple_atom__or__right_brace_set = true
+
         if CRYSTAL_parser:
-            is_CRYSTAL_identifier = true
+            is_CRYSTAL_right_parenthesis = false
 
         if PYTHON_parser:
             is_PYTHON__identifier__or__star_parameter = true
+
+        if TREMOLITE_parser:
+            is_TREMOLITE_right_brace_set = false
 
 
         if PYTHON_parser:

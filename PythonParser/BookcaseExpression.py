@@ -32,8 +32,9 @@ def module():
         __slots__    = (())
         display_name = '[1]'
         frill        = LSB_RSB
-        
-        is_CRYSTAL_atom = true
+
+        is_CRYSTAL_atom              = true
+        is_CRYSTAL_right_parenthesis = false
 
 
         scout_variables = scout_variables__a
@@ -45,7 +46,8 @@ def module():
         display_name = '{:1:}'
         frill        = conjure_vw_frill(conjure_left_brace ('{'), conjure_right_brace('}'))
 
-        is_CRYSTAL_atom = true
+        is_CRYSTAL_atom              = true
+        is_CRYSTAL_right_parenthesis = false
 
 
         scout_variables = scout_variables__a
@@ -83,7 +85,8 @@ def module():
         display_name = '{,}'
         frill        = conjure_vw_frill(LEFT_PARENTHESIS, COMMA_RP)
 
-        is_CRYSTAL_atom = true
+        is_CRYSTAL_atom              = true
+        is_CRYSTAL_right_parenthesis = false
 
 
         def mutate(t, vary, priority):
@@ -111,7 +114,7 @@ def module():
 
 
     [
-        conjure_arguments_1, conjure_arguments_1_with_frill,
+        conjure_arguments_1, conjure_arguments_1__with_frill,
     ] = produce_conjure_bookcase_expression('arguments-1', Arguments_1)
 
     [
@@ -149,7 +152,7 @@ def module():
     Arguments_1.mutate = produce_mutate__frill__a_with_priority(
                              'arguments_1',
                              PRIORITY_COMPREHENSION,
-                             conjure_arguments_1_with_frill,
+                             conjure_arguments_1__with_frill,
                          )
 
     HeadIndex.mutate = produce_mutate__frill__a_with_priority(
@@ -180,7 +183,7 @@ def module():
     ParenthesizedExpression.mutate = produce_mutate__frill__a_with_priority(
                                          'parenthesized_expression',
                                          PRIORITY_COMPREHENSION,
-                                         conjure_parenthesized_expression__with_frill,
+                                         conjure_CRYSTAL_parenthesized_expression__with_frill,
                                      )
 
 
@@ -204,7 +207,6 @@ def module():
         'conjure_map_expression_1',                     conjure_map_expression_1,
         'conjure_normal_index',                         conjure_normal_index,
         'conjure_parameters_1',                         conjure_parameters_1,
-        'conjure_parenthesized_expression',             conjure_parenthesized_expression,
         'conjure_parenthesized_tuple_expression_1',     conjure_parenthesized_tuple_expression_1,
         'conjure_tail_index',                           conjure_tail_index,
     )

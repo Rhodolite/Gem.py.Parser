@@ -5,20 +5,24 @@
 def module():
     require_module('PythonParser.Match')
 
-    
+
     PYTHON__skip_tokenize_prefix = produce__LANGUAGE__skip_tokenize_prefix('python', next_crystal_nested_line_match)
 
 
     [
+            analyze_PYTHON_comma_operator,
             analyze_PYTHON_keyword_atom,
             analyze_PYTHON_operator,
             analyze_PYTHON_quote,
+
+            analyze_PYTHON_newline_comma_operator,
             analyze_PYTHON_newline_keyword_atom,
             analyze_PYTHON_newline_operator,
             analyze_PYTHON_newline_quote,
     ] = produce_analyze_LANGUAGE_functions(
             'python',
             false,                                                      #   has_open_operator = false
+            find_evoke_PYTHON__comma_something,
             find_PYTHON_atom_type,
             lookup_PYTHON_keyword_conjure_function,
             PYTHON__skip_tokenize_prefix,
@@ -34,6 +38,8 @@ def module():
 
         @rename('tokenize_multiline_%s_quote', name)
         def tokenize_multiline_quote(m):
+            assert qk() is qn() is 0
+
             j = qj()
 
             prefix = (0   if qi() == j else   conjure_whitespace(qs()[qi() : j]))
@@ -113,6 +119,8 @@ def module():
     #
     @share
     def analyze_PYTHON_atom(m):
+        assert qk() is qn() is 0
+
         if m.start('newline') is -1:
             atom_s = m.group('atom')
 
@@ -365,7 +373,9 @@ def module():
 
 
     share(
-        'analyze_PYTHON_newline_operator',  analyze_PYTHON_newline_operator,
-        'analyze_PYTHON_operator',          analyze_PYTHON_operator,
-        'PYTHON__skip_tokenize_prefix',     PYTHON__skip_tokenize_prefix,
+        'analyze_PYTHON_comma_operator',            analyze_PYTHON_comma_operator,
+        'analyze_PYTHON_newline_comma_operator',    analyze_PYTHON_newline_comma_operator,
+        'analyze_PYTHON_newline_operator',          analyze_PYTHON_newline_operator,
+        'analyze_PYTHON_operator',                  analyze_PYTHON_operator,
+        'PYTHON__skip_tokenize_prefix',             PYTHON__skip_tokenize_prefix,
     )

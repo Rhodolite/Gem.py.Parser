@@ -151,6 +151,19 @@ def module():
         #   {
         display_name = ',}'
 
+        is_end_of_boolean_and_expression       = true
+        is_end_of_boolean_or_expression        = true
+        is_end_of_compare_expression           = true
+        is_end_of_comprehension_expression     = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression            = true
+        is_end_of_PYTHON_arithmetic_expression = true
+        is_end_of_ternary_expression           = true
+        is_end_of_unary_expression             = true
+        is__optional_comma__right_brace        = true
+
 
     class Comma_RightParenthesis(DualToken):
         __slots__  = (())
@@ -228,6 +241,8 @@ def module():
         is_CRYSTAL_simple_atom__or__right_parenthesis    = true
         is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
+        is_CRYSTAL_right_parenthesis = false
+
 
         scout_variables = scout_variables__0
 
@@ -242,6 +257,8 @@ def module():
         is_CRYSTAL_simple_atom__or__right_parenthesis    = true
         is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
+        is_CRYSTAL_right_parenthesis = false
+
 
         scout_variables = scout_variables__0
 
@@ -255,6 +272,8 @@ def module():
         is_CRYSTAL_simple_atom__or__right_brace          = true
         is_CRYSTAL_simple_atom__or__right_parenthesis    = true
         is_CRYSTAL_simple_atom__or__right_square_bracket = true
+
+        is_CRYSTAL_right_parenthesis = false
 
 
         scout_variables = scout_variables__0
@@ -412,7 +431,7 @@ def module():
     evoke__comma__right_brace = produce_evoke_dual_token__ends_in_newline(
                                     'comma__right_brace',
                                     Comma_RightBrace,
-                                    conjure_comma,
+                                    conjure_CRYSTAL_comma,
                                     conjure_right_brace,
                                     conjure_right_brace__ends_in_newline,
                                 )
@@ -420,7 +439,7 @@ def module():
     evoke_comma__right_parenthesis = produce_evoke_dual_token__ends_in_newline(
                                          'comma__right_parenthesis',
                                          Comma_RightParenthesis,
-                                         conjure_comma,
+                                         conjure_CRYSTAL_comma,
                                          conjure_right_parenthesis,
                                          conjure_right_parenthesis__ends_in_newline,
                                      )
@@ -428,7 +447,7 @@ def module():
     evoke__comma__right_square_bracket = produce_evoke_dual_token__ends_in_newline(
                                              'comma__right_square_bracket',
                                              Comma_RightSquareBracket,
-                                             conjure_comma,
+                                             conjure_CRYSTAL_comma,
                                              conjure_right_square_bracket,
                                              conjure_right_square_bracket__ends_in_newline,
                                          )
@@ -669,13 +688,16 @@ def module():
     #
     #   find_*
     #
-    find_evoke_comma_something = {
-                                     #   (
-                                     ')' : evoke_comma__right_parenthesis,
+    find_evoke_PYTHON__comma_something = {
+            #   (
+            ')' : evoke_comma__right_parenthesis,
 
-                                     #   [
-                                     ']' : evoke__comma__right_square_bracket,
-                                 }.__getitem__
+            #   [
+            ']' : evoke__comma__right_square_bracket,
+
+            #   {
+            '}' : evoke__comma__right_brace,
+        }.__getitem__
 
 
     share(
@@ -725,6 +747,6 @@ def module():
         'evoke__left_square_bracket__colon',        evoke__left_square_bracket__colon,
         'evoke_not_in',                             evoke_not_in,
         'evoke_parameters_0',                       evoke_parameters_0,
-        'find_evoke_comma_something',               find_evoke_comma_something,
+        'find_evoke_PYTHON__comma_something',       find_evoke_PYTHON__comma_something,
         'LSB_COLON',                                LSB_COLON,
     )

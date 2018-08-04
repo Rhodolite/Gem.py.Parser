@@ -4,6 +4,8 @@
 @module('PythonParser.TokenizeName')
 def module():
     def tokenize_name__X__newline(m):
+        assert qk() is qn() is 0
+
         if qd() is not 0:
             if qi() == qj():
                 r = evoke_name_whitespace(m.end('name'), none)
@@ -30,8 +32,7 @@ def module():
 
     @share
     def tokenize_name():
-        assert qk() is none
-        assert qn() is none
+        assert qk() is qn() is 0
 
         j = qj()
         s = qs()
