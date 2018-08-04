@@ -4,7 +4,6 @@
 @module('PythonParser.ParseImport')
 def module():
     require_module('PythonParser.Elemental')
-    require_module('PythonParser.Match')
 
 
     def parse_PYTHON__statement_import_module():

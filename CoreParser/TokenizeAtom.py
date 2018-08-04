@@ -35,15 +35,17 @@ def module():
         #
         #       The spaces between `operator_end` and `m.end()` are given to the next token.
         #
-        d            = qd()
-        operator_end = m.end('operator')
-
-        r = conjure_action_word(operator_s, qs()[qi() : operator_end])
+        d = qd()
 
         if d is 0:
+            #my_line('d: %d; operator_s: %r; s: %s', d, operator_s, portray_string(s[qj() : ]))
             raise_unknown_line()
 
         assert d > 0
+
+        operator_end = m.end('operator')
+
+        r = conjure_action_word(operator_s, qs()[qi() : operator_end])
 
         wd(d - 1)
         wi(operator_end)
@@ -215,6 +217,9 @@ def module():
 
                 return r
 
+            if d < 1:
+                raise_unknown_line()
+
             wd(d - 1)
 
             r = conjure_action_word__ends_in_newline(operator_s, qs()[qi() : ])
@@ -222,9 +227,6 @@ def module():
             LANGUAGE__skip_tokenize_prefix()
 
             return r
-
-
-            return analyze_LANGUAGE_newline_close_operator
 
 
         if has_open_operator:

@@ -3,12 +3,12 @@
 #
 @module('PythonParser.TokenizeAtom')
 def module():
-    require_module('PythonParser.TokenizeOperator')
+    require_module('PythonParser.Match')
+
+    
+    PYTHON__skip_tokenize_prefix = produce__LANGUAGE__skip_tokenize_prefix('python', next_crystal_nested_line_match)
 
 
-    #
-    #   produce_analyze_LANGUAGE_* (without `newline` in the name)
-    #
     [
             analyze_PYTHON_keyword_atom,
             analyze_PYTHON_operator,
@@ -362,3 +362,10 @@ def module():
             return analyze_PYTHON_newline_quote(m, quote_start)
 
         raise_unknown_line()
+
+
+    share(
+        'analyze_PYTHON_newline_operator',  analyze_PYTHON_newline_operator,
+        'analyze_PYTHON_operator',          analyze_PYTHON_operator,
+        'PYTHON__skip_tokenize_prefix',     PYTHON__skip_tokenize_prefix,
+    )

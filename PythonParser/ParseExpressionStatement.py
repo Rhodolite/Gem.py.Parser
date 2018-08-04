@@ -3,6 +3,7 @@
 #
 @module('PythonParser.ParseExpressionStatement')
 def module():
+    require_module('PythonParser.TokenizeOperator')
     require_module('PythonParser.BookcaseManyStatement')
 
 
