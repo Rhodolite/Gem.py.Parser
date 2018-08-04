@@ -5,7 +5,7 @@
 def module():
     @export
     def produce__LANGUAGE__skip_tokenize_prefix(language, next_LANGUAGE_nested_line_match):
-        @rename('%s__skip_tokenize_prefix')
+        @rename('%s__skip_tokenize_prefix', language)
         def LANGUAGE__skip_tokenize_prefix():
             next = next_method(parse_context.iterate_lines)
 

@@ -3,11 +3,11 @@
 #
 @module('PythonParser.TokenizeOperator')
 def module():
-    python__skip_tokenize_prefix = produce__LANGUAGE__skip_tokenize_prefix('python', next_crystal_nested_line_match)
+    require_module('PythonParser.TokenizeAtom')
 
 
     @share
-    def tokenize_python_operator():
+    def tokenize_PYTHON_operator():
         assert qk() is none
         assert qn() is none
 
@@ -15,7 +15,7 @@ def module():
 
         #my_line('d: %d; full: %r; s: %r', qd(), s, portray_string(s[qj() : ]))
 
-        m = python_operator_match(s, qj())
+        m = PYTHON_operator_match(s, qj())
 
         if m is none:
             #my_line(portray_string(s[qj() : ]))
@@ -25,31 +25,7 @@ def module():
             operator_s = m.group('operator')
 
             if operator_s is not none:
-                if is_close_operator(operator_s) is 7:
-                    d = qd()
-
-                    if d is 0:
-                        #my_line('d: %d; operator_s: %r; s: %s', d, operator_s, portray_string(s[qj() : ]))
-                        raise_unknown_line()
-
-                    operator_end = m.end('operator')
-
-                    r = conjure_action_word(operator_s, s[qi() : operator_end])
-
-                    wd(d - 1)
-                    wi(operator_end)
-                    wj(m.end())
-
-                    return r
-
-                j = m.end()
-
-                r = conjure_action_word(operator_s, s[qi() : j])
-
-                wi(j)
-                wj(j)
-
-                return r
+                return analyze_PYTHON_operator(m, operator_s)
 
             #
             #<similiar-to: 'keyword_is__ow' below>
@@ -280,37 +256,7 @@ def module():
         operator_s = m.group('operator')
 
         if operator_s is not none:
-            if is_close_operator(operator_s) is 7:
-                d = qd()
-
-                if d is 1:
-                    i = m.end('operator')
-
-                    r = conjure_action_word(operator_s, s[qi() : i])
-
-                    wd0()
-                    wn(conjure_line_marker(s[i : ]))
-
-                    return r
-
-                if d is 0:
-                    raise_unknown_line()
-
-                wd(d - 1)
-            elif qd() is 0:
-                operator_end = m.end('operator')
-
-                r = conjure_action_word(operator_s, s[qi() : operator_end])
-
-                wn(conjure_line_marker(s[operator_end : ]))
-
-                return r
-
-            r = conjure_action_word__ends_in_newline(operator_s, s[qi() : ])
-
-            python__skip_tokenize_prefix()
-
-            return r
+            return analyze_PYTHON_newline_operator(m, operator_s)
 
         left_end = m.end('left_parenthesis__ow')
 
@@ -325,13 +271,13 @@ def module():
                 if qd() is 0:
                     wn(conjure_line_marker(s[right_end : ]))
                 else:
-                    python__skip_tokenize_prefix()
+                    PYTHON__skip_tokenize_prefix()
 
                 return r
 
             left = conjure_left_parenthesis__ends_in_newline(s[qi() : ])
 
-            python__skip_tokenize_prefix()
+            PYTHON__skip_tokenize_prefix()
 
             wd(qd() + 1)
 
@@ -355,7 +301,7 @@ def module():
                     else:
                         r = evoke_all_index(left_end, tail_index__end, none)
 
-                        python__skip_tokenize_prefix()
+                        PYTHON__skip_tokenize_prefix()
 
                         return r
 
@@ -363,7 +309,7 @@ def module():
             else:
                 left = conjure_left_square_bracket__ends_in_newline(s[qi() : ])
 
-            python__skip_tokenize_prefix()
+            PYTHON__skip_tokenize_prefix()
 
             wd(qd() + 1)
 
@@ -392,7 +338,7 @@ def module():
 
                 wd(d - 1)
 
-                python__skip_tokenize_prefix()
+                PYTHON__skip_tokenize_prefix()
 
                 return r
 
@@ -401,7 +347,7 @@ def module():
 
             r = conjure_comma__ends_in_newline(s[qi() : ])
 
-            python__skip_tokenize_prefix()
+            PYTHON__skip_tokenize_prefix()
 
             return r
 
@@ -428,7 +374,7 @@ def module():
 
                 wd(d - 1)
 
-                python__skip_tokenize_prefix()
+                PYTHON__skip_tokenize_prefix()
 
                 return r
 
@@ -437,7 +383,7 @@ def module():
 
             r = conjure_colon__ends_in_newline(s[qi() : ])
 
-            python__skip_tokenize_prefix()
+            PYTHON__skip_tokenize_prefix()
 
             return r
 
@@ -455,13 +401,8 @@ def module():
 
             r = conjure_action_word__ends_in_newline(keyword_s, s[qi() : ])
 
-            python__skip_tokenize_prefix()
+            PYTHON__skip_tokenize_prefix()
 
             return r
 
         raise_unknown_line()
-
-
-    share(
-        'python__skip_tokenize_prefix',     python__skip_tokenize_prefix,
-    )

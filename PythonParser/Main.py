@@ -28,7 +28,7 @@ def module():
     require_module('PythonParser')
 
 
-    choice = 1
+    choice = 3
     show   = 0
 
 
@@ -39,7 +39,7 @@ def module():
     ):
         require_module('PythonParser.Transform')
 
-        vary = create_python_parser_transform(
+        vary = create_PYTHON_parser_transform(
                    remove_comments    = remove_comments,
                    remove_indentation = remove_indentation,
                )
@@ -47,7 +47,7 @@ def module():
         if fast_cache is 0:
             require_module('PythonParser.Pattern')
 
-            create_python_parser_match()
+            create_PYTHON_parser_match()
 
         require_module('PythonParser.Combine')
 
@@ -71,17 +71,17 @@ def module():
     ):
         require_module('PythonParser.Pattern')
 
-        create_python_parser_match()
+        create_PYTHON_parser_match()
 
         require_module('PythonParser.Transform')
-        require_module('PythonParser.Parse')                            #   Must be after `create_python_parser_match`
+        require_module('PythonParser.Parse')                            #   Must be after `create_PYTHON_parser_match`
 
-        vary = create_python_parser_transform(
+        vary = create_PYTHON_parser_transform(
                    remove_comments    = remove_comments,
                    remove_indentation = remove_indentation,
                )
 
-        parse_python('test.py', vary = vary, test = 7, show = show)
+        parse_PYTHON('test.py', vary = vary, test = 7, show = show)
 
         #for name in ['arguments-2', 'list-expression-2', 'range-index', 'tuple-expression-2']:
         #    print_cache(name)

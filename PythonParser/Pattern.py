@@ -19,7 +19,7 @@ def module():
 
 
     @share
-    def create_python_parser_match():
+    def create_PYTHON_parser_match():
         alphanumeric_or_underscore = NAME('alphanumeric_or_underscore', ANY_OF('0-9', 'A-Z', '_', 'a-z'))
         letter_or_underscore       = NAME('letter_or_underscore',       ANY_OF('A-Z', '_', 'a-z'))
         ow                         = NAME('ow',                         ZERO_OR_MORE(' '))
@@ -216,7 +216,7 @@ def module():
         )
 
         MATCH(
-            'python_atom_match',
+            'PYTHON_atom_match',
             (
                   OPTIONAL('r') + G('quote', double_quote | single_quote) + ow  #   Must preceed 'name'
                 | G('atom', number | name) + ow
@@ -235,7 +235,7 @@ def module():
 
         MATCH(
             #
-            #   Same as 'python_atom_match', but without ')', ']', or '}'.
+            #   Same as `PYTHON_atom_match`, but without ')', ']', or '}'.
             #
             #   NOTE:
             #       'name' is also analyzed to see if it a keyword such as 'return'.
@@ -255,7 +255,7 @@ def module():
         )
 
         MATCH(
-           'python_operator_match',
+           'PYTHON_operator_match',
             (
                   G(
                       'operator',

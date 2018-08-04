@@ -8,7 +8,7 @@ def module():
 
 
     @share
-    def parse_python__statement_class_header(m):
+    def parse_PYTHON__statement_class_header(m):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -24,7 +24,7 @@ def module():
         if qn() is not none:
             raise_unknown_line()
 
-        operator = tokenize_python_operator()
+        operator = tokenize_PYTHON_operator()
 
         if not operator.is__arguments_0__or__left_parenthesis:
             raise_unknown_line()
@@ -33,7 +33,7 @@ def module():
             assert qd() > 0
             assert qn() is none
 
-            operator = parse_python__arguments__left_parenthesis(operator)
+            operator = parse_PYTHON__arguments__left_parenthesis(operator)
 
         return conjure_class_header(
                    indented_keyword,
@@ -44,7 +44,7 @@ def module():
 
 
     @share
-    def parse_python__statement_function_header(m):
+    def parse_PYTHON__statement_function_header(m):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -94,7 +94,7 @@ def module():
         operator_2 = tokenize_parameter_operator()
 
         if operator_2.is_equal_sign:
-            value = parse_python__ternary_expression()
+            value = parse_PYTHON__ternary_expression()
 
             token_1 = conjure_keyword_parameter(token_1, operator_2, value)
 
@@ -142,7 +142,7 @@ def module():
             operator_7 = tokenize_parameter_operator()
 
             if operator_7.is_equal_sign:
-                value = parse_python__ternary_expression()
+                value = parse_PYTHON__ternary_expression()
 
                 token_7 = conjure_keyword_parameter(token_7, operator_7, value)
 

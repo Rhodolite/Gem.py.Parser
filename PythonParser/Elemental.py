@@ -19,7 +19,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_keyword_and                         = true
 
@@ -37,7 +37,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
-        is_end_of_python_arithmetic_expression  = true
+        is_end_of_PYTHON_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -80,7 +80,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_keyword_else                        = true
 
@@ -126,7 +126,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_ternary_expression_list      = true        #   Not really, but for consistency
         is_end_of_ternary_expression           = true
         is_end_of_unary_expression             = true
@@ -154,7 +154,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_keyword_if                          = true
 
@@ -169,7 +169,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_keyword_in                          = true
 
@@ -184,7 +184,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
 
 
@@ -209,7 +209,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
 
 
@@ -223,7 +223,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_keyword_or                          = true
 
@@ -280,7 +280,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
-        is_end_of_python_arithmetic_expression  = true
+        is_end_of_PYTHON_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -309,7 +309,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
-        is_end_of_python_arithmetic_expression  = true
+        is_end_of_PYTHON_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -329,7 +329,7 @@ def module():
         is_end_of_logical_or_expression        = true
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_ternary_expression           = true
         is_end_of_unary_expression             = true
 
@@ -344,7 +344,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
 
 
@@ -365,7 +365,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
 
 
@@ -397,7 +397,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
-        is_end_of_python_arithmetic_expression  = true
+        is_end_of_PYTHON_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -414,7 +414,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
 
 
@@ -442,7 +442,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
 
 
@@ -479,10 +479,10 @@ def module():
 
     @export
     class OperatorLeftSquareBracket(KeywordAndOperatorBase):
-        __slots__              = (())
-        display_name           = '['                                    #   ]
-        is_left_square_bracket = true
-        is_postfix_operator    = true
+        __slots__                = (())
+        display_name             = '['                                    #   ]
+        is_left_square_bracket   = true
+        is_postfix_operator      = true
 
 
     @share
@@ -495,7 +495,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
 
 
@@ -523,7 +523,7 @@ def module():
         is_end_of_multiply_expression          = true
         is_end_of_normal_expression_list       = true
         is_end_of_normal_expression            = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
 
 
@@ -546,7 +546,7 @@ def module():
         __slots__                              = (())
         display_name                           = '&'
         is_end_of_multiply_expression          = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_logical_and_operator                = true
 
@@ -557,7 +557,7 @@ def module():
         display_name                           = '|'
         is_end_of_logical_and_expression       = true
         is_end_of_multiply_expression          = true
-        is_end_of_python_arithmetic_expression = true
+        is_end_of_PYTHON_arithmetic_expression = true
         is_end_of_unary_expression             = true
         is_logical_or_operator                 = true
 
@@ -575,7 +575,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
-        is_end_of_python_arithmetic_expression  = true
+        is_end_of_PYTHON_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -589,7 +589,7 @@ def module():
         is_end_of_multiply_expression = true
         is_end_of_unary_expression    = true
         is_minus_sign                 = true
-        is_python_arithmetic_operator = true
+        is_PYTHON_arithmetic_operator = true
 
 
     @share
@@ -625,7 +625,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
-        is_end_of_python_arithmetic_expression  = true
+        is_end_of_PYTHON_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -651,7 +651,7 @@ def module():
         is_end_of_multiply_expression            = true
         is_end_of_normal_expression_list         = true
         is_end_of_normal_expression              = true
-        is_end_of_python_arithmetic_expression   = true
+        is_end_of_PYTHON_arithmetic_expression   = true
         is_end_of_ternary_expression_list        = true
         is_end_of_ternary_expression             = true
         is_end_of_unary_expression               = true
@@ -681,7 +681,7 @@ def module():
         is_end_of_multiply_expression           = true
         is_end_of_normal_expression_list        = true
         is_end_of_normal_expression             = true
-        is_end_of_python_arithmetic_expression  = true
+        is_end_of_PYTHON_arithmetic_expression  = true
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
@@ -988,7 +988,7 @@ def module():
     OperatorTildeSign.transform = produce_transform__uncommented('operator_tilde_sign', TILDE_SIGN)
 
 
-    find_python_atom_type = {
+    find_PYTHON_atom_type = {
             '"' : conjure_double_quote,
             "'" : conjure_single_quote,
 
@@ -1020,7 +1020,7 @@ def module():
         }.__getitem__
 
 
-    lookup_python_keyword_conjure_function = {
+    lookup_PYTHON_keyword_conjure_function = {
             'not'    : conjure_keyword_not,
             'return' : conjure_keyword_return,
         }.get
@@ -1074,7 +1074,7 @@ def module():
         'conjure_right_square_bracket',                     conjure_right_square_bracket,
         'conjure_right_square_bracket__ends_in_newline',    conjure_right_square_bracket__ends_in_newline,
         'conjure_star_sign',                                conjure_star_sign,
-        'find_python_atom_type',                            find_python_atom_type,
+        'find_PYTHON_atom_type',                            find_PYTHON_atom_type,
         'AT_SIGN',                                          AT_SIGN,
         'BREAK',                                            BREAK,
         'CONTINUE',                                         CONTINUE,
@@ -1089,7 +1089,7 @@ def module():
         'IF__W',                                            IF__W,
         'IN__W',                                            IN__W,
         'LEFT_BRACE',                                       LEFT_BRACE,
-        'lookup_python_keyword_conjure_function',           lookup_python_keyword_conjure_function,
+        'lookup_PYTHON_keyword_conjure_function',           lookup_PYTHON_keyword_conjure_function,
         'LSB',                                              LSB,
         'NOT__W',                                           NOT__W,
         'PASS',                                             PASS,

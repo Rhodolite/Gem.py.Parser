@@ -22,33 +22,33 @@ def module():
 
 
     find_parse1_colon_line = {
-                                 'else'    : parse_python__statement_else_colon,
-                                 'except'  : parse_python__statement_except_colon,
-                                 'finally' : parse_python__statement_finally_colon,
-                                 'try'     : parse_python__statement_try_colon,
+                                 'else'    : parse_PYTHON__statement_else_colon,
+                                 'except'  : parse_PYTHON__statement_except_colon,
+                                 'finally' : parse_PYTHON__statement_finally_colon,
+                                 'try'     : parse_PYTHON__statement_try_colon,
                              }.__getitem__
 
 
     lookup_parse1_line = {
-                             '@'        : parse_python__statement_decorator_header,
-                             'assert'   : parse_python__statement_assert,
-                             'break'    : parse_python__statement_break,
-                             'class'    : parse_python__statement_class_header,
-                             'continue' : parse_python__statement_continue,
-                             'def'      : parse_python__statement_function_header,
-                             'del'      : parse_python__statement_delete,
-                             'elif'     : parse_python__statement_else_if,
-                             'except'   : parse_python__statement_except,
-                             'for'      : parse_python__statement_for,
-                             'from'     : parse_python__statement_from,
-                             'if'       : parse_python__statement_if,
-                             'import'   : parse_python__statement_import,
-                             'pass'     : parse_python__statement_pass,
-                             'raise'    : parse_python__statement_raise,
-                             'return'   : parse_python__statement_return,
-                             'yield'    : parse_python__statement_yield,
-                             'while'    : parse_python__statement_while,
-                             'with'     : parse_python__statement_with,
+                             '@'        : parse_PYTHON__statement_decorator_header,
+                             'assert'   : parse_PYTHON__statement_assert,
+                             'break'    : parse_PYTHON__statement_break,
+                             'class'    : parse_PYTHON__statement_class_header,
+                             'continue' : parse_PYTHON__statement_continue,
+                             'def'      : parse_PYTHON__statement_function_header,
+                             'del'      : parse_PYTHON__statement_delete,
+                             'elif'     : parse_PYTHON__statement_else_if,
+                             'except'   : parse_PYTHON__statement_except,
+                             'for'      : parse_PYTHON__statement_for,
+                             'from'     : parse_PYTHON__statement_from,
+                             'if'       : parse_PYTHON__statement_if,
+                             'import'   : parse_PYTHON__statement_import,
+                             'pass'     : parse_PYTHON__statement_pass,
+                             'raise'    : parse_PYTHON__statement_raise,
+                             'return'   : parse_PYTHON__statement_return,
+                             'yield'    : parse_PYTHON__statement_yield,
+                             'while'    : parse_PYTHON__statement_while,
+                             'with'     : parse_PYTHON__statement_with,
                          }.get
 
 
@@ -84,8 +84,8 @@ def module():
 
 
     @share
-    def parse_python(path, vary = 0, show = 0, test = 0):
-        #line("parse_python(path<%s>, vary<%d>, show<%d>, test<%d>)", path, vary, show, test);
+    def parse_PYTHON(path, vary = 0, show = 0, test = 0):
+        #line("parse_PYTHON(path<%s>, vary<%d>, show<%d>, test<%d>)", path, vary, show, test);
 
         data = read_text_from_path(path)
 
@@ -131,7 +131,7 @@ def module():
                         wj(m.end())
 
                         append(
-                            parse_python__statement_expression__atom(
+                            parse_PYTHON__statement_expression__atom(
                                 m.group('indented'),
                                 conjure_name(atom_s),
                             ),
@@ -155,9 +155,9 @@ def module():
                         wj(j)
 
                         append(
-                            parse_python__statement_expression__atom(
+                            parse_PYTHON__statement_expression__atom(
                                 m.group('indented'),
-                                analyze_python_atom(m)
+                                analyze_PYTHON_atom(m)
                             ),
                         )
 
@@ -181,7 +181,7 @@ def module():
         if show is 5:
             show_indentation(data_many)
 
-        tree_many = parse3_python(path, data, data_lines, data_many)
+        tree_many = parse3_PYTHON(path, data, data_lines, data_many)
 
         if show is 7:
             show_tree(tree_many, vary)
