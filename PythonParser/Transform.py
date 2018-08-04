@@ -31,7 +31,7 @@ def module():
 
 
     @share
-    def create_python_parser_transform(
+    def create_PYTHON_parser_transform(
             remove_comments    = false,
             remove_indentation = false,
     ):

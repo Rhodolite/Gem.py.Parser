@@ -3,35 +3,25 @@
 #
 @module('PythonParser.TokenizeAtom')
 def module():
-    require_module('PythonParser.TokenizeOperator')
+    require_module('PythonParser.Match')
+
+    
+    PYTHON__skip_tokenize_prefix = produce__LANGUAGE__skip_tokenize_prefix('python', next_crystal_nested_line_match)
 
 
-    #
-    #   produce_analyze_LANGUAGE_* (without `newline` in the name)
-    #
-    analyze_python_keyword_atom = produce_analyze_LANGUAGE_keyword_atom(
+    [
+            analyze_PYTHON_keyword_atom,
+            analyze_PYTHON_operator,
+            analyze_PYTHON_quote,
+            analyze_PYTHON_newline_keyword_atom,
+            analyze_PYTHON_newline_operator,
+            analyze_PYTHON_newline_quote,
+    ] = produce_analyze_LANGUAGE_functions(
             'python',
-            find_python_atom_type,
-            lookup_python_keyword_conjure_function,
-        )
-
-    analyze_python_quote = produce_analyze_LANGUAGE_quote('python', find_python_atom_type)
-
-
-    #
-    #   analyze_LANGUAGE_newline_* (with `newline` in the name)
-    #
-    analyze_python_newline_keyword_atom = produce_analyze_LANGUAGE_newline_keyword_atom(
-            'python',
-            find_python_atom_type,
-            lookup_python_keyword_conjure_function,
-            python__skip_tokenize_prefix,
-        )
-
-    analyze_LANGUAGE_newline_quote = produce_analyze_LANGUAGE_newline_quote(
-            'python',
-            find_python_atom_type,
-            python__skip_tokenize_prefix,
+            false,                                                      #   has_open_operator = false
+            find_PYTHON_atom_type,
+            lookup_PYTHON_keyword_conjure_function,
+            PYTHON__skip_tokenize_prefix,
         )
 
 
@@ -90,7 +80,7 @@ def module():
 
                 suffix = conjure_whitespace__ends_in_newline(qs()[quote_end : ])
 
-                python__skip_tokenize_prefix()
+                PYTHON__skip_tokenize_prefix()
 
                 if prefix is 0:
                     return conjure_atom_whitespace(r, suffix)
@@ -122,43 +112,17 @@ def module():
     #       The previous note also applies to tests like `qi() != j` ... cannot replace this with `qi() is not j`.
     #
     @share
-    def analyze_python_atom(m):
+    def analyze_PYTHON_atom(m):
         if m.start('newline') is -1:
             atom_s = m.group('atom')
 
             if atom_s is not none:
-                return analyze_python_keyword_atom(m, atom_s)
+                return analyze_PYTHON_keyword_atom(m, atom_s)
 
             operator_s = m.group('operator')
 
             if operator_s is not none:
-                s = qs()
-
-                if is_close_operator(operator_s) is 7:
-                    d            = qd()
-                    operator_end = m.end('operator')
-
-                    r = conjure_action_word(operator_s, s[qi() : operator_end])
-
-                    if d is 0:
-                        raise_unknown_line()
-
-                    assert d > 0
-
-                    wd(d - 1)
-                    wi(operator_end)
-                    wj(m.end())
-
-                    return r
-
-                j = m.end()
-
-                r = conjure_action_word(operator_s, s[qi() : j])
-
-                wi(j)
-                wj(j)
-
-                return r
+                return analyze_PYTHON_operator(m, operator_s)
 
             #
             #<similiar-to: 'left_{brace,square_bracket}__end' below>
@@ -262,7 +226,7 @@ def module():
                 if m.start('missing_single_quote') is not -1:
                     return tokenize_multiline_single_quote(m)
 
-                return analyze_python_quote(m, quote_start)
+                return analyze_PYTHON_quote(m, quote_start)
 
             raise_unknown_line()
 
@@ -272,49 +236,12 @@ def module():
         atom_s = m.group('atom')
 
         if atom_s is not none:
-            return analyze_python_newline_keyword_atom(m, atom_s)
+            return analyze_PYTHON_newline_keyword_atom(m, atom_s)
 
         operator_s = m.group('operator')
 
         if operator_s is not none:
-            if is_close_operator(operator_s) is 7:
-                d = qd()
-
-                if d is 1:
-                    operator_end = m.end('operator')
-                    s            = qs()
-
-                    r = conjure_action_word(operator_s, s[qi() : operator_end])
-
-                    wd0()
-                    wn(conjure_line_marker(s[operator_end : ]))
-
-                    return r
-
-                wd(d - 1)
-
-                r = conjure_action_word__ends_in_newline(operator_s, qs()[qi() : ])
-
-                python__skip_tokenize_prefix()
-
-                return r
-
-            if qd() is 0:
-                operator_end = m.end('operator')
-
-                s = qs()
-
-                r = conjure_action_word(operator_s, s[qi() : operator_end])
-
-                wn(conjure_line_marker(s[operator_end : ]))
-
-                return r
-
-            r = conjure_action_word__ends_in_newline(operator_s, qs()[qi() : ])
-
-            python__skip_tokenize_prefix()
-
-            return r
+            return analyze_PYTHON_newline_operator(m, operator_s)
 
         #
         #<same-as: 'left_{brace,square_bracket}__end' below>
@@ -340,7 +267,7 @@ def module():
 
                 r = evoke_empty_tuple(left_end, none)
 
-                python__skip_tokenize_prefix()
+                PYTHON__skip_tokenize_prefix()
 
                 return r
 
@@ -348,7 +275,7 @@ def module():
 
             r = conjure_left_parenthesis__ends_in_newline(qs()[qi() : ])
 
-            python__skip_tokenize_prefix()
+            PYTHON__skip_tokenize_prefix()
 
             return r
         #</same-as>
@@ -377,7 +304,7 @@ def module():
 
                 r = evoke_empty_map(left_brace, none)
 
-                python__skip_tokenize_prefix()
+                PYTHON__skip_tokenize_prefix()
 
                 return r
 
@@ -385,7 +312,7 @@ def module():
 
             r = conjure_left_brace__ends_in_newline(qs()[qi() : ])
 
-            python__skip_tokenize_prefix()
+            PYTHON__skip_tokenize_prefix()
 
             return r
         #</same-as>
@@ -414,7 +341,7 @@ def module():
 
                 r = evoke_empty_list(left_end, none)
 
-                python__skip_tokenize_prefix()
+                PYTHON__skip_tokenize_prefix()
 
                 return r
 
@@ -422,7 +349,7 @@ def module():
 
             r = conjure_left_square_bracket__ends_in_newline(qs()[qi() : ])
 
-            python__skip_tokenize_prefix()
+            PYTHON__skip_tokenize_prefix()
 
             return r
         #</same-as>
@@ -432,6 +359,13 @@ def module():
         if quote_start is not -1:
             assert m.start('missing_double_quote') is m.start('missing_single_quote') is -1
 
-            return analyze_LANGUAGE_newline_quote(m, quote_start)
+            return analyze_PYTHON_newline_quote(m, quote_start)
 
         raise_unknown_line()
+
+
+    share(
+        'analyze_PYTHON_newline_operator',  analyze_PYTHON_newline_operator,
+        'analyze_PYTHON_operator',          analyze_PYTHON_operator,
+        'PYTHON__skip_tokenize_prefix',     PYTHON__skip_tokenize_prefix,
+    )

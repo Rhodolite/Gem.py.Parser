@@ -18,14 +18,54 @@ def module():
     #   Note #2:
     #       The previous note also applies to tests like `qi() != j` ... cannot replace this with `qi() is not j`.
     #
+    def analyze_CRYSTAL_close_operator(m, operator_s):
+        #
+        #   A `close` operator does not grab it's following whitespace.
+        #
+        #   Hence:
+        #
+        #       The operator ends at `operator_end`
+        #
+        #   The whitespace is given to the next token, as follows:
+        #
+        #       wi(operator_end)
+        #       wj(m.end())
+        #
+        #   That is:
+        #
+        #       The spaces between `operator_end` and `m.end()` are given to the next token.
+        #
+        d = qd()
 
-    #
-    #   produce_analyze_LANGUAGE_* (without `newline` in the name)
-    #
+        if d is 0:
+            #my_line('d: %d; operator_s: %r; s: %s', d, operator_s, portray_string(s[qj() : ]))
+            raise_unknown_line()
+
+        assert d > 0
+
+        operator_end = m.end('operator')
+
+        r = conjure_action_word(operator_s, qs()[qi() : operator_end])
+
+        wd(d - 1)
+        wi(operator_end)
+        wj(m.end())
+
+        return r
+
+
+
     @export
-    def produce_analyze_LANGUAGE_keyword_atom(
-            language, find_LANGUAGE_atom_type, lookup_LANGUAGE_keyword_conjure_function,
+    def produce_analyze_LANGUAGE_functions(
+            language,
+            has_open_operator,
+            find_LANGUAGE_atom_type,
+            lookup_LANGUAGE_keyword_conjure_function,
+            LANGUAGE__skip_tokenize_prefix,
     ):
+        #
+        #   analyze_LANGUAGE_* (without `newline` in the name)
+        #
         @rename('analyze_%s_keyword_atom', language)
         def analyze_LANGUAGE_keyword_atom(m, atom_s):
             conjure = lookup_LANGUAGE_keyword_conjure_function(atom_s)
@@ -53,11 +93,43 @@ def module():
             return r
 
 
-        return analyze_LANGUAGE_keyword_atom
+        if has_open_operator:
+            @export
+            @rename('analyze_%s_operator', language)
+            def analyze_LANGUAGE_operator(m, operator_s):
+                operator_type = is_CRYSTAL_close_or_open_operator(operator_s)
+
+                if operator_type is 7:
+                    return analyze_CRYSTAL_close_operator(m, operator_s)
+
+                j = m.end()
+
+                r = conjure_action_word(operator_s, qs()[qi() : j])
+
+                if operator_type is 3:
+                    wd(qd() + 1)
+
+                wi(j)
+                wj(j)
+
+                return r
+        else:
+            @export
+            @rename('analyze_%s_operator', language)
+            def analyze_LANGUAGE_operator(m, operator_s):
+                if is_CRYSTAL_close_or_open_operator(operator_s) is 7:
+                    return analyze_CRYSTAL_close_operator(m, operator_s)
+
+                j = m.end()
+
+                r = conjure_action_word(operator_s, qs()[qi() : j])
+
+                wi(j)
+                wj(j)
+
+                return r
 
 
-    @export
-    def produce_analyze_LANGUAGE_quote(language, find_LANGUAGE_atom_type):
         @rename('analyze_%s_quote', language)
         def analyze_LANGUAGE_quote(m, quote_start):
             j         = qj()
@@ -76,19 +148,10 @@ def module():
             return r
 
 
-        return analyze_LANGUAGE_quote
 
-
-    #
-    #   produce_analyze_LANGUAGE_newline_* (without `newline` in the name)
-    #
-    @export
-    def produce_analyze_LANGUAGE_newline_keyword_atom(
-            language,
-            find_LANGUAGE_atom_type,
-            lookup_LANGUAGE_keyword_conjure_function,
-            LANGUAGE__skip_tokenize_prefix,
-    ):
+        #
+        #   analyze_LANGUAGE_newline_* (with `newline` in the name)
+        #
         @rename('analyze_%s_newline_keyword_atom', language)
         def analyze_LANGUAGE_newline_keyword_atom(m, atom_s):
             conjure = lookup_LANGUAGE_keyword_conjure_function(atom_s)
@@ -139,15 +202,84 @@ def module():
             #</similiar-to>
 
 
-        return analyze_LANGUAGE_newline_keyword_atom
+        @rename('analyze_%s_newline_close_operator', language)
+        def analyze_LANGUAGE_newline_close_operator(m, operator_s):
+            d = qd()
+
+            if d is 1:
+                operator_end = m.end('operator')
+                s            = qs()
+
+                r = conjure_action_word(operator_s, s[qi() : operator_end])
+
+                wd0()
+                wn(conjure_line_marker(s[operator_end : ]))
+
+                return r
+
+            if d < 1:
+                raise_unknown_line()
+
+            wd(d - 1)
+
+            r = conjure_action_word__ends_in_newline(operator_s, qs()[qi() : ])
+
+            LANGUAGE__skip_tokenize_prefix()
+
+            return r
 
 
-    @export
-    def produce_analyze_LANGUAGE_newline_quote(
-            language,
-            find_LANGUAGE_atom_type,
-            LANGUAGE__skip_tokenize_prefix,
-    ):
+        if has_open_operator:
+            @rename('analyze_%s_newline_operator', language)
+            def analyze_LANGUAGE_newline_operator(m, operator_s):
+                operator_type = is_CRYSTAL_close_or_open_operator(operator_s)
+
+                if operator_type is 7:
+                    return analyze_LANGUAGE_newline_close_operator(m, operator_s)
+
+                if operator_type is 3:
+                    wd(qd() + 1)
+                else:
+                    if qd() is 0:
+                        operator_end = m.end('operator')
+
+                        s = qs()
+
+                        r = conjure_action_word(operator_s, s[qi() : operator_end])
+
+                        wn(conjure_line_marker(s[operator_end : ]))
+
+                        return r
+
+                r = conjure_action_word__ends_in_newline(operator_s, qs()[qi() : ])
+
+                LANGUAGE__skip_tokenize_prefix()
+
+                return r
+        else:
+            @rename('analyze_%s_newline_operator', language)
+            def analyze_LANGUAGE_newline_operator(m, operator_s):
+                if is_CRYSTAL_close_or_open_operator(operator_s) is 7:
+                    return analyze_LANGUAGE_newline_close_operator(m, operator_s)
+
+                if qd() is 0:
+                    operator_end = m.end('operator')
+
+                    s = qs()
+
+                    r = conjure_action_word(operator_s, s[qi() : operator_end])
+
+                    wn(conjure_line_marker(s[operator_end : ]))
+
+                    return r
+
+                r = conjure_action_word__ends_in_newline(operator_s, qs()[qi() : ])
+
+                LANGUAGE__skip_tokenize_prefix()
+
+                return r
+
+
         def analyze_LANGUAGE_newline_quote(m, quote_start):
             #
             #   NOTE:
@@ -185,4 +317,11 @@ def module():
             #</similiar-to>
 
 
-        return analyze_LANGUAGE_newline_quote
+        return ((
+                   analyze_LANGUAGE_keyword_atom,
+                   analyze_LANGUAGE_operator,
+                   analyze_LANGUAGE_quote,
+                   analyze_LANGUAGE_newline_keyword_atom,
+                   analyze_LANGUAGE_newline_operator,
+                   analyze_LANGUAGE_newline_quote,
+               ))

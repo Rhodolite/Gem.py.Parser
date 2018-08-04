@@ -8,16 +8,16 @@ def module():
 
 
     @share
-    def parse_python__call_expression__left__operator(left, left_parenthesis):
-        return conjure_call_expression(left, parse_python__arguments__left_parenthesis(left_parenthesis))
+    def parse_PYTHON__call_expression__left__operator(left, left_parenthesis):
+        return conjure_call_expression(left, parse_PYTHON__arguments__left_parenthesis(left_parenthesis))
 
 
     @share
-    def parse_python__argument7__left(left):
+    def parse_PYTHON__argument7__left(left):
         operator = qk()
 
         if operator is none:
-            operator = tokenize_python_operator()
+            operator = tokenize_PYTHON_operator()
         else:
             wk(none)
 
@@ -25,19 +25,19 @@ def module():
             if not left.is_CRYSTAL_identifier:
                 raise_unknown_line()
 
-            return conjure_keyword_argument(left, operator, parse_python__ternary_expression())
+            return conjure_keyword_argument(left, operator, parse_PYTHON__ternary_expression())
 
         if operator.is_end_of_ternary_expression:
             wk(operator)
 
             return left
 
-        return parse_python__ternary_expression__X__any_expression(left, operator)
+        return parse_PYTHON__ternary_expression__X__any_expression(left, operator)
 
 
     @share
-    def parse_python__arguments__left_parenthesis(left_parenthesis):
-        argument_1 = parse_python__atom__or__right_parenthesis()
+    def parse_PYTHON__arguments__left_parenthesis(left_parenthesis):
+        argument_1 = parse_PYTHON__atom__or__right_parenthesis()
 
         if argument_1.is_CRYSTAL_right_parenthesis:
             return conjure_arguments_0(left_parenthesis, argument_1)
@@ -45,7 +45,7 @@ def module():
         operator_1 = qk()
 
         if operator_1 is none:
-            operator_1 = tokenize_python_operator()
+            operator_1 = tokenize_PYTHON_operator()
         else:
             wk(none)
 
@@ -53,22 +53,22 @@ def module():
             if not argument_1.is_CRYSTAL_identifier:
                 raise_unknown_line()
 
-            argument_1 = conjure_keyword_argument(argument_1, operator_1, parse_python__ternary_expression())
+            argument_1 = conjure_keyword_argument(argument_1, operator_1, parse_PYTHON__ternary_expression())
 
             operator_1 = qk()
 
             if operator_1 is none:
-                operator_1 = tokenize_python_operator()
+                operator_1 = tokenize_PYTHON_operator()
             else:
                 wk(none)
         else:
             if not operator_1.is_end_of_comprehension_expression:
-                argument_1 = parse_python__comprehension_expression__X__any_expression(argument_1, operator_1)
+                argument_1 = parse_PYTHON__comprehension_expression__X__any_expression(argument_1, operator_1)
 
                 operator_1 = qk()
 
                 if operator_1 is none:
-                    operator_1 = tokenize_python_operator()
+                    operator_1 = tokenize_PYTHON_operator()
                 else:
                     wk(none)
 
@@ -79,7 +79,7 @@ def module():
             #my_line('operator_1: %r', operator_1)
             raise_unknown_line()
 
-        argument_2 = parse_python__atom__or__right_parenthesis()
+        argument_2 = parse_PYTHON__atom__or__right_parenthesis()
 
         if argument_2.is_CRYSTAL_right_parenthesis:
             return conjure_arguments_1(
@@ -88,7 +88,7 @@ def module():
                        conjure_comma__right_parenthesis(operator_1, argument_2),
                    )
 
-        argument_2 = parse_python__argument7__left(argument_2)
+        argument_2 = parse_PYTHON__argument7__left(argument_2)
         operator_2 = qk()
 
         wk(none)
@@ -99,7 +99,7 @@ def module():
         if not operator_2.is_comma:
             raise_unknown_line()
 
-        argument_3 = parse_python__atom__or__right_parenthesis()
+        argument_3 = parse_PYTHON__atom__or__right_parenthesis()
 
         if argument_3.is_CRYSTAL_right_parenthesis:
             return conjure_arguments_2(
@@ -114,7 +114,7 @@ def module():
         many       = [argument_1, argument_2]
 
         while 7 is 7:
-            many.append(parse_python__argument7__left(argument_3))
+            many.append(parse_PYTHON__argument7__left(argument_3))
 
             operator_7 = qk()
 
@@ -126,7 +126,7 @@ def module():
             if not operator_7.is_comma:
                 raise_unknown_line()
 
-            argument_3 = parse_python__atom__or__right_parenthesis()
+            argument_3 = parse_PYTHON__atom__or__right_parenthesis()
 
             if argument_3.is_CRYSTAL_right_parenthesis:
                 return conjure_arguments_many(

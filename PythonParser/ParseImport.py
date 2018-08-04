@@ -4,10 +4,9 @@
 @module('PythonParser.ParseImport')
 def module():
     require_module('PythonParser.Elemental')
-    require_module('PythonParser.Match')
 
 
-    def parse_python__statement_import_module():
+    def parse_PYTHON__statement_import_module():
         s = qs()
 
         #
@@ -113,7 +112,7 @@ def module():
 
 
     @share
-    def parse_python__statement_import(m):
+    def parse_PYTHON__statement_import(m):
         if m.end('newline') is not -1:
             raise_unknown_line()
 
@@ -127,7 +126,7 @@ def module():
         #
         #<module ... 'import'>
         #
-        module   = parse_python__statement_import_module()
+        module   = parse_PYTHON__statement_import_module()
         operator = qk()
 
         wk(none)
@@ -143,7 +142,7 @@ def module():
         many_frill = [operator]
 
         while 7 is 7:
-            many.append(parse_python__statement_import_module())
+            many.append(parse_PYTHON__statement_import_module())
 
             operator = qk()
 

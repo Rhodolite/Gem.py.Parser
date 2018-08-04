@@ -348,7 +348,7 @@ def module():
 
 
     def extract_module_function(module, path, vary):
-        tree = parse_python(path)
+        tree = parse_PYTHON(path)
 
         assert length(tree) is 1
 
@@ -371,7 +371,7 @@ def module():
     def extract__single_python_file_boot(vary):
         path = path_join(source_path, 'Parser/Assets/SinglePythonFileBoot.py')
 
-        tree = parse_python(path)
+        tree = parse_PYTHON(path)
 
         assert length(tree) is 1
 
@@ -383,7 +383,7 @@ def module():
         path        = path_join(source_path, 'Capital/Capital/Boot.py')
         #path       = 'b2.py'
 
-        tree = parse_python(path)
+        tree = parse_PYTHON(path)
 
         assert length(tree) is 3
 
@@ -424,7 +424,7 @@ def module():
         module_name = 'PythonParser.Main'
         path        = path_join(source_path, 'Parser/PythonParser/Main.py')
 
-        tree = parse_python(path)
+        tree = parse_PYTHON(path)
 
         assert length(tree) is 5
 
