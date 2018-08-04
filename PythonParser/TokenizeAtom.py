@@ -10,6 +10,7 @@ def module():
 
 
     [
+            analyze_PYTHON_comma_operator,
             analyze_PYTHON_keyword_atom,
             analyze_PYTHON_operator,
             analyze_PYTHON_quote,
@@ -19,6 +20,7 @@ def module():
     ] = produce_analyze_LANGUAGE_functions(
             'python',
             false,                                                      #   has_open_operator = false
+            find_evoke_PYTHON__comma_something,
             find_PYTHON_atom_type,
             lookup_PYTHON_keyword_conjure_function,
             PYTHON__skip_tokenize_prefix,
@@ -365,6 +367,7 @@ def module():
 
 
     share(
+        'analyze_PYTHON_comma_operator',    analyze_PYTHON_comma_operator,
         'analyze_PYTHON_newline_operator',  analyze_PYTHON_newline_operator,
         'analyze_PYTHON_operator',          analyze_PYTHON_operator,
         'PYTHON__skip_tokenize_prefix',     PYTHON__skip_tokenize_prefix,

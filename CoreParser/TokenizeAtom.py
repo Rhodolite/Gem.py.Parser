@@ -59,6 +59,7 @@ def module():
     def produce_analyze_LANGUAGE_functions(
             language,
             has_open_operator,
+            find_evoke_LANGUAGE__comma_something,
             find_LANGUAGE_atom_type,
             lookup_LANGUAGE_keyword_conjure_function,
             LANGUAGE__skip_tokenize_prefix,
@@ -66,6 +67,38 @@ def module():
         #
         #   analyze_LANGUAGE_* (without `newline` in the name)
         #
+        @rename('analyze_%s_comma_operator', language)
+        def analyze_LANGUAGE_comma_operator(m):
+            suffix_start = m.start('comma_suffix')
+
+            if suffix_start is not -1:
+                d = qd()
+
+                if d is 0:
+                    raise_unknown_line()
+
+                assert d > 0
+
+                suffix_end = m.end('comma_suffix')
+
+                r = find_evoke_LANGUAGE__comma_something(qs()[suffix_start])(suffix_start, suffix_end)
+
+                wd(d - 1)
+                wi(suffix_end)
+                wj(m.end())
+
+                return r
+
+            j = m.end()
+
+            r = conjure_CRYSTAL_comma(qs()[qi() : j])
+
+            wi(j)
+            wj(j)
+
+            return r
+
+
         @rename('analyze_%s_keyword_atom', language)
         def analyze_LANGUAGE_keyword_atom(m, atom_s):
             conjure = lookup_LANGUAGE_keyword_conjure_function(atom_s)
@@ -320,6 +353,7 @@ def module():
 
 
         return ((
+                   analyze_LANGUAGE_comma_operator,
                    analyze_LANGUAGE_keyword_atom,
                    analyze_LANGUAGE_operator,
                    analyze_LANGUAGE_quote,

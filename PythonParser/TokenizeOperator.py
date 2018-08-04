@@ -95,32 +95,7 @@ def module():
                 return r
 
             if m.start('comma') is not -1:
-                suffix_start = m.start('comma_suffix')
-
-                if suffix_start is not -1:
-                    d = qd()
-
-                    if d is 0:
-                        raise_unknown_line()
-
-                    suffix_end = m.end('comma_suffix')
-
-                    r = find_evoke_comma_something(s[suffix_start])(suffix_start, suffix_end)
-
-                    wd(d - 1)
-                    wi(suffix_end)
-                    wj(m.end())
-
-                    return r
-
-                j = m.end()
-
-                r = conjure_comma(s[qi() : j])
-
-                wi(j)
-                wj(j)
-
-                return r
+                return analyze_PYTHON_comma_operator(m)
 
             if m.start('colon') is not -1:
                 suffix_start = m.start('head_index')
@@ -324,7 +299,7 @@ def module():
                 if d is 1:
                     suffix_end = m.end('comma_suffix')
 
-                    r = find_evoke_comma_something(s[suffix_start])(suffix_start, suffix_end)
+                    r = find_evoke_PYTHON__comma_something(s[suffix_start])(suffix_start, suffix_end)
 
                     wd0()
 
@@ -332,7 +307,7 @@ def module():
 
                     return r
 
-                r = find_evoke_comma_something(s[suffix_start])(suffix_start, none)
+                r = find_evoke_PYTHON__comma_something(s[suffix_start])(suffix_start, none)
 
                 assert d > 1
 
@@ -345,7 +320,7 @@ def module():
             if qd() is 0:
                 raise_unknown_line()
 
-            r = conjure_comma__ends_in_newline(s[qi() : ])
+            r = conjure_CRYSTAL_comma__ends_in_newline(s[qi() : ])
 
             PYTHON__skip_tokenize_prefix()
 

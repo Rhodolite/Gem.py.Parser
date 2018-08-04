@@ -200,7 +200,7 @@ def module():
 
 
             if m.end('comment_newline') is not -1:
-                r = conjure_comma__ends_in_newline(s[qi() :])
+                r = conjure_CRYSTAL_comma__ends_in_newline(s[qi() :])
 
                 PYTHON__skip_tokenize_prefix()
 
@@ -208,7 +208,7 @@ def module():
 
             j = m.end()
 
-            r = conjure_comma(s[qi() : j])
+            r = conjure_CRYSTAL_comma(s[qi() : j])
 
             wi(j)
             wj(j)

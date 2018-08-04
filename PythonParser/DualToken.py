@@ -412,7 +412,7 @@ def module():
     evoke__comma__right_brace = produce_evoke_dual_token__ends_in_newline(
                                     'comma__right_brace',
                                     Comma_RightBrace,
-                                    conjure_comma,
+                                    conjure_CRYSTAL_comma,
                                     conjure_right_brace,
                                     conjure_right_brace__ends_in_newline,
                                 )
@@ -420,7 +420,7 @@ def module():
     evoke_comma__right_parenthesis = produce_evoke_dual_token__ends_in_newline(
                                          'comma__right_parenthesis',
                                          Comma_RightParenthesis,
-                                         conjure_comma,
+                                         conjure_CRYSTAL_comma,
                                          conjure_right_parenthesis,
                                          conjure_right_parenthesis__ends_in_newline,
                                      )
@@ -428,7 +428,7 @@ def module():
     evoke__comma__right_square_bracket = produce_evoke_dual_token__ends_in_newline(
                                              'comma__right_square_bracket',
                                              Comma_RightSquareBracket,
-                                             conjure_comma,
+                                             conjure_CRYSTAL_comma,
                                              conjure_right_square_bracket,
                                              conjure_right_square_bracket__ends_in_newline,
                                          )
@@ -669,13 +669,13 @@ def module():
     #
     #   find_*
     #
-    find_evoke_comma_something = {
-                                     #   (
-                                     ')' : evoke_comma__right_parenthesis,
+    find_evoke_PYTHON__comma_something = {
+            #   (
+            ')' : evoke_comma__right_parenthesis,
 
-                                     #   [
-                                     ']' : evoke__comma__right_square_bracket,
-                                 }.__getitem__
+            #   [
+            ']' : evoke__comma__right_square_bracket,
+        }.__getitem__
 
 
     share(
@@ -725,6 +725,6 @@ def module():
         'evoke__left_square_bracket__colon',        evoke__left_square_bracket__colon,
         'evoke_not_in',                             evoke_not_in,
         'evoke_parameters_0',                       evoke_parameters_0,
-        'find_evoke_comma_something',               find_evoke_comma_something,
+        'find_evoke_PYTHON__comma_something',       find_evoke_PYTHON__comma_something,
         'LSB_COLON',                                LSB_COLON,
     )

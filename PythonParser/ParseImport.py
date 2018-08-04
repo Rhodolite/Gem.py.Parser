@@ -68,7 +68,7 @@ def module():
             return module
 
         if operator is ',':
-            wk(conjure_comma(m.group()))
+            wk(conjure_CRYSTAL_comma(m.group()))
 
             return module
 
@@ -106,7 +106,7 @@ def module():
             return module
 
         wj(m.end())
-        wk(conjure_comma(m.group()))
+        wk(conjure_CRYSTAL_comma(m.group()))
 
         return module
 

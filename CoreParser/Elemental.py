@@ -152,6 +152,39 @@ def module():
 
     if PYTHON_parser or TREMOLITE_parser:
         @export
+        class OperatorComma(KeywordAndOperatorBase):
+                __slots__      = (())
+                display_name   = ','
+                frill_estimate = 1
+
+                if PYTHON_parser:
+                    is__comma__or__right_parenthesis       = true
+                    is_comma                               = true
+                    is_end_of_boolean_and_expression       = true
+                    is_end_of_boolean_or_expression        = true
+                    is_end_of_compare_expression           = true
+                    is_end_of_comprehension_expression     = true
+                    is_end_of_logical_and_expression       = true
+                    is_end_of_logical_or_expression        = true
+                    is_end_of_multiply_expression          = true
+                    is_end_of_normal_expression            = true
+                    is_end_of_PYTHON_arithmetic_expression = true
+                    is_end_of_ternary_expression           = true
+                    is_end_of_unary_expression             = true
+
+        [
+                conjure_CRYSTAL_comma, conjure_CRYSTAL_comma__ends_in_newline,
+        ] = produce_conjure_action_word__ends_in_newline('comma', OperatorComma)
+
+
+        export(
+            'conjure_CRYSTAL_comma',                    conjure_CRYSTAL_comma,
+            'conjure_CRYSTAL_comma__ends_in_newline',   conjure_CRYSTAL_comma__ends_in_newline,
+        )
+
+
+    if PYTHON_parser or TREMOLITE_parser:
+        @export
         class OperatorLeftParenthesis(KeywordAndOperatorBase):
             __slots__    = (())
             display_name = '('                                          #   )

@@ -315,25 +315,6 @@ def module():
         is_end_of_unary_expression              = true
 
 
-    class OperatorComma(KeywordAndOperatorBase):
-        __slots__                              = (())
-        display_name                           = ','
-        frill_estimate                         = 1
-        is__comma__or__right_parenthesis       = true
-        is_comma                               = true
-        is_end_of_boolean_and_expression       = true
-        is_end_of_boolean_or_expression        = true
-        is_end_of_compare_expression           = true
-        is_end_of_comprehension_expression     = true
-        is_end_of_logical_and_expression       = true
-        is_end_of_logical_or_expression        = true
-        is_end_of_multiply_expression          = true
-        is_end_of_normal_expression            = true
-        is_end_of_PYTHON_arithmetic_expression = true
-        is_end_of_ternary_expression           = true
-        is_end_of_unary_expression             = true
-
-
     @share
     class OperatorCompareEqual(KeywordAndOperatorBase):
         __slots__                              = (())
@@ -758,10 +739,6 @@ def module():
     ] = produce_conjure_action_word__ends_in_newline('colon', OperatorColon)
 
     [
-            conjure_comma, conjure_comma__ends_in_newline,
-    ] = produce_conjure_action_word__ends_in_newline('comma', OperatorComma)
-
-    [
             conjure_keyword_in, conjure_keyword_in__ends_in_newline,
     ] = produce_conjure_action_word__ends_in_newline('keyword_in', KeywordIn)
 
@@ -812,8 +789,8 @@ def module():
     BREAK                       = conjure_keyword_break       ('break')
     CLASS__W                    = conjure_keyword_class       ('class ')
     COLON                       = conjure_colon               (':')
-    COMMA                       = conjure_comma               (',')
-    COMMA__W                    = conjure_comma               (', ')
+    COMMA                       = conjure_CRYSTAL_comma       (',')
+    COMMA__W                    = conjure_CRYSTAL_comma       (', ')
     CONTINUE                    = conjure_keyword_continue    ('continue')
     DELETE__W                   = conjure_keyword_delete      ('del ')
     DOT                         = conjure_dot                 ('.')
@@ -1030,8 +1007,6 @@ def module():
         'conjure_at_sign',                                  conjure_at_sign,
         'conjure_colon',                                    conjure_colon,
         'conjure_colon__ends_in_newline',                   conjure_colon__ends_in_newline,
-        'conjure_comma',                                    conjure_comma,
-        'conjure_comma__ends_in_newline',                   conjure_comma__ends_in_newline,
         'conjure_dot',                                      conjure_dot,
         'conjure_else_colon',                               conjure_else_colon,
         'conjure_equal_sign',                               conjure_equal_sign,
