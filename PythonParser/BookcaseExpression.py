@@ -34,7 +34,6 @@ def module():
         frill        = LSB_RSB
         
         is_CRYSTAL_atom              = true
-        is_CRYSTAL_left_parenthesis  = false
         is_CRYSTAL_right_parenthesis = false
 
 
@@ -48,7 +47,6 @@ def module():
         frill        = conjure_vw_frill(conjure_left_brace ('{'), conjure_right_brace('}'))
 
         is_CRYSTAL_atom              = true
-        is_CRYSTAL_left_parenthesis  = false
         is_CRYSTAL_right_parenthesis = false
 
 
@@ -88,7 +86,6 @@ def module():
         frill        = conjure_vw_frill(LEFT_PARENTHESIS, COMMA_RP)
 
         is_CRYSTAL_atom              = true
-        is_CRYSTAL_left_parenthesis  = false
         is_CRYSTAL_right_parenthesis = false
 
 

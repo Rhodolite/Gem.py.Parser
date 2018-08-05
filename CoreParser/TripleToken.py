@@ -202,15 +202,21 @@ def module():
         __slots__    = (())
         display_name = 'whitespace+atom+whitespace'
 
-
         if CRYSTAL_parser:
             is_CRYSTAL_atom                                  = true
-            is_CRYSTAL_left_parenthesis                      = false
-            is_CRYSTAL_right_parenthesis                     = false
             is_CRYSTAL_simple_atom__or__colon                = true
             is_CRYSTAL_simple_atom__or__right_brace          = true
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
+
+        if TREMOLITE_parser:
+            is_TREMOLITE__simple_atom__or__right_brace_set = true
+
+        if CRYSTAL_parser:
+            is_CRYSTAL_right_parenthesis = false
+
+        if TREMOLITE_parser:
+            is_TREMOLITE_right_brace_set = false
 
 
         if PYTHON_parser:
@@ -222,19 +228,25 @@ def module():
         __slots__    = (())
         display_name = 'whitespace+name+whitespace'
 
-
         if CRYSTAL_parser:
             is_CRYSTAL_atom                                  = true
             is_CRYSTAL_identifier                            = true
-            is_CRYSTAL_left_parenthesis                      = false
-            is_CRYSTAL_right_parenthesis                     = false
             is_CRYSTAL_simple_atom__or__colon                = true
             is_CRYSTAL_simple_atom__or__right_brace          = true
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
+        if TREMOLITE_parser:
+            is_TREMOLITE__simple_atom__or__right_brace_set = true
+
+        if CRYSTAL_parser:
+            is_CRYSTAL_right_parenthesis = false
+
         if PYTHON_parser:
             is_PYTHON__identifier__or__star_parameter = true
+
+        if TREMOLITE_parser:
+            is_TREMOLITE_right_brace_set = false
 
 
         if PYTHON_parser:

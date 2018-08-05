@@ -223,12 +223,12 @@ def module():
         display_name = '[,]'
 
         is_CRYSTAL_atom                                  = true
-        is_CRYSTAL_left_parenthesis                      = false
-        is_CRYSTAL_right_parenthesis                     = false
         is_CRYSTAL_simple_atom__or__colon                = true
         is_CRYSTAL_simple_atom__or__right_brace          = true
         is_CRYSTAL_simple_atom__or__right_parenthesis    = true
         is_CRYSTAL_simple_atom__or__right_square_bracket = true
+
+        is_CRYSTAL_right_parenthesis = false
 
 
         scout_variables = scout_variables__0
@@ -239,12 +239,12 @@ def module():
         display_name = '{:}'
 
         is_CRYSTAL_atom                                  = true
-        is_CRYSTAL_left_parenthesis                      = false
-        is_CRYSTAL_right_parenthesis                     = false
         is_CRYSTAL_simple_atom__or__colon                = true
         is_CRYSTAL_simple_atom__or__right_brace          = true
         is_CRYSTAL_simple_atom__or__right_parenthesis    = true
         is_CRYSTAL_simple_atom__or__right_square_bracket = true
+
+        is_CRYSTAL_right_parenthesis = false
 
 
         scout_variables = scout_variables__0
@@ -255,12 +255,12 @@ def module():
         display_name = '{,}'
 
         is_CRYSTAL_atom                                  = true
-        is_CRYSTAL_left_parenthesis                      = false
-        is_CRYSTAL_right_parenthesis                     = false
         is_CRYSTAL_simple_atom__or__colon                = true
         is_CRYSTAL_simple_atom__or__right_brace          = true
         is_CRYSTAL_simple_atom__or__right_parenthesis    = true
         is_CRYSTAL_simple_atom__or__right_square_bracket = true
+
+        is_CRYSTAL_right_parenthesis = false
 
 
         scout_variables = scout_variables__0

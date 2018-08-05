@@ -25,7 +25,6 @@ def module():
         frill        = conjure_vwx_frill(LSB, COMMA__W, RSB)
 
         is_CRYSTAL_atom              = true
-        is_CRYSTAL_left_parenthesis  = false
         is_CRYSTAL_right_parenthesis = false
 
 
@@ -47,7 +46,6 @@ def module():
         frill        = conjure_vwx_frill(LEFT_PARENTHESIS, COMMA__W, RIGHT_PARENTHESIS)
 
         is_CRYSTAL_atom              = true
-        is_CRYSTAL_left_parenthesis  = false
         is_CRYSTAL_right_parenthesis = false
 
 
