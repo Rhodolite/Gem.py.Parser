@@ -112,7 +112,7 @@ def module():
                        tokenize_parameter_colon_newline(),
                    )
 
-        if not operator_2.is_comma:
+        if not operator_2.is_CRYSTAL_comma:
             #my_line('operator_2: %r', operator_2)
             raise_unknown_line()
 
@@ -162,7 +162,7 @@ def module():
                            tokenize_parameter_colon_newline(),
                        )
 
-            if not operator_7.is_comma:
+            if not operator_7.is_CRYSTAL_comma:
                 #my_line('operator_7: %s; full_line: %r', operator_7, portray_string(qs()))
                 raise_unknown_line()
 

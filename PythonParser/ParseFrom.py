@@ -155,7 +155,7 @@ def module():
         if operator.line_marker:
             return conjure_from_statement(indented_keyword, module, keyword_import, imported, operator)
 
-        if not operator.is_comma:
+        if not operator.is_CRYSTAL_comma:
             raise_unknown_line()
 
         #
@@ -177,7 +177,7 @@ def module():
                        operator_2,
                    )
 
-        if not operator_2.is_comma:
+        if not operator_2.is_CRYSTAL_comma:
             raise_unknown_line()
 
         many       = [imported, imported_2]
@@ -199,7 +199,7 @@ def module():
                            operator_7,
                        )
 
-            if not operator_7.is_comma:
+            if not operator_7.is_CRYSTAL_comma:
                 raise_unknown_line()
 
             many_frill.append(operator_7)

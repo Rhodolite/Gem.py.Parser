@@ -34,6 +34,7 @@ def module():
 
         if CRYSTAL_parser:
             ends_in_newline                  = false
+            is_CRYSTAL_comma                 = false
             is_CRYSTAL_identifier            = false
             is_CRYSTAL_right_parenthesis     = false
             is_empty_line                    = false
@@ -43,7 +44,6 @@ def module():
             newlines                         = 0
 
         if PYTHON_parser:
-            is_comma                   = false
             is_comment_line            = false
             is_comment__or__empty_line = false
             is_indentation             = false

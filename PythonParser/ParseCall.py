@@ -75,7 +75,7 @@ def module():
         if operator_1.is__optional_comma__right_parenthesis:
             return conjure_arguments_1(left_parenthesis, argument_1, operator_1)
 
-        if not operator_1.is_comma:
+        if not operator_1.is_CRYSTAL_comma:
             #my_line('operator_1: %r', operator_1)
             raise_unknown_line()
 
@@ -96,7 +96,7 @@ def module():
         if operator_2.is__optional_comma__right_parenthesis:
             return conjure_arguments_2(left_parenthesis, argument_1, operator_1, argument_2, operator_2)
 
-        if not operator_2.is_comma:
+        if not operator_2.is_CRYSTAL_comma:
             raise_unknown_line()
 
         argument_3 = parse_PYTHON__atom__or__right_parenthesis()
@@ -123,7 +123,7 @@ def module():
             if operator_7.is__optional_comma__right_parenthesis:
                 return conjure_arguments_many(left_parenthesis, many, frill_many, operator_7)
 
-            if not operator_7.is_comma:
+            if not operator_7.is_CRYSTAL_comma:
                 raise_unknown_line()
 
             argument_3 = parse_PYTHON__atom__or__right_parenthesis()

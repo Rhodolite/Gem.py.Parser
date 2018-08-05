@@ -91,7 +91,7 @@ def module():
 
         wk(none)
 
-        if not operator.is_comma:
+        if not operator.is_CRYSTAL_comma:
             raise_unknown_line()
 
         right = parse_PYTHON__ternary_expression()
@@ -135,7 +135,7 @@ def module():
 
         wk(none)
 
-        if not operator.is_comma:
+        if not operator.is_CRYSTAL_comma:
             raise_unknown_line()
 
         many       = [left]
@@ -156,7 +156,7 @@ def module():
 
             wk(none)
 
-            if not operator.is_comma:
+            if not operator.is_CRYSTAL_comma:
                 raise_unknown_line()
 
             many_frill.append(operator)
@@ -196,7 +196,7 @@ def module():
 
         wk(none)
 
-        if not operator.is_comma:
+        if not operator.is_CRYSTAL_comma:
             raise_unknown_line()
 
         middle = parse_PYTHON__ternary_expression()
@@ -213,7 +213,7 @@ def module():
 
         wk(none)
 
-        if not operator_2.is_comma:
+        if not operator_2.is_CRYSTAL_comma:
             raise_unknown_line()
 
         right = parse_PYTHON__ternary_expression()
