@@ -36,7 +36,6 @@ def module():
             ends_in_newline                  = false
             is_CRYSTAL_comma                 = false
             is_CRYSTAL_identifier            = false
-            is_CRYSTAL_right_parenthesis     = false
             is_empty_line                    = false
             is_end_of_data                   = false
             is_end_of_data__or__unknown_line = false

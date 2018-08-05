@@ -251,7 +251,9 @@ def module():
         class_order  = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
         display_name = '[*]'
         
-        is_CRYSTAL_atom = true
+        is_CRYSTAL_atom              = true
+        is_CRYSTAL_left_parenthesis  = false
+        is_CRYSTAL_right_parenthesis = false
 
 
         scout_variables = scout_variables__many
@@ -263,7 +265,9 @@ def module():
         class_order  = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
         display_name = '{:*:}'
        
-        is_CRYSTAL_atom = true
+        is_CRYSTAL_atom              = true
+        is_CRYSTAL_left_parenthesis  = false
+        is_CRYSTAL_right_parenthesis = false
 
 
         scout_variables = scout_variables__many
@@ -294,7 +298,9 @@ def module():
         class_order  = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
         display_name = '{,*,}'
 
-        is_CRYSTAL_atom = true
+        is_CRYSTAL_atom              = true
+        is_CRYSTAL_left_parenthesis  = false
+        is_CRYSTAL_right_parenthesis = false
 
 
         scout_variables = scout_variables__many
