@@ -3,6 +3,7 @@
 #
 @module('PythonParser.ParseExpression')
 def module():
+    require_module('PythonParser.ManyExpression')
     require_module('PythonParser.TernaryExpression')
     require_module('PythonParser.UnaryExpression')
 

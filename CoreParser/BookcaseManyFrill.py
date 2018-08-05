@@ -1,11 +1,8 @@
 #
 #   Copyright (c) 2017-2018 Joy Diamond.  All rights reserved.
 #
-@module('PythonParser.BookcaseManyFrill')
+@module('CoreParser.BookcaseManyFrill')
 def module():
-    require_module('PythonParser.ManyExpression')
-
-
     bookcase_many_frill_cache = create_cache('bookcase-many-frill', conjure_nub)
 
 
@@ -51,7 +48,9 @@ def module():
                                            bookcase_many_frill_cache,
                                        )
 
-    BookcaseManyFrill.transform = produce_transform__abc('bookcase_many_frill', conjure_bookcase_many_frill__213)
+
+    if PYTHON_parser:
+        BookcaseManyFrill.transform = produce_transform__abc('bookcase_many_frill', conjure_bookcase_many_frill__213)
 
 
     @share

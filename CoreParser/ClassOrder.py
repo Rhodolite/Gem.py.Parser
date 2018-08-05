@@ -11,10 +11,11 @@ def module():
         'CLASS_ORDER__COMMENT_LINE',                    12,     #   CommentLine token
         'CLASS_ORDER__COMMENT_LINE__STRING',            13,     #   CommentLine token, inherited from String
 
-        'CLASS_ORDER__FRILL_2',                         20,     #   Commented_V_Frill & VW_Frill
-        'CLASS_ORDER__FRILL_3',                         21,     #   Commented_VW_Frill & VWX_Frill
-        'CLASS_ORDER__FRILL_MANY',                      22,     #   Frill_Many
-        'CLASS_ORDER__LINE_MARKER',                     23,     #   LineMarker token
+        'CLASS_ORDER__BOOKCASE_MANY_FRILL',             20,     #   BookcaseManyFrill
+        'CLASS_ORDER__FRILL_2',                         21,     #   Commented_V_Frill & VW_Frill
+        'CLASS_ORDER__FRILL_3',                         22,     #   Commented_VW_Frill & VWX_Frill
+        'CLASS_ORDER__FRILL_MANY',                      23,     #   Frill_Many
+        'CLASS_ORDER__LINE_MARKER',                     24,     #   LineMarker token
 
         'CLASS_ORDER__BINARY_EXPRESSION',               30,     #   BinaryExpression+
         'CLASS_ORDER__BOOKCASE_COUPLE_TWIG',            31,     #   BookcaseCoupleTwig+
@@ -25,5 +26,5 @@ def module():
         'CLASS_ORDER__TUPLE',                           36,     #   TokenTuple+
 
         'CLASS_ORDER__PYTHON_START',                    40,
-        'CLASS_ORDER__PYTHON_END',                      80,
+        'CLASS_ORDER__PYTHON_END',                      70,
     )
