@@ -155,7 +155,7 @@ def module():
             provide = provide_normal_token,
     ):
         @rename('evoke_%s', name)
-        def evoke_dual_token__ends_in_newline(middle, end):
+        def evoke_dual_token__ends_in_newline(middle, end, second = 0):
             if end is none:
                 assert qi() < middle
             else:
@@ -178,13 +178,17 @@ def module():
             full = intern_string(full)
             s    = qs()
 
+            if second is not 0:
+                assert second == s[middle : end]
+
             return provide(
                        full,
                        create_dual_token__with_newlines(
                            Meta,
                            full,
                            conjure_first(s[qi() : middle]),
-                           (conjure_second__ends_in_newline   if end is none else   conjure_second)(s[middle : end]),
+                           (conjure_second__ends_in_newline   if end is none else   conjure_second)
+                               ( (s[middle : end]   if second is 0 else   second) ),
                        ),
                    )
 

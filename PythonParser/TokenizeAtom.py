@@ -14,6 +14,8 @@ def module():
             analyze_PYTHON_keyword_atom,
             analyze_PYTHON_operator,
             analyze_PYTHON_quote,
+
+            analyze_PYTHON_newline_comma_operator,
             analyze_PYTHON_newline_keyword_atom,
             analyze_PYTHON_newline_operator,
             analyze_PYTHON_newline_quote,
@@ -367,8 +369,9 @@ def module():
 
 
     share(
-        'analyze_PYTHON_comma_operator',    analyze_PYTHON_comma_operator,
-        'analyze_PYTHON_newline_operator',  analyze_PYTHON_newline_operator,
-        'analyze_PYTHON_operator',          analyze_PYTHON_operator,
-        'PYTHON__skip_tokenize_prefix',     PYTHON__skip_tokenize_prefix,
+        'analyze_PYTHON_comma_operator',            analyze_PYTHON_comma_operator,
+        'analyze_PYTHON_newline_comma_operator',    analyze_PYTHON_newline_comma_operator,
+        'analyze_PYTHON_newline_operator',          analyze_PYTHON_newline_operator,
+        'analyze_PYTHON_operator',                  analyze_PYTHON_operator,
+        'PYTHON__skip_tokenize_prefix',             PYTHON__skip_tokenize_prefix,
     )
