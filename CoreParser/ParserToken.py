@@ -64,40 +64,7 @@ def module():
             count_newlines = count_newlines__zero
 
 
-        def dump_token(t, f, newline = true):
-            if t.ends_in_newline:
-                if t.newlines is 1:
-                    f.partial('{%s}', portray_string(t.s)[1:-1])
-                else:
-                    many = t.s.splitlines(true)
-
-                    f.partial('{')
-
-                    for s in many[:-1]:
-                        f.line(portray_string(s)[1:-1])
-
-                    f.partial('%s}', portray_string(many[-1])[1:-1])
-
-                if newline:
-                    f.line()
-                    return false
-
-                return true
-
-            if t.newlines is 0:
-                f.partial('{%s}', portray_string(t.s)[1:-1])
-                return
-
-            many = t.s.splitlines(true)
-
-            f.partial('{')
-
-            for s in many[:-1]:
-                f.line(portray_string(s)[1:-1])
-
-            f.partial('%s}', portray_string(many[-1])[1:-1])
-
-
+        dump_token    = dump_token__with_braces
         display_token = __repr__
 
 

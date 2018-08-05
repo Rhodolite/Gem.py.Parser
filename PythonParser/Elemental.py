@@ -458,6 +458,10 @@ def module():
         is_left_brace = true
 
 
+        display_token = display_token__with_angle_signs
+        dump_token    = dump_token__with_angle_signs
+
+
     @export
     class OperatorLeftSquareBracket(KeywordAndOperatorBase):
         __slots__                = (())
@@ -611,6 +615,10 @@ def module():
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
         is_right_brace                          = true
+
+
+        display_token = display_token__with_angle_signs
+        dump_token    = dump_token__with_angle_signs
 
 
     @export

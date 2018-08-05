@@ -79,6 +79,63 @@ def module():
     #
     #   dump_token
     #
+    def produce_dump_token(suffix, left, right):
+        left__percent_s__right = left + '%s' + right
+        percent_s__right       = '%s' + right
+
+
+        @rename('dump_token__with_%s', suffix)
+        def dump_token__with_SUFFIX(t, f, newline = true):
+            if t.ends_in_newline:
+                if t.newlines is 1:
+                    f.partial(left__percent_s__right, portray_string(t.s)[1:-1])
+                else:
+                    many = t.s.splitlines(true)
+
+                    f.partial(left)
+
+                    for s in many[:-1]:
+                        f.line(portray_string(s)[1:-1])
+
+                    f.partial(percent_s__right, portray_string(many[-1])[1:-1])
+
+                if newline:
+                    f.line()
+                    return false
+
+                return true
+
+            if t.newlines is 0:
+                f.partial(left__percent_s__right, portray_string(t.s)[1:-1])
+                return
+
+            many = t.s.splitlines(true)
+
+            f.partial(left)
+
+            for s in many[:-1]:
+                f.line(portray_string(s)[1:-1])
+
+            f.partial(percent_s__right, portray_string(many[-1])[1:-1])
+
+
+        return dump_token__with_SUFFIX
+
+
+    dump_token__with_angle_signs = produce_dump_token('angles', '<', '>')
+    dump_token__with_braces      = produce_dump_token('braces', '{', '}')
+
+
+    export(
+        'dump_token__with_angle_signs',     dump_token__with_angle_signs,
+    )
+
+
+    share(
+        'dump_token__with_braces',  dump_token__with_braces,
+    )
+
+
     if CRYSTAL_parser:
         @share
         def dump_token__12(t, f, newline = true):
