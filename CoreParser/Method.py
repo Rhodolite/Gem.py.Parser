@@ -66,8 +66,14 @@ def module():
 
     if CRYSTAL_parser:
         @export
-        def display_token__with_braces(t):
+        def display_token__ab__with_braces(t):
             return arrange('{%s %s %s}', t.display_name, t.a.display_token(), t.b.display_token())
+
+
+    if CRYSTAL_parser:
+        @export
+        def display_token__with_angle_signs(t):
+            return arrange('<%s>', t.s)
 
 
     #

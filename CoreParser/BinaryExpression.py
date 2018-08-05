@@ -111,10 +111,10 @@ def module():
 
 
                     display_token = (
-                                        display_token__frill_with_braces
-                                            if method_is_function(Meta.display_token, display_token__with_braces) else
-                                                display_token__frill
-                                    )
+                            display_token__frill_with_braces
+                                if method_is_function(Meta.display_token, display_token__ab__with_braces) else
+                                    display_token__frill
+                        )
 
 
                 BinaryExpression_WithFrill.k3 = BinaryExpression_WithFrill.frill

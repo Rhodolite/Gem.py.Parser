@@ -102,11 +102,8 @@ def module():
             return arrange('<%s %s>', t.__class__.__name__, portray_string(t.s))
 
 
-        def display_short_token(t):
-            return arrange('{%s}', portray_string(t.s)[1:-1])
-
-
-        display_token = display_short_token
+        def display_token(t):
+            return arrange('{%s}', t.s)
 
 
     if JAVA_parser or PYTHON_parser:
@@ -187,7 +184,11 @@ def module():
         ] = produce_conjure_action_word__ends_in_newline('comma', OperatorComma)
 
 
+        COMMA__W = conjure_CRYSTAL_comma(', ')
+
+        
         export(
+            'COMMA__W',                                 COMMA__W,
             'conjure_CRYSTAL_comma',                    conjure_CRYSTAL_comma,
             'conjure_CRYSTAL_comma__ends_in_newline',   conjure_CRYSTAL_comma__ends_in_newline,
         )

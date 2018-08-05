@@ -36,10 +36,6 @@ def module():
             return 0
 
 
-        def display_short_token(t):
-            return arrange('{+%d}', t.total)
-
-
         def display_token(t):
             if t.total is 0:
                 return '{+0}'

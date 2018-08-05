@@ -790,7 +790,6 @@ def module():
     CLASS__W                    = conjure_keyword_class       ('class ')
     COLON                       = conjure_colon               (':')
     COMMA                       = conjure_CRYSTAL_comma       (',')
-    COMMA__W                    = conjure_CRYSTAL_comma       (', ')
     CONTINUE                    = conjure_keyword_continue    ('continue')
     DELETE__W                   = conjure_keyword_delete      ('del ')
     DOT                         = conjure_dot                 ('.')

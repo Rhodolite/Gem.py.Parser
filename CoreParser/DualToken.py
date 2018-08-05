@@ -264,33 +264,14 @@ def module():
         __repr__ = portray__ab
 
 
-
-        if 0:                                                           #   Not currently used
-            def display_full_token(t):
-                display_name = t.display_name
-                a_s          = t.a.s
-                b_s          = t.b.s
-
-                return arrange('<%s <%s> <%s>>',
-                               display_name,
-                               portray_string(a_s)   if '\n' in a_s else   a_s,
-                               portray_string(b_s)   if '\n' in b_s else   b_s)
-
-
         def display_token(t):
             display_name = t.display_name
 
             if display_name == t.s:
                 return arrange('<%s>', display_name)
 
-            a_s = t.a.s
-            b_s = t.b.s
-
-            return arrange('<%s <%s> <%s>>',
-                           display_name,
-                           portray_string(a_s)   if '\n' in a_s else   a_s,
-                           portray_string(b_s)   if '\n' in b_s else   b_s)
-
+            return arrange('<%s %s %s>', display_name, t.a.display_token(), t.b.display_token()) 
+            
 
         order = order__s
 

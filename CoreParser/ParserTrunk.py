@@ -30,9 +30,4 @@ def module():
             is_vw_frill                           = false
 
 
-        if 0:                                                           #   Not currently used
-            def display_full_token(t):
-                return t.display_token()
-
-
         nub = static_conjure_nub

@@ -64,15 +64,6 @@ def module():
             count_newlines = count_newlines__zero
 
 
-        def display_short_token(t):
-            return arrange('{%s}', portray_string(t.s)[1:-1])
-
-
-        if 0:                                                           #   Not currently used
-            def display_full_token(t):
-                return arrange('<%s %s>', t.display_name, portray_string(t.s))
-
-
         def dump_token(t, f, newline = true):
             if t.ends_in_newline:
                 if t.newlines is 1:
