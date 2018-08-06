@@ -33,6 +33,7 @@ def module():
     transport('Capital.Core',                       'attribute')
     transport('Capital.Core',                       'Boolean')
     transport('Capital.Core',                       'false')
+    transport('Capital.Core',                       'Function')
     transport('Capital.Core',                       'Integer')
     transport('Capital.Core',                       'intern_arrange')
     transport('Capital.Core',                       'intern_string')
