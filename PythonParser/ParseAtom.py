@@ -15,16 +15,15 @@ def module():
         if not operator.is_keyword_for:
             return token
 
-        wk(none)
+        wk0()
 
         return parse_PYTHON__comprehension_expression__left_operator(token, operator)
 
 
     @share
     def parse_PYTHON__map_element__or__right_brace():
-        if qk() is not none:
+        if qk() is not 0:
             my_line('qk: %r', qk())
-            assert 0,'here'
             raise_unknown_line()
 
         token = parse_PYTHON__atom__or__right_brace()
@@ -34,23 +33,23 @@ def module():
 
         operator = qk()
 
-        if operator is none:
+        if operator is 0:
             if qn() is not none:
                 raise_unknown_line()
 
             operator = tokenize_PYTHON_operator()
         else:
-            wk(none)
+            wk0()
 
         if not operator.is_colon:
             token = parse_PYTHON__ternary_expression__X__any_expression(token, operator)
 
             operator = qk()
 
-            if operator is none:
+            if operator is 0:
                 raise_unknown_line()
 
-            wk(none)
+            wk0()
 
         if not operator.is_colon:
             raise_unknown_line()
@@ -86,7 +85,7 @@ def module():
 
     @share
     def parse_PYTHON_atom__normal():
-        assert qk() is none
+        assert qk() is 0
         assert qn() is none
 
         m = PYTHON_atom_match(qs(), qj())
@@ -105,7 +104,7 @@ def module():
 
     @share
     def parse_PYTHON__atom__or__colon():
-        assert qk() is none
+        assert qk() is 0
         assert qn() is none
 
         m = PYTHON_atom_match(qs(), qj())
@@ -122,7 +121,7 @@ def module():
 
 
     def parse_PYTHON__atom__or__right_brace():
-        assert qk() is none
+        assert qk() is 0
         assert qn() is none
 
         m = PYTHON_atom_match(qs(), qj())
@@ -140,7 +139,7 @@ def module():
 
     @share
     def parse_PYTHON__atom__or__right_parenthesis():
-        assert qk() is none
+        assert qk() is 0
         assert qn() is none
 
         m = PYTHON_atom_match(qs(), qj())
@@ -158,7 +157,7 @@ def module():
 
     @share
     def parse_PYTHON__atom__or__right_square_bracket():
-        assert qk() is none
+        assert qk() is 0
         assert qn() is none
 
         m = PYTHON_atom_match(qs(), qj())

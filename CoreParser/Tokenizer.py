@@ -203,7 +203,7 @@ def module():
                 wi0()
                 wj0()
                 wl(line_number)
-                wk(none)
+                wk0()
                 wn(none)
 
                 yield s
@@ -214,7 +214,7 @@ def module():
             wi0()
             wj0()
             wl(none)
-            wk(none)
+            wk0()
             wn(none)
             wp(none)
 

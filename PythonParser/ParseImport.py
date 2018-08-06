@@ -128,8 +128,7 @@ def module():
         #
         module   = parse_PYTHON__statement_import_module()
         operator = qk()
-
-        wk(none)
+        wk0()
         #</module>
 
         if operator.line_marker:

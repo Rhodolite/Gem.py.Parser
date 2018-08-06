@@ -138,8 +138,7 @@ def module():
         module = parse_PYTHON__statement_from_module(j)
 
         keyword_import = qk()
-
-        wk(none)
+        wk0()
         #</module>
 
         #
@@ -148,8 +147,7 @@ def module():
         imported = parse_PYTHON__statement_from_as()
 
         operator = qk()
-
-        wk(none)
+        wk0()
         #<imported/>
 
         if operator.line_marker:
@@ -164,8 +162,7 @@ def module():
         imported_2 = parse_PYTHON__statement_from_as()
 
         operator_2 = qk()
-
-        wk(none)
+        wk0()
         #<imported/>
 
         if operator_2.line_marker:
@@ -187,8 +184,7 @@ def module():
             many.append(parse_PYTHON__statement_from_as())
 
             operator_7 = qk()
-
-            wk(none)
+            wk0()
 
             if operator_7.line_marker:
                 return conjure_from_statement(

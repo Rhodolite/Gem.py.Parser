@@ -89,16 +89,16 @@ def module():
 
             operator_1 = qk()
 
-            if operator_1 is none:
+            if operator_1 is 0:
                 operator_1 = tokenize_LANGUAGE_operator()
             else:
-                wk(none)
+                wk0()
 
             if not attribute(operator_1, name__is_end_of_LANGUAGE_MIDDLE_expression):
                 middle_1 = parse_LANGUAGE__FIRST_expression__X__any_expression(middle_1, operator_1)
 
                 operator_1 = qk()
-                wk(none)
+                wk0()
 
             if conjure_LANGUAGE_bookcase_expression_1 is conjure_LANGUAGE_bookcase_expression_comma_1:
                 if attribute(operator_1, name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR):
@@ -131,7 +131,7 @@ def module():
                 middle_2 = parse_LANGUAGE__MIDDLE_expression__X__any_expression(middle_2, operator_2)
 
                 operator_2 = qk()
-                wk(none)
+                wk0()
 
             if attribute(operator_2, name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR):
                 return conjure_LANGUAGE_bookcase_expression_2(left_operator, middle_1, operator_1, middle_2, operator_2)
@@ -163,7 +163,7 @@ def module():
                     middle_3 = parse_LANGUAGE__MIDDLE_expression__X__any_expression(middle_3, operator_7)
 
                     operator_7 = qk()
-                    wk(none)
+                    wk0()
 
                 many.append(middle_3)
 
@@ -269,8 +269,7 @@ def module():
                     return conjure_LANGUAGE_EMPTY_PAIR(left_operator, middle_1)
 
             operator_1 = qk()
-
-            wk(none)
+            wk0()
 
             #
             #   TODO:   If `middle_1` is a comprehension expression, THEN: it ust be followed by a RIGHT_OPERATOR
@@ -308,8 +307,7 @@ def module():
                 many_frill = [operator_1]
             else:
                 operator_2 = qk()
-
-                assert operator_2 is not none
+                wk0()
 
                 if attribute(operator_2, name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR):
                     return conjure_LANGUAGE_bookcase_expression_2(left_operator, middle_1, operator_1, middle_2, operator_2)
@@ -336,8 +334,7 @@ def module():
 
             while 7 is 7:
                 operator_7 = qk()
-
-                wk(none)
+                wk0()
 
                 if attribute(operator_7, name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR):
                     return conjure_LANGUAGE_bookcase_expression_many(left_operator, many, many_frill, operator_7)

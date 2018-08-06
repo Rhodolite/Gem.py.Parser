@@ -30,7 +30,7 @@ def module():
 
     @share
     def tokenize_name():
-        assert qk() is none
+        assert qk() is 0
         assert qn() is none
 
         j = qj()

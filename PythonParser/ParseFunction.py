@@ -99,7 +99,7 @@ def module():
             token_1 = conjure_keyword_parameter(token_1, operator_2, value)
 
             operator_2 = qk()
-            wk(none)
+            wk0()
 
             if operator_2 is none:
                 raise_unknown_line()
@@ -147,7 +147,7 @@ def module():
                 token_7 = conjure_keyword_parameter(token_7, operator_7, value)
 
                 operator_7 = qk()
-                wk(none)
+                wk0()
 
                 if operator_7 is none:
                     raise_unknown_line()

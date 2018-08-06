@@ -243,6 +243,7 @@ def module():
     transport('CoreParser.Tokenizer',               'wd1')
     transport('CoreParser.Tokenizer',               'wi')
     transport('CoreParser.Tokenizer',               'wj')
+    transport('CoreParser.Tokenizer',               'wk0')
     transport('CoreParser.Tokenizer',               'wk')
     transport('CoreParser.Tokenizer',               'wn')
     transport('CoreParser.Tokenizer',               'ws')

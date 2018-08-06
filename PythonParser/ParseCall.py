@@ -16,10 +16,10 @@ def module():
     def parse_PYTHON__argument7__left(left):
         operator = qk()
 
-        if operator is none:
+        if operator is 0:
             operator = tokenize_PYTHON_operator()
         else:
-            wk(none)
+            wk0()
 
         if operator.is_equal_sign:
             if not left.is_CRYSTAL_identifier:
@@ -44,10 +44,10 @@ def module():
 
         operator_1 = qk()
 
-        if operator_1 is none:
+        if operator_1 is 0:
             operator_1 = tokenize_PYTHON_operator()
         else:
-            wk(none)
+            wk0()
 
         if operator_1.is_equal_sign:
             if not argument_1.is_CRYSTAL_identifier:
@@ -57,20 +57,20 @@ def module():
 
             operator_1 = qk()
 
-            if operator_1 is none:
+            if operator_1 is 0:
                 operator_1 = tokenize_PYTHON_operator()
             else:
-                wk(none)
+                wk0()
         else:
             if not operator_1.is_end_of_comprehension_expression:
                 argument_1 = parse_PYTHON__comprehension_expression__X__any_expression(argument_1, operator_1)
 
                 operator_1 = qk()
 
-                if operator_1 is none:
+                if operator_1 is 0:
                     operator_1 = tokenize_PYTHON_operator()
                 else:
-                    wk(none)
+                    wk0()
 
         if operator_1.is__optional_comma__right_parenthesis:
             return conjure_arguments_1(left_parenthesis, argument_1, operator_1)
@@ -90,8 +90,7 @@ def module():
 
         argument_2 = parse_PYTHON__argument7__left(argument_2)
         operator_2 = qk()
-
-        wk(none)
+        wk0()
 
         if operator_2.is__optional_comma__right_parenthesis:
             return conjure_arguments_2(left_parenthesis, argument_1, operator_1, argument_2, operator_2)
@@ -117,8 +116,7 @@ def module():
             many.append(parse_PYTHON__argument7__left(argument_3))
 
             operator_7 = qk()
-
-            wk(none)
+            wk0()
 
             if operator_7.is__optional_comma__right_parenthesis:
                 return conjure_arguments_many(left_parenthesis, many, frill_many, operator_7)

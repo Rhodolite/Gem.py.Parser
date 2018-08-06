@@ -21,8 +21,8 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
-            wk(none)
+        if operator is not 0:
+            wk0()
         else:
             operator = tokenize_PYTHON_operator()
 
@@ -37,7 +37,7 @@ def module():
 
         header = evoke_header(indented_keyword, condition, operator)
 
-        assert qk() is none
+        assert qk() is 0
         assert qn() is none
 
         m = simple_statement_match(qs(), qj())
@@ -54,7 +54,7 @@ def module():
 
             right = parse_PYTHON__ternary_expression_list()
 
-            if qk() is not none:
+            if qk() is not 0:
                 raise_unknown_line()
 
             newline = qn()
@@ -140,8 +140,8 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
-            wk(none)
+        if operator is not 0:
+            wk0()
         else:
             operator = tokenize_PYTHON_operator()
 
@@ -155,8 +155,8 @@ def module():
 
         operator_2 = qk()
 
-        if operator_2 is not none:
-            wk(none)
+        if operator_2 is not 0:
+            wk0()
         else:
             operator_2 = tokenize_PYTHON_operator()
 
@@ -198,8 +198,8 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
-            wk(none)
+        if operator is not 0:
+            wk0()
         else:
             if qn() is not none:
                 raise_unknown_line()
@@ -216,8 +216,8 @@ def module():
 
         operator_2 = qk()
 
-        if operator_2 is not none:
-            wk(none)
+        if operator_2 is not 0:
+            wk0()
         else:
             if qn() is not none:
                 raise_unknown_line()
@@ -267,8 +267,8 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
-            wk(none)
+        if operator is not 0:
+            wk0()
         else:
             operator = tokenize_PYTHON_operator()
 
@@ -282,8 +282,8 @@ def module():
 
         operator_2 = qk()
 
-        if operator_2 is not none:
-            wk(none)
+        if operator_2 is not 0:
+            wk0()
         else:
             operator_2 = tokenize_PYTHON_operator()
 

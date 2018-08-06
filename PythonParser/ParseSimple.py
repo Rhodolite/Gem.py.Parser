@@ -81,7 +81,7 @@ def module():
 
         operator = qk()
 
-        if operator is none:
+        if operator is 0:
             newline = qn()
 
             if newline is none:
@@ -89,7 +89,7 @@ def module():
 
             return conjure_assert_statement_1(indented_keyword, left, newline)
 
-        wk(none)
+        wk0()
 
         if not operator.is_CRYSTAL_comma:
             raise_unknown_line()
@@ -98,7 +98,7 @@ def module():
 
         operator_2 = qk()
 
-        if operator_2 is none:
+        if operator_2 is 0:
             newline = qn()
 
             if newline is none:
@@ -125,7 +125,7 @@ def module():
 
         operator = qk()
 
-        if operator is none:
+        if operator is 0:
             newline = qn()
 
             if newline is none:
@@ -133,7 +133,7 @@ def module():
 
             return conjure_delete_header(indented_keyword, left, newline)
 
-        wk(none)
+        wk0()
 
         if not operator.is_CRYSTAL_comma:
             raise_unknown_line()
@@ -146,7 +146,7 @@ def module():
 
             operator = qk()
 
-            if operator is none:
+            if operator is 0:
                 newline = qn()
 
                 if newline is none:
@@ -154,7 +154,7 @@ def module():
 
                 return conjure_delete_many(indented_keyword, many, many_frill, newline)
 
-            wk(none)
+            wk0()
 
             if not operator.is_CRYSTAL_comma:
                 raise_unknown_line()
@@ -186,7 +186,7 @@ def module():
 
         operator = qk()
 
-        if operator is none:
+        if operator is 0:
             newline = qn()
 
             if newline is none:
@@ -194,7 +194,7 @@ def module():
 
             return conjure_raise_statement_1(indented_keyword, left, newline)
 
-        wk(none)
+        wk0()
 
         if not operator.is_CRYSTAL_comma:
             raise_unknown_line()
@@ -203,7 +203,7 @@ def module():
 
         operator_2 = qk()
 
-        if operator_2 is none:
+        if operator_2 is 0:
             newline = qn()
 
             if newline is none:
@@ -211,14 +211,14 @@ def module():
 
             return conjure_raise_statement_2(indented_keyword, left, operator, middle, newline)
 
-        wk(none)
+        wk0()
 
         if not operator_2.is_CRYSTAL_comma:
             raise_unknown_line()
 
         right = parse_PYTHON__ternary_expression()
 
-        if qk() is none:
+        if qk() is 0:
             newline = qn()
 
             if newline is none:
@@ -243,7 +243,7 @@ def module():
 
         right = parse_PYTHON__ternary_expression_list()
 
-        if qk() is not none:
+        if qk() is not 0:
             #my_line('qk: %r; full: %s', qk(), portray_string(qs()))
             raise_unknown_line()
 
@@ -269,7 +269,7 @@ def module():
 
         left = parse_PYTHON__ternary_expression_list()
 
-        if qk() is not none:
+        if qk() is not 0:
             raise_unknown_line()
 
         newline = qn()
