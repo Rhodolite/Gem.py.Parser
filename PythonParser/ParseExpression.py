@@ -2117,6 +2117,7 @@ def module():
     #
     #   25. Comprehension-Expression-List (Python 2.7.14rc1 grammer calls this 'testlist_comp')
     #
+    @export
     def parse_PYTHON__comprehension_expression__left_operator(left, operator):
         assert operator.is_keyword_for
 

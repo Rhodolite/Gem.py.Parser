@@ -151,6 +151,19 @@ def module():
         #   {
         display_name = ',}'
 
+        is_end_of_boolean_and_expression       = true
+        is_end_of_boolean_or_expression        = true
+        is_end_of_compare_expression           = true
+        is_end_of_comprehension_expression     = true
+        is_end_of_logical_and_expression       = true
+        is_end_of_logical_or_expression        = true
+        is_end_of_multiply_expression          = true
+        is_end_of_normal_expression            = true
+        is_end_of_PYTHON_arithmetic_expression = true
+        is_end_of_ternary_expression           = true
+        is_end_of_unary_expression             = true
+        is__optional_comma__right_brace        = true
+
 
     class Comma_RightParenthesis(DualToken):
         __slots__  = (())
@@ -681,6 +694,9 @@ def module():
 
             #   [
             ']' : evoke__comma__right_square_bracket,
+
+            #   {
+            '}' : evoke__comma__right_brace,
         }.__getitem__
 
 

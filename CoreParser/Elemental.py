@@ -73,6 +73,7 @@ def module():
             is_minus_sign                            = false
             is_modify_operator                       = false
             is_multiply_operator                     = false
+            is__optional_comma__right_brace          = false
             is__optional_comma__right_parenthesis    = false
             is__optional_comma__right_square_bracket = false
             is_parameters_0                          = false

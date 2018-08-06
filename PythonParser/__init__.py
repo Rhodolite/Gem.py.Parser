@@ -264,3 +264,4 @@ def module():
     transport('CoreParser.TupleOfExpression',       'conjure_tuple_of_many_expression')
     transport('CoreParser.Whitespace',              'conjure_whitespace')
     transport('CoreParser.Whitespace',              'conjure_whitespace__ends_in_newline')
+    transport('CoreParser.ParseAtom',               'produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR__2')

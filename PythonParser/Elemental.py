@@ -614,6 +614,7 @@ def module():
         is_end_of_ternary_expression_list       = true
         is_end_of_ternary_expression            = true
         is_end_of_unary_expression              = true
+        is__optional_comma__right_brace         = true
         is_right_brace                          = true
 
 

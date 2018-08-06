@@ -4,9 +4,27 @@
 @module('PythonParser.ParseAtom')
 def module():
     @share
-    def parse_PYTHON__map_element():
+    def parse_PYTHON__first_map_element__or__right_brace():
+        token = parse_PYTHON__map_element__or__right_brace()
+
+        if token.is_right_brace:
+            return token
+
+        operator = qk()
+
+        if not operator.is_keyword_for:
+            return token
+
+        wk(none)
+
+        return parse_PYTHON__comprehension_expression__left_operator(token, operator)
+
+
+    @share
+    def parse_PYTHON__map_element__or__right_brace():
         if qk() is not none:
-            #my_line('qk: %r', qk())
+            my_line('qk: %r', qk())
+            assert 0,'here'
             raise_unknown_line()
 
         token = parse_PYTHON__atom__or__right_brace()
@@ -38,75 +56,6 @@ def module():
             raise_unknown_line()
 
         return conjure_map_element(token, operator, parse_PYTHON__ternary_expression())
-
-
-    @share
-    def parse_PYTHON__map__left_brace(left_brace):
-        #
-        #   1
-        #
-        left = parse_PYTHON__map_element()
-
-        if left.is_right_brace:
-            return conjure_empty_map(left_brace, left)
-
-        operator = qk()
-
-        if operator is none:
-            operator = tokenize_PYTHON_operator()
-        else:
-            wk(none)
-
-        if operator.is_keyword_for:
-            left = parse_PYTHON__comprehension_expression__X__any_expression(left, operator)
-
-            operator = qk()
-
-            if operator is none:
-                operator = tokenize_PYTHON_operator()
-            else:
-                wk(none)
-
-        if operator.is_right_brace:
-            return conjure_map_expression_1(left_brace, left, operator)
-
-        if not operator.is_CRYSTAL_comma:
-            raise_unknown_line()
-
-        token = parse_PYTHON__map_element()
-
-        if token.is_right_brace:
-            return conjure_map_expression_1(left_brace, left, conjure__comma__right_brace(operator, token))
-
-        many       = [left, token]
-        many_frill = [operator]
-
-        while 7 is 7:
-            operator = qk()
-
-            if operator is none:
-                raise_unknown_line()
-
-            wk(none)
-
-            if operator.is_right_brace:
-                return conjure_map_expression_many(left_brace, many, many_frill, operator)
-
-            if not operator.is_CRYSTAL_comma:
-                raise_unknown_line()
-
-            token = parse_PYTHON__map_element()
-
-            if token.is_right_brace:
-                return conjure_map_expression_many(
-                           left_brace,
-                           many,
-                           many_frill,
-                           conjure__comma__right_brace(operator, token),
-                       )
-
-            many_frill.append(operator)
-            many.append(token)
 
 
     def parse_PYTHON_atom__X__token(token):
@@ -227,6 +176,26 @@ def module():
 
     #
     #   NOTE:
+    #       `conjure_map_expression_1` is *BOTH* `conjure_LANGUAGE_bookcase_expression{,_comma}_1` on purpose.
+    #
+    parse_PYTHON__map__left_brace = produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR__2(
+            'parse_PYTHON__map__left_brace',
+            conjure_map_expression_1,
+            0,
+            conjure_map_expression_1,
+            conjure_map_expression_many,
+            conjure__comma__right_brace,
+            conjure_empty_map,
+            0,                                                          #   May be 0
+            'is__optional_comma__right_brace',
+            'is_right_brace',
+            0,                                                          #   May be 0
+            parse_PYTHON__first_map_element__or__right_brace,           #   May be 0
+            parse_PYTHON__map_element__or__right_brace,
+        )
+
+    #
+    #   NOTE:
     #       `conjure_list_expression_1` is *BOTH* `conjure_LANGUAGE_bookcase_expression{,_comma}_1` on purpose.
     #
     parse_PYTHON__list_expression__left_square_bracket = produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR(
@@ -274,7 +243,6 @@ def module():
                 tokenize_PYTHON_operator,                               #   tokenize_LANGUAGE_operator
             )
         )
-
 
 
     export(
