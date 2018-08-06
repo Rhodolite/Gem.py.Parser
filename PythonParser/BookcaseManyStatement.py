@@ -269,39 +269,19 @@ def module():
 
     [
         conjure_assign_many, conjure_assign_many__with_frill,
-    ] = produce_conjure_bookcase_many_expression(
-            'assign-*',
-            AssignStatement_Many,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_many_expression('assign-*', AssignStatement_Many)
 
     [
         conjure_comment_assign_many, conjure_comment_assign_many__with_frill,
-    ] = produce_conjure_bookcase_many_expression(
-            '#assign-*',
-            Comment_AssignStatement_Many,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_many_expression('#assign-*', Comment_AssignStatement_Many)
 
     [
         conjure_comment_delete_many, conjure_comment_delete_many__with_frill,
-    ] = produce_conjure_bookcase_many_expression(
-            '#delete-*',
-            Comment_DeleteStatement_Many,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_many_expression('#delete-*', Comment_DeleteStatement_Many)
 
     [
         conjure_delete_many, conjure_delete_many__with_frill,
-    ] = produce_conjure_bookcase_many_expression(
-            'delete-*',
-            DeleteStatement_Many,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_many_expression('delete-*', DeleteStatement_Many) 
 
 
     #

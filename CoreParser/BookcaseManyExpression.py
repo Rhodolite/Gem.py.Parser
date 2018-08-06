@@ -195,13 +195,7 @@ def module():
 
 
     @export
-    def produce_conjure_bookcase_many_expression(
-            name, Meta,
-
-            produce_conjure_with_frill = true,
-    ):
-        assert (produce_conjure_with_frill is true) or (produce_conjure_with_frill is 1)
-
+    def produce_conjure_bookcase_many_expression(name, Meta):
         cache = {}
 
         conjure_dual = produce_conjure_dual(name + '__X2', Meta, cache)
@@ -218,16 +212,10 @@ def module():
         if python_debug_mode:
             append_cache(name, cache)
 
-        if produce_conjure_with_frill == 1:
-            if python_debug_mode:
-                conjure_dual = rename('conjure_%s__with_frill', name)(conjure_dual)
-
-            return ((
-                       conjure_bookcase_many_expression,
-                       conjure_dual,
-                   ))
+        if python_debug_mode:
+            conjure_dual = rename('conjure_%s__with_frill', name)(conjure_dual)
 
         return ((
                    conjure_bookcase_many_expression,
-                   static_method(conjure_dual),
+                   conjure_dual,
                ))

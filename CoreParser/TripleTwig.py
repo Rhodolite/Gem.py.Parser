@@ -23,6 +23,7 @@ def module():
         count_newlines = count_newlines__123
         display_token  = display_token__123
         dump_token     = dump_token__123
+        order          = order__abc
         write          = write__123
 
 

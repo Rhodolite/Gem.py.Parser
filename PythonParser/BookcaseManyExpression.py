@@ -78,48 +78,23 @@ def module():
 
     [
         conjure_arguments_many, conjure_arguments_many__with_frill,
-    ] = produce_conjure_bookcase_many_expression(
-            'arguments-*',
-            Arguments_Many,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_many_expression('arguments-*', Arguments_Many) 
 
     [
         conjure_list_expression_many, conjure_list_expression_many__with_frill
-    ] = produce_conjure_bookcase_many_expression(
-            'list-expression-*',
-            ListExpression_Many,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_many_expression('list-expression-*', ListExpression_Many) 
 
     [
         conjure_map_expression_many, conjure_map_expression_many__with_frill,
-    ] = produce_conjure_bookcase_many_expression(
-            'map-expression-*',
-            MapExpression_Many,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_many_expression('map-expression-*', MapExpression_Many) 
 
     [
         conjure_parameters_many, conjure_parameters_many__with_frill,
-    ] = produce_conjure_bookcase_many_expression(
-            'parameter-*',
-            Parameters_Many,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_many_expression('parameter-*', Parameters_Many)
 
     [
         conjure_tuple_expression_many, conjure_tuple_expression_many__with_frill,
-    ] = produce_conjure_bookcase_many_expression(
-            'tuple-expression-*',
-            TupleExpression_Many,
-
-            produce_conjure_with_frill = 1,
-        )
+    ] = produce_conjure_bookcase_many_expression('tuple-expression-*', TupleExpression_Many)
 
 
     #
