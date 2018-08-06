@@ -5,7 +5,6 @@
 def module():
     class Arguments_Many(BookcaseManyExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
         display_name = 'arguments-*'
 
 
@@ -18,7 +17,6 @@ def module():
 
     class ListExpression_Many(BookcaseManyExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
         display_name = '[*]'
         
         is_CRYSTAL_atom = true
@@ -32,7 +30,6 @@ def module():
 
     class MapExpression_Many(BookcaseManyExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
         display_name = '{:*:}'
        
         is_CRYSTAL_atom = true
@@ -45,7 +42,6 @@ def module():
 
     class Parameters_Many(BookcaseManyExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
         display_name = 'parameter-(*)'
 
 
@@ -65,7 +61,6 @@ def module():
 
     class TupleExpression_Many(BookcaseManyExpression):
         __slots__    = (())
-        class_order  = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
         display_name = '{,*,}'
 
         is_CRYSTAL_atom = true

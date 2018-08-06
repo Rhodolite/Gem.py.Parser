@@ -21,9 +21,10 @@ def module():
         'CLASS_ORDER__BOOKCASE_COUPLE_TWIG',            31,     #   BookcaseCoupleTwig+
         'CLASS_ORDER__BOOKCASE_DUAL_TWIG',              32,     #   BookcaseDualExpression+
         'CLASS_ORDER__BOOKCASE_EXPRESSION',             33,     #   BookcaseExpression+
-        'CLASS_ORDER__MANY_EXPRESSION',                 34,     #   ManyExpression+
-        'CLASS_ORDER__QUADRUPLE_TWIG',                  35,     #   Commented_VWX_Frill & VWXY_Frill
-        'CLASS_ORDER__TUPLE',                           36,     #   TokenTuple+
+        'CLASS_ORDER__BOOKCASE_MANY_EXPRESSION',        34,     #   BookcaseManyExpression+
+        'CLASS_ORDER__MANY_EXPRESSION',                 35,     #   ManyExpression+
+        'CLASS_ORDER__QUADRUPLE_TWIG',                  36,     #   Commented_VWX_Frill & VWXY_Frill
+        'CLASS_ORDER__TUPLE',                           37,     #   TokenTuple+
 
         'CLASS_ORDER__PYTHON_START',                    40,
         'CLASS_ORDER__PYTHON_END',                      70,

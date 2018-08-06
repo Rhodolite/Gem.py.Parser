@@ -150,6 +150,9 @@ def module():
         ))
 
 
+        class_order = CLASS_ORDER__BOOKCASE_MANY_EXPRESSION
+
+
         def __init__(t, frill, many):
             t.frill = frill
             t.many  = many

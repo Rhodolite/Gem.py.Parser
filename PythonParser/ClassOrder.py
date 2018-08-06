@@ -7,17 +7,16 @@ def module():
         'CLASS_ORDER__ARGUMENT_0',                              40,     #   Arguments_0 token
         'CLASS_ORDER__PARAMETERS_0',                            41,     #   Parameters_0 token
 
-        'CLASS_ORDER__BOOKCASE_MANY_EXPRESSION',                50,     #   BookcaseManyExpression+
-        'CLASS_ORDER__BOOKCASE_TRIPLE_EXPRESSION',              51,     #   BookcaseTripleExpression+
-        'CLASS_ORDER__COLON__LINE_MARKER',                      52,     #   `:\n`
-        'CLASS_ORDER__DEFINITION_HEADER',                       53,     #   DefinitionHeader+
-        'CLASS_ORDER__DUAL_TWIG',                               54,     #   DualTwig
-        'CLASS_ORDER__INDENTED__KEYWORD__COLON__LINE_MARKER',   55,     #   `    keyword:\n` (keyword like `else`)
-        'CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER',          56,     #   `    keyword\n`  (keyword like `break`)
-        'CLASS_ORDER__INDENTED_TOKEN',                          57,     #   Indented_Token
-        'CLASS_ORDER__MEMBER_EXPRESSION',                       58,     #   Member expression
-        'CLASS_ORDER__TRIPLE_EXPRESSION',                       59,     #   ?: expression
-        'CLASS_ORDER__UNARY_EXPRESSION',                        60,     #   * expression
+        'CLASS_ORDER__BOOKCASE_TRIPLE_EXPRESSION',              50,     #   BookcaseTripleExpression+
+        'CLASS_ORDER__COLON__LINE_MARKER',                      51,     #   `:\n`
+        'CLASS_ORDER__DEFINITION_HEADER',                       52,     #   DefinitionHeader+
+        'CLASS_ORDER__DUAL_TWIG',                               53,     #   DualTwig
+        'CLASS_ORDER__INDENTED__KEYWORD__COLON__LINE_MARKER',   54,     #   `    keyword:\n` (keyword like `else`)
+        'CLASS_ORDER__INDENTED__KEYWORD__LINE_MARKER',          55,     #   `    keyword\n`  (keyword like `break`)
+        'CLASS_ORDER__INDENTED_TOKEN',                          56,     #   Indented_Token
+        'CLASS_ORDER__MEMBER_EXPRESSION',                       57,     #   Member expression
+        'CLASS_ORDER__TRIPLE_EXPRESSION',                       58,     #   ?: expression
+        'CLASS_ORDER__UNARY_EXPRESSION',                        59,     #   * expression
     )
 
 
