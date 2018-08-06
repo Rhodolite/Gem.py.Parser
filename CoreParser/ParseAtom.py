@@ -24,6 +24,7 @@ def module():
             name__is_LANGUAGE_RIGHT_OPERATOR,
             parse_LANGUAGE__atom__normal,
             parse_LANGUAGE__atom__or__RIGHT_OPERATOR,
+            parse_LANGUAGE__FIRST_expression__X__any_expression,
             parse_LANGUAGE__MIDDLE_expression__X__any_expression,
             tokenize_LANGUAGE_operator,
     ):
@@ -64,6 +65,7 @@ def module():
             assert conjure_LANGUAGE_EMPTY_PAIR is 0
 
         assert type(parse_LANGUAGE__atom__or__RIGHT_OPERATOR)             is Function
+        assert type(parse_LANGUAGE__FIRST_expression__X__any_expression)  is Function
         assert type(parse_LANGUAGE__MIDDLE_expression__X__any_expression) is Function
         assert type(tokenize_LANGUAGE_operator)                           is Function
 
@@ -93,7 +95,7 @@ def module():
                 wk(none)
 
             if not attribute(operator_1, name__is_end_of_LANGUAGE_MIDDLE_expression):
-                middle_1 = parse_LANGUAGE__MIDDLE_expression__X__any_expression(middle_1, operator_1)
+                middle_1 = parse_LANGUAGE__FIRST_expression__X__any_expression(middle_1, operator_1)
 
                 operator_1 = qk()
                 wk(none)

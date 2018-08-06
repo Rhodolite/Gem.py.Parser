@@ -244,10 +244,16 @@ def module():
             0,                                                          #   parse_LANGUAGE__atom__normal
             parse_PYTHON__atom__or__right_square_bracket,               #   parse_LANGUAGE__atom__or__RIGHT_OPERATOR
             parse_PYTHON__comprehension_expression__X__any_expression,  #   parse_LANGUAGE__MIDDLE_expression__X__any_expression
+            parse_PYTHON__ternary_expression__X__any_expression,        #   parse_LANGUAGE__MIDDLE_expression__X__any_expression
             tokenize_PYTHON_operator,                                   #   tokenize_LANGUAGE_operator
         )
 
 
+    #
+    #   NOTE:
+    #       `parse_PYTHON__ternary_expression__X__any_expression` is *BOTH*
+    #       `parse_LANGUAGE__{FIRST,MIDDLE}_expression__X__any_expression{,_comma}_1` on purpose.
+    #
     parse_PYTHON__parenthesized_expression__left_parenthesis = (
             produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR(
                 'parse_PYTHON__parenthesized_expression__left_parenthesis', #   name
@@ -263,6 +269,7 @@ def module():
                 'is_CRYSTAL_right_parenthesis',                         #   name__is_LANGUAGE_RIGHT_OPERATOR
                 0,                                                      #   parse_LANGUAGE__atom__normal
                 parse_PYTHON__atom__or__right_parenthesis,              #   parse_LANGUAGE__atom__or__RIGHT_OPERATOR
+                parse_PYTHON__ternary_expression__X__any_expression,    #   parse_LANGUAGE__FIRST_expression__X__any_expression
                 parse_PYTHON__ternary_expression__X__any_expression,    #   parse_LANGUAGE__MIDDLE_expression__X__any_expression
                 tokenize_PYTHON_operator,                               #   tokenize_LANGUAGE_operator
             )
