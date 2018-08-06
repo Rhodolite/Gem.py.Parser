@@ -109,104 +109,6 @@ def module():
             many.append(token)
 
 
-    @share
-    def parse_PYTHON__list_expression__left_square_bracket(left_square_bracket):
-        #
-        #   1
-        #
-        middle_1 = parse_PYTHON__atom__or__right_square_bracket()
-
-        if middle_1.is_right_square_bracket:
-            return conjure_empty_list(left_square_bracket, middle_1)
-
-        operator_1 = tokenize_PYTHON_operator()
-
-        if not operator_1.is_end_of_comprehension_expression:
-            middle_1 = parse_PYTHON__comprehension_expression__X__any_expression(middle_1, operator_1)
-
-            operator_1 = qk()
-            wk(none)
-
-        if operator_1.is__optional_comma__right_square_bracket:
-            return conjure_list_expression_1(left_square_bracket, middle_1, operator_1)
-
-        if not operator_1.is_CRYSTAL_comma:
-            #my_line('line: %d; middle_1: %r; operator_1: %r', ql(), middle_1, operator_1)
-            raise_unknown_line()
-
-        #
-        #   2
-        #
-        middle_2 = parse_PYTHON__atom__or__right_square_bracket()
-
-        if middle_2.is_right_square_bracket:
-            return conjure_list_expression_1(
-                       left_square_bracket,
-                       middle_1,
-                       conjure_comma__right_square_bracket(operator_1, middle_2),
-                   )
-
-        operator_2 = tokenize_PYTHON_operator()
-
-        if not operator_2.is_end_of_ternary_expression:
-            middle_2 = parse_PYTHON__ternary_expression__X__any_expression(middle_2, operator_2)
-
-            operator_2 = qk()
-            wk(none)
-
-        if operator_2.is__optional_comma__right_square_bracket:
-            return conjure_list_expression_2(left_square_bracket, middle_1, operator_1, middle_2, operator_2)
-
-        if not operator_2.is_CRYSTAL_comma:
-            raise_unknown_line()
-
-        #
-        #   3
-        #
-        middle_3 = parse_PYTHON__atom__or__right_square_bracket()
-
-        if middle_3.is_right_square_bracket:
-            return conjure_list_expression_2(
-                       left_square_bracket,
-                       middle_1,
-                       operator_1,
-                       middle_2,
-                       conjure_comma__right_square_bracket(operator_2, middle_3),
-                   )
-
-        many       = [middle_1, middle_2]
-        many_frill = [operator_1, operator_2]
-
-        while 7 is 7:
-            operator_7 = tokenize_PYTHON_operator()
-
-            if not operator_7.is_end_of_ternary_expression:
-                middle_3 = parse_PYTHON__ternary_expression__X__any_expression(middle_3, operator_7)
-
-                operator_7 = qk()
-                wk(none)
-
-            many.append(middle_3)
-
-            if operator_7.is__optional_comma__right_square_bracket:
-                return conjure_list_expression_many(left_square_bracket, many, many_frill, operator_7)
-
-            if not operator_7.is_CRYSTAL_comma:
-                raise_unknown_line()
-
-            middle_3 = parse_PYTHON__atom__or__right_square_bracket()
-
-            if middle_3.is_right_square_bracket:
-                return conjure_list_expression_many(
-                           left_square_bracket,
-                           many,
-                           many_frill,
-                           conjure_comma__right_square_bracket(operator_7, middle_3),
-                       )
-
-            many_frill.append(operator_7)
-
-
     def parse_PYTHON_atom__X__token(token):
         if token.is_CRYSTAL_left_parenthesis:
             return parse_PYTHON__parenthesized_expression__left_parenthesis(token)
@@ -323,20 +225,54 @@ def module():
         return parse_PYTHON_atom__X__token(token)
 
 
-    parse_PYTHON__parenthesized_expression__left_parenthesis = produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR(
-            'parse_PYTHON__parenthesized_expression__left_parenthesis', #   name
-            conjure_CRYSTAL_parenthesized_expression,                   #   conjure_LANGUAGE_bookcase_expression_1
-            conjure_tuple_expression_2,                                 #   conjure_LANGUAGE_bookcase_expression_2
-            conjure_parenthesized_tuple_expression_1,                   #   conjure_LANGUAGE_bookcase_expression_comma_1
-            conjure_tuple_expression_many,                              #   conjure_LANGUAGE_bookcase_expression_many
-            conjure_comma__right_parenthesis,                           #   conjure_LANGUAGE_dual_token
-            conjure_empty_tuple,                                        #   conjure_LANGUAGE_EMPTY_PAIR
-            'is_end_of_ternary_expression',                             #   name__is_end_of_LANGUAGE_MIDDLE_expression
-            'is_comma__right_parenthesis',                              #   name__is_LANGUAGE__comma__RIGHT_OPERATOR
-            'is__optional_comma__right_parenthesis',                    #   name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR
-            'is_CRYSTAL_right_parenthesis',                             #   name__is_LANGUAGE_RIGHT_OPERATOR
+    #
+    #   NOTE:
+    #       `conjure_list_expression_1` is *BOTH* `conjure_LANGUAGE_bookcase_expression{,_comma}_1` on purpose.
+    #
+    parse_PYTHON__list_expression__left_square_bracket = produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR(
+            'parse_PYTHON__list_expression__left_square_bracket',       #   name
+            conjure_list_expression_1,                                  #   conjure_LANGUAGE_bookcase_expression_1
+            conjure_list_expression_2,                                  #   conjure_LANGUAGE_bookcase_expression_2
+            conjure_list_expression_1,                                  #   conjure_LANGUAGE_bookcase_expression_comma_1
+            conjure_list_expression_many,                               #   conjure_LANGUAGE_bookcase_expression_many
+            conjure_comma__right_square_bracket,                        #   conjure_LANGUAGE_dual_token
+            conjure_empty_list,                                         #   conjure_LANGUAGE_EMPTY_PAIR
+            'is_end_of_comprehension_expression',                       #   name__is_end_of_LANGUAGE_MIDDLE_expression
+            0,                                                          #   name__is_LANGUAGE__comma__RIGHT_OPERATOR
+            'is__optional_comma__right_square_bracket',                 #   name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR
+            'is_right_square_bracket',                                  #   name__is_LANGUAGE_RIGHT_OPERATOR
             0,                                                          #   parse_LANGUAGE__atom__normal
-            parse_PYTHON__atom__or__right_parenthesis,                  #   parse_LANGUAGE__atom__or__RIGHT_OPERATOR
-            parse_PYTHON__ternary_expression__X__any_expression,        #   parse_LANGUAGE__MIDDLE_expression__X__any_expression
+            parse_PYTHON__atom__or__right_square_bracket,               #   parse_LANGUAGE__atom__or__RIGHT_OPERATOR
+            parse_PYTHON__comprehension_expression__X__any_expression,  #   parse_LANGUAGE__MIDDLE_expression__X__any_expression
             tokenize_PYTHON_operator,                                   #   tokenize_LANGUAGE_operator
         )
+
+
+    parse_PYTHON__parenthesized_expression__left_parenthesis = (
+            produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR(
+                'parse_PYTHON__parenthesized_expression__left_parenthesis', #   name
+                conjure_CRYSTAL_parenthesized_expression,               #   conjure_LANGUAGE_bookcase_expression_1
+                conjure_tuple_expression_2,                             #   conjure_LANGUAGE_bookcase_expression_2
+                conjure_parenthesized_tuple_expression_1,               #   conjure_LANGUAGE_bookcase_expression_comma_1
+                conjure_tuple_expression_many,                          #   conjure_LANGUAGE_bookcase_expression_many
+                conjure_comma__right_parenthesis,                       #   conjure_LANGUAGE_dual_token
+                conjure_empty_tuple,                                    #   conjure_LANGUAGE_EMPTY_PAIR
+                'is_end_of_ternary_expression',                         #   name__is_end_of_LANGUAGE_MIDDLE_expression
+                'is_comma__right_parenthesis',                          #   name__is_LANGUAGE__comma__RIGHT_OPERATOR
+                'is__optional_comma__right_parenthesis',                #   name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR
+                'is_CRYSTAL_right_parenthesis',                         #   name__is_LANGUAGE_RIGHT_OPERATOR
+                0,                                                      #   parse_LANGUAGE__atom__normal
+                parse_PYTHON__atom__or__right_parenthesis,              #   parse_LANGUAGE__atom__or__RIGHT_OPERATOR
+                parse_PYTHON__ternary_expression__X__any_expression,    #   parse_LANGUAGE__MIDDLE_expression__X__any_expression
+                tokenize_PYTHON_operator,                               #   tokenize_LANGUAGE_operator
+            )
+        )
+
+
+
+    export(
+        'parse_PYTHON__list_expression__left_square_bracket',   parse_PYTHON__list_expression__left_square_bracket,
+
+        'parse_PYTHON__parenthesized_expression__left_parenthesis',
+            parse_PYTHON__parenthesized_expression__left_parenthesis,
+    )
