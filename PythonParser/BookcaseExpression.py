@@ -33,8 +33,8 @@ def module():
         display_name = '[1]'
         frill        = LSB_RSB
 
-        is_CRYSTAL_atom              = true
-        is_CRYSTAL_right_parenthesis = false
+        is_CRYSTAL_atom      = true
+        is_right_parenthesis = false
 
 
         scout_variables = scout_variables__a
@@ -46,8 +46,8 @@ def module():
         display_name = '{:1:}'
         frill        = conjure_vw_frill(conjure_left_brace ('{'), conjure_right_brace('}'))
 
-        is_CRYSTAL_atom              = true
-        is_CRYSTAL_right_parenthesis = false
+        is_CRYSTAL_atom      = true
+        is_right_parenthesis = false
 
 
         scout_variables = scout_variables__a
@@ -85,8 +85,8 @@ def module():
         display_name = '{,}'
         frill        = conjure_vw_frill(LEFT_PARENTHESIS, COMMA_RP)
 
-        is_CRYSTAL_atom              = true
-        is_CRYSTAL_right_parenthesis = false
+        is_CRYSTAL_atom      = true
+        is_right_parenthesis = false
 
 
         def mutate(t, vary, priority):

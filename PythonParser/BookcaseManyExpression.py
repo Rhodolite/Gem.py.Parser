@@ -19,9 +19,8 @@ def module():
         __slots__    = (())
         display_name = '[*]'
 
-        is_CRYSTAL_atom = true
-
-        is_CRYSTAL_right_parenthesis = false
+        is_CRYSTAL_atom       = true
+        is_right_parenthesis  = false
 
 
         scout_variables = scout_variables__many
@@ -32,9 +31,8 @@ def module():
         __slots__    = (())
         display_name = '{:*:}'
 
-        is_CRYSTAL_atom = true
-
-        is_CRYSTAL_right_parenthesis = false
+        is_CRYSTAL_atom      = true
+        is_right_parenthesis = false
 
 
         scout_variables = scout_variables__many
@@ -64,9 +62,6 @@ def module():
         display_name = '{,*,}'
 
         is_CRYSTAL_atom = true
-
-        is_CRYSTAL_right_parenthesis = false
-
 
         scout_variables = scout_variables__many
 

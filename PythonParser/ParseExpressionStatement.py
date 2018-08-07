@@ -77,7 +77,7 @@ def module():
             left = parse_PYTHON__not_expression__operator(left)
         elif left.is_minus_sign:
             left = parse_PYTHON__negative_expression__operator(left)
-        elif left.is_CRYSTAL_left_parenthesis:
+        elif left.is_left_parenthesis:
             left = parse_PYTHON__parenthesized_expression__left_parenthesis(left)
         elif left.is_left_square_bracket:
             left = parse_PYTHON__list_expression__left_square_bracket(left)

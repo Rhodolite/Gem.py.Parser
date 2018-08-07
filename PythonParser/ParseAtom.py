@@ -52,7 +52,7 @@ def module():
     def parse_PYTHON__first_parenthesized_expression__or__right_parenthesis():
         atom_or_token = parse_PYTHON__atom__or__right_parenthesis()
 
-        if atom_or_token.is_CRYSTAL_right_parenthesis:
+        if atom_or_token.is_right_parenthesis:
             return atom_or_token
 
         operator = qk()
@@ -75,7 +75,7 @@ def module():
     def parse_PYTHON__middle_parenthesized_expression__or__right_parenthesis():
         atom_or_token = parse_PYTHON__atom__or__right_parenthesis()
 
-        if atom_or_token.is_CRYSTAL_right_parenthesis:
+        if atom_or_token.is_right_parenthesis:
             return atom_or_token
 
         operator = qk()
@@ -160,7 +160,7 @@ def module():
 
 
     def parse_PYTHON_atom__X__token(token):
-        if token.is_CRYSTAL_left_parenthesis:
+        if token.is_left_parenthesis:
             return parse_PYTHON__parenthesized_expression__left_parenthesis(token)
 
         if token.is_left_square_bracket:
@@ -322,7 +322,7 @@ def module():
                 conjure_empty_tuple,                                        #   conjure_LANGUAGE_EMPTY_PAIR
                 'is_comma__right_parenthesis',                              #   name__is_LANGUAGE__comma__RIGHT_OPERATOR
                 'is__optional_comma__right_parenthesis',                    #   name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR
-                'is_CRYSTAL_right_parenthesis',                             #   name__is_LANGUAGE_RIGHT_OPERATOR
+                'is_right_parenthesis',                                     #   name__is_LANGUAGE_RIGHT_OPERATOR
                 0,                                                          #   parse_LANGUAGE__FIRST_expression
 
                 #

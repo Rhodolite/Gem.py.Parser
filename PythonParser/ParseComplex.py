@@ -69,7 +69,7 @@ def module():
 
         if token.is_CRYSTAL_atom:
             pass
-        elif token.is_CRYSTAL_left_parenthesis:
+        elif token.is_left_parenthesis:
             token = parse_PYTHON__parenthesized_expression__left_parenthesis(token)
         elif token.is_left_square_bracket:
             token = parse_PYTHON__list_expression__left_square_bracket(token)

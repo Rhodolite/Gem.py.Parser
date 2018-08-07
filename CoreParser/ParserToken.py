@@ -27,7 +27,6 @@ def module():
             's',
         ))
 
-
         is_herd       = false
         herd_estimate = 0
 
@@ -35,10 +34,10 @@ def module():
             ends_in_newline                  = false
             is_CRYSTAL_comma                 = false
             is_CRYSTAL_identifier            = false
-            is_CRYSTAL_right_parenthesis     = false
             is_empty_line                    = false
             is_end_of_data                   = false
             is_end_of_data__or__unknown_line = false
+            is_right_parenthesis             = false
             line_marker                      = false
             newlines                         = 0
 

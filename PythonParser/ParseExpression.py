@@ -165,7 +165,7 @@ def module():
                     operator = operator_2
 
             if operator.is__arguments_0__or__left_parenthesis:
-                if operator.is_CRYSTAL_left_parenthesis:
+                if operator.is_left_parenthesis:
                     assert qd() > 0
                     assert qn() is 0
 

@@ -52,7 +52,7 @@ def module():
 
             return conjure_decorator_header(indentation__at_sign, conjure_call_expression(name, operator), newline)
 
-        if not operator.is_CRYSTAL_left_parenthesis:
+        if not operator.is_left_parenthesis:
             raise_unknown_line()
 
         call = parse_PYTHON__call_expression__left__operator(name, operator)
