@@ -31,7 +31,6 @@ def module():
         is_herd       = false
         herd_estimate = 0
 
-
         if CRYSTAL_parser:
             ends_in_newline                  = false
             is_CRYSTAL_comma                 = false
@@ -51,6 +50,9 @@ def module():
             is_keyword_return          = false
             is_right_square_bracket    = false
             is_vw_frill                = false
+
+        if TREMOLITE_parser:
+            is_TREMOLITE_right_brace_set = false
 
 
         def __init__(t, s):

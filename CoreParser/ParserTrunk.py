@@ -12,13 +12,11 @@ def module():
         herd_estimate = 0
         is_herd       = false
 
-
         if CRYSTAL_parser:
             is_CRYSTAL_right_parenthesis     = false
             is_empty_line                    = false
             is_end_of_data                   = false
             is_end_of_data__or__unknown_line = false
-
 
         if PYTHON_parser:
             is_class_decorator_or_function_header = false
@@ -29,6 +27,9 @@ def module():
             is_right_square_bracket               = false
             is_statement                          = false
             is_vw_frill                           = false
+
+        if TREMOLITE_parser:
+            is_TREMOLITE_right_brace_set = false
 
 
         nub = static_conjure_nub

@@ -270,7 +270,7 @@ def module():
     #   NOTE:
     #       `conjure_map_expression_1` is *BOTH* `conjure_LANGUAGE_bookcase_expression{,_comma}_1` on purpose.
     #
-    parse_PYTHON__map__left_brace = produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR__2(
+    parse_PYTHON__map__left_brace = produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR(
             'parse_PYTHON__map__left_brace',                            # name,
             conjure_map_expression_1,                                   # conjure_LANGUAGE_bookcase_expression_1
             0,                                                          # conjure_LANGUAGE_bookcase_expression_2
@@ -290,7 +290,7 @@ def module():
     #   NOTE:
     #       `conjure_list_expression_1` is *BOTH* `conjure_LANGUAGE_bookcase_expression{,_comma}_1` on purpose.
     #
-    parse_PYTHON__list_expression__left_square_bracket = produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR__2(
+    parse_PYTHON__list_expression__left_square_bracket = produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR(
             'parse_PYTHON__list_expression__left_square_bracket',           #   name
             conjure_list_expression_1,                                      #   conjure_LANGUAGE_bookcase_expression_1
             conjure_list_expression_2,                                      #   conjure_LANGUAGE_bookcase_expression_2
@@ -312,7 +312,7 @@ def module():
     #       `parse_LANGUAGE__{FIRST,MIDDLE}_expression__X__any_expression{,_comma}_1` on purpose.
     #
     parse_PYTHON__parenthesized_expression__left_parenthesis = (
-            produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR__2(
+            produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR(
                 'parse_PYTHON__parenthesized_expression__left_parenthesis', #   name
                 conjure_CRYSTAL_parenthesized_expression,                   #   conjure_LANGUAGE_bookcase_expression_1
                 conjure_tuple_expression_2,                                 #   conjure_LANGUAGE_bookcase_expression_2

@@ -213,7 +213,6 @@ def module():
     transport('CoreParser.Nub',                     'conjure_nub')
     transport('CoreParser.Nub',                     'static_conjure_nub')
     transport('CoreParser.ParseAtom',               'produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR')
-    transport('CoreParser.ParseAtom',               'produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR__2')
     transport('CoreParser.ParserToken',             'ParserToken')
     transport('CoreParser.ParserTrunk',             'ParserTrunk')
     transport('CoreParser.QuadrupleFrill',          'conjure_commented_vwx_frill')
