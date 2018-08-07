@@ -270,8 +270,8 @@ def module():
             if display_name == t.s:
                 return arrange('<%s>', display_name)
 
-            return arrange('<%s %s %s>', display_name, t.a.display_token(), t.b.display_token()) 
-            
+            return arrange('<%s %s %s>', display_name, t.a.display_token(), t.b.display_token())
+
 
         order = order__s
 

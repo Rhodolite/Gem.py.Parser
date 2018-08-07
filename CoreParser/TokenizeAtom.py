@@ -19,6 +19,8 @@ def module():
     #       The previous note also applies to tests like `qi() != j` ... cannot replace this with `qi() is not j`.
     #
     def analyze_CRYSTAL_close_operator(m, operator_s):
+        assert qk() is qn() is 0
+
         #
         #   A `close` operator does not grab it's following whitespace.
         #
@@ -69,6 +71,8 @@ def module():
         #
         @rename('analyze_%s_comma_operator', language)
         def analyze_LANGUAGE_comma_operator(m):
+            assert qk() is qn() is 0
+
             suffix_start = m.start('comma_suffix')
 
             if suffix_start is not -1:
@@ -103,6 +107,8 @@ def module():
 
         @rename('analyze_%s_keyword_atom', language)
         def analyze_LANGUAGE_keyword_atom(m, atom_s):
+            assert qk() is qn() is 0
+
             conjure = lookup_LANGUAGE_keyword_conjure_function(atom_s)
 
             if conjure is not none:
@@ -132,6 +138,8 @@ def module():
             @export
             @rename('analyze_%s_operator', language)
             def analyze_LANGUAGE_operator(m, operator_s):
+                assert qk() is qn() is 0
+
                 operator_type = is_CRYSTAL_close_or_open_operator(operator_s)
 
                 if operator_type is 7:
@@ -154,6 +162,8 @@ def module():
             @export
             @rename('analyze_%s_operator', language)
             def analyze_LANGUAGE_operator(m, operator_s):
+                assert qk() is qn() is 0
+
                 if is_CRYSTAL_close_or_open_operator(operator_s) is 7:
                     return analyze_CRYSTAL_close_operator(m, operator_s)
 
@@ -169,6 +179,8 @@ def module():
 
         @rename('analyze_%s_quote', language)
         def analyze_LANGUAGE_quote(m, quote_start):
+            assert qk() is qn() is 0
+
             j         = qj()
             quote_end = m.end('quote')
 
@@ -191,6 +203,8 @@ def module():
         #
         @rename('analyze_%s_newline_comma_operator', language)
         def analyze_LANGUAGE_newline_comma_operator(m):
+            assert qk() is qn() is 0
+
             suffix_start = m.start('comma_suffix')
 
             if suffix_start is not -1:
@@ -234,6 +248,8 @@ def module():
 
         @rename('analyze_%s_newline_keyword_atom', language)
         def analyze_LANGUAGE_newline_keyword_atom(m, atom_s):
+            assert qk() is qn() is 0
+
             conjure = lookup_LANGUAGE_keyword_conjure_function(atom_s)
 
             if conjure is not none:
@@ -284,6 +300,8 @@ def module():
 
         @rename('analyze_%s_newline_close_operator', language)
         def analyze_LANGUAGE_newline_close_operator(m, operator_s):
+            assert qk() is qn() is 0
+
             d = qd()
 
             if d is 1:
@@ -312,6 +330,8 @@ def module():
         if has_open_operator:
             @rename('analyze_%s_newline_operator', language)
             def analyze_LANGUAGE_newline_operator(m, operator_s):
+                assert qk() is qn() is 0
+
                 operator_type = is_CRYSTAL_close_or_open_operator(operator_s)
 
                 if operator_type is 7:
@@ -339,8 +359,12 @@ def module():
         else:
             @rename('analyze_%s_newline_operator', language)
             def analyze_LANGUAGE_newline_operator(m, operator_s):
+                assert qk() is qn() is 0
+
                 if is_CRYSTAL_close_or_open_operator(operator_s) is 7:
                     return analyze_LANGUAGE_newline_close_operator(m, operator_s)
+
+                assert qk() is qn() is 0
 
                 if qd() is 0:
                     operator_end = m.end('operator')
@@ -361,6 +385,8 @@ def module():
 
 
         def analyze_LANGUAGE_newline_quote(m, quote_start):
+            assert qk() is qn() is 0
+
             #
             #   NOTE:
             #

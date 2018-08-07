@@ -54,18 +54,18 @@ def module():
             if operator.is_dot:
                 name = tokenize_name()
 
-                if qn() is not none:
+                if qn() is not 0:
                     return conjure_member_expression(left, conjure_dot_name(operator, name))
 
                 operator_2 = tokenize_PYTHON_operator()
 
                 if operator_2.is_dot:
-                    if qn() is not none:
+                    if qn() is not 0:
                         raise_unknown_line()
 
                     name_2 = tokenize_name()
 
-                    if qn() is not none:
+                    if qn() is not 0:
                         return conjure_member_expression(
                                    left,
                                    conjure_dot_name_pair(
@@ -77,12 +77,12 @@ def module():
                     operator_3 = tokenize_PYTHON_operator()
 
                     if operator_3.is_dot:
-                        if qn() is not none:
+                        if qn() is not 0:
                             raise_unknown_line()
 
                         name_3 = tokenize_name()
 
-                        if qn() is not none:
+                        if qn() is not 0:
                             return conjure_member_expression(
                                        left,
                                        conjure_dot_name_triplet(
@@ -95,7 +95,7 @@ def module():
                         operator_4 = tokenize_PYTHON_operator()
 
                         if operator_4.is_dot:
-                            if qn() is not none:
+                            if qn() is not 0:
                                 raise_unknown_line()
 
                             name_4 = tokenize_name()
@@ -110,7 +110,7 @@ def module():
                                        ),
                                    )
 
-                            if qn() is not none:
+                            if qn() is not 0:
                                 return left
 
                             operator_5 = tokenize_PYTHON_operator()
@@ -167,14 +167,14 @@ def module():
             if operator.is__arguments_0__or__left_parenthesis:
                 if operator.is_CRYSTAL_left_parenthesis:
                     assert qd() > 0
-                    assert qn() is none
+                    assert qn() is 0
 
                     operator = parse_PYTHON__arguments__left_parenthesis(operator)
 
                 newline = qn()
 
-                if (indentation is not 0) and (newline is not none) and (qk() is 0):
-                    wn(none)
+                if (indentation is not 0) and (newline is not 0) and (qk() is 0):
+                    wn0()
 
                     return left.call_statement(conjure_vw_frill(indentation, newline), left, operator)
 
@@ -188,7 +188,7 @@ def module():
 
                     wk0()
                 else:
-                    if newline is not none:
+                    if newline is not 0:
                         return left
 
                     operator = tokenize_PYTHON_operator()
@@ -199,7 +199,7 @@ def module():
                         return left
 
             if operator.is_left_square_bracket:
-                if qn() is not none:
+                if qn() is not 0:
                     raise_unknown_line()
 
                 middle = parse_PYTHON__atom__or__colon()
@@ -210,7 +210,7 @@ def module():
                     operator_2 = qk()
 
                     if operator_2 is 0:
-                        if qn() is not none:
+                        if qn() is not 0:
                             raise_unknown_line()
 
                         operator_2 = tokenize_PYTHON_operator()
@@ -230,7 +230,7 @@ def module():
                     if operator_2.is_right_square_bracket:
                         left = conjure_index_expression(left, conjure_normal_index(operator, middle, operator_2))
                     elif operator_2.is_colon:
-                        if qn() is not none:
+                        if qn() is not 0:
                             raise_unknown_line()
 
                         middle_2 = parse_PYTHON__atom__or__right_square_bracket()
@@ -248,7 +248,7 @@ def module():
                             operator_3 = qk()
 
                             if operator_3 is 0:
-                                if qn() is not none:
+                                if qn() is not 0:
                                     raise_unknown_line()
 
                                 operator_3 = tokenize_PYTHON_operator()
@@ -278,7 +278,7 @@ def module():
                         my_line('operator_2: %r', operator_2)
                         raise_unknown_line()
 
-                    if qn() is not none:
+                    if qn() is not 0:
                         return left
 
                     operator = qk()
@@ -289,7 +289,7 @@ def module():
 
                         wk0()
                     else:
-                        if qn() is not none:
+                        if qn() is not 0:
                             return left
 
                         operator = tokenize_PYTHON_operator()
@@ -308,7 +308,7 @@ def module():
                     operator_2 = qk()
 
                     if operator_2 is 0:
-                        if qn() is not none:
+                        if qn() is not 0:
                             raise_unknown_line()
 
                         operator_2 = tokenize_PYTHON_operator()
@@ -327,7 +327,7 @@ def module():
 
                     left = conjure_index_expression(left, conjure_tail_index(operator, middle_2, operator_2))
 
-                    if qn() is not none:
+                    if qn() is not 0:
                         return left
 
                     operator = qk()
@@ -338,7 +338,7 @@ def module():
 
                         wk0()
                     else:
-                        if qn() is not none:
+                        if qn() is not 0:
                             return left
 
                         operator = tokenize_PYTHON_operator()
@@ -351,7 +351,7 @@ def module():
             if operator.is_all_index:
                 left = conjure_index_expression(left, operator)
 
-                if qn() is not none:
+                if qn() is not 0:
                     return left
 
                 operator = qk()
@@ -362,7 +362,7 @@ def module():
 
                     wk0()
                 else:
-                    if qn() is not none:
+                    if qn() is not 0:
                         return left
 
                     operator = tokenize_PYTHON_operator()
@@ -408,9 +408,7 @@ def module():
         operator = qk()
 
         if operator is 0:
-            newline = qn()
-
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -433,7 +431,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -449,7 +447,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -465,7 +463,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -497,7 +495,7 @@ def module():
         operator = qk()
 
         if operator is 0:
-            if qn() is not none:
+            if qn() is not 0:
                 return multiply_operator.expression_meta(left, multiply_operator, right)
 
             operator = tokenize_PYTHON_operator()
@@ -524,7 +522,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is not none:
+                if qn() is not 0:
                     break
 
                 operator = tokenize_PYTHON_operator()
@@ -557,7 +555,7 @@ def module():
 
             wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -573,7 +571,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -589,7 +587,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -617,7 +615,7 @@ def module():
         operator = qk()
 
         if operator is 0:
-            if qn() is not none:
+            if qn() is not 0:
                 return add_operator.expression_meta(left, add_operator, right)
 
             operator = tokenize_PYTHON_operator()
@@ -644,7 +642,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is not none:
+                if qn() is not 0:
                     break
 
                 operator = tokenize_PYTHON_operator()
@@ -677,7 +675,7 @@ def module():
 
             wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -693,7 +691,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -709,7 +707,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -725,7 +723,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -757,7 +755,7 @@ def module():
         operator = qk()
 
         if operator is 0:
-            if qn() is not none:
+            if qn() is not 0:
                 return conjure_logical_and_expression(left, logical_and_operator, right)
 
             operator = tokenize_PYTHON_operator()
@@ -783,7 +781,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is not none:
+                if qn() is not 0:
                     return LogicalAndExpression_Many(Tuple(many))
 
                 operator = tokenize_PYTHON_operator()
@@ -816,7 +814,7 @@ def module():
 
             wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -832,7 +830,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -848,7 +846,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -864,7 +862,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -880,7 +878,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -912,7 +910,7 @@ def module():
         operator = qk()
 
         if operator is 0:
-            if qn() is not none:
+            if qn() is not 0:
                 return conjure_logical_or_expression(left, logical_or_operator, right)
 
             operator = tokenize_PYTHON_operator()
@@ -939,7 +937,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is not none:
+                if qn() is not 0:
                     break
 
                 operator = tokenize_PYTHON_operator()
@@ -973,7 +971,7 @@ def module():
 
             wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -989,7 +987,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1005,7 +1003,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1021,7 +1019,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1037,7 +1035,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1053,7 +1051,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1093,7 +1091,7 @@ def module():
         operator = qk()
 
         if operator is 0:
-            if qn() is not none:
+            if qn() is not 0:
                 return compare_operator.expression_meta(left, compare_operator, right)
 
             operator = tokenize_PYTHON_operator()
@@ -1117,7 +1115,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is not none:
+                if qn() is not 0:
                     break
 
                 operator = tokenize_PYTHON_operator()
@@ -1149,7 +1147,7 @@ def module():
 
             wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -1165,7 +1163,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1181,7 +1179,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1197,7 +1195,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1213,7 +1211,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1229,7 +1227,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1245,7 +1243,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1291,7 +1289,7 @@ def module():
         operator_2 = qk()
 
         if operator_2 is 0:
-            if qn() is not none:
+            if qn() is not 0:
                 return conjure_and_expression_1(left, operator, right)
 
             operator_2 = tokenize_PYTHON_operator()
@@ -1315,7 +1313,7 @@ def module():
             operator_7 = qk()
 
             if operator_7 is 0:
-                if qn() is not none:
+                if qn() is not 0:
                     return conjure_and_expression_many(many, many_frill)
 
                 operator_7 = tokenize_PYTHON_operator()
@@ -1347,7 +1345,7 @@ def module():
 
             wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -1363,7 +1361,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1379,7 +1377,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1395,7 +1393,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1411,7 +1409,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1427,7 +1425,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1443,7 +1441,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1459,7 +1457,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1488,7 +1486,7 @@ def module():
         operator_2 = qk()
 
         if operator_2 is 0:
-            if qn() is not none:
+            if qn() is not 0:
                 return conjure_or_expression_1(left, operator, right)
 
             operator_2 = tokenize_PYTHON_operator()
@@ -1512,7 +1510,7 @@ def module():
             operator_7 = qk()
 
             if operator_7 is 0:
-                if qn() is not none:
+                if qn() is not 0:
                     break
 
                 operator_7 = tokenize_PYTHON_operator()
@@ -1545,7 +1543,7 @@ def module():
 
             wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -1561,7 +1559,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1577,7 +1575,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1593,7 +1591,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1609,7 +1607,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1625,7 +1623,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1641,7 +1639,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1657,7 +1655,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1673,7 +1671,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1732,7 +1730,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1748,7 +1746,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1764,7 +1762,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1780,7 +1778,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1796,7 +1794,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1812,7 +1810,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1828,7 +1826,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1844,7 +1842,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1861,7 +1859,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1890,7 +1888,7 @@ def module():
 
             wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -1914,7 +1912,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1930,7 +1928,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1946,7 +1944,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1962,7 +1960,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1978,7 +1976,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -1994,7 +1992,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2010,7 +2008,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2026,7 +2024,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2042,7 +2040,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2058,7 +2056,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2084,7 +2082,7 @@ def module():
 
             wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 return left
 
             operator = tokenize_PYTHON_operator()
@@ -2171,7 +2169,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2187,7 +2185,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2203,7 +2201,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2219,7 +2217,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2235,7 +2233,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2251,7 +2249,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2267,7 +2265,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2283,7 +2281,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2300,7 +2298,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left
@@ -2316,7 +2314,7 @@ def module():
             operator = qk()
 
             if operator is 0:
-                if qn() is none:
+                if qn() is 0:
                     raise_unknown_line()
 
                 return left

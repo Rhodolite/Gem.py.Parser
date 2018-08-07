@@ -17,7 +17,7 @@ def module():
         else:
             newline = qn()
 
-            if newline is not none:
+            if newline is not 0:
                 return conjure_assign_1(conjure_indentation(indented), left, equal_sign, right, newline)
 
             operator = tokenize_PYTHON_operator()
@@ -41,7 +41,7 @@ def module():
             else:
                 newline = qn()
 
-                if newline is not none:
+                if newline is not 0:
                     return conjure_assign_many(conjure_indentation(indented), many, many_frill, newline)
 
                 operator = tokenize_PYTHON_operator()
@@ -58,7 +58,7 @@ def module():
 
         newline = qn()
 
-        if newline is not none:
+        if newline is not 0:
             return conjure_modify_statement(conjure_indentation(indented), left, modify_operator, right, newline)
 
         #my_line('indented: %r; left: %r; modify_operator: %r; right: %s; s: %s',
@@ -91,7 +91,7 @@ def module():
         else:
             newline = qn()
 
-            if newline is not none:
+            if newline is not 0:
                 return conjure_expression_statement(conjure_indentation(indented), left, newline)
 
             operator = tokenize_PYTHON_operator()
@@ -107,7 +107,7 @@ def module():
             if operator is 0:
                 newline = qn()
 
-                if newline is not none:
+                if newline is not 0:
                     return conjure_expression_statement(conjure_indentation(indented), left, newline)
 
                 raise_unknown_line()
@@ -122,7 +122,7 @@ def module():
             if operator is 0:
                 newline = qn()
 
-                if newline is not none:
+                if newline is not 0:
                     return conjure_expression_statement(conjure_indentation(indented), left, newline)
 
                 raise_unknown_line()

@@ -53,6 +53,7 @@ def module():
     wi0 = Method(wi, 0)                     #   `i` = 0
     wj0 = Method(wj, 0)                     #   `j` = 0
     wk0 = Method(wk, 0)                     #   `k` = 0
+    wn0 = Method(wn, 0)                     #   `n` = 0
 
 
     construct_Exception = Exception.__init__
@@ -204,7 +205,7 @@ def module():
                 wj0()
                 wl(line_number)
                 wk0()
-                wn(none)
+                wn0()
 
                 yield s
 
@@ -215,7 +216,7 @@ def module():
             wj0()
             wl(none)
             wk0()
-            wn(none)
+            wn0()
             wp(none)
 
 
@@ -266,5 +267,6 @@ def module():
         'wk',               wk,
         'wk0',              wk0,
         'wn',               wn,
+        'wn0',              wn0,
         'ws',               ws,
     )

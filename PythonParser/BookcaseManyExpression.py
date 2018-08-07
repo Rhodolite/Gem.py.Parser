@@ -18,7 +18,7 @@ def module():
     class ListExpression_Many(BookcaseManyExpression):
         __slots__    = (())
         display_name = '[*]'
-        
+
         is_CRYSTAL_atom = true
 
         is_CRYSTAL_right_parenthesis = false
@@ -31,7 +31,7 @@ def module():
     class MapExpression_Many(BookcaseManyExpression):
         __slots__    = (())
         display_name = '{:*:}'
-       
+
         is_CRYSTAL_atom = true
 
         is_CRYSTAL_right_parenthesis = false
@@ -73,15 +73,15 @@ def module():
 
     [
         conjure_arguments_many, conjure_arguments_many__with_frill,
-    ] = produce_conjure_bookcase_many_expression('arguments-*', Arguments_Many) 
+    ] = produce_conjure_bookcase_many_expression('arguments-*', Arguments_Many)
 
     [
         conjure_list_expression_many, conjure_list_expression_many__with_frill
-    ] = produce_conjure_bookcase_many_expression('list-expression-*', ListExpression_Many) 
+    ] = produce_conjure_bookcase_many_expression('list-expression-*', ListExpression_Many)
 
     [
         conjure_map_expression_many, conjure_map_expression_many__with_frill,
-    ] = produce_conjure_bookcase_many_expression('map-expression-*', MapExpression_Many) 
+    ] = produce_conjure_bookcase_many_expression('map-expression-*', MapExpression_Many)
 
     [
         conjure_parameters_many, conjure_parameters_many__with_frill,

@@ -243,7 +243,7 @@ def module():
         else:
             assert type(parse_LANGUAGE__FIRST_expression) is Function
             assert conjure_LANGUAGE_EMPTY_PAIR is 0
-        
+
         if parse_LANGUAGE__FIRST_expression__or__RIGHT_OPERATOR is 0:
             assert conjure_LANGUAGE_EMPTY_PAIR is 0
         else:

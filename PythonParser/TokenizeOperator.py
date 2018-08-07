@@ -8,8 +8,7 @@ def module():
 
     @share
     def tokenize_PYTHON_operator():
-        assert qk() is 0
-        assert qn() is none
+        assert qk() is qn() is 0
 
         s = qs()
 

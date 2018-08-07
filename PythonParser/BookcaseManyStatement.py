@@ -281,7 +281,7 @@ def module():
 
     [
         conjure_delete_many, conjure_delete_many__with_frill,
-    ] = produce_conjure_bookcase_many_expression('delete-*', DeleteStatement_Many) 
+    ] = produce_conjure_bookcase_many_expression('delete-*', DeleteStatement_Many)
 
 
     #

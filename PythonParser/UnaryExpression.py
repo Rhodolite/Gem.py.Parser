@@ -160,7 +160,7 @@ def module():
         __slots__    = (())
         display_name = '*-parameter'
         frill        = conjure_star_sign('*')
-        
+
         is_CRYSTAL_atom              = true
         is_CRYSTAL_left_parenthesis  = false
         is_CRYSTAL_right_parenthesis = false

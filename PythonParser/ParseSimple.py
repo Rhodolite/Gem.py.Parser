@@ -39,7 +39,7 @@ def module():
         name    = tokenize_name()
         newline = qn()
 
-        if newline is not none:
+        if newline is not 0:
             return conjure_decorator_header(indentation__at_sign, name, newline)
 
         operator = tokenize_PYTHON_operator()
@@ -47,7 +47,7 @@ def module():
         if operator.is_arguments_0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_decorator_header(indentation__at_sign, conjure_call_expression(name, operator), newline)
@@ -59,7 +59,7 @@ def module():
 
         newline = qn()
 
-        if newline is none:
+        if newline is 0:
             raise_unknown_line()
 
         return conjure_decorator_header(indentation__at_sign, call, newline)
@@ -84,7 +84,7 @@ def module():
         if operator is 0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_assert_statement_1(indented_keyword, left, newline)
@@ -101,7 +101,7 @@ def module():
         if operator_2 is 0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_assert_statement_2(indented_keyword, left, operator, right, newline)
@@ -128,7 +128,7 @@ def module():
         if operator is 0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_delete_header(indented_keyword, left, newline)
@@ -149,7 +149,7 @@ def module():
             if operator is 0:
                 newline = qn()
 
-                if newline is none:
+                if newline is 0:
                     raise_unknown_line()
 
                 return conjure_delete_many(indented_keyword, many, many_frill, newline)
@@ -189,7 +189,7 @@ def module():
         if operator is 0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_raise_statement_1(indented_keyword, left, newline)
@@ -206,7 +206,7 @@ def module():
         if operator_2 is 0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_raise_statement_2(indented_keyword, left, operator, middle, newline)
@@ -221,7 +221,7 @@ def module():
         if qk() is 0:
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_raise_statement_3(indented_keyword, left, operator, middle, operator_2, right, newline)
@@ -249,7 +249,7 @@ def module():
 
         newline = qn()
 
-        if newline is none:
+        if newline is 0:
             raise_unknown_line()
 
         return conjure_return_statement(indented_keyword, right, newline)
@@ -274,7 +274,7 @@ def module():
 
         newline = qn()
 
-        if newline is none:
+        if newline is 0:
             raise_unknown_line()
 
         return conjure_yield_statement_1(indented_keyword, left, newline)

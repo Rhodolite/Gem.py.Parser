@@ -32,7 +32,7 @@ def module():
         __slots__    = (())
         display_name = '[1]'
         frill        = LSB_RSB
-        
+
         is_CRYSTAL_atom              = true
         is_CRYSTAL_right_parenthesis = false
 

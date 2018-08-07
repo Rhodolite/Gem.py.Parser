@@ -21,7 +21,7 @@ def module():
 
         name = tokenize_name()
 
-        if qn() is not none:
+        if qn() is not 0:
             raise_unknown_line()
 
         operator = tokenize_PYTHON_operator()
@@ -31,7 +31,7 @@ def module():
 
         if operator.is_CRYSTAL_left_parenthesis:
             assert qd() > 0
-            assert qn() is none
+            assert qn() is 0
 
             operator = parse_PYTHON__arguments__left_parenthesis(operator)
 
@@ -60,7 +60,7 @@ def module():
         #
         name = tokenize_name()
 
-        if qn() is not none:
+        if qn() is not 0:
             raise_unknown_line()
         #</name>
 
@@ -77,7 +77,7 @@ def module():
         #
         token_1 = tokenize_parameter_atom()
 
-        if qn() is not none:
+        if qn() is not 0:
             raise_unknown_line()
         #</parameter_1>
 
@@ -118,7 +118,7 @@ def module():
 
         token_7 = tokenize_parameter_atom()
 
-        if qn() is not none:
+        if qn() is not 0:
             raise_unknown_line()
 
         if token_7.is_CRYSTAL_right_parenthesis:
@@ -168,7 +168,7 @@ def module():
 
             token_7 = tokenize_parameter_atom()
 
-            if qn() is not none:
+            if qn() is not 0:
                 raise_unknown_line()
 
             if token_7.is_CRYSTAL_right_parenthesis:

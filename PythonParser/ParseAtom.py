@@ -34,7 +34,7 @@ def module():
         operator = qk()
 
         if operator is 0:
-            if qn() is not none:
+            if qn() is not 0:
                 raise_unknown_line()
 
             operator = tokenize_PYTHON_operator()
@@ -86,7 +86,7 @@ def module():
     @share
     def parse_PYTHON_atom__normal():
         assert qk() is 0
-        assert qn() is none
+        assert qn() is 0
 
         m = PYTHON_atom_match(qs(), qj())
 
@@ -105,7 +105,7 @@ def module():
     @share
     def parse_PYTHON__atom__or__colon():
         assert qk() is 0
-        assert qn() is none
+        assert qn() is 0
 
         m = PYTHON_atom_match(qs(), qj())
 
@@ -122,7 +122,7 @@ def module():
 
     def parse_PYTHON__atom__or__right_brace():
         assert qk() is 0
-        assert qn() is none
+        assert qn() is 0
 
         m = PYTHON_atom_match(qs(), qj())
 
@@ -140,7 +140,7 @@ def module():
     @share
     def parse_PYTHON__atom__or__right_parenthesis():
         assert qk() is 0
-        assert qn() is none
+        assert qn() is 0
 
         m = PYTHON_atom_match(qs(), qj())
 
@@ -158,7 +158,7 @@ def module():
     @share
     def parse_PYTHON__atom__or__right_square_bracket():
         assert qk() is 0
-        assert qn() is none
+        assert qn() is 0
 
         m = PYTHON_atom_match(qs(), qj())
 
@@ -178,19 +178,19 @@ def module():
     #       `conjure_map_expression_1` is *BOTH* `conjure_LANGUAGE_bookcase_expression{,_comma}_1` on purpose.
     #
     parse_PYTHON__map__left_brace = produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR__2(
-            'parse_PYTHON__map__left_brace',
-            conjure_map_expression_1,
-            0,
-            conjure_map_expression_1,
-            conjure_map_expression_many,
-            conjure__comma__right_brace,
-            conjure_empty_map,
-            0,                                                          #   May be 0
-            'is__optional_comma__right_brace',
-            'is_right_brace',
-            0,                                                          #   May be 0
-            parse_PYTHON__first_map_element__or__right_brace,           #   May be 0
-            parse_PYTHON__map_element__or__right_brace,
+            'parse_PYTHON__map__left_brace',                            # name,
+            conjure_map_expression_1,                                   # conjure_LANGUAGE_bookcase_expression_1
+            0,                                                          # conjure_LANGUAGE_bookcase_expression_2
+            conjure_map_expression_1,                                   # conjure_LANGUAGE_bookcase_expression_comma_1
+            conjure_map_expression_many,                                # conjure_LANGUAGE_bookcase_expression_many
+            conjure__comma__right_brace,                                # conjure_LANGUAGE_dual_token
+            conjure_empty_map,                                          # conjure_LANGUAGE_EMPTY_PAIR
+            0,                                                          # name__is_LANGUAGE__comma__RIGHT_OPERATOR
+            'is__optional_comma__right_brace',                          # name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR
+            'is_right_brace',                                           # name__is_LANGUAGE_RIGHT_OPERATOR
+            0,                                                          # parse_LANGUAGE__FIRST_expression
+            parse_PYTHON__first_map_element__or__right_brace,           # parse_LANGUAGE__FIRST_expression__or__RIGHT_OPERATOR
+            parse_PYTHON__map_element__or__right_brace,                 # parse_LANGUAGE__MIDDLE_expression__or__RIGHT_OPERATOR
         )
 
     #
@@ -215,7 +215,6 @@ def module():
             parse_PYTHON__ternary_expression__X__any_expression,        #   parse_LANGUAGE__MIDDLE_expression__X__any_expression
             tokenize_PYTHON_operator,                                   #   tokenize_LANGUAGE_operator
         )
-
 
     #
     #   NOTE:
@@ -244,6 +243,9 @@ def module():
         )
 
 
+    #
+    #   export
+    #
     export(
         'parse_PYTHON__list_expression__left_square_bracket',   parse_PYTHON__list_expression__left_square_bracket,
 

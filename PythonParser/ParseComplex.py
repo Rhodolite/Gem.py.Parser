@@ -26,7 +26,7 @@ def module():
         else:
             operator = tokenize_PYTHON_operator()
 
-        if qn() is not none:
+        if qn() is not 0:
             raise_unknown_line()
 
         if operator.is_colon__line_marker:
@@ -38,7 +38,7 @@ def module():
         header = evoke_header(indented_keyword, condition, operator)
 
         assert qk() is 0
-        assert qn() is none
+        assert qn() is 0
 
         m = simple_statement_match(qs(), qj())
 
@@ -49,7 +49,7 @@ def module():
         token = analyze_PYTHON_atom(m)
 
         if token.is_keyword_return:
-            if qn() is not none:
+            if qn() is not 0:
                 raise_unknown_line()
 
             right = parse_PYTHON__ternary_expression_list()
@@ -59,7 +59,7 @@ def module():
 
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_body_statement(
@@ -201,12 +201,12 @@ def module():
         if operator is not 0:
             wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 raise_unknown_line()
 
             operator = tokenize_PYTHON_operator()
 
-            if qn() is not none:
+            if qn() is not 0:
                 raise_unknown_line()
 
         if not operator.is_keyword_in:
@@ -219,12 +219,12 @@ def module():
         if operator_2 is not 0:
             wk0()
         else:
-            if qn() is not none:
+            if qn() is not 0:
                 raise_unknown_line()
 
             operator_2 = tokenize_PYTHON_operator()
 
-            if qn() is not none:
+            if qn() is not 0:
                 raise_unknown_line()
 
         if not operator_2.is_colon__line_marker:

@@ -172,7 +172,7 @@ def module():
             is_CRYSTAL_atom              = true
             is_CRYSTAL_right_parenthesis = false
 
-            
+
             if PYTHON_parser:
                 scout_variables = scout_variables__a
 

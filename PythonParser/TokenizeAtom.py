@@ -5,7 +5,7 @@
 def module():
     require_module('PythonParser.Match')
 
-    
+
     PYTHON__skip_tokenize_prefix = produce__LANGUAGE__skip_tokenize_prefix('python', next_crystal_nested_line_match)
 
 
@@ -38,6 +38,8 @@ def module():
 
         @rename('tokenize_multiline_%s_quote', name)
         def tokenize_multiline_quote(m):
+            assert qk() is qn() is 0
+
             j = qj()
 
             prefix = (0   if qi() == j else   conjure_whitespace(qs()[qi() : j]))
@@ -117,6 +119,8 @@ def module():
     #
     @share
     def analyze_PYTHON_atom(m):
+        assert qk() is qn() is 0
+
         if m.start('newline') is -1:
             atom_s = m.group('atom')
 

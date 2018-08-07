@@ -7,7 +7,7 @@ def module():
     def tokenize_header_parenthesis_atom():
         assert qd() is 0
         assert qk() is 0
-        assert qn() is none
+        assert qn() is 0
 
         s = qs()
 
@@ -74,7 +74,7 @@ def module():
     def tokenize_parameter_atom():
         assert qd() is 1
         assert qk() is 0
-        assert qn() is none
+        assert qn() is 0
 
         j = qj()
         s = qs()
@@ -127,7 +127,7 @@ def module():
     def tokenize_parameter_colon_newline():
         assert qd() is 0
         assert qk() is 0
-        assert qn() is none
+        assert qn() is 0
 
         s = qs()
 
@@ -152,7 +152,7 @@ def module():
     def tokenize_parameter_operator():
         assert qd() is 1
         assert qk() is 0
-        assert qn() is none
+        assert qn() is 0
 
         s = qs()
 

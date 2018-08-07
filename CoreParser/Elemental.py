@@ -187,7 +187,7 @@ def module():
 
         COMMA__W = conjure_CRYSTAL_comma(', ')
 
-        
+
         export(
             'COMMA__W',                                 COMMA__W,
             'conjure_CRYSTAL_comma',                    conjure_CRYSTAL_comma,
@@ -324,7 +324,7 @@ def module():
                     ']' : 7,
                     '}' : 7,
                 }.get
-        
+
         if TREMOLITE_parser:
             is_CRYSTAL_close_or_open_operator = {
                     '(' : 3,
