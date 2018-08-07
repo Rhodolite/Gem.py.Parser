@@ -21,18 +21,12 @@ def module():
 
         name = tokenize_name()
 
-        if qn() is not 0:
-            raise_unknown_line()
-
         operator = tokenize_PYTHON_operator()
 
         if not operator.is__arguments_0__or__left_parenthesis:
             raise_unknown_line()
 
         if operator.is_CRYSTAL_left_parenthesis:
-            assert qd() > 0
-            assert qn() is 0
-
             operator = parse_PYTHON__arguments__left_parenthesis(operator)
 
         return conjure_class_header(

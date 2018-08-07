@@ -80,8 +80,6 @@ def module():
             if conjure_LANGUAGE_EMPTY_PAIR is 0:
                 middle_1 = parse_LANGUAGE__atom__normal()
             else:
-                assert parse_LANGUAGE__atom__normal is 0
-
                 middle_1 = parse_LANGUAGE__atom__or__RIGHT_OPERATOR()
 
                 if attribute(middle_1, name__is_LANGUAGE_RIGHT_OPERATOR):

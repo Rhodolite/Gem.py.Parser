@@ -8,7 +8,10 @@ def module():
 
     @share
     def tokenize_PYTHON_operator():
-        assert qk() is qn() is 0
+        assert qk() is 0
+
+        if qn() is not 0:
+            raise_unknown_line()
 
         s = qs()
 
