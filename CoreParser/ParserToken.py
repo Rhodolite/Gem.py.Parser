@@ -31,9 +31,9 @@ def module():
         is_herd       = false
         herd_estimate = 0
 
-
         if CRYSTAL_parser:
             ends_in_newline                  = false
+            is_CRYSTAL_comma                 = false
             is_CRYSTAL_identifier            = false
             is_CRYSTAL_right_parenthesis     = false
             is_empty_line                    = false
@@ -43,7 +43,6 @@ def module():
             newlines                         = 0
 
         if PYTHON_parser:
-            is_comma                   = false
             is_comment_line            = false
             is_comment__or__empty_line = false
             is_indentation             = false
@@ -51,6 +50,9 @@ def module():
             is_keyword_return          = false
             is_right_square_bracket    = false
             is_vw_frill                = false
+
+        if TREMOLITE_parser:
+            is_TREMOLITE_right_brace_set = false
 
 
         def __init__(t, s):
@@ -65,49 +67,7 @@ def module():
             count_newlines = count_newlines__zero
 
 
-        def display_short_token(t):
-            return arrange('{%s}', portray_string(t.s)[1:-1])
-
-
-        if 0:                                                           #   Not currently used
-            def display_full_token(t):
-                return arrange('<%s %s>', t.display_name, portray_string(t.s))
-
-
-        def dump_token(t, f, newline = true):
-            if t.ends_in_newline:
-                if t.newlines is 1:
-                    f.partial('{%s}', portray_string(t.s)[1:-1])
-                else:
-                    many = t.s.splitlines(true)
-
-                    f.partial('{')
-
-                    for s in many[:-1]:
-                        f.line(portray_string(s)[1:-1])
-
-                    f.partial('%s}', portray_string(many[-1])[1:-1])
-
-                if newline:
-                    f.line()
-                    return false
-
-                return true
-
-            if t.newlines is 0:
-                f.partial('{%s}', portray_string(t.s)[1:-1])
-                return
-
-            many = t.s.splitlines(true)
-
-            f.partial('{')
-
-            for s in many[:-1]:
-                f.line(portray_string(s)[1:-1])
-
-            f.partial('%s}', portray_string(many[-1])[1:-1])
-
-
+        dump_token    = dump_token__with_braces
         display_token = __repr__
 
 

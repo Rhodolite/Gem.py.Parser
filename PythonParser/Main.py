@@ -28,7 +28,7 @@ def module():
     require_module('PythonParser')
 
 
-    choice = 3
+    choice = 1
     show   = 0
 
 

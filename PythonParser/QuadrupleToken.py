@@ -125,39 +125,29 @@ def module():
             return arrange('<%s %r %r %r %r>', t.__class__.__name__, t.a, t.b, t.c, t.d)
 
 
-        if 0:                                                           #   Not currently used
-            def display_full_token(t):
-                display_name = t.display_name
-                a_s          = t.a.s
-                b_s          = t.b.s
-                c_s          = t.c.s
-                d_s          = t.d.s
-
-                return arrange('<%s <%s> <%s> <%s> <%s>>',
-                               display_name,
-                               (portray_string(a_s)   if '\n' in a_s else   a_s),
-                               (portray_string(b_s)   if '\n' in b_s else   b_s),
-                               (portray_string(c_s)   if '\n' in b_s else   c_s),
-                               (portray_string(d_s)   if '\n' in d_s else   d_s))
-
-
         def display_token(t):
             display_name = t.display_name
 
             if display_name == t.s:
                 return display_name
 
-            a_s = t.a.s
-            b_s = t.b.s
-            c_s = t.c.s
-            d_s = t.d.s
+            a = t.a
 
-            return arrange('<%s <%s> <%s> <%s> <%s>>',
+            if a.is_indentation:
+                return arrange('<%s %+d %s %s %s>',
+                               display_name,
+                               a.total,
+                               t.b.display_token(),
+                               t.c.display_token(),
+                               t.d.display_token())
+
+
+            return arrange('<%s %s %s %s %s>',
                            display_name,
-                           (portray_string(a_s)   if '\n' in a_s else   a_s),
-                           (portray_string(b_s)   if '\n' in b_s else   b_s),
-                           (portray_string(c_s)   if '\n' in c_s else   c_s),
-                           (portray_string(d_s)   if '\n' in d_s else   d_s))
+                           a  .display_token(),
+                           t.b.display_token(),
+                           t.c.display_token(),
+                           t.d.display_token())
 
 
     def create_quadruple_token__with_newlines(Meta, s, a, b, c, d):

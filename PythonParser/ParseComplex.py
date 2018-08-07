@@ -21,13 +21,13 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
-            wk(none)
+        if operator is not 0:
+            wk0()
         else:
             operator = tokenize_PYTHON_operator()
 
-        if qn() is not none:
-            raise_unknown_line()
+            if qn() is not 0:
+                raise_unknown_line()
 
         if operator.is_colon__line_marker:
             return evoke_header(indented_keyword, condition, operator)
@@ -37,8 +37,7 @@ def module():
 
         header = evoke_header(indented_keyword, condition, operator)
 
-        assert qk() is none
-        assert qn() is none
+        assert qk() is qn() is 0
 
         m = simple_statement_match(qs(), qj())
 
@@ -49,17 +48,14 @@ def module():
         token = analyze_PYTHON_atom(m)
 
         if token.is_keyword_return:
-            if qn() is not none:
-                raise_unknown_line()
-
             right = parse_PYTHON__ternary_expression_list()
 
-            if qk() is not none:
+            if qk() is not 0:
                 raise_unknown_line()
 
             newline = qn()
 
-            if newline is none:
+            if newline is 0:
                 raise_unknown_line()
 
             return conjure_body_statement(
@@ -140,8 +136,8 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
-            wk(none)
+        if operator is not 0:
+            wk0()
         else:
             operator = tokenize_PYTHON_operator()
 
@@ -155,8 +151,8 @@ def module():
 
         operator_2 = qk()
 
-        if operator_2 is not none:
-            wk(none)
+        if operator_2 is not 0:
+            wk0()
         else:
             operator_2 = tokenize_PYTHON_operator()
 
@@ -198,16 +194,10 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
-            wk(none)
+        if operator is not 0:
+            wk0()
         else:
-            if qn() is not none:
-                raise_unknown_line()
-
             operator = tokenize_PYTHON_operator()
-
-            if qn() is not none:
-                raise_unknown_line()
 
         if not operator.is_keyword_in:
             raise_unknown_line()
@@ -216,15 +206,12 @@ def module():
 
         operator_2 = qk()
 
-        if operator_2 is not none:
-            wk(none)
+        if operator_2 is not 0:
+            wk0()
         else:
-            if qn() is not none:
-                raise_unknown_line()
-
             operator_2 = tokenize_PYTHON_operator()
 
-            if qn() is not none:
+            if qn() is not 0:
                 raise_unknown_line()
 
         if not operator_2.is_colon__line_marker:
@@ -267,8 +254,8 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
-            wk(none)
+        if operator is not 0:
+            wk0()
         else:
             operator = tokenize_PYTHON_operator()
 
@@ -282,8 +269,8 @@ def module():
 
         operator_2 = qk()
 
-        if operator_2 is not none:
-            wk(none)
+        if operator_2 is not 0:
+            wk0()
         else:
             operator_2 = tokenize_PYTHON_operator()
 

@@ -12,12 +12,12 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
-            wk(none)
+        if operator is not 0:
+            wk0()
         else:
             newline = qn()
 
-            if newline is not none:
+            if newline is not 0:
                 return conjure_assign_1(conjure_indentation(indented), left, equal_sign, right, newline)
 
             operator = tokenize_PYTHON_operator()
@@ -36,12 +36,12 @@ def module():
 
             operator = qk()
 
-            if operator is not none:
-                wk(none)
+            if operator is not 0:
+                wk0()
             else:
                 newline = qn()
 
-                if newline is not none:
+                if newline is not 0:
                     return conjure_assign_many(conjure_indentation(indented), many, many_frill, newline)
 
                 operator = tokenize_PYTHON_operator()
@@ -58,7 +58,7 @@ def module():
 
         newline = qn()
 
-        if newline is not none:
+        if newline is not 0:
             return conjure_modify_statement(conjure_indentation(indented), left, modify_operator, right, newline)
 
         #my_line('indented: %r; left: %r; modify_operator: %r; right: %s; s: %s',
@@ -86,12 +86,12 @@ def module():
 
         operator = qk()
 
-        if operator is not none:
-            wk(none)
+        if operator is not 0:
+            wk0()
         else:
             newline = qn()
 
-            if newline is not none:
+            if newline is not 0:
                 return conjure_expression_statement(conjure_indentation(indented), left, newline)
 
             operator = tokenize_PYTHON_operator()
@@ -104,30 +104,30 @@ def module():
 
             operator = qk()
 
-            if operator is none:
+            if operator is 0:
                 newline = qn()
 
-                if newline is not none:
+                if newline is not 0:
                     return conjure_expression_statement(conjure_indentation(indented), left, newline)
 
                 raise_unknown_line()
 
-            wk(none)
+            wk0()
 
         if not operator.is_end_of_ternary_expression_list:
             left = parse_PYTHON__ternary_expression_list__X_any_expression(left, operator)
 
             operator = qk()
 
-            if operator is none:
+            if operator is 0:
                 newline = qn()
 
-                if newline is not none:
+                if newline is not 0:
                     return conjure_expression_statement(conjure_indentation(indented), left, newline)
 
                 raise_unknown_line()
 
-            wk(none)
+            wk0()
 
         if operator.is_equal_sign:
             return parse_PYTHON__statement_assign__left__equal_sign(indented, left, operator)
