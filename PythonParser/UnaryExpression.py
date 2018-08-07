@@ -147,7 +147,9 @@ def module():
         display_name = '*-argument'
         frill        = conjure_star_sign('*')
 
+        #<atom>
         is_CRYSTAL_atom = true
+        #</atom>
 
 
         scout_variables = scout_variables__a
@@ -158,7 +160,9 @@ def module():
         display_name = '*-parameter'
         frill        = conjure_star_sign('*')
 
+        #<atom>
         is_CRYSTAL_atom = true
+        #</atom>
 
         is_PYTHON__identifier__or__star_parameter = true
 

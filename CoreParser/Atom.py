@@ -19,16 +19,17 @@ def module():
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = '"'
 
+        #<atom>
         if CRYSTAL_parser:
             is_CRYSTAL_atom                                  = true
             is_CRYSTAL_simple_atom__or__colon                = true
             is_CRYSTAL_simple_atom__or__right_brace          = true
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
-            is_right_parenthesis                             = false
 
         if TREMOLITE_parser:
             is_TREMOLITE__simple_atom__or__right_brace_set = true
+        #<atom>
 
         if CRYSTAL_parser:
             is_left_parenthesis = false
@@ -57,16 +58,17 @@ def module():
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = "'"
 
+        #<atom>
         if CRYSTAL_parser:
             is_CRYSTAL_atom                                  = true
             is_CRYSTAL_simple_atom__or__colon                = true
             is_CRYSTAL_simple_atom__or__right_brace          = true
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
-            is_right_parenthesis                             = false
 
         if TREMOLITE_parser:
             is_TREMOLITE__simple_atom__or__right_brace_set = true
+        #</atom>
 
         if CRYSTAL_parser:
             is_left_parenthesis = false
@@ -97,6 +99,7 @@ def module():
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'token-name'
 
+        #<atom>
         if CRYSTAL_parser:
             is_CRYSTAL_atom                                  = true
             is_CRYSTAL_identifier                            = true
@@ -104,10 +107,10 @@ def module():
             is_CRYSTAL_simple_atom__or__right_brace          = true
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
-            is_right_parenthesis                             = false
 
         if TREMOLITE_parser:
             is_TREMOLITE__simple_atom__or__right_brace_set = true
+        #</atom>
 
         if CRYSTAL_parser:
             is_left_parenthesis = false
@@ -169,16 +172,17 @@ def module():
         class_order  = CLASS_ORDER__NORMAL_TOKEN
         display_name = 'number'
 
+        #<atom>
         if CRYSTAL_parser:
             is_CRYSTAL_atom                                  = true
             is_CRYSTAL_simple_atom__or__colon                = true
             is_CRYSTAL_simple_atom__or__right_brace          = true
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
-            is_right_parenthesis                             = false
 
         if TREMOLITE_parser:
             is_TREMOLITE__simple_atom__or__right_brace_set = true
+        #</atom>
 
         if CRYSTAL_parser:
             is_left_parenthesis = false

@@ -235,12 +235,13 @@ def module():
         __slots__    = (())
         display_name = '[,]'
 
+        #<atom>
         is_CRYSTAL_atom                                  = true
         is_CRYSTAL_simple_atom__or__colon                = true
         is_CRYSTAL_simple_atom__or__right_brace          = true
         is_CRYSTAL_simple_atom__or__right_parenthesis    = true
         is_CRYSTAL_simple_atom__or__right_square_bracket = true
-        is_CRYSTAL_right_parenthesis                     = false
+        #</atom>
 
 
         scout_variables = scout_variables__0
@@ -250,12 +251,13 @@ def module():
         __slots__    = (())
         display_name = '{:}'
 
+        #<atom>
         is_CRYSTAL_atom                                  = true
         is_CRYSTAL_simple_atom__or__colon                = true
         is_CRYSTAL_simple_atom__or__right_brace          = true
         is_CRYSTAL_simple_atom__or__right_parenthesis    = true
         is_CRYSTAL_simple_atom__or__right_square_bracket = true
-        is_CRYSTAL_right_parenthesis                     = false
+        #</atom>
 
 
         scout_variables = scout_variables__0
@@ -265,12 +267,13 @@ def module():
         __slots__    = (())
         display_name = '{,}'
 
+        #<atom>
         is_CRYSTAL_atom                                  = true
         is_CRYSTAL_simple_atom__or__colon                = true
         is_CRYSTAL_simple_atom__or__right_brace          = true
         is_CRYSTAL_simple_atom__or__right_parenthesis    = true
         is_CRYSTAL_simple_atom__or__right_square_bracket = true
-        is_CRYSTAL_right_parenthesis                     = false
+        #</atom>
 
 
         scout_variables = scout_variables__0

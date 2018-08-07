@@ -14,17 +14,17 @@ def module():
 
         class_order = CLASS_ORDER__NORMAL_TOKEN
 
-
+        #<atom>
         if CRYSTAL_parser:
             is_CRYSTAL_atom                                  = false
             is_CRYSTAL_simple_atom__or__colon                = false
             is_CRYSTAL_simple_atom__or__right_brace          = false
             is_CRYSTAL_simple_atom__or__right_parenthesis    = false
             is_CRYSTAL_simple_atom__or__right_square_bracket = false
-            is_right_parenthesis                             = false
 
         if TREMOLITE_parser:
-            is_TREMOLITE__simple_atom__or__right_brace_set = true
+            is_TREMOLITE__simple_atom__or__right_brace_set = false
+        #</atom>
 
         if CRYSTAL_parser:
             is_CRYSTAL_comma    = false
@@ -200,13 +200,6 @@ def module():
         class OperatorLeftParenthesis(KeywordAndOperatorBase):
             __slots__    = (())
             display_name = '('                                          #   )
-
-
-            if CRYSTAL_parser:
-                #
-                #   Not strictly needed here; for optimization, so does not have to look in base classes
-                #
-                is_CRYSTAL_atom = false
 
             if CRYSTAL_parser:
                 is_left_parenthesis = true

@@ -169,7 +169,9 @@ def module():
             display_name = '()'
             frill        = LEFT_PARENTHESIS__RIGHT_PARENTHESIS
 
+            #<atom>
             is_CRYSTAL_atom = true
+            #</atom>
 
 
             if PYTHON_parser:

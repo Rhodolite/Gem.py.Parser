@@ -453,8 +453,6 @@ def module():
         __slots__    = (())
         display_name = '{'                                              #   }
 
-        is_CRYSTAL_atom = false
-
         is_left_brace = true
 
 

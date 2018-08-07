@@ -188,16 +188,17 @@ def module():
         __slots__    = (())
         display_name = 'whitespace+atom+whitespace'
 
+        #<atom>
         if CRYSTAL_parser:
             is_CRYSTAL_atom                                  = true
             is_CRYSTAL_simple_atom__or__colon                = true
             is_CRYSTAL_simple_atom__or__right_brace          = true
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
-            is_right_parenthesis                             = false
 
         if TREMOLITE_parser:
             is_TREMOLITE__simple_atom__or__right_brace_set = true
+        #</atom>
 
         if CRYSTAL_parser:
             is_left_parenthesis = false
@@ -215,6 +216,7 @@ def module():
         __slots__    = (())
         display_name = 'whitespace+name+whitespace'
 
+        #<atom>
         if CRYSTAL_parser:
             is_CRYSTAL_atom                                  = true
             is_CRYSTAL_identifier                            = true
@@ -222,10 +224,10 @@ def module():
             is_CRYSTAL_simple_atom__or__right_brace          = true
             is_CRYSTAL_simple_atom__or__right_parenthesis    = true
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
-            is_right_parenthesis                             = false
 
         if TREMOLITE_parser:
             is_TREMOLITE__simple_atom__or__right_brace_set = true
+        #</atom>
 
         if CRYSTAL_parser:
             is_left_parenthesis = false

@@ -24,8 +24,9 @@ def module():
         display_name = '[2]'
         frill        = conjure_vwx_frill(LSB, COMMA__W, RSB)
 
-        is_CRYSTAL_atom      = true
-        is_right_parenthesis = false
+        #<atom>
+        is_CRYSTAL_atom = true
+        #</atom>
 
 
         scout_variables = scout_variables__ab
@@ -45,8 +46,9 @@ def module():
         display_name = '{,2}'
         frill        = conjure_vwx_frill(LEFT_PARENTHESIS, COMMA__W, RIGHT_PARENTHESIS)
 
-        is_CRYSTAL_atom      = true
-        is_right_parenthesis = false
+        #<atom>
+        is_CRYSTAL_atom = true
+        #</atom>
 
 
         def mutate(t, vary, priority):
