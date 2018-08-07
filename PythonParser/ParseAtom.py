@@ -3,7 +3,6 @@
 #
 @module('PythonParser.ParseAtom')
 def module():
-    @share
     def parse_PYTHON__first_map_element__or__right_brace():
         token = parse_PYTHON__map_element__or__right_brace()
 
@@ -20,16 +19,25 @@ def module():
         return parse_PYTHON__comprehension_expression__left_operator(token, operator)
 
 
-    @share
     def parse_PYTHON__map_element__or__right_brace():
-        if qk() is not 0:
-            my_line('qk: %r', qk())
+        assert qk() is qn() is 0
+
+        #
+        #<python atom or right brace>
+        #
+        m = PYTHON_atom_match(qs(), qj())
+
+        if m is none:
             raise_unknown_line()
 
-        token = parse_PYTHON__atom__or__right_brace()
+        token = analyze_PYTHON_atom(m)
 
-        if token.is_right_brace:
-            return token
+        if token.is_CRYSTAL_simple_atom__or__right_brace:
+            if token.is_right_brace:
+                return token
+        else:
+            token = parse_PYTHON_atom__X__token(token)
+        #</>
 
         operator = qk()
 
@@ -115,23 +123,6 @@ def module():
         token = analyze_PYTHON_atom(m)
 
         if token.is_CRYSTAL_simple_atom__or__colon:
-            return token
-
-        return parse_PYTHON_atom__X__token(token)
-
-
-    def parse_PYTHON__atom__or__right_brace():
-        assert qk() is 0
-        assert qn() is 0
-
-        m = PYTHON_atom_match(qs(), qj())
-
-        if m is none:
-            raise_unknown_line()
-
-        token = analyze_PYTHON_atom(m)
-
-        if token.is_CRYSTAL_simple_atom__or__right_brace:
             return token
 
         return parse_PYTHON_atom__X__token(token)
