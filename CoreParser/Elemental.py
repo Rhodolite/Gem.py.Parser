@@ -23,8 +23,7 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = false
 
         if TREMOLITE_parser:
-            is_TREMOLITE___simple_atom___or___pound__set__right_brace = false
-            is_TREMOLITE___simple_atom___or___set__right_brace        = false
+            is_TREMOLITE___simple_atom___or___set__right_brace = false
         #</atom>
 
         if CRYSTAL_parser:
@@ -89,18 +88,15 @@ def module():
 
 
         if TREMOLITE_parser:
-            is_end_of_TREMOLITE_arithmetic_expression             = false
-            is_end_of_TREMOLITE_or_expression                     = false
-            is_end_of_TREMOLITE_range_expression                  = false
-            is_end_of_TREMOLITE_unary_expression                  = false
-            is_TREMOLITE_arithmetic_operator                      = false
-            is_TREMOLITE__left_brace__set                         = false
-            is_TREMOLITE__left_brace__set__pound                  = false
-            is_TREMOLITE__optional_comma__pound__set__right_brace = false
-            is_TREMOLITE__optional_comma__set__right_brace        = false
-            is_TREMOLITE__pound__set__right_brace                 = false
-            is_TREMOLITE_range_operator                           = false
-            is_TREMOLITE__set__right_brace                        = false
+            is_end_of_TREMOLITE_arithmetic_expression      = false
+            is_end_of_TREMOLITE_or_expression              = false
+            is_end_of_TREMOLITE_range_expression           = false
+            is_end_of_TREMOLITE_unary_expression           = false
+            is_TREMOLITE_arithmetic_operator               = false
+            is_TREMOLITE__left_brace__set                  = false
+            is_TREMOLITE__optional_comma__set__right_brace = false
+            is_TREMOLITE_range_operator                    = false
+            is_TREMOLITE__set__right_brace                 = false
 
 
         def __repr__(t):
@@ -322,12 +318,10 @@ def module():
 
         if TREMOLITE_parser:
             is_CRYSTAL_close_or_open_operator = {
-                    '('   : 3,
-                    ')'   : 7,
-                    '{|'  : 3,
-                    '{|#' : 3,
-                    '|}'  : 7,
-                    '#|}' : 7,
+                    '('  : 3,
+                    ')'  : 7,
+                    '{|' : 3,
+                    '|}' : 7,
                 }.get
 
 

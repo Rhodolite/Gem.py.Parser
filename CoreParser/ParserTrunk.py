@@ -29,8 +29,7 @@ def module():
             is_vw_frill                           = false
 
         if TREMOLITE_parser:
-            is_TREMOLITE__pound__set__right_brace = false
-            is_TREMOLITE__set__right_brace        = false
+            is_TREMOLITE__set__right_brace = false
 
 
         nub = static_conjure_nub
