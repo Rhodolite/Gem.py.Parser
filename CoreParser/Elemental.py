@@ -23,7 +23,6 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = false
 
         if TREMOLITE_parser:
-            is_TREMOLITE___simple_atom___or___at_sign          = false
             is_TREMOLITE___simple_atom___or___set__right_brace = false
         #</atom>
 
@@ -89,15 +88,14 @@ def module():
 
 
         if TREMOLITE_parser:
-            is_end_of_TREMOLITE_arithmetic_expression      = false
-            is_end_of_TREMOLITE_or_expression              = false
-            is_end_of_TREMOLITE_range_expression           = false
-            is_end_of_TREMOLITE_unary_expression           = false
-            is_TREMOLITE_arithmetic_operator               = false
-            is_TREMOLITE__left_brace__set                  = false
-            is_TREMOLITE__optional_comma__set__right_brace = false
-            is_TREMOLITE_range_operator                    = false
-            is_TREMOLITE__set__right_brace                 = false
+            is_end_of_TREMOLITE_arithmetic_expression = false
+            is_end_of_TREMOLITE_or_expression         = false
+            is_end_of_TREMOLITE_range_expression      = false
+            is_end_of_TREMOLITE_unary_expression      = false
+            is_TREMOLITE_arithmetic_operator          = false
+            is_TREMOLITE__left_brace__set             = false
+            is_TREMOLITE_range_operator               = false
+            is_TREMOLITE__set__right_brace            = false
 
 
         def __repr__(t):
@@ -177,6 +175,12 @@ def module():
                 is_end_of_ternary_expression_list       = true
                 is_end_of_ternary_expression            = true
                 is_end_of_unary_expression              = true
+
+            if TREMOLITE_parser:
+                is_end_of_TREMOLITE_arithmetic_expression = true
+                is_end_of_TREMOLITE_or_expression         = true
+                is_end_of_TREMOLITE_range_expression      = true
+                is_end_of_TREMOLITE_unary_expression      = true
 
         [
                 conjure_colon, conjure_colon__ends_in_newline,

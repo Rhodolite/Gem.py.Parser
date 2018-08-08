@@ -13,6 +13,7 @@ def module():
         is_herd       = false
 
         if CRYSTAL_parser:
+            is_CRYSTAL_identifier            = false
             is_empty_line                    = false
             is_end_of_data                   = false
             is_end_of_data__or__unknown_line = false
