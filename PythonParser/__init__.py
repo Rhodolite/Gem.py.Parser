@@ -216,7 +216,7 @@ def module():
     transport('CoreParser.Method',                  'write_variables__a')
     transport('CoreParser.Nub',                     'conjure_nub')
     transport('CoreParser.Nub',                     'static_conjure_nub')
-    transport('CoreParser.ParseAtom',               'produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR')
+    transport('CoreParser.ParseAtom',               'produce_parse_LANGUAGE__bookcase_expression')
     transport('CoreParser.ParserToken',             'ParserToken')
     transport('CoreParser.ParserTrunk',             'ParserTrunk')
     transport('CoreParser.QuadrupleFrill',          'conjure_commented_vwx_frill')
@@ -272,3 +272,4 @@ def module():
     transport('CoreParser.TupleOfExpression',       'conjure_tuple_of_many_expression')
     transport('CoreParser.Whitespace',              'conjure_whitespace')
     transport('CoreParser.Whitespace',              'conjure_whitespace__ends_in_newline')
+    transport('CoreParser.Elemental',               'W__COLON__W')

@@ -4,7 +4,7 @@
 @module('CoreParser.ParseAtom')
 def module():
     @export
-    def produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR(
+    def produce_parse_LANGUAGE__bookcase_expression(
             language,
             name,
             LEFT_OPERATOR,                                              #   May be 0
@@ -21,21 +21,37 @@ def module():
             parse_LANGUAGE__FIRST_expression__or__RIGHT_OPERATOR,       #   May be 0
             parse_LANGUAGE__MIDDLE_expression__or__RIGHT_OPERATOR,
     ):
-        assert type(name)                                         is String
-        assert type(conjure_LANGUAGE_bookcase_expression_1)       is Function
+        assert type(name)                                               is String
+
+        if LEFT_OPERATOR is 0:
+            assert conjure_LANGUAGE_bookcase_expression_1               is 0
+            assert conjure_LANGUAGE_bookcase_expression_2               is 0
+            assert conjure_LANGUAGE_bookcase_expression_comma_1         is 0
+            assert parse_LANGUAGE__FIRST_expression                     is 0
+            assert parse_LANGUAGE__FIRST_expression__or__RIGHT_OPERATOR is 0
+        else:
+            assert type(LEFT_OPERATOR)                                  is String
+
+        if conjure_LANGUAGE_bookcase_expression_1 is 0:
+            assert LEFT_OPERATOR                                        is 0
+        else:
+            assert type(conjure_LANGUAGE_bookcase_expression_1)         is Function
 
         if conjure_LANGUAGE_bookcase_expression_2 is not 0:
-            assert type(conjure_LANGUAGE_bookcase_expression_2)   is Function
+            assert type(conjure_LANGUAGE_bookcase_expression_2)         is Function
 
-        assert type(conjure_LANGUAGE_bookcase_expression_comma_1) is Function
+        if conjure_LANGUAGE_bookcase_expression_comma_1 is 0:
+            assert LEFT_OPERATOR                                        is 0
+        else:
+            assert type(conjure_LANGUAGE_bookcase_expression_comma_1)   is Function
 
         if conjure_LANGUAGE_bookcase_expression_1 is conjure_LANGUAGE_bookcase_expression_comma_1:
-            assert name__is_LANGUAGE__comma__RIGHT_OPERATOR is 0
+            assert name__is_LANGUAGE__comma__RIGHT_OPERATOR             is 0
         else:
-            assert name__is_LANGUAGE__comma__RIGHT_OPERATOR is not 0
+            assert name__is_LANGUAGE__comma__RIGHT_OPERATOR             is not 0
 
-        assert type(conjure_LANGUAGE_bookcase_expression_many) is Function
-        assert type(conjure_LANGUAGE_dual_token)               is Function
+        assert type(conjure_LANGUAGE_bookcase_expression_many)          is Function
+        assert type(conjure_LANGUAGE_dual_token)                        is Function
 
         if conjure_LANGUAGE_EMPTY_PAIR is 0:
             assert parse_LANGUAGE__FIRST_expression__or__RIGHT_OPERATOR is 0
@@ -47,18 +63,18 @@ def module():
         if name__is_LANGUAGE__comma__RIGHT_OPERATOR is 0:
             assert conjure_LANGUAGE_bookcase_expression_1 is conjure_LANGUAGE_bookcase_expression_comma_1
         else:
-            assert type(name__is_LANGUAGE__comma__RIGHT_OPERATOR)   is String
+            assert type(name__is_LANGUAGE__comma__RIGHT_OPERATOR)       is String
             assert conjure_LANGUAGE_bookcase_expression_1 is not conjure_LANGUAGE_bookcase_expression_comma_1
 
-        assert type(name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR) is String
-        assert type(name__is_LANGUAGE_RIGHT_OPERATOR)                  is String
+        assert type(name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR)  is String
+        assert type(name__is_LANGUAGE_RIGHT_OPERATOR)                   is String
 
         if parse_LANGUAGE__FIRST_expression is not 0:
-            assert type(parse_LANGUAGE__FIRST_expression) is Function
-            assert conjure_LANGUAGE_EMPTY_PAIR is 0
+            assert type(parse_LANGUAGE__FIRST_expression)               is Function
+            assert conjure_LANGUAGE_EMPTY_PAIR                          is 0
 
         if parse_LANGUAGE__FIRST_expression__or__RIGHT_OPERATOR is 0:
-            assert conjure_LANGUAGE_EMPTY_PAIR is 0
+            assert conjure_LANGUAGE_EMPTY_PAIR                          is 0
         else:
             assert type(parse_LANGUAGE__FIRST_expression__or__RIGHT_OPERATOR) is Function
             assert conjure_LANGUAGE_EMPTY_PAIR is not 0

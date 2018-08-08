@@ -270,7 +270,7 @@ def module():
     #   NOTE:
     #       `conjure_map_expression_1` is *BOTH* `conjure_LANGUAGE_bookcase_expression{,_comma}_1` on purpose.
     #
-    parse_PYTHON__map__left_brace = produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR(
+    parse_PYTHON__map__left_brace = produce_parse_LANGUAGE__bookcase_expression(
             'PYTHON',                                           #   language
             'map',                                              #   name
             'left_brace',                                       #   LEFT_OPERATOR
@@ -300,7 +300,7 @@ def module():
     #   NOTE:
     #       `conjure_list_expression_1` is *BOTH* `conjure_LANGUAGE_bookcase_expression{,_comma}_1` on purpose.
     #
-    parse_PYTHON__list_expression__left_square_bracket = produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR(
+    parse_PYTHON__list_expression__left_square_bracket = produce_parse_LANGUAGE__bookcase_expression(
             'PYTHON',                                           #   language
             'list_expression',                                  #   name
             'left_square_bracket',                              #   LEFT_OPERATOR
@@ -331,32 +331,30 @@ def module():
     #       `parse_PYTHON__ternary_expression__X__any_expression` is *BOTH*
     #       `parse_LANGUAGE__{FIRST,MIDDLE}_expression__X__any_expression{,_comma}_1` on purpose.
     #
-    parse_PYTHON__parenthesized_expression__left_parenthesis = (
-            produce_parse_LANGUAGE__bookcase_expression__LEFT_OPERATOR(
-                'PYTHON',                                       #   langauge
-                'parenthesized_expression',                     #   name
-                'left_parenthesis',                             #   LEFT_OPERATOR
-                conjure_CRYSTAL_parenthesized_expression,       #   conjure_LANGUAGE_bookcase_expression_1
-                conjure_tuple_expression_2,                     #   conjure_LANGUAGE_bookcase_expression_2
-                conjure_parenthesized_tuple_expression_1,       #   conjure_LANGUAGE_bookcase_expression_comma_1
-                conjure_tuple_expression_many,                  #   conjure_LANGUAGE_bookcase_expression_many
-                conjure_comma__right_parenthesis,               #   conjure_LANGUAGE_dual_token
-                conjure_empty_tuple,                            #   conjure_LANGUAGE_EMPTY_PAIR
-                'is_comma__right_parenthesis',                  #   name__is_LANGUAGE__comma__RIGHT_OPERATOR
-                'is__optional_comma__right_parenthesis',        #   name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR
-                'is_right_parenthesis',                         #   name__is_LANGUAGE_RIGHT_OPERATOR
-                0,                                              #   parse_LANGUAGE__FIRST_expression
+    parse_PYTHON__parenthesized_expression__left_parenthesis = produce_parse_LANGUAGE__bookcase_expression(
+            'PYTHON',                                           #   langauge
+            'parenthesized_expression',                         #   name
+            'left_parenthesis',                                 #   LEFT_OPERATOR
+            conjure_CRYSTAL_parenthesized_expression,           #   conjure_LANGUAGE_bookcase_expression_1
+            conjure_tuple_expression_2,                         #   conjure_LANGUAGE_bookcase_expression_2
+            conjure_parenthesized_tuple_expression_1,           #   conjure_LANGUAGE_bookcase_expression_comma_1
+            conjure_tuple_expression_many,                      #   conjure_LANGUAGE_bookcase_expression_many
+            conjure_comma__right_parenthesis,                   #   conjure_LANGUAGE_dual_token
+            conjure_empty_tuple,                                #   conjure_LANGUAGE_EMPTY_PAIR
+            'is_comma__right_parenthesis',                      #   name__is_LANGUAGE__comma__RIGHT_OPERATOR
+            'is__optional_comma__right_parenthesis',            #   name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR
+            'is_right_parenthesis',                             #   name__is_LANGUAGE_RIGHT_OPERATOR
+            0,                                                  #   parse_LANGUAGE__FIRST_expression
 
-                #
-                #   parse_LANGUAGE__FIRST_expression__or__RIGHT_OPERATOR
-                #
-                parse_PYTHON__first_parenthesized_expression__or__right_parenthesis,
+            #
+            #   parse_LANGUAGE__FIRST_expression__or__RIGHT_OPERATOR
+            #
+            parse_PYTHON__first_parenthesized_expression__or__right_parenthesis,
 
-                #
-                #   parse_LANGUAGE__MIDDLE_expression__or__RIGHT_OPERATOR
-                #
-                parse_PYTHON__middle_parenthesized_expression__or__right_parenthesis,
-            )
+            #
+            #   parse_LANGUAGE__MIDDLE_expression__or__RIGHT_OPERATOR
+            #
+            parse_PYTHON__middle_parenthesized_expression__or__right_parenthesis,
         )
 
 

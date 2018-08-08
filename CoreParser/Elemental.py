@@ -207,6 +207,12 @@ def module():
                 'COLON__W',     COLON__W,
             )
 
+        W__COLON__W = conjure_colon(' : ')
+
+        export(
+            'W__COLON__W',  W__COLON__W,
+        )
+
 
     if PYTHON_parser or TREMOLITE_parser:
         @export

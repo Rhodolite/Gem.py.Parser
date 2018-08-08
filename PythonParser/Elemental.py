@@ -802,7 +802,6 @@ def module():
     W__AND__W                   = conjure_action_word         ('and', ' and ')
     W__ASSIGN__W                = conjure_equal_sign          (' = ')
     W__AS__W                    = conjure_keyword_as          (' as ')
-    W__COLON__W                 = conjure_colon               (' : ')
     W__COMPARE_EQUAL__W         = conjure_action_word         ('==', ' == ')
     W__COMPARE_NOT_EQUAL__W     = conjure_action_word         ('!=', ' != ')
     W__DIVIDE__W                = conjure_action_word         ('/', ' / ')
@@ -1054,7 +1053,6 @@ def module():
         'TRY',                                              TRY,
         'W__ASSIGN__W',                                     W__ASSIGN__W,
         'W__AS__W',                                         W__AS__W,
-        'W__COLON__W',                                      W__COLON__W,
         'W__ELSE__W',                                       W__ELSE__W,
         'W__FOR__W',                                        W__FOR__W,
         'WHILE__W',                                         WHILE__W,
