@@ -153,6 +153,59 @@ def module():
 
     if PYTHON_parser or TREMOLITE_parser:
         @export
+        class OperatorColon(KeywordAndOperatorBase):
+            __slots__    = (())
+            display_name = ':'
+
+            is_CRYSTAL_simple_atom__or__colon = true
+
+            if CRYSTAL_parser:
+                is_colon = true
+
+            if PYTHON_parser:
+                is_end_of_boolean_and_expression        = true
+                is_end_of_boolean_or_expression         = true
+                is_end_of_compare_expression            = true
+                is_end_of_comprehension_expression_list = true
+                is_end_of_comprehension_expression      = true
+                is_end_of_logical_and_expression        = true
+                is_end_of_logical_or_expression         = true
+                is_end_of_multiply_expression           = true
+                is_end_of_normal_expression_list        = true
+                is_end_of_normal_expression             = true
+                is_end_of_PYTHON_arithmetic_expression  = true
+                is_end_of_ternary_expression_list       = true
+                is_end_of_ternary_expression            = true
+                is_end_of_unary_expression              = true
+
+        [
+                conjure_colon, conjure_colon__ends_in_newline,
+        ] = produce_conjure_action_word__ends_in_newline('colon', OperatorColon)
+
+
+        export(
+            'conjure_colon',                    conjure_colon,
+            'conjure_colon__ends_in_newline',   conjure_colon__ends_in_newline,
+        )
+
+
+        if PYTHON_parser:
+            COLON = conjure_colon(':')
+
+            export(
+                'COLON',    COLON,
+            )
+
+        if TREMOLITE_parser:
+            COLON__W = conjure_colon(': ')
+
+            export(
+                'COLON__W',     COLON__W,
+            )
+
+
+    if PYTHON_parser or TREMOLITE_parser:
+        @export
         class OperatorComma(KeywordAndOperatorBase):
             __slots__      = (())
             display_name   = ','
@@ -298,9 +351,10 @@ def module():
     if PYTHON_parser or TREMOLITE_parser:
         initialize_action_word__Meta(
             ((
-                 ((     '(',        OperatorLeftParenthesis     )),
-                 ((     ')',        OperatorRightParenthesis    )),
-                 ((     '+',        OperatorPlusSign            )),
+                ((  '(',    OperatorLeftParenthesis     )),
+                ((  ')',    OperatorRightParenthesis    )),
+                ((  ':',    OperatorColon               )),
+                ((  '+',    OperatorPlusSign            )),
             )),
         )
 

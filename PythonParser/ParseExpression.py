@@ -85,7 +85,7 @@ def module():
                         if qn() is not 0:
                             return conjure_member_expression(
                                        left,
-                                       conjure_dot_name_triplet(
+                                       conjure_dot_name_triplet__with_newlines(
                                            conjure_dot_name(operator,   name),
                                            conjure_dot_name(operator_2, name_2),
                                            conjure_dot_name(operator_3, name_3),
@@ -124,7 +124,7 @@ def module():
                         else:
                             left = conjure_member_expression(
                                        left,
-                                       conjure_dot_name_triplet(
+                                       conjure_dot_name_triplet__with_newlines(
                                            conjure_dot_name(operator,   name),
                                            conjure_dot_name(operator_2, name_2),
                                            conjure_dot_name(operator_3, name_3),
@@ -303,7 +303,7 @@ def module():
                 middle_2 = parse_PYTHON__atom__or__right_square_bracket()
 
                 if middle_2.is_right_square_bracket:
-                    operator = conjure_all_index(operator.a, operator.b, middle_2)
+                    operator = conjure_all_index__with_newlines(operator.a, operator.b, middle_2)
                 else:
                     operator_2 = qk()
 

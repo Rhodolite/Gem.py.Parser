@@ -292,29 +292,6 @@ def module():
         display_name = '@'
 
 
-    class OperatorColon(KeywordAndOperatorBase):
-        __slots__    = (())
-        display_name = ':'
-        is_colon     = true
-
-        is_CRYSTAL_simple_atom__or__colon = true
-
-        is_end_of_boolean_and_expression        = true
-        is_end_of_boolean_or_expression         = true
-        is_end_of_compare_expression            = true
-        is_end_of_comprehension_expression_list = true
-        is_end_of_comprehension_expression      = true
-        is_end_of_logical_and_expression        = true
-        is_end_of_logical_or_expression         = true
-        is_end_of_multiply_expression           = true
-        is_end_of_normal_expression_list        = true
-        is_end_of_normal_expression             = true
-        is_end_of_PYTHON_arithmetic_expression  = true
-        is_end_of_ternary_expression_list       = true
-        is_end_of_ternary_expression            = true
-        is_end_of_unary_expression              = true
-
-
     @share
     class OperatorCompareEqual(KeywordAndOperatorBase):
         __slots__                              = (())
@@ -697,7 +674,6 @@ def module():
              ((     '.',        OperatorDot                 )),
              ((     '/',        OperatorDivide              )),
              ((     '//',       OperatorIntegerDivide       )),
-             ((     ':',        OperatorColon               )),
              ((     '<',        OperatorLessThan            )),
              ((     '<=',       OperatorLessThanOrEqual     )),
              ((     '=',        OperatorEqualSign           )),
@@ -740,10 +716,6 @@ def module():
     conjure_keyword_if       = produce_conjure_action_word__normal('keyword_if',       KeywordIf)
     conjure_keyword_is       = produce_conjure_action_word__normal('keyword_is',       KeywordIs)
     conjure_star_sign        = produce_conjure_action_word__normal('star_sign',        OperatorStarSign)
-
-    [
-            conjure_colon, conjure_colon__ends_in_newline,
-    ] = produce_conjure_action_word__ends_in_newline('colon', OperatorColon)
 
     [
             conjure_keyword_in, conjure_keyword_in__ends_in_newline,
@@ -795,7 +767,6 @@ def module():
     AT_SIGN                     = conjure_at_sign             ('@')
     BREAK                       = conjure_keyword_break       ('break')
     CLASS__W                    = conjure_keyword_class       ('class ')
-    COLON                       = conjure_colon               (':')
     COMMA                       = conjure_CRYSTAL_comma       (',')
     CONTINUE                    = conjure_keyword_continue    ('continue')
     DELETE__W                   = conjure_keyword_delete      ('del ')

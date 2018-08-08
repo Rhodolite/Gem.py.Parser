@@ -91,7 +91,7 @@ def module():
                 if prefix is 0:
                     return conjure_atom_whitespace(r, suffix)
 
-                return conjure_whitespace_atom_whitespace(prefix, r, suffix)
+                return conjure_whitespace_atom_whitespace__with_newlines(prefix, r, suffix)
 
 
         return tokenize_multiline_quote

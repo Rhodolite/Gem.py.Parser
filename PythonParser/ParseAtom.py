@@ -136,7 +136,7 @@ def module():
             atom_or_token = parse_PYTHON_atom__X__token(atom_or_token)
 
             operator = qk()
-           
+
             if operator is 0:
                 operator = tokenize_PYTHON_operator()
             else:

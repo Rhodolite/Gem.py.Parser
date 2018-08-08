@@ -59,6 +59,59 @@ def module():
 
 
     #
+    #<produce_conjure_triple_token>
+    #   produce_conjure_triple_token__line_marker
+    #   produce_conjure_triple_token__with_newlines
+    #
+    def produce_conjure_triple_token__X__helper(name, Meta, lookup, provide, create_triple_token):
+        @rename('conjure_%s', name)
+        def conjure_triple_token(a, b, c):
+            s = a.s + b.s + c.s
+
+            r = lookup(s)
+
+            if r is not none:
+                assert (r.a is a) and (r.b is b) and (r.c is c)
+
+                return r
+
+            s = intern_string(s)
+
+            return provide(s, create_triple_token(Meta, s, a, b, c))
+
+
+        return conjure_triple_token
+
+
+    @export
+    def produce_conjure_triple_token__line_marker(name, Meta):
+        return produce_conjure_triple_token__X__helper(
+                name,
+                Meta,
+                lookup_normal_token,
+                provide_normal_token,
+                create_triple_token__line_marker
+            )
+
+
+    @export
+    def produce_conjure_triple_token__with_newlines(
+            name, Meta,
+
+            lookup      = lookup_normal_token,
+            provide     = provide_normal_token,
+    ):
+        return produce_conjure_triple_token__X__helper(
+                name,
+                Meta,
+                lookup,
+                provide,
+                create_triple_token__with_newlines,
+            )
+    #</produce_conjure_tripled_token>
+
+
+    #
     #<produce_evoke_triple_token>
     #   produce_evoke_triple_token__ends_in_newline
     #   produce_evoke_triple_token__line_marker

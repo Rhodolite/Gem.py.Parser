@@ -97,42 +97,6 @@ def module():
         return mutate
 
 
-    def produce_conjure_triple_token(
-            name, Meta,
-
-            lookup      = lookup_normal_token,
-            provide     = provide_normal_token,
-            line_marker = false
-    ):
-        if line_marker:
-            assert (lookup is lookup_normal_token) and (provide is provide_normal_token)
-
-            create_triple_token = create_triple_token__line_marker
-            lookup              = lookup_line_marker
-            provide             = provide_line_marker
-        else:
-            create_triple_token = create_triple_token__with_newlines
-
-
-        @rename('conjure_%s', name)
-        def conjure_triple_token(a, b, c):
-            s = a.s + b.s + c.s
-
-            r = lookup(s)
-
-            if r is not none:
-                assert (r.a is a) and (r.b is b) and (r.c is c)
-
-                return r
-
-            s = intern_string(s)
-
-            return provide(s, create_triple_token(Meta, s, a, b, c))
-
-
-        return conjure_triple_token
-
-
     class AllIndex(TripleToken):
         __slots__           = (())
         display_name        = '[:]'
@@ -298,149 +262,144 @@ def module():
     #
     #   conjure_*
     #
-    conjure_all_index        = produce_conjure_triple_token('all_index',           AllIndex)
-    conjure_dot_name_triplet = produce_conjure_triple_token('.name-triplet',       DotNameTriplet)
+    conjure_all_index__with_newlines = produce_conjure_triple_token__with_newlines('all_index', AllIndex)
 
-    conjure_indented__break__line_marker = produce_conjure_triple_token(
-                                               'indented__break__line_marker',
-                                               Indented_Break_LineMarker_1,
+    conjure_dot_name_triplet__with_newlines = produce_conjure_triple_token__with_newlines(
+            '.name-triplet',
+            DotNameTriplet,
+        )
 
-                                               line_marker = true,
-                                           )
+    conjure_indented__break__line_marker = produce_conjure_triple_token__line_marker(
+            'indented__break__line_marker',
+            Indented_Break_LineMarker_1,
+        )
 
-    conjure_indented__continue__line_marker = produce_conjure_triple_token(
-                                               'indented__continue__line_marker',
-                                               Indented_Continue_LineMarker_1,
+    conjure_indented__continue__line_marker = produce_conjure_triple_token__line_marker(
+            'indented__continue__line_marker',
+            Indented_Continue_LineMarker_1,
+        )
 
-                                               line_marker = true,
-                                           )
+    conjure_indented_else_colon__with_newlines = produce_conjure_triple_token__with_newlines(
+            'indented-else-colon',
+            Indented_Else_Colon,
+        )
 
-    conjure_indented_else_colon = produce_conjure_triple_token('indented-else-colon', Indented_Else_Colon)
+    conjure_indented__pass__line_marker = produce_conjure_triple_token__line_marker(
+            'indented__pass__line_marker',
+            Indented_Pass_LineMarker_1,
+        )
 
-    conjure_indented__pass__line_marker = produce_conjure_triple_token(
-                                              'indented__pass__line_marker',
-                                              Indented_Pass_LineMarker_1,
+    conjure_indented__raise__line_marker = produce_conjure_triple_token__line_marker(
+            'indented__raise__line_marker',
+            Indented_Raise_LineMarker_1,
+        )
 
-                                              line_marker = true,
-                                          )
+    conjure_indented__return__line_marker = produce_conjure_triple_token__line_marker(
+            'indented__return__line_marker',
+            Indented_Return_LineMarker_1,
+        )
 
-    conjure_indented__raise__line_marker = produce_conjure_triple_token(
-                                               'indented__raise__line_marker',
-                                               Indented_Raise_LineMarker_1,
+    conjure_indented__yield__line_marker = produce_conjure_triple_token__line_marker(
+            'indented__yield__line_marker',
+            Indented_Yield_LineMarker_1,
+        )
 
-                                               line_marker = true,
-                                           )
+    conjure_whitespace_atom_whitespace__with_newlines = produce_conjure_triple_token__with_newlines(
+            'whitespace_atom_whitespace',
+            Whitespace_Atom_Whitespace,
+        )
 
-    conjure_indented__return__line_marker = produce_conjure_triple_token(
-                                                'indented__return__line_marker',
-                                                Indented_Return_LineMarker_1,
-
-                                                line_marker = true,
-                                            )
-
-    conjure_indented__yield__line_marker = produce_conjure_triple_token(
-                                               'indented__yield__line_marker',
-                                               Indented_Yield_LineMarker_1,
-
-                                               line_marker = true,
-                                           )
-
-    conjure_whitespace_atom_whitespace = produce_conjure_triple_token(
-                                             'whitespace_atom_whitespace',
-                                             Whitespace_Atom_Whitespace,
-                                         )
-
-    conjure_whitespace_name_whitespace = produce_conjure_triple_token(
-                                             'whitespace_name_whitespace',
-                                             Whitespace_Name_Whitespace,
-                                         )
+    conjure_whitespace_name_whitespace = produce_conjure_triple_token__with_newlines(
+            'whitespace_name_whitespace',
+            Whitespace_Name_Whitespace,
+        )
 
 
     #
     #   evoke_*
     #
     evoke_all_index = produce_evoke_triple_token__ends_in_newline(
-                          'all_index',
-                          AllIndex,
-                          conjure_left_square_bracket,
-                          conjure_colon,
-                          conjure_right_square_bracket,
-                          conjure_right_square_bracket__ends_in_newline,
-                      )
+            'all_index',
+            AllIndex,
+            conjure_left_square_bracket,
+            conjure_colon,
+            conjure_right_square_bracket,
+            conjure_right_square_bracket__ends_in_newline,
+        )
 
 
     evoke_indented__break__line_marker = produce_evoke_triple_token__line_marker(
-                                             'indented__break__line_marker',
-                                             Indented_Break_LineMarker_1,
-                                             conjure_indentation,
-                                             conjure_keyword_break,
-                                         )
+            'indented__break__line_marker',
+            Indented_Break_LineMarker_1,
+            conjure_indentation,
+            conjure_keyword_break,
+        )
 
     evoke_indented__continue__line_marker = produce_evoke_triple_token__line_marker(
-                                                'indented__continue__line_marker',
-                                                Indented_Continue_LineMarker_1,
-                                                conjure_indentation,
-                                                conjure_keyword_continue,
-                                            )
+            'indented__continue__line_marker',
+            Indented_Continue_LineMarker_1,
+            conjure_indentation,
+            conjure_keyword_continue,
+        )
 
     evoke_indented_else_colon = produce_evoke_triple_token__ends_in_newline(
-                                    'indented_else_colon',
-                                    Indented_Else_Colon,
-                                    conjure_indentation,
-                                    conjure_keyword_else,
-                                    conjure_colon,
-                                    conjure_colon__ends_in_newline,
-                                )
+            'indented_else_colon',
+            Indented_Else_Colon,
+            conjure_indentation,
+            conjure_keyword_else,
+            conjure_colon,
+            conjure_colon__ends_in_newline,
+        )
 
     evoke_indented__pass__line_marker = produce_evoke_triple_token__line_marker(
-                                            'indented__pass__line_marker',
-                                            Indented_Pass_LineMarker_1,
-                                            conjure_indentation,
-                                            conjure_keyword_pass,
-                                        )
+            'indented__pass__line_marker',
+            Indented_Pass_LineMarker_1,
+            conjure_indentation,
+            conjure_keyword_pass,
+        )
 
     evoke_indented__raise__line_marker = produce_evoke_triple_token__line_marker(
-                                             'indented__raise__line_marker',
-                                             Indented_Raise_LineMarker_1,
-                                             conjure_indentation,
-                                             conjure_keyword_return,
-                                         )
+            'indented__raise__line_marker',
+            Indented_Raise_LineMarker_1,
+            conjure_indentation,
+            conjure_keyword_return,
+        )
 
     evoke_indented__return__line_marker = produce_evoke_triple_token__line_marker(
-                                              'indented__return__line_marker',
-                                              Indented_Return_LineMarker_1,
-                                              conjure_indentation,
-                                              conjure_keyword_return,
-                                          )
+            'indented__return__line_marker',
+            Indented_Return_LineMarker_1,
+            conjure_indentation,
+            conjure_keyword_return,
+        )
 
     evoke_indented__yield__line_marker = produce_evoke_triple_token__line_marker(
-                                             'indented__yield__line_marker',
-                                             Indented_Yield_LineMarker_1,
-                                             conjure_indentation,
-                                             conjure_keyword_yield,
-                                         )
+            'indented__yield__line_marker',
+            Indented_Yield_LineMarker_1,
+            conjure_indentation,
+            conjure_keyword_yield,
+        )
 
 
     #
     #   Constants
     #
-    ALL_INDEX = conjure_all_index(LSB, COLON, RSB)
+    ALL_INDEX = conjure_all_index__with_newlines(LSB, COLON, RSB)
 
 
     #
     #   .mutate
     #
-    DotNameTriplet.mutate = produce_mutate__abc('dot_name_triplet', conjure_dot_name_triplet)
+    DotNameTriplet.mutate = produce_mutate__abc('dot_name_triplet', conjure_dot_name_triplet__with_newlines)
 
     Whitespace_Atom_Whitespace.mutate = produce_mutate_whitespace_atom_whitespace(
-                                            'whitespace_atom_whitespace',
-                                            conjure_whitespace_atom_whitespace,
-                                        )
+            'whitespace_atom_whitespace',
+            conjure_whitespace_atom_whitespace__with_newlines,
+        )
 
     Whitespace_Name_Whitespace.mutate = produce_mutate_whitespace_atom_whitespace(
-                                            'whitespace_name_whitespace',
-                                            conjure_whitespace_name_whitespace,
-                                        )
+            'whitespace_name_whitespace',
+            conjure_whitespace_name_whitespace,
+        )
 
 
     #
@@ -449,66 +408,65 @@ def module():
     AllIndex.mutate = produce_mutate__uncommented('all_index', ALL_INDEX)
 
     Indented_Break_LineMarker_1.transform = produce_transform__indented__keyword__c(
-                                                'indented_break__line_marker_1',
-                                                conjure_indented__break__line_marker,
-                                                BREAK,
-                                                LINE_MARKER,
-                                            )
+            'indented_break__line_marker_1',
+            conjure_indented__break__line_marker,
+            BREAK,
+            LINE_MARKER,
+        )
 
     Indented_Continue_LineMarker_1.transform = produce_transform__indented__keyword__c(
-                                                   'indented_continue__line_marker_1',
-                                                   conjure_indented__continue__line_marker,
-                                                   CONTINUE,
-                                                   LINE_MARKER,
-                                               )
+            'indented_continue__line_marker_1',
+            conjure_indented__continue__line_marker,
+            CONTINUE,
+            LINE_MARKER,
+        )
 
     Indented_Else_Colon.transform = produce_transform__indented__keyword__c(
-                                               'indented_else_colon',
-                                               conjure_indented_else_colon,
-                                               ELSE,
-                                               COLON,
-                                           )
+            'indented_else_colon',
+            conjure_indented_else_colon__with_newlines,
+            ELSE,
+            COLON,
+        )
 
     Indented_Pass_LineMarker_1.transform = produce_transform__indented__keyword__c(
-                                               'indented_pass__line_marker_1',
-                                               conjure_indented__pass__line_marker,
-                                               PASS,
-                                               LINE_MARKER,
-                                           )
+            'indented_pass__line_marker_1',
+            conjure_indented__pass__line_marker,
+            PASS,
+            LINE_MARKER,
+        )
 
     Indented_Raise_LineMarker_1.transform = produce_transform__indented__keyword__c(
-                                                'indented_raise__line_marker_1',
-                                                conjure_indented__raise__line_marker,
-                                                RAISE,
-                                                LINE_MARKER,
-                                            )
+            'indented_raise__line_marker_1',
+            conjure_indented__raise__line_marker,
+            RAISE,
+            LINE_MARKER,
+        )
 
     Indented_Return_LineMarker_1.transform = produce_transform__indented__keyword__c(
-                                                 'indented_return__line_marker_1',
-                                                 conjure_indented__return__line_marker,
-                                                 RETURN,
-                                                 LINE_MARKER,
-                                             )
+            'indented_return__line_marker_1',
+            conjure_indented__return__line_marker,
+            RETURN,
+            LINE_MARKER,
+        )
 
     Indented_Yield_LineMarker_1.transform = produce_transform__indented__keyword__c(
-                                                'indented_yield__line_marker_1',
-                                                conjure_indented__yield__line_marker,
-                                                YIELD,
-                                                LINE_MARKER,
-                                            )
+            'indented_yield__line_marker_1',
+            conjure_indented__yield__line_marker,
+            YIELD,
+            LINE_MARKER,
+        )
 
     share(
-        'conjure_all_index',                        conjure_all_index,
-        'conjure_dot_name_triplet',                 conjure_dot_name_triplet,
-        'conjure_indented_else_colon',              conjure_indented_else_colon,
-        'conjure_indented__pass__line_marker',      conjure_indented__pass__line_marker,
-        'conjure_whitespace_atom_whitespace',       conjure_whitespace_atom_whitespace,
-        'evoke_all_index',                          evoke_all_index,
-        'evoke_indented__break__line_marker',       evoke_indented__break__line_marker,
-        'evoke_indented__continue__line_marker',    evoke_indented__continue__line_marker,
-        'evoke_indented_else_colon',                evoke_indented_else_colon,
-        'evoke_indented__pass__line_marker',        evoke_indented__pass__line_marker,
-        'evoke_indented__raise__line_marker',       evoke_indented__raise__line_marker,
-        'evoke_indented__return__line_marker',      evoke_indented__return__line_marker,
-        'evoke_indented__yield__line_marker',       evoke_indented__yield__line_marker,
+        'conjure_all_index__with_newlines',                     conjure_all_index__with_newlines,
+        'conjure_dot_name_triplet__with_newlines',              conjure_dot_name_triplet__with_newlines,
+        'conjure_indented__pass__line_marker',                  conjure_indented__pass__line_marker,
+        'conjure_whitespace_atom_whitespace__with_newlines',    conjure_whitespace_atom_whitespace__with_newlines,
+        'evoke_all_index',                                      evoke_all_index,
+        'evoke_indented__break__line_marker',                   evoke_indented__break__line_marker,
+        'evoke_indented__continue__line_marker',                evoke_indented__continue__line_marker,
+        'evoke_indented_else_colon',                            evoke_indented_else_colon,
+        'evoke_indented__pass__line_marker',                    evoke_indented__pass__line_marker,
+        'evoke_indented__raise__line_marker',                   evoke_indented__raise__line_marker,
+        'evoke_indented__return__line_marker',                  evoke_indented__return__line_marker,
+        'evoke_indented__yield__line_marker',                   evoke_indented__yield__line_marker,
     )
