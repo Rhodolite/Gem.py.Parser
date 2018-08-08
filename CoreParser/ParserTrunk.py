@@ -29,6 +29,7 @@ def module():
             is_vw_frill                           = false
 
         if TREMOLITE_parser:
+            is_TREMOLITE__at_colon         = false
             is_TREMOLITE__set__right_brace = false
 
 

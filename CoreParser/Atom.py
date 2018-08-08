@@ -28,6 +28,7 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
         if TREMOLITE_parser:
+            is_TREMOLITE___simple_atom___or___at_colon         = true
             is_TREMOLITE___simple_atom___or___set__right_brace = true
         #<atom>
 
@@ -38,9 +39,6 @@ def module():
             is_colon                = false
             is_right_brace          = false
             is_right_square_bracket = false
-
-        if TREMOLITE_parser:
-            is_TREMOLITE__set__right_brace = false
 
 
         def display_token(t):
@@ -67,6 +65,7 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
         if TREMOLITE_parser:
+            is_TREMOLITE___simple_atom___or___at_colon         = true
             is_TREMOLITE___simple_atom___or___set__right_brace = true
         #</atom>
 
@@ -78,9 +77,6 @@ def module():
             is_right_brace          = false
             is_right_square_bracket = false
             is_single_quote         = true
-
-        if TREMOLITE_parser:
-            is_TREMOLITE__set__right_brace = false
 
 
         def display_token(t):
@@ -109,6 +105,7 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
         if TREMOLITE_parser:
+            is_TREMOLITE___simple_atom___or___at_colon         = true
             is_TREMOLITE___simple_atom___or___set__right_brace = true
         #</atom>
 
@@ -119,9 +116,6 @@ def module():
             is_colon                                  = false
             is_right_brace                            = false
             is_PYTHON__identifier__or__star_parameter = true
-
-        if TREMOLITE_parser:
-            is_TREMOLITE__set__right_brace = false
 
 
         if PYTHON_parser:
@@ -181,6 +175,7 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
         if TREMOLITE_parser:
+            is_TREMOLITE___simple_atom___or___at_colon         = true
             is_TREMOLITE___simple_atom___or___set__right_brace = true
         #</atom>
 

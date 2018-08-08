@@ -197,6 +197,7 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
         if TREMOLITE_parser:
+            is_TREMOLITE___simple_atom___or___at_colon         = true
             is_TREMOLITE___simple_atom___or___set__right_brace = true
         #</atom>
 
@@ -204,6 +205,7 @@ def module():
             is_left_parenthesis = false
 
         if TREMOLITE_parser:
+            is_TREMOLITE__at_colon         = false
             is_TREMOLITE__set__right_brace = false
 
 
@@ -226,6 +228,7 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
         if TREMOLITE_parser:
+            is_TREMOLITE___simple_atom___or___at_colon         = true
             is_TREMOLITE___simple_atom___or___set__right_brace = true
         #</atom>
 
@@ -236,6 +239,7 @@ def module():
             is_PYTHON__identifier__or__star_parameter = true
 
         if TREMOLITE_parser:
+            is_TREMOLITE__at_colon         = false
             is_TREMOLITE__set__right_brace = false
 
 

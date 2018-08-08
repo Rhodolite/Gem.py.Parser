@@ -86,9 +86,8 @@ def module():
             wk0()
 
             #
-            #   TODO:   If `middle_1` is a comprehension expression, THEN: it ust be followed by a RIGHT_OPERATOR
+            #   TODO:   If `middle_1` is a comprehension expression, THEN: it must be followed by a RIGHT_OPERATOR
             #
-
             if conjure_LANGUAGE_bookcase_expression_1 is conjure_LANGUAGE_bookcase_expression_comma_1:
                 if attribute(operator_1, name__is_LANGUAGE__optional_comma__RIGHT_OPERATOR):
                     return conjure_LANGUAGE_bookcase_expression_1(left_operator, middle_1, operator_1)
