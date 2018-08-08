@@ -28,7 +28,7 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
         if TREMOLITE_parser:
-            is_TREMOLITE___simple_atom___or___at_colon         = true
+            is_TREMOLITE___simple_atom___or___at_sign          = true
             is_TREMOLITE___simple_atom___or___set__right_brace = true
         #<atom>
 
@@ -65,7 +65,7 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
         if TREMOLITE_parser:
-            is_TREMOLITE___simple_atom___or___at_colon         = true
+            is_TREMOLITE___simple_atom___or___at_sign          = true
             is_TREMOLITE___simple_atom___or___set__right_brace = true
         #</atom>
 
@@ -105,7 +105,7 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
         if TREMOLITE_parser:
-            is_TREMOLITE___simple_atom___or___at_colon         = true
+            is_TREMOLITE___simple_atom___or___at_sign          = true
             is_TREMOLITE___simple_atom___or___set__right_brace = true
         #</atom>
 
@@ -175,7 +175,7 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
         if TREMOLITE_parser:
-            is_TREMOLITE___simple_atom___or___at_colon         = true
+            is_TREMOLITE___simple_atom___or___at_sign          = true
             is_TREMOLITE___simple_atom___or___set__right_brace = true
         #</atom>
 

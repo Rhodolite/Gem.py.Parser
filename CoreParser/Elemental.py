@@ -23,7 +23,7 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = false
 
         if TREMOLITE_parser:
-            is_TREMOLITE___simple_atom___or___at_colon         = false
+            is_TREMOLITE___simple_atom___or___at_sign          = false
             is_TREMOLITE___simple_atom___or___set__right_brace = false
         #</atom>
 
