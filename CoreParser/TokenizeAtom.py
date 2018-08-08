@@ -61,7 +61,7 @@ def module():
     def produce_analyze_LANGUAGE_functions(
             language,
             has_open_operator,
-            find_evoke_LANGUAGE__comma_something,
+            find_evoke_LANGUAGE__comma_something,                       #   Maybe `0`
             find_LANGUAGE_atom_type,
             lookup_LANGUAGE_keyword_conjure_function,
             LANGUAGE__skip_tokenize_prefix,
@@ -69,40 +69,43 @@ def module():
         #
         #   analyze_LANGUAGE_* (without `newline` in the name)
         #
-        @rename('analyze_%s_comma_operator', language)
-        def analyze_LANGUAGE_comma_operator(m):
-            assert qk() is qn() is 0
+        if find_evoke_LANGUAGE__comma_something is 0:
+            analyze_LANGUAGE_comma_operator = 0
+        else:
+            @rename('analyze_%s_comma_operator', language)
+            def analyze_LANGUAGE_comma_operator(m):
+                assert qk() is qn() is 0
 
-            suffix_start = m.start('comma_suffix')
+                suffix_start = m.start('comma_suffix')
 
-            if suffix_start is not -1:
-                d = qd()
+                if suffix_start is not -1:
+                    d = qd()
 
-                if d is 0:
-                    raise_unknown_line()
+                    if d is 0:
+                        raise_unknown_line()
 
-                assert d > 0
+                    assert d > 0
 
-                suffix_end = m.end('comma_suffix')
+                    suffix_end = m.end('comma_suffix')
 
-                suffix = qs()[suffix_start : suffix_end]
+                    suffix = qs()[suffix_start : suffix_end]
 
-                r = find_evoke_LANGUAGE__comma_something(suffix)(suffix_start, suffix_end, suffix)
+                    r = find_evoke_LANGUAGE__comma_something(suffix)(suffix_start, suffix_end, suffix)
 
-                wd(d - 1)
-                wi(suffix_end)
-                wj(m.end())
+                    wd(d - 1)
+                    wi(suffix_end)
+                    wj(m.end())
+
+                    return r
+
+                j = m.end()
+
+                r = conjure_CRYSTAL_comma(qs()[qi() : j])
+
+                wi(j)
+                wj(j)
 
                 return r
-
-            j = m.end()
-
-            r = conjure_CRYSTAL_comma(qs()[qi() : j])
-
-            wi(j)
-            wj(j)
-
-            return r
 
 
         @rename('analyze_%s_keyword_atom', language)
@@ -201,49 +204,52 @@ def module():
         #
         #   analyze_LANGUAGE_newline_* (with `newline` in the name)
         #
-        @rename('analyze_%s_newline_comma_operator', language)
-        def analyze_LANGUAGE_newline_comma_operator(m):
-            assert qk() is qn() is 0
+        if find_evoke_LANGUAGE__comma_something is 0:
+            analyze_LANGUAGE_newline_comma_operator = 0
+        else:
+            @rename('analyze_%s_newline_comma_operator', language)
+            def analyze_LANGUAGE_newline_comma_operator(m):
+                assert qk() is qn() is 0
 
-            suffix_start = m.start('comma_suffix')
+                suffix_start = m.start('comma_suffix')
 
-            if suffix_start is not -1:
-                d = qd()
+                if suffix_start is not -1:
+                    d = qd()
 
-                if d is 1:
-                    s          = qs()
-                    suffix_end = m.end('comma_suffix')
+                    if d is 1:
+                        s          = qs()
+                        suffix_end = m.end('comma_suffix')
 
-                    suffix = qs()[suffix_start : suffix_end]
+                        suffix = qs()[suffix_start : suffix_end]
 
-                    r = find_evoke_LANGUAGE__comma_something(suffix)(suffix_start, suffix_end, suffix)
+                        r = find_evoke_LANGUAGE__comma_something(suffix)(suffix_start, suffix_end, suffix)
 
-                    wd0()
+                        wd0()
 
-                    wn(conjure_line_marker(s[suffix_end : ]))
+                        wn(conjure_line_marker(s[suffix_end : ]))
+
+                        return r
+
+                    suffix = qs()[suffix_start : ]
+
+                    r = find_evoke_LANGUAGE__comma_something(suffix)(suffix_start, none, suffix)
+
+                    assert d > 1
+
+                    wd(d - 1)
+
+                    PYTHON__skip_tokenize_prefix()
 
                     return r
 
-                suffix = qs()[suffix_start : ]
+                if qd() is 0:
+                    raise_unknown_line()
 
-                r = find_evoke_LANGUAGE__comma_something(suffix)(suffix_start, none, suffix)
+                r = conjure_CRYSTAL_comma__ends_in_newline(qs()[qi() : ])
 
-                assert d > 1
-
-                wd(d - 1)
-
-                PYTHON__skip_tokenize_prefix()
+                LANGUAGE__skip_tokenize_prefix()
 
                 return r
-
-            if qd() is 0:
-                raise_unknown_line()
-
-            r = conjure_CRYSTAL_comma__ends_in_newline(qs()[qi() : ])
-
-            LANGUAGE__skip_tokenize_prefix()
-
-            return r
 
 
         @rename('analyze_%s_newline_keyword_atom', language)
