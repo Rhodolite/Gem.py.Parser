@@ -250,7 +250,8 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
         if TREMOLITE_parser:
-            is_TREMOLITE___simple_atom___or___set__right_brace = true
+            is_TREMOLITE___simple_atom___or___set__right_brace   = true
+            is_TREMOLITE___simple_atom___or___tilde__right_brace = true
         #</atom>
 
         if CRYSTAL_parser:
@@ -276,7 +277,8 @@ def module():
             is_CRYSTAL_simple_atom__or__right_square_bracket = true
 
         if TREMOLITE_parser:
-            is_TREMOLITE___simple_atom___or___set__right_brace = true
+            is_TREMOLITE___simple_atom___or___set__right_brace   = true
+            is_TREMOLITE___simple_atom___or___tilde__right_brace = true
         #</atom>
 
         if CRYSTAL_parser:
